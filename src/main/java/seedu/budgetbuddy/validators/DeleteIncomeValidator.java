@@ -1,7 +1,6 @@
 package seedu.budgetbuddy.validators;
 
 import seedu.budgetbuddy.commands.Command;
-import seedu.budgetbuddy.commands.DeleteExpenseCommand;
 import seedu.budgetbuddy.commands.DeleteIncomeCommand;
 import seedu.budgetbuddy.commands.IncorrectCommand;
 
