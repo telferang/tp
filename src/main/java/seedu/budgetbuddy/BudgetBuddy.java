@@ -13,7 +13,6 @@ public class BudgetBuddy {
             command = new Parser().parseCommand(userCommandText);
             command.execute();
         } while (!(command instanceof ExitCommand));
-        Ui.displayExitMessage();
         System.exit(0);
     }
 }
