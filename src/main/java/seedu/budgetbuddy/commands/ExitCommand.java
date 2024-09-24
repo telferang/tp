@@ -1,7 +1,6 @@
 package seedu.budgetbuddy.commands;
 
 import seedu.budgetbuddy.Ui;
-import seedu.budgetbuddy.expense.ExpenseManager;
 
 public class ExitCommand extends Command {
 
