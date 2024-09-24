@@ -8,10 +8,12 @@ import seedu.budgetbuddy.commands.IncorrectCommand;
 import seedu.budgetbuddy.commands.AddIncomeCommand;
 import seedu.budgetbuddy.commands.DeleteIncomeCommand;
 import seedu.budgetbuddy.commands.ListIncomeCommand;
+import seedu.budgetbuddy.commands.ExitCommand;
 import seedu.budgetbuddy.validators.AddExpenseValidator;
 import seedu.budgetbuddy.validators.AddIncomeValidator;
 import seedu.budgetbuddy.validators.DeleteExpenseValidator;
 import seedu.budgetbuddy.validators.DeleteIncomeValidator;
+
 
 public class Parser {
     public Command parseCommand(String userCommandText) {
@@ -32,6 +34,9 @@ public class Parser {
         }
         if (ListIncomeCommand.isCommand(userCommandText)) {
             return new ListIncomeCommand();
+        }
+        if (ExitCommand.isCommand(userCommandText)) {
+            return new ExitCommand();
         }
         return new IncorrectCommand("Invalid input");
     }
