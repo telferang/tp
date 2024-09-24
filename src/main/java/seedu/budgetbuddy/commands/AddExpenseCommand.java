@@ -12,15 +12,15 @@ public class AddExpenseCommand extends Command {
     LocalDate date;
     Category category;
 
-    public static boolean isCommand(String command) {
-        return command.startsWith("add expense");
-    }
-
     public AddExpenseCommand(String description, double amount, LocalDate date, Category category) {
         this.description = description;
         this.amount = amount;
         this.date = date;
         this.category = category;
+    }
+
+    public static boolean isCommand(String command) {
+        return command.startsWith("add expense");
     }
 
     public void execute(){

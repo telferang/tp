@@ -10,14 +10,14 @@ public class AddIncomeCommand extends Command {
     double amount;
     LocalDate date;
 
-    public static boolean isCommand(String command) {
-        return command.startsWith("add income");
-    }
-
     public AddIncomeCommand(String description, double amount, LocalDate date) {
         this.description = description;
         this.amount = amount;
         this.date = date;
+    }
+
+    public static boolean isCommand(String command) {
+        return command.startsWith("add income");
     }
 
     public void execute(){
