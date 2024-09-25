@@ -1,11 +1,1 @@
-add expense Trip to Japan a/123.45 d/30/12/2024 c/entertainment
-add expense KFC Dinner a/10.31 c/food
-add expense Pants a/30.21
-list expenses
-delete expense 2
-list expenses
-add income UOB shares dividend a/1002.31 d/13/12/2024
-list incomes
-delete income 1
-list incomes
-bye
+James Gosling

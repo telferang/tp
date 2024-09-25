@@ -12,7 +12,7 @@ for /f "tokens=*" %%a in (
     set jarloc=%%a
 )
 
-java -cp %jarloc% seedu.budgetbuddy.BudgetBuddy < ..\..\text-ui-test\input.txt > ..\..\text-ui-test\ACTUAL.TXT
+java -jar %jarloc% < ..\..\text-ui-test\input.txt > ..\..\text-ui-test\ACTUAL.TXT
 
 cd ..\..\text-ui-test
 
