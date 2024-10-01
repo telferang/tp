@@ -10,6 +10,10 @@ jobs:
     runs-on: ${{ matrix.platform }}
 
     steps:
+      - name: Install xargs
+      - run: sudo apt-get install findutils
+      - if: runner.os == 'Linux'
+
       - name: Set up repository
         uses: actions/checkout@master
 
