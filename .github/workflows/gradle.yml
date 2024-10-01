@@ -13,6 +13,11 @@ jobs:
       - name: Set up repository
         uses: actions/checkout@master
 
+      - name: Set up repository
+        uses: actions/checkout@master
+        with:
+          ref: master
+
       - name: Merge to master
         run: git checkout --progress --force ${{ github.sha }}
 
@@ -24,14 +29,6 @@ jobs:
         with:
           java-version: '17'
           java-package: jdk+fx
-
-      - name: Install xargs (Linux)
-        if: runner.os == 'Linux'
-        run: sudo apt-get install findutils
-
-      - name: Install xargs (macOS)
-        if: runner.os == 'macOS'
-        run: brew install findutils
 
       - name: Build and check with Gradle
         run: ./gradlew check
