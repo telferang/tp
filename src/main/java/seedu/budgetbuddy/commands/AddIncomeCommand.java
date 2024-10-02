@@ -1,7 +1,7 @@
 package seedu.budgetbuddy.commands;
 
-import seedu.budgetbuddy.income.IncomeManager;
-import seedu.budgetbuddy.income.Income;
+import seedu.budgetbuddy.transaction.income.IncomeManager;
+import seedu.budgetbuddy.transaction.income.Income;
 
 import java.time.LocalDate;
 

@@ -1,6 +1,6 @@
 package seedu.budgetbuddy.commands;
 
-import seedu.budgetbuddy.income.IncomeManager;
+import seedu.budgetbuddy.transaction.income.IncomeManager;
 
 /**
  * Represents a command to delete an income in the BudgetBuddy application.

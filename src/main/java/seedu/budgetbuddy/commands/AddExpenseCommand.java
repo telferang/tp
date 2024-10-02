@@ -1,8 +1,8 @@
 package seedu.budgetbuddy.commands;
 
-import seedu.budgetbuddy.expense.Category;
-import seedu.budgetbuddy.expense.Expense;
-import seedu.budgetbuddy.expense.ExpenseManager;
+import seedu.budgetbuddy.transaction.expense.Category;
+import seedu.budgetbuddy.transaction.expense.Expense;
+import seedu.budgetbuddy.transaction.expense.ExpenseManager;
 
 import java.time.LocalDate;
 

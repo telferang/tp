@@ -1,6 +1,6 @@
 package seedu.budgetbuddy.validators;
 
-import seedu.budgetbuddy.income.IncomeManager;
+import seedu.budgetbuddy.transaction.income.IncomeManager;
 
 /**
  * Validates the income index input by the user.

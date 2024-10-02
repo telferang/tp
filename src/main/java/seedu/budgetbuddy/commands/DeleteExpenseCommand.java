@@ -1,6 +1,6 @@
 package seedu.budgetbuddy.commands;
 
-import seedu.budgetbuddy.expense.ExpenseManager;
+import seedu.budgetbuddy.transaction.expense.ExpenseManager;
 
 /**
  * Represents a command to delete an expense in the BudgetBuddy application.

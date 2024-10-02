@@ -1,4 +1,4 @@
-package seedu.budgetbuddy;
+package seedu.budgetbuddy.transaction;
 
 import java.time.LocalDate;
 

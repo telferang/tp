@@ -1,6 +1,6 @@
-package seedu.budgetbuddy.expense;
+package seedu.budgetbuddy.transaction.expense;
 
-import seedu.budgetbuddy.Transaction;
+import seedu.budgetbuddy.transaction.Transaction;
 
 import java.time.LocalDate;
 

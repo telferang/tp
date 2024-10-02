@@ -1,4 +1,4 @@
-package seedu.budgetbuddy.expense;
+package seedu.budgetbuddy.transaction.expense;
 
 import seedu.budgetbuddy.Ui;
 

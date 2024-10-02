@@ -1,6 +1,6 @@
 package seedu.budgetbuddy.validators;
 
-import seedu.budgetbuddy.expense.ExpenseManager;
+import seedu.budgetbuddy.transaction.expense.ExpenseManager;
 
 /**
  * Validates the expense index input by the user.
