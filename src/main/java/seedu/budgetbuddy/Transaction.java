@@ -11,6 +11,13 @@ public class Transaction {
     protected double amount;
     protected LocalDate date;
 
+    /**
+     * Constructs a Transaction with the specified description, amount, and date.
+     *
+     * @param description A brief description of the transaction.
+     * @param amount      The amount of the transaction.
+     * @param date        The date of the transaction.
+     */
     public Transaction(String description, double amount, LocalDate date) {
         this.description = description;
         this.amount = amount;

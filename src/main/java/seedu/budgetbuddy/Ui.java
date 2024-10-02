@@ -2,7 +2,10 @@ package seedu.budgetbuddy;
 
 import java.util.Scanner;
 
-
+/**
+ * The Ui class handles all user interactions by displaying messages to the user and
+ * receiving input from them.
+ */
 public class Ui {
 
     public static final String SEPARATOR = "========================================================\n";

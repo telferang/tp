@@ -4,6 +4,10 @@ import seedu.budgetbuddy.Ui;
 
 import java.util.ArrayList;
 
+/**
+ * Manages a list of expenses, providing functionalities to add, delete,
+ * and list expenses, as well as tracking the total number of expenses.
+ */
 public class ExpenseManager {
     private static int numberOfExpenses = 0;
     private static ArrayList<Expense> expenses = new ArrayList<>();

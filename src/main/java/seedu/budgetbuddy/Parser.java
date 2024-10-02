@@ -14,8 +14,22 @@ import seedu.budgetbuddy.validators.AddIncomeValidator;
 import seedu.budgetbuddy.validators.DeleteExpenseValidator;
 import seedu.budgetbuddy.validators.DeleteIncomeValidator;
 
-
+/**
+ * The Parser class is responsible for interpreting user commands.
+ *
+ * It analyzes the user input, identifies the corresponding command,
+ * and returns the appropriate Command object for execution.
+ */
 public class Parser {
+
+    /**
+     * Analyzes the user's input and returns the appropriate {@code Command} object.
+     * It checks the input against known commands for expense, income, or exit operations.
+     *
+     * @param userCommandText The input string provided by the user.
+     * @return The corresponding {@code Command} to execute, or an {@code IncorrectCommand}
+     *         if the input is invalid.
+     */
     public Command parseCommand(String userCommandText) {
         if (AddExpenseCommand.isCommand(userCommandText)) {
             return AddExpenseValidator.processCommand(userCommandText);
@@ -40,5 +54,4 @@ public class Parser {
         }
         return new IncorrectCommand("Invalid input");
     }
-
 }

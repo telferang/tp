@@ -4,6 +4,10 @@ import seedu.budgetbuddy.Ui;
 
 import java.util.ArrayList;
 
+/**
+ * Manages a collection of income transactions.
+ * Provides functionality to add, delete, and list incomes.
+ */
 public class IncomeManager {
     private static int numberOfIncomes = 0;
     private static ArrayList<Income> incomes = new ArrayList<>();
