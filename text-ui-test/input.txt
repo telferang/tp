@@ -1,2 +1,25 @@
-add expense Japan Trip a/123.12 d/31/12/2024
+add expense
+add expense no amount
+add expense negative amount a/-1
+add expense wrong date format a/123.45 d/wrong
+add expense Japan Flight a/123.45 d/30/12/2024 c/transport
+add expense Buy Tesla Stock a/100.10 d/02/10/2024
+list expenses
+delete expense 1
+list expense
+list expenses
+add expense
+add expense a/122
+add income
+add income a/123
+add income Negative amount a/-1
+add income wrong date a/122 d/wrong
+add income Tuition a/100.00 d/15/12/2024
+add income Internship a/123 d/13/10/2024
+list incomes
+remove income 1
+remove incomes 1
+list income
+delete income 1
+list incomes
 bye

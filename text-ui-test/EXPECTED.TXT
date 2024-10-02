@@ -2,9 +2,94 @@
 Welcome to Budget Buddy!
 ========================================================
 Enter commands: ========================================================
+No description provided.
+========================================================
+Enter commands: ========================================================
+Amount not entered.
+========================================================
+Enter commands: ========================================================
+Invalid amount format. Amount should be a positive number.
+========================================================
+Enter commands: ========================================================
+Invalid date format. Use d/dd/MM/yyyy.
+========================================================
+Enter commands: ========================================================
 The following expense transaction has been added:
-Description: Japan Trip  Amount: 123.12  Date: 2024-12-31  Category: OTHERS
+Description: Japan Flight  Amount: 123.45  Date: 2024-12-30  Category: TRANSPORT
 You have 1 expense transaction(s) in total
+========================================================
+Enter commands: ========================================================
+The following expense transaction has been added:
+Description: Buy Tesla Stock  Amount: 100.1  Date: 2024-10-02  Category: OTHERS
+You have 2 expense transaction(s) in total
+========================================================
+Enter commands: ========================================================
+1. Description: Japan Flight  Amount: 123.45  Date: 2024-12-30  Category: TRANSPORT
+2. Description: Buy Tesla Stock  Amount: 100.1  Date: 2024-10-02  Category: OTHERS
+
+========================================================
+Enter commands: ========================================================
+The following expense transaction has been deleted:
+Description: Japan Flight  Amount: 123.45  Date: 2024-12-30  Category: TRANSPORT
+You have 1 expense transaction(s) in total
+========================================================
+Enter commands: ========================================================
+Invalid input
+========================================================
+Enter commands: ========================================================
+1. Description: Buy Tesla Stock  Amount: 100.1  Date: 2024-10-02  Category: OTHERS
+
+========================================================
+Enter commands: ========================================================
+No description provided.
+========================================================
+Enter commands: ========================================================
+Description cannot be empty.
+========================================================
+Enter commands: ========================================================
+No description provided.
+========================================================
+Enter commands: ========================================================
+Description cannot be empty.
+========================================================
+Enter commands: ========================================================
+Invalid amount format. Amount should be a positive number.
+========================================================
+Enter commands: ========================================================
+Invalid date format. Use d/dd/MM/yyyy.
+========================================================
+Enter commands: ========================================================
+The following income transaction has been added:
+Description: Tuition  Amount: 100.0  Date: 2024-12-15
+You have 1 income transaction(s) in total
+========================================================
+Enter commands: ========================================================
+The following income transaction has been added:
+Description: Internship  Amount: 123.0  Date: 2024-10-13
+You have 2 income transaction(s) in total
+========================================================
+Enter commands: ========================================================
+1. Description: Tuition  Amount: 100.0  Date: 2024-12-15
+2. Description: Internship  Amount: 123.0  Date: 2024-10-13
+
+========================================================
+Enter commands: ========================================================
+Invalid input
+========================================================
+Enter commands: ========================================================
+Invalid input
+========================================================
+Enter commands: ========================================================
+Invalid input
+========================================================
+Enter commands: ========================================================
+The following income transaction has been deleted:
+Description: Tuition  Amount: 100.0  Date: 2024-12-15
+You have 1 income transaction(s) in total
+========================================================
+Enter commands: ========================================================
+1. Description: Internship  Amount: 123.0  Date: 2024-10-13
+
 ========================================================
 Enter commands: ========================================================
 Bye!
