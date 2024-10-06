@@ -74,4 +74,28 @@ public class Ui {
                 + "You have " + count + " " + expenseOrIncome + " transaction(s) in total";
         displayToUser(result);
     }
+
+    /**
+     * Displays entire help message, acts as a help guide for new users.
+     */
+    public static void displayHelpMessage(){
+        String message = "1. Add expense/income entry. Note: amount - a/, date - d/, category - c/ \n" +
+                "Examples:\nadd expense plane ticket to Japan a/1000 d/25/12/2024 c/transport \n" +
+                "add income tuition fees " + "a/1000 d/13/12/2024 \n" +
+                "2. Delete expense/income entry as shown in the income and expense lists." +
+                "Examples:\ndel expense 1 \n"  + "del income 2 \n" +
+                "3. Tag new category to expense. \n" + "Example:\n tag expense 2 /c food \n" +
+                "4. List all expenses/income. \n" + "Examples:\nlist expenses \n" + "list income\n" +
+                "5. Display expenses based on category and month. Note: category - c/, month (optional) - m/\n" +
+                "Example:\ndisplay expenses c/food m/10\n" +
+                "6. Add budget for current month. Note: month - m/, year - y/ \n" +
+                "Example:\nadd budget 1000 m/09 y/2024\n" +
+                "7. Deduct budget for current month. Note: month - m/, year - y/ \n" +
+                "Example:\ndeduct budget 500 m/10 y/2024\n" +
+                "8. View budget for specific month. Note: month - m/, year - y/ \n" +
+                "Example:\nview budget m/05 y/2024\n" +
+                "9. Exit app. \n" +
+                "Example:\nbye\n";
+        displayToUser(message);
+    }
 }
