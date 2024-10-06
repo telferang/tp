@@ -1,19 +1,7 @@
 package seedu.budgetbuddy;
 
-import seedu.budgetbuddy.commands.AddExpenseCommand;
-import seedu.budgetbuddy.commands.AddIncomeCommand;
-import seedu.budgetbuddy.commands.Command;
-import seedu.budgetbuddy.commands.DeleteExpenseCommand;
-import seedu.budgetbuddy.commands.DeleteIncomeCommand;
-import seedu.budgetbuddy.commands.ExitCommand;
-import seedu.budgetbuddy.commands.HelpCommand;
-import seedu.budgetbuddy.commands.IncorrectCommand;
-import seedu.budgetbuddy.commands.ListExpenseCommand;
-import seedu.budgetbuddy.commands.ListIncomeCommand;
-import seedu.budgetbuddy.validators.AddExpenseValidator;
-import seedu.budgetbuddy.validators.AddIncomeValidator;
-import seedu.budgetbuddy.validators.DeleteExpenseValidator;
-import seedu.budgetbuddy.validators.DeleteIncomeValidator;
+import seedu.budgetbuddy.commands.*;
+import seedu.budgetbuddy.validators.*;
 
 /**
  * The Parser class is responsible for interpreting user commands.
@@ -49,6 +37,9 @@ public class Parser {
         }
         if (ListIncomeCommand.isCommand(userCommandText)) {
             return new ListIncomeCommand();
+        }
+        if (AddBudgetCommand.isCommand(userCommandText)) {
+            return AddBudgetValidator.processCommand(userCommandText);
         }
         if (ExitCommand.isCommand(userCommandText)) {
             return new ExitCommand();

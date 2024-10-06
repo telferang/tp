@@ -16,12 +16,12 @@ Invalid date format. Use d/dd/MM/yyyy.
 Enter commands: ========================================================
 The following expense transaction has been added:
 Description: Japan Flight  Amount: 123.45  Date: 2024-12-30  Category: TRANSPORT
-You have 1 expense transaction(s) in total
+You have 1 expense transaction(s) in total.
 ========================================================
 Enter commands: ========================================================
 The following expense transaction has been added:
 Description: Buy Tesla Stock  Amount: 100.1  Date: 2024-10-02  Category: OTHERS
-You have 2 expense transaction(s) in total
+You have 2 expense transaction(s) in total.
 ========================================================
 Enter commands: ========================================================
 1. Description: Japan Flight  Amount: 123.45  Date: 2024-12-30  Category: TRANSPORT
@@ -31,7 +31,7 @@ Enter commands: ========================================================
 Enter commands: ========================================================
 The following expense transaction has been deleted:
 Description: Japan Flight  Amount: 123.45  Date: 2024-12-30  Category: TRANSPORT
-You have 1 expense transaction(s) in total
+You have 1 expense transaction(s) in total.
 ========================================================
 Enter commands: ========================================================
 Invalid input
@@ -61,12 +61,36 @@ Invalid date format. Use d/dd/MM/yyyy.
 Enter commands: ========================================================
 The following income transaction has been added:
 Description: Tuition  Amount: 100.0  Date: 2024-12-15
-You have 1 income transaction(s) in total
+You have 1 income transaction(s) in total.
 ========================================================
 Enter commands: ========================================================
 The following income transaction has been added:
 Description: Internship  Amount: 123.0  Date: 2024-10-13
-You have 2 income transaction(s) in total
+You have 2 income transaction(s) in total.
+========================================================
+Enter commands: ========================================================
+No description provided.
+========================================================
+Enter commands: ========================================================
+Invalid amount format. Amount must be a positive value.
+========================================================
+Enter commands: ========================================================
+Invalid date format. Use m/MM/yyyy.
+========================================================
+Enter commands: ========================================================
+The following budget amount has been updated:
+Amount: 1234.0  Date: 2024-11
+You have 1 budget(s) in total.
+========================================================
+Enter commands: ========================================================
+The following budget amount has been updated:
+Amount: 800.0  Date: 2024-03
+You have 2 budget(s) in total.
+========================================================
+Enter commands: ========================================================
+The following budget amount has been updated:
+Amount: 3534.0  Date: 2024-11
+You have 2 budget(s) in total.
 ========================================================
 Enter commands: ========================================================
 1. Description: Tuition  Amount: 100.0  Date: 2024-12-15
@@ -85,7 +109,7 @@ Invalid input
 Enter commands: ========================================================
 The following income transaction has been deleted:
 Description: Tuition  Amount: 100.0  Date: 2024-12-15
-You have 1 income transaction(s) in total
+You have 1 income transaction(s) in total.
 ========================================================
 Enter commands: ========================================================
 1. Description: Internship  Amount: 123.0  Date: 2024-10-13

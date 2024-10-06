@@ -16,6 +16,12 @@ add income Negative amount a/-1
 add income wrong date a/122 d/wrong
 add income Tuition a/100.00 d/15/12/2024
 add income Internship a/123 d/13/10/2024
+add budget
+add budget a/-1000
+add budget a/123
+add budget a/1234 m/11/2024
+add budget a/800 m/03/2024
+add budget a/2300 m/11/2024
 list incomes
 remove income 1
 remove incomes 1
