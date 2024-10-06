@@ -71,7 +71,21 @@ public class Ui {
                                                     int count) {
         String result = "The following " + expenseOrIncome + " transaction has been " + addOrDelete + ":\n"
                 + transaction + '\n'
-                + "You have " + count + " " + expenseOrIncome + " transaction(s) in total";
+                + "You have " + count + " " + expenseOrIncome + " transaction(s) in total.";
+        displayToUser(result);
+    }
+
+    /**
+     * Displays a message regarding a budget transaction, indicating updating the amount,
+     * and shows the current total number of budgets.
+     *
+     * @param transaction The details of the budget transaction.
+     * @param count The total number of budgets after the transaction.
+     */
+    public static void displayBudgetTransactionMessage(String transaction, int count) {
+        String result = "The following budget amount has been updated:\n"
+                + transaction + '\n'
+                + "You have " + count + " budget(s) in total.";
         displayToUser(result);
     }
 
@@ -88,12 +102,12 @@ public class Ui {
                 "4. List all expenses/income. \n" + "Examples:\nlist expenses \n" + "list income\n" +
                 "5. Display expenses based on category and month. Note: category - c/, month (optional) - m/\n" +
                 "Example:\ndisplay expenses c/food m/10\n" +
-                "6. Add budget for current month. Note: month - m/, year - y/ \n" +
-                "Example:\nadd budget 1000 m/09 y/2024\n" +
-                "7. Deduct budget for current month. Note: month - m/, year - y/ \n" +
-                "Example:\ndeduct budget 500 m/10 y/2024\n" +
-                "8. View budget for specific month. Note: month - m/, year - y/ \n" +
-                "Example:\nview budget m/05 y/2024\n" +
+                "6. Add budget for current month. Note: month - m/MM/yyyy \n" +
+                "Example:\nadd budget a/1000 m/09/2024\n" +
+                "7. Deduct budget for current month. Note: month - m/MM/yyyy \n" +
+                "Example:\ndeduct budget a/500 m/10/2024\n" +
+                "8. View budget for specific month. Note: month - m/MM/yyyy \n" +
+                "Example:\nview budget m/05/2024\n" +
                 "9. Exit app. \n" +
                 "Example:\nbye\n";
         displayToUser(message);
