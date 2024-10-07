@@ -128,4 +128,8 @@ public class Ui {
                 "Example:\nbye\n";
         displayToUser(message);
     }
+
+    public static void showMessage(String message) {
+        System.out.println(message);
+    }
 }

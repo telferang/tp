@@ -13,6 +13,15 @@ public class ExpenseManager {
     private static ArrayList<Expense> expenses = new ArrayList<>();
 
     /**
+     * Construct a ExpenseManager of array content incomes
+     *
+     * @param expenses is the content to be instantiated
+     */
+    public ExpenseManager(ArrayList<Expense> expenses) {
+        ExpenseManager.expenses = expenses;
+    }
+
+    /**
      * Adds a new expense to the manager.
      *
      * @param expense The expense to be added.
@@ -55,5 +64,14 @@ public class ExpenseManager {
             counter++;
         }
         Ui.displayToUser(result);
+    }
+
+    /**
+     * A get-function to obtain the information in the current Expense List.
+     *
+     * @return return the expense ArrayList
+     */
+    public static ArrayList<Expense> getExpenses() {
+        return expenses;
     }
 }

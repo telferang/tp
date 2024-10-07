@@ -1,0 +1,4 @@
+expense | plane | 1000.0 | 15/9/2024 | FOOD
+income | tuition fees | 1000.0 | 15/9/2024
+budget | 900.0 | 2024-09
+budget | 900.0 | 2024-10

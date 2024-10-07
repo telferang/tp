@@ -13,6 +13,10 @@ public class BudgetManager {
     private static int numberOfBudgets = 0;
     private static ArrayList<Budget> budgets = new ArrayList<>();
 
+    public BudgetManager(ArrayList<Budget> budgets){
+        BudgetManager.budgets = budgets;
+    }
+
     /**
      * Adds a new budget to the list and increments the total number of budgets.
      * Displays a message indicating that a new budget has been added.
@@ -85,5 +89,14 @@ public class BudgetManager {
             }
         }
         Ui.displayToUser(result);
+    }
+
+    /**
+     * A get-function to obtain the information in the current Budget List.
+     *
+     * @return return the budget ArrayList
+     */
+    public static ArrayList<Budget> getBudgets() {
+        return budgets;
     }
 }
