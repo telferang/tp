@@ -5,8 +5,8 @@ import seedu.budgetbuddy.commands.IncorrectCommand;
 import seedu.budgetbuddy.commands.ListBudgetCommand;
 
 import java.time.YearMonth;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
+
+import static seedu.budgetbuddy.validators.DateValidator.validateYearMonth;
 
 /**
  * Validates user commands for listing budgets.
@@ -30,20 +30,12 @@ public class ListBudgetValidator {
         YearMonth date = null;
 
         if (!trimmedCommand.isEmpty()) {
-            date = parseDate(trimmedCommand);
+            date = validateYearMonth(trimmedCommand);
             if (date == null) {
                 return new IncorrectCommand("Invalid format. Use 'list budget [m/MM/yyyy]'.");
             }
         }
 
         return new ListBudgetCommand(date); // Return command with date
-    }
-
-    private static YearMonth parseDate(String part) {
-        try {
-            return YearMonth.parse(part.substring(2), DateTimeFormatter.ofPattern("MM/yyyy"));
-        } catch (DateTimeParseException e) {
-            return null;  // Indicates invalid date
-        }
     }
 }

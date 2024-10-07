@@ -6,8 +6,9 @@ import seedu.budgetbuddy.commands.IncorrectCommand;
 import seedu.budgetbuddy.transaction.budget.BudgetManager;
 
 import java.time.YearMonth;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
+
+import static seedu.budgetbuddy.validators.AmountValidator.validateAmount;
+import static seedu.budgetbuddy.validators.DateValidator.validateYearMonth;
 
 /**
  * Validates commands for deducting budgets.
@@ -28,12 +29,12 @@ public class DeductBudgetValidator {
         // Process parts to extract details
         for (String part : parts) {
             if (part.startsWith("a/")) {
-                amount = parseAmount(part);
+                amount = validateAmount(part);
                 if (amount == -1) {
                     return new IncorrectCommand("Invalid amount format. Amount should be a positive number.");
                 }
             } else if (part.startsWith("m/")) {
-                date = parseDate(part);
+                date = validateYearMonth(part);
             }
         }
 
@@ -56,33 +57,5 @@ public class DeductBudgetValidator {
 
         // All validations passed, return the command
         return new DeductBudgetCommand(amount, date);
-    }
-
-    /**
-     * Parses the amount from the command part.
-     *
-     * @param part The command part containing the amount.
-     * @return The parsed amount or -1 if invalid.
-     */
-    private static double parseAmount(String part) {
-        try {
-            return Double.parseDouble(part.substring(2));
-        } catch (NumberFormatException e) {
-            return -1;  // Indicates invalid amount
-        }
-    }
-
-    /**
-     * Parses the date from the command part.
-     *
-     * @param part The command part containing the date.
-     * @return The parsed YearMonth or null if invalid.
-     */
-    private static YearMonth parseDate(String part) {
-        try {
-            return YearMonth.parse(part.substring(2), DateTimeFormatter.ofPattern("MM/yyyy"));
-        } catch (DateTimeParseException e) {
-            return null;  // Indicates invalid date
-        }
     }
 }
