@@ -13,6 +13,15 @@ public class IncomeManager {
     private static ArrayList<Income> incomes = new ArrayList<>();
 
     /**
+     * Construct a IncomeManager of array content incomes
+     *
+     * @param incomes is the content to be instantiated
+     */
+    public IncomeManager(ArrayList<Income> incomes) {
+        IncomeManager.incomes = incomes;
+    }
+
+    /**
      * Adds a new income to the manager.
      *
      * @param income The income to be added.
@@ -55,5 +64,14 @@ public class IncomeManager {
             counter++;
         }
         Ui.displayToUser(result);
+    }
+
+    /**
+     * A get-function to obtain the information in the current Income List.
+     *
+     * @return return the income ArrayList
+     */
+    public static ArrayList<Income> getIncomes() {
+        return incomes;
     }
 }

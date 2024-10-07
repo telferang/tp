@@ -19,4 +19,31 @@ public class Income extends Transaction {
     public Income(String description, double amount, LocalDate date) {
         super(description, amount, date);
     }
+
+    /**
+     * Retrieves the description of the transaction.
+     *
+     * @return A string representing the description of the transaction.
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * Retrieves the amount involved in the transaction.
+     *
+     * @return A double representing the amount of the transaction.
+     */
+    public double getAmount() {
+        return amount;
+    }
+
+    /**
+     * Retrieves the date of the transaction.
+     *
+     * @return A LocalDate representing the date when the transaction occurred.
+     */
+    public LocalDate getDate() {
+        return date;
+    }
 }
