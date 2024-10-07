@@ -8,6 +8,9 @@ import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
+/**
+ * Validates commands for adding budgets.
+ */
 public class AddBudgetValidator {
 
     public static Command processCommand(String command) {

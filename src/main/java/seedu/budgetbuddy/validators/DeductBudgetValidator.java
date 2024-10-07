@@ -9,6 +9,9 @@ import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
+/**
+ * Validates commands for deducting budgets.
+ */
 public class DeductBudgetValidator {
     public static Command processCommand(String command) {
         if (command.equals("deduct budget")) {

@@ -16,7 +16,7 @@ public class AddBudgetCommand extends Command {
      * Constructs an AddBudgetCommand with the specified amount and date.
      *
      * @param amount The amount of the budget to be added.
-     * @param date   The YearMonth representing the month and year for the budget.
+     * @param date The YearMonth representing the month and year for the budget.
      */
     public AddBudgetCommand(double amount, YearMonth date) {
         this.amount = amount;

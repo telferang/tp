@@ -36,7 +36,7 @@ public class Budget {
     }
 
     /**
-     * Deducts amount to the current budget and displays a message indicating the updated budget.
+     * Deducts amount from the current budget and displays a message indicating the updated budget.
      *
      * @param deductedAmount The amount to be deducted from the existing budget.
      */
