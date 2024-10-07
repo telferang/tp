@@ -1,13 +1,11 @@
 package seedu.budgetbuddy.transaction.budget;
 
-import seedu.budgetbuddy.Ui;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.time.YearMonth;
-import java.util.ArrayList;
 
 public class BudgetManagerTest {
 
