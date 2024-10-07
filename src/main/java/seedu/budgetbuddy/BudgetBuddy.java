@@ -36,9 +36,19 @@ public class BudgetBuddy {
         try {
             storage.createFileIfNotExists();
             ArrayList<ArrayList<?>> data = storage.load();
-            expenseManager = new ExpenseManager((ArrayList<Expense>) data.get(0));
-            incomeManager = new IncomeManager((ArrayList<Income>) data.get(1));
-            budgetManager = new BudgetManager((ArrayList<Budget>) data.get(2));
+
+            // Calculate the number of expenses, incomes, and budgets
+            ArrayList<Expense> expenses = (ArrayList<Expense>) data.get(0);
+            ArrayList<Income> incomes = (ArrayList<Income>) data.get(1);
+            ArrayList<Budget> budgets = (ArrayList<Budget>) data.get(2);
+
+            int numberOfExpenses = expenses.size();
+            int numberOfIncomes = incomes.size();
+            int numberOfBudgets = budgets.size();
+
+            expenseManager = new ExpenseManager(expenses, numberOfExpenses);
+            incomeManager = new IncomeManager(incomes, numberOfIncomes);
+            budgetManager = new BudgetManager(budgets);
         } catch (IOException e) {
             Ui.showMessage("Error updating File");
         }
