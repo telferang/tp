@@ -2,7 +2,6 @@ package seedu.budgetbuddy.commands;
 
 import seedu.budgetbuddy.transaction.budget.Budget;
 import seedu.budgetbuddy.transaction.budget.BudgetManager;
-import seedu.budgetbuddy.commands.IncorrectCommand;
 
 import java.time.YearMonth;
 
