@@ -64,7 +64,7 @@ public class BudgetManager {
     }
 
     /**
-     * Lists all the budgets managed by the manager.
+     * Lists all or specified budgets managed by the manager.
      * Displays each budget with its corresponding number.
      */
     public static void listBudgets(YearMonth date) {
