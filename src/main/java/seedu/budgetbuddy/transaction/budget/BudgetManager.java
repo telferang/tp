@@ -1,6 +1,7 @@
 package seedu.budgetbuddy.transaction.budget;
 
 import seedu.budgetbuddy.Ui;
+import seedu.budgetbuddy.transaction.expense.Expense;
 
 import java.time.YearMonth;
 import java.util.ArrayList;
@@ -60,5 +61,30 @@ public class BudgetManager {
             }
         }
         return null; // No budget found for the specified date
+    }
+
+    /**
+     * Lists all the budgets managed by the manager.
+     * Displays each budget with its corresponding number.
+     */
+    public static void listBudgets(YearMonth date) {
+        String result = "";
+        if (date == null) {
+            result += "Here are the budgets for the 12 most recent entries:\n";
+
+            int entriesToDisplay = Math.min(budgets.size(), 12);
+            for (int counter = 1; counter <= entriesToDisplay; counter++) {
+                Budget budget = budgets.get(budgets.size() - counter);
+                result += counter + ". " + budget.toString() + "\n";
+            }
+        } else {
+            // Assume validator guarantees date is valid
+            Budget budget = getBudget(date);
+            if (budget != null) {
+                result += "Here is the budget for the specified month:\n";
+                result += budget.toString();
+            }
+        }
+        Ui.displayToUser(result);
     }
 }
