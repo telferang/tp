@@ -4,6 +4,7 @@ import seedu.budgetbuddy.commands.AddExpenseCommand;
 import seedu.budgetbuddy.commands.AddIncomeCommand;
 import seedu.budgetbuddy.commands.AddBudgetCommand;
 import seedu.budgetbuddy.commands.Command;
+import seedu.budgetbuddy.commands.DeductBudgetCommand;
 import seedu.budgetbuddy.commands.DeleteExpenseCommand;
 import seedu.budgetbuddy.commands.DeleteIncomeCommand;
 import seedu.budgetbuddy.commands.ExitCommand;
@@ -14,12 +15,12 @@ import seedu.budgetbuddy.commands.ListIncomeCommand;
 import seedu.budgetbuddy.validators.AddExpenseValidator;
 import seedu.budgetbuddy.validators.AddIncomeValidator;
 import seedu.budgetbuddy.validators.AddBudgetValidator;
+import seedu.budgetbuddy.validators.DeductBudgetValidator;
 import seedu.budgetbuddy.validators.DeleteExpenseValidator;
 import seedu.budgetbuddy.validators.DeleteIncomeValidator;
 
 /**
  * The Parser class is responsible for interpreting user commands.
- *
  * It analyzes the user input, identifies the corresponding command,
  * and returns the appropriate Command object for execution.
  */
@@ -54,6 +55,9 @@ public class Parser {
         }
         if (AddBudgetCommand.isCommand(userCommandText)) {
             return AddBudgetValidator.processCommand(userCommandText);
+        }
+        if (DeductBudgetCommand.isCommand(userCommandText)) {
+            return DeductBudgetValidator.processCommand(userCommandText);
         }
         if (ExitCommand.isCommand(userCommandText)) {
             return new ExitCommand();

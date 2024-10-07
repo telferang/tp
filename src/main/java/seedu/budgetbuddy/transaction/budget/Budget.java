@@ -36,6 +36,21 @@ public class Budget {
     }
 
     /**
+     * Deducts amount to the current budget and displays a message indicating the updated budget.
+     *
+     * @param deductedAmount The amount to be deducted from the existing budget.
+     */
+    public void deductAmount(double deductedAmount) {
+        this.amount -= deductedAmount;
+        if (amount <= 0) {
+            this.amount = 0;
+            BudgetManager.deleteBudget(this);
+        } else {
+            Ui.displayBudgetTransactionMessage(toString(), BudgetManager.getNumberOfBudgets());
+        }
+    }
+
+    /**
      * Gets the amount of the budget.
      *
      * @return The budget amount.

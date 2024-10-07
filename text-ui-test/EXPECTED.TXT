@@ -93,6 +93,30 @@ Amount: 3534.0  Date: 2024-11
 You have 2 budget(s) in total.
 ========================================================
 Enter commands: ========================================================
+No description provided.
+========================================================
+Enter commands: ========================================================
+Invalid amount format. Amount must be a positive value.
+========================================================
+Enter commands: ========================================================
+Invalid date format. Use m/MM/yyyy.
+========================================================
+Enter commands: ========================================================
+The following budget amount has been updated:
+Amount: 2300.0  Date: 2024-11
+You have 2 budget(s) in total.
+========================================================
+Enter commands: ========================================================
+The following budget has been deleted as its amount reached zero:
+Amount: 0.0  Date: 2024-03
+You have 1 budget(s) in total.
+========================================================
+Enter commands: ========================================================
+The following budget has been deleted as its amount reached zero:
+Amount: 0.0  Date: 2024-11
+You have 0 budget(s) in total.
+========================================================
+Enter commands: ========================================================
 1. Description: Tuition  Amount: 100.0  Date: 2024-12-15
 2. Description: Internship  Amount: 123.0  Date: 2024-10-13
 

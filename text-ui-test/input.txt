@@ -22,6 +22,12 @@ add budget a/123
 add budget a/1234 m/11/2024
 add budget a/800 m/03/2024
 add budget a/2300 m/11/2024
+deduct budget
+deduct budget a/-1000
+deduct budget a/123
+deduct budget a/1234 m/11/2024
+deduct budget a/800 m/03/2024
+deduct budget a/2300 m/11/2024
 list incomes
 remove income 1
 remove incomes 1

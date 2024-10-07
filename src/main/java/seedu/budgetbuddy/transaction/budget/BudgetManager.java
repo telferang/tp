@@ -26,6 +26,18 @@ public class BudgetManager {
     }
 
     /**
+     * Deletes budget from the list and decrements the total number of budgets.
+     * Displays a message indicating that a budget is deleted.
+     *
+     * @param budget The Budget object to be added.
+     */
+    public static void deleteBudget(Budget budget) {
+        budgets.remove(budget);
+        numberOfBudgets--;
+        Ui.displayBudgetDeletedMessage(budget.toString(), numberOfBudgets);
+    }
+
+    /**
      * Returns the current number of budgets.
      *
      * @return The total number of budgets.

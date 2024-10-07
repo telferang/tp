@@ -90,6 +90,20 @@ public class Ui {
     }
 
     /**
+     * Displays a message indicating that a budget has been deleted because its amount has reached zero,
+     * and shows the current total number of remaining budgets.
+     *
+     * @param transaction The details of the deleted budget.
+     * @param count The total number of budgets after the deletion.
+     */
+    public static void displayBudgetDeletedMessage(String transaction, int count) {
+        String result = "The following budget has been deleted as its amount reached zero:\n"
+                + transaction + '\n'
+                + "You have " + count + " budget(s) in total.";
+        displayToUser(result);
+    }
+
+    /**
      * Displays entire help message, acts as a help guide for new users.
      */
     public static void displayHelpMessage(){
