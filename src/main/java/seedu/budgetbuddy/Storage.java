@@ -56,11 +56,11 @@ public class Storage {
             Parser.parseFile(input, expenses, incomes, budgets);
         }
         sc.close();
-        ArrayList<ArrayList<?>> List = new ArrayList<>();
-        List.add(expenses);
-        List.add(incomes);
-        List.add(budgets);
-        return List;
+        ArrayList<ArrayList<?>> list = new ArrayList<>();
+        list.add(expenses);
+        list.add(incomes);
+        list.add(budgets);
+        return list;
     }
 
     /**
@@ -72,7 +72,9 @@ public class Storage {
      * @param budgetList The BudgetManager containing the current list of budgets.
      * @throws IOException If an I/O error occurs while writing to the file.
      */
-    public void save(ExpenseManager expenseList, IncomeManager incomeList, BudgetManager budgetList) throws IOException {
+    public void save(ExpenseManager expenseList, IncomeManager incomeList, BudgetManager budgetList)
+            throws IOException {
+
         FileWriter fw = new FileWriter(filePath, false); // Overwrites the file
 
         // Save expenses

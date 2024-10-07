@@ -9,7 +9,6 @@ import seedu.budgetbuddy.transaction.expense.ExpenseManager;
 import seedu.budgetbuddy.transaction.income.Income;
 import seedu.budgetbuddy.transaction.income.IncomeManager;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 

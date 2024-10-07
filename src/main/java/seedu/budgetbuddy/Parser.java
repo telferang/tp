@@ -13,7 +13,6 @@ import seedu.budgetbuddy.commands.IncorrectCommand;
 import seedu.budgetbuddy.commands.ListBudgetCommand;
 import seedu.budgetbuddy.commands.ListExpenseCommand;
 import seedu.budgetbuddy.commands.ListIncomeCommand;
-import seedu.budgetbuddy.transaction.Transaction;
 import seedu.budgetbuddy.transaction.budget.Budget;
 import seedu.budgetbuddy.transaction.budget.BudgetManager;
 import seedu.budgetbuddy.transaction.expense.Category;
@@ -105,7 +104,9 @@ public class Parser {
      * @param incomes The list of incomes to which new Income objects will be added.
      * @param budgets The list of budgets to which new Budget objects will be added.
      */
-    public static void parseFile(String input, ArrayList<Expense> expenses, ArrayList<Income> incomes, ArrayList<Budget> budgets) {
+    public static void parseFile(String input, ArrayList<Expense> expenses, ArrayList<Income> incomes,
+            ArrayList<Budget> budgets) {
+
         String[] parts = input.split(" \\| ");
         String type = parts[0]; // Determines if it's expense, income, or budget
 
@@ -129,7 +130,8 @@ public class Parser {
         }
         case "budget": {
             double amount = Double.parseDouble(parts[1]); // For budget, only amount is relevant
-            YearMonth budgetDate = YearMonth.parse(parts[2], DateTimeFormatter.ofPattern("yyyy-MM")); // Adjust date format for YearMonth
+            YearMonth budgetDate = YearMonth.parse(parts[2], DateTimeFormatter.ofPattern("yyyy-MM"));
+            // Adjust date format for YearMonth
 
             budgets.add(new Budget(amount, budgetDate)); // Only 2 parameters required for budget
             break;
