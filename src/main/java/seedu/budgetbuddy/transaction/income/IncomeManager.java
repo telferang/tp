@@ -17,8 +17,9 @@ public class IncomeManager {
      *
      * @param incomes is the content to be instantiated
      */
-    public IncomeManager(ArrayList<Income> incomes) {
+    public IncomeManager(ArrayList<Income> incomes, int numberOfIncomes) {
         IncomeManager.incomes = incomes;
+        IncomeManager.numberOfIncomes = numberOfIncomes;
     }
 
     /**

@@ -17,8 +17,9 @@ public class ExpenseManager {
      *
      * @param expenses is the content to be instantiated
      */
-    public ExpenseManager(ArrayList<Expense> expenses) {
+    public ExpenseManager(ArrayList<Expense> expenses, int numberOfExpenses) {
         ExpenseManager.expenses = expenses;
+        ExpenseManager.numberOfExpenses = numberOfExpenses;
     }
 
     /**
