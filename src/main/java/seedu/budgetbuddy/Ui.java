@@ -120,9 +120,11 @@ public class Ui {
                 "Example:\nadd budget a/1000 m/09/2024\n" +
                 "7. Deduct budget for current month. Note: month - m/MM/yyyy \n" +
                 "Example:\ndeduct budget a/500 m/10/2024\n" +
-                "8. View budget for specific month. Note: month - m/MM/yyyy \n" +
-                "Example:\nview budget m/05/2024\n" +
-                "9. Exit app. \n" +
+                "8. list budget for specific month. Note: month - m/MM/yyyy \n" +
+                "Example:\nlist budget m/05/2024\n" +
+                "9. list budget for the 12 most recent entries. \n" +
+                "Example:\nlist budget\n" +
+                "10. Exit app. \n" +
                 "Example:\nbye\n";
         displayToUser(message);
     }
