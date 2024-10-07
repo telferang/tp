@@ -99,4 +99,18 @@ public class BudgetManager {
     public static ArrayList<Budget> getBudgets() {
         return budgets;
     }
+
+    /**
+     * Resets the state of the BudgetManager by clearing all budgets and
+     * setting the total number of budgets to zero.
+     * <p>
+     * This method is used for unit testing, ensuring that each test
+     * starts with a clean slate and does not retain any state from
+     * previous tests.
+     * </p>
+     */
+    public static void reset() {
+        numberOfBudgets = 0;
+        budgets.clear();
+    }
 }
