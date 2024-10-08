@@ -175,25 +175,39 @@ Description: Ipad  Amount: 123.45  Date: 2024-08-30  Category: EDUCATION
 You have 3 expense transaction(s) in total.
 ========================================================
 Enter commands: ========================================================
-1. Description: Japan Flight  Amount: 123.45  Date: 2024-10-30  Category: TRANSPORT
+1. Description: Buy Tesla Stock  Amount: 100.1  Date: 2024-10-02  Category: OTHERS
+2. Description: Japan Flight  Amount: 123.45  Date: 2024-10-30  Category: TRANSPORT
+3. Description: Ipad  Amount: 123.45  Date: 2024-08-30  Category: EDUCATION
 
 ========================================================
 Enter commands: ========================================================
-1. Description: Ipad  Amount: 123.45  Date: 2024-08-30  Category: EDUCATION
+1. Description: Buy Tesla Stock  Amount: 100.1  Date: 2024-10-02  Category: OTHERS
+2. Description: Japan Flight  Amount: 123.45  Date: 2024-10-30  Category: TRANSPORT
+3. Description: Ipad  Amount: 123.45  Date: 2024-08-30  Category: EDUCATION
 
 ========================================================
 Enter commands: ========================================================
-1. Description: Japan Flight  Amount: 123.45  Date: 2024-10-30  Category: TRANSPORT
+1. Description: Buy Tesla Stock  Amount: 100.1  Date: 2024-10-02  Category: OTHERS
+2. Description: Japan Flight  Amount: 123.45  Date: 2024-10-30  Category: TRANSPORT
 
 ========================================================
 Enter commands: ========================================================
-Unknown category. Use a valid category
+1. Description: Buy Tesla Stock  Amount: 100.1  Date: 2024-10-02  Category: OTHERS
+2. Description: Japan Flight  Amount: 123.45  Date: 2024-10-30  Category: TRANSPORT
+3. Description: Ipad  Amount: 123.45  Date: 2024-08-30  Category: EDUCATION
+
 ========================================================
 Enter commands: ========================================================
-Invalid month format. Use m/MM/yyyy.
+1. Description: Buy Tesla Stock  Amount: 100.1  Date: 2024-10-02  Category: OTHERS
+2. Description: Japan Flight  Amount: 123.45  Date: 2024-10-30  Category: TRANSPORT
+3. Description: Ipad  Amount: 123.45  Date: 2024-08-30  Category: EDUCATION
+
 ========================================================
 Enter commands: ========================================================
-No expense entry with given parameters found, try again with a different parameter.
+1. Description: Buy Tesla Stock  Amount: 100.1  Date: 2024-10-02  Category: OTHERS
+2. Description: Japan Flight  Amount: 123.45  Date: 2024-10-30  Category: TRANSPORT
+3. Description: Ipad  Amount: 123.45  Date: 2024-08-30  Category: EDUCATION
+
 ========================================================
 Enter commands: ========================================================
 No expense entry with given parameters found, try again with a different parameter.
