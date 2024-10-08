@@ -2,6 +2,8 @@ package seedu.budgetbuddy.transaction.income;
 
 import seedu.budgetbuddy.Ui;
 
+import java.time.LocalDate;
+import java.time.YearMonth;
 import java.util.ArrayList;
 
 /**
@@ -65,6 +67,43 @@ public class IncomeManager {
             counter++;
         }
         Ui.displayToUser(result);
+    }
+
+    /**
+     * Display all income that matches with month field that are managed by the manager.
+     * Displays each income with its corresponding number.
+     * @param month
+     */
+    public static void displayIncomeWithMonth(YearMonth month) {
+        String result = "";
+        int counter = 1;
+        for (Income income : incomes) {
+            if(month.equals(getYearMonthFromDate(income.getDate()))) {
+                result += counter + ". " + income.toString() + "\n";
+                counter++;
+            }
+        }
+        if(result.equals("")) {
+            result = getEmptyDisplayMessage();
+        }
+        Ui.displayToUser(result);
+    }
+
+    /**
+     * Extract YearMonth value from date
+     * @param date
+     * @return
+     */
+    public static YearMonth getYearMonthFromDate(LocalDate date) {
+        return YearMonth.from(date);
+    }
+
+    /**
+     * Generates a custom empty Display income message
+     * @return custom display income message
+     */
+    public static String getEmptyDisplayMessage() {
+        return "No income entry with given month found, try again with a different month.";
     }
 
     /**

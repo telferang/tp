@@ -48,4 +48,10 @@ display expense c/incorrect category
 display expense m/invalid month
 display expense c/food
 display expense c/education m/02/2024
+add income Tuition a/100.00 d/15/12/2024
+add income Internship a/123 d/13/10/2024
+display income
+display income m/10/2024
+display income m/08/2024
+display income m/20/2024
 bye

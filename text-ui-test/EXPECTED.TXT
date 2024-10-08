@@ -213,5 +213,32 @@ Enter commands: ========================================================
 No expense entry with given parameters found, try again with a different parameter.
 ========================================================
 Enter commands: ========================================================
+The following income transaction has been added:
+Description: Tuition  Amount: 100.0  Date: 2024-12-15
+You have 2 income transaction(s) in total.
+========================================================
+Enter commands: ========================================================
+The following income transaction has been added:
+Description: Internship  Amount: 123.0  Date: 2024-10-13
+You have 3 income transaction(s) in total.
+========================================================
+Enter commands: ========================================================
+1. Description: Internship  Amount: 123.0  Date: 2024-10-13
+2. Description: Tuition  Amount: 100.0  Date: 2024-12-15
+3. Description: Internship  Amount: 123.0  Date: 2024-10-13
+
+========================================================
+Enter commands: ========================================================
+1. Description: Internship  Amount: 123.0  Date: 2024-10-13
+2. Description: Internship  Amount: 123.0  Date: 2024-10-13
+
+========================================================
+Enter commands: ========================================================
+No income entry with given month found, try again with a different month.
+========================================================
+Enter commands: ========================================================
+Invalid month format. Use m/MM/yyyy.
+========================================================
+Enter commands: ========================================================
 Bye!
 ========================================================

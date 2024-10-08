@@ -47,10 +47,10 @@ public class DisplayExpenseCommand extends Command {
     }
 
     /**
-     * Checks if the provided command matches the command to list expenses.
+     * Checks if the provided command matches the command to display expenses.
      *
      * @param command The command to be checked.
-     * @return True if the command matches "list expenses", false otherwise.
+     * @return True if the command matches "display expenses", false otherwise.
      */
     public static boolean isCommand(String command) {
         return command.startsWith("display expense");
