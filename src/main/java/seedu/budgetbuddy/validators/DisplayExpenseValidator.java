@@ -4,24 +4,24 @@ import seedu.budgetbuddy.commands.Command;
 import seedu.budgetbuddy.commands.DisplayExpenseCommand;
 import seedu.budgetbuddy.commands.IncorrectCommand;
 import seedu.budgetbuddy.transaction.expense.Category;
-import seedu.budgetbuddy.transaction.expense.ExpenseManager;
-
-import javax.xml.validation.Validator;
-import java.time.LocalDate;
 import java.time.YearMonth;
-
-import static seedu.budgetbuddy.validators.AmountValidator.validateAmount;
-import static seedu.budgetbuddy.validators.DateValidator.validateDate;
 import static seedu.budgetbuddy.validators.DateValidator.validateYearMonth;
 
 public class DisplayExpenseValidator{
 
+    /**
+     * Processes the command string to determine if it is valid for displaying expenses.
+     * If valid, it returns a DisplayExpenseCommand with the parsed date.
+     *
+     * @param command
+     * @return
+     */
     public static Command processCommand(String command) {
-        if (command.equals("display expense")){
+        if (command.equals("display expenses")){
             return new DisplayExpenseCommand();
         }
 
-        String trimmedCommand = command.substring("display expense ".length());
+        String trimmedCommand = command.substring("display expenses ".length());
         String[] parts = trimmedCommand.split(" ");
 
         //Process Initial Value
@@ -47,6 +47,13 @@ public class DisplayExpenseValidator{
         return checkDisplayType(category, month);
     }
 
+    /**
+     * Checks the value of category and date and returns the corresponding
+     * DisplayExpenseCommand type
+     * @param category
+     * @param date
+     * @return
+     */
     public static Command checkDisplayType(Category category, YearMonth date) {
         if (category != null && date == null) {
             return new DisplayExpenseCommand(category);

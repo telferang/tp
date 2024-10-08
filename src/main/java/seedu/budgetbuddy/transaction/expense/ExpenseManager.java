@@ -6,7 +6,6 @@ import java.time.YearMonth;
 import java.util.ArrayList;
 
 import java.time.LocalDate;
-import java.util.Locale;
 
 /**
  * Manages a list of expenses, providing functionalities to add, delete,
@@ -71,6 +70,12 @@ public class ExpenseManager {
         Ui.displayToUser(result);
     }
 
+    /**
+     * Display all expense that matches with month & category field
+     * Displays each expense with its corresponding number.
+     * @param category
+     * @param month
+     */
     public static void displayExpensesWithCategoryAndDate(Category category, YearMonth month) {
         String result = "";
         int counter = 1;
@@ -86,6 +91,11 @@ public class ExpenseManager {
         Ui.displayToUser(result);
     }
 
+    /**
+     * Display all expense that matches with category field
+     * Displays each expense with its corresponding number.
+     * @param category
+     */
     public static void displayExpensesWithCategory(Category category) {
         String result = "";
         int counter = 1;
@@ -101,6 +111,11 @@ public class ExpenseManager {
         Ui.displayToUser(result);
     }
 
+    /**
+     * Display all expense that matches with month field
+     * Displays each expense with its corresponding number.
+     * @param month
+     */
     public static void displayExpensesWithDate(YearMonth month) {
         String result = "";
         int counter = 1;
@@ -116,6 +131,11 @@ public class ExpenseManager {
         Ui.displayToUser(result);
     }
 
+    /**
+     * Extract YearMonth value from date
+     * @param date
+     * @return
+     */
     public static YearMonth getYearMonthFromDate(LocalDate date) {
         return YearMonth.from(date);
     }

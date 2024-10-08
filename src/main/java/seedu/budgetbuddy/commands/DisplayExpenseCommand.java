@@ -3,32 +3,47 @@ package seedu.budgetbuddy.commands;
 import seedu.budgetbuddy.transaction.expense.Category;
 import seedu.budgetbuddy.transaction.expense.ExpenseManager;
 
-import java.time.LocalDate;
 import java.time.YearMonth;
 
 public class DisplayExpenseCommand extends Command {
 
     private Category category;
-    private YearMonth date;
+    private YearMonth month;
 
-    public DisplayExpenseCommand(Category category, YearMonth date) {
+    /**
+     * Constructs a DisplayExpenseCommand with valid category and month field
+     * @param category
+     * @param month
+     */
+    public DisplayExpenseCommand(Category category, YearMonth month) {
         this.category = category;
-        this.date = date;
+        this.month = month;
     }
 
-    public DisplayExpenseCommand(YearMonth date) {
+    /**
+     * Constructs a DisplayExpenseCommand with valid month field
+     * @param month
+     */
+    public DisplayExpenseCommand(YearMonth month) {
         this.category = null;
-        this.date = date;
+        this.month = month;
     }
 
+    /**
+     * Constructs a DisplayExpenseCommand with valid category field
+     * @param category
+     */
     public DisplayExpenseCommand(Category category) {
         this.category = category;
-        this.date = null;
+        this.month = null;
     }
 
+    /**
+     * Constructs a DisplayExpenseCommand with no specified date or category
+     */
     public DisplayExpenseCommand() {
         this.category = null;
-        this.date = null;
+        this.month = null;
     }
 
     /**
@@ -46,14 +61,14 @@ public class DisplayExpenseCommand extends Command {
      */
     @Override
     public void execute() {
-        if (category == null && date == null) {
+        if (category == null && month == null) {
             ExpenseManager.listExpenses();
         } else if (category == null){
-            ExpenseManager.displayExpensesWithDate(date);
-        } else if (date == null) {
+            ExpenseManager.displayExpensesWithDate(month);
+        } else if (month == null) {
             ExpenseManager.displayExpensesWithCategory(category);
         } else {
-            ExpenseManager.displayExpensesWithCategoryAndDate(category,date);
+            ExpenseManager.displayExpensesWithCategoryAndDate(category,month);
         }
     }
 
