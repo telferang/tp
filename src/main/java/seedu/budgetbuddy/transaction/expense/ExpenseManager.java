@@ -2,7 +2,11 @@ package seedu.budgetbuddy.transaction.expense;
 
 import seedu.budgetbuddy.Ui;
 
+import java.time.YearMonth;
 import java.util.ArrayList;
+
+import java.time.LocalDate;
+import java.util.Locale;
 
 /**
  * Manages a list of expenses, providing functionalities to add, delete,
@@ -65,6 +69,59 @@ public class ExpenseManager {
             counter++;
         }
         Ui.displayToUser(result);
+    }
+
+    public static void displayExpensesWithCategoryAndDate(Category category, YearMonth month) {
+        String result = "";
+        int counter = 1;
+        for (Expense expense : expenses) {
+            if(category.equals(expense.getCategory()) && month.equals(getYearMonthFromDate(expense.getDate()))) {
+                result += counter + ". " + expense.toString() + "\n";
+                counter++;
+            }
+        }
+        if(result.equals("")) {
+            result = getEmptyDisplayMessage();
+        }
+        Ui.displayToUser(result);
+    }
+
+    public static void displayExpensesWithCategory(Category category) {
+        String result = "";
+        int counter = 1;
+        for (Expense expense : expenses) {
+            if(category.equals(expense.getCategory())) {
+                result += counter + ". " + expense.toString() + "\n";
+                counter++;
+            }
+        }
+        if(result.equals("")) {
+            result = getEmptyDisplayMessage();
+        }
+        Ui.displayToUser(result);
+    }
+
+    public static void displayExpensesWithDate(YearMonth month) {
+        String result = "";
+        int counter = 1;
+        for (Expense expense : expenses) {
+            if(month.equals(getYearMonthFromDate(expense.getDate()))) {
+                result += counter + ". " + expense.toString() + "\n";
+                counter++;
+            }
+        }
+        if(result.equals("")) {
+            result = getEmptyDisplayMessage();
+        }
+        Ui.displayToUser(result);
+    }
+
+    public static YearMonth getYearMonthFromDate(LocalDate date) {
+        return YearMonth.from(date);
+    }
+
+    public static String getEmptyDisplayMessage() {
+        return "No expense entry with given parameters found, try again with a different parameter.";
     }
 
     /**
