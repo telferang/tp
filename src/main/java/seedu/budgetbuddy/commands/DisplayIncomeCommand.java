@@ -29,7 +29,7 @@ public class DisplayIncomeCommand extends Command {
      * @param command The command to be checked.
      * @return True if the command matches "display expenses", false otherwise.
      */
-    public static boolean isCommand(String command) { return command.startsWith("display income"); }
+    public static boolean isCommand(String command) { return command.startsWith("display incomes"); }
 
     @Override
     public void execute() {

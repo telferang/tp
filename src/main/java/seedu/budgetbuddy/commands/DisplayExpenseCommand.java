@@ -53,7 +53,7 @@ public class DisplayExpenseCommand extends Command {
      * @return True if the command matches "display expenses", false otherwise.
      */
     public static boolean isCommand(String command) {
-        return command.startsWith("display expense");
+        return command.startsWith("display expenses");
     }
 
     /**

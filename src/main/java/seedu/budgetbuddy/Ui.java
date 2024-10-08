@@ -114,17 +114,19 @@ public class Ui {
                 "Examples:\ndel expense 1 \n"  + "del income 2 \n" +
                 "3. Tag new category to expense. \n" + "Example:\n tag expense 2 /c food \n" +
                 "4. List all expenses/income. \n" + "Examples:\nlist expenses \n" + "list income\n" +
-                "5. Display expenses based on category and month. Note: category - c/, month (optional) - m/\n" +
-                "Example:\ndisplay expenses c/food m/10\n" +
-                "6. Add budget for current month. Note: month - m/MM/yyyy \n" +
+                "5. Display expenses based on category and month. Note: category - c/, month (optional) - m/MM/yyyy\n" +
+                "Example:\ndisplay expenses c/food m/10/2024\n" +
+                "6. Display income based on month. Note: month (optional) - m/MM/yyyy\n" +
+                "Example:\ndisplay incomes m/10/2024\n" +
+                "7. Add budget for current month. Note: month - m/MM/yyyy \n" +
                 "Example:\nadd budget a/1000 m/09/2024\n" +
-                "7. Deduct budget for current month. Note: month - m/MM/yyyy \n" +
+                "8. Deduct budget for current month. Note: month - m/MM/yyyy \n" +
                 "Example:\ndeduct budget a/500 m/10/2024\n" +
-                "8. list budget for specific month. Note: month - m/MM/yyyy \n" +
+                "9. list budget for specific month. Note: month - m/MM/yyyy \n" +
                 "Example:\nlist budget m/05/2024\n" +
-                "9. list budget for the 12 most recent entries. \n" +
+                "10. list budget for the 12 most recent entries. \n" +
                 "Example:\nlist budget\n" +
-                "10. Exit app. \n" +
+                "11. Exit app. \n" +
                 "Example:\nbye\n";
         displayToUser(message);
     }
