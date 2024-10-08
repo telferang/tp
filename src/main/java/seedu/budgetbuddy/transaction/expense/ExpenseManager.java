@@ -140,6 +140,10 @@ public class ExpenseManager {
         return YearMonth.from(date);
     }
 
+    /**
+     * Generates a custom empty Display Expense message
+     * @return custom display Expense message
+     */
     public static String getEmptyDisplayMessage() {
         return "No expense entry with given parameters found, try again with a different parameter.";
     }

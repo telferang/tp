@@ -41,11 +41,17 @@ delete income 1
 list incomes
 add expense Japan Flight a/123.45 d/30/10/2024 c/transport
 add expense Ipad a/123.45 d/30/08/2024 c/education
-display expense c/transport
-display expense m/08/2024
-display expense c/transport m/10/2024
-display expense c/incorrect category
-display expense m/invalid month
-display expense c/food
-display expense c/education m/02/2024
+display expenses c/transport
+display expenses m/08/2024
+display expenses c/transport m/10/2024
+display expenses c/incorrect category
+display expenses m/invalid month
+display expenses c/food
+display expenses c/education m/02/2024
+add income Tuition a/100.00 d/15/12/2024
+add income Internship a/123 d/13/10/2024
+display incomes
+display incomes m/10/2024
+display incomes m/08/2024
+display incomes m/20/2024
 bye
