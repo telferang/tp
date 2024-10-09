@@ -75,8 +75,9 @@ public class ExpenseManager {
      * Displays each expense with its corresponding number.
      * @param category
      * @param month
+     * @return result String to be displayed to user
      */
-    public static void displayExpensesWithCategoryAndDate(Category category, YearMonth month) {
+    public static String displayExpensesWithCategoryAndDate(Category category, YearMonth month) {
         String result = "";
         int counter = 1;
         for (Expense expense : expenses) {
@@ -88,15 +89,16 @@ public class ExpenseManager {
         if(result.equals("")) {
             result = getEmptyDisplayMessage();
         }
-        Ui.displayToUser(result);
+        return result;
     }
 
     /**
      * Display all expense that matches with category field
      * Displays each expense with its corresponding number.
      * @param category
+     * @return result String to be displayed to user
      */
-    public static void displayExpensesWithCategory(Category category) {
+    public static String displayExpensesWithCategory(Category category) {
         String result = "";
         int counter = 1;
         for (Expense expense : expenses) {
@@ -108,15 +110,16 @@ public class ExpenseManager {
         if(result.equals("")) {
             result = getEmptyDisplayMessage();
         }
-        Ui.displayToUser(result);
+        return result;
     }
 
     /**
      * Display all expense that matches with month field
      * Displays each expense with its corresponding number.
      * @param month
+     * @return result String to be displayed to user
      */
-    public static void displayExpensesWithDate(YearMonth month) {
+    public static String displayExpensesWithDate(YearMonth month) {
         String result = "";
         int counter = 1;
         for (Expense expense : expenses) {
@@ -128,7 +131,7 @@ public class ExpenseManager {
         if(result.equals("")) {
             result = getEmptyDisplayMessage();
         }
-        Ui.displayToUser(result);
+        return result;
     }
 
     /**
