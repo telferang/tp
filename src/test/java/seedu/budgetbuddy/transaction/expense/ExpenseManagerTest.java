@@ -6,14 +6,15 @@ import java.time.LocalDate;
 import java.time.YearMonth;
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ExpenseManagerTest {
 
     private static int numberOfExpenses = 0;
     private static ArrayList<Expense> expenses = new ArrayList<>();
     private static ExpenseManager expenseManager;
-    private static final String EMPTY_DISPLAY_STRING = "No expense entry with given parameters found, try again with a different parameter.";
+    private static final String EMPTY_DISPLAY_STRING =
+            "No expense entry with given parameters found, try again with a different parameter.";
 
     void initializeTestContent(){
         expenseManager = new ExpenseManager(expenses, numberOfExpenses);
