@@ -141,9 +141,13 @@ public class ExpenseManager {
      */
     public static String searchExpenses(String keyword){
         String result = "";
+        if (keyword.equals("")){
+            result = getEmptyDisplayMessage();
+            return result;
+        }
         int counter = 1;
         for (Expense expense : expenses) {
-            if (expense.getDescription().contains(keyword)){
+            if (expense.getDescription().toLowerCase().contains(keyword.toLowerCase())){
                 result += counter + ". " + expense.toString() + "\n";
                 counter++;
             }
