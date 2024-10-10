@@ -135,6 +135,26 @@ public class ExpenseManager {
     }
 
     /**
+     * Filters expenses with descriptions that contain the keyword(s) provided by user.
+     * @param keyword
+     * @return result String displayed to user
+     */
+    public static String searchExpenses(String keyword){
+        String result = "";
+        int counter = 1;
+        for (Expense expense : expenses) {
+            if (expense.getDescription().contains(keyword)){
+                result += counter + ". " + expense.toString() + "\n";
+                counter++;
+            }
+        }
+        if (result.equals("")){
+            result = getEmptyDisplayMessage();
+        }
+        return result;
+    }
+
+    /**
      * Extract YearMonth value from date
      * @param date
      * @return
