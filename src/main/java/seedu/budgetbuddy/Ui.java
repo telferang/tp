@@ -131,6 +131,14 @@ public class Ui {
         displayToUser(message);
     }
 
+    /**
+     * Prints message to user if there is no description provided in search.
+     */
+    public static void searchEmptyMessage(){
+        String result = "Please key in a valid descriptor to search.";
+        displayToUser(result);
+    }
+
     public static void showMessage(String message) {
         System.out.println(message);
     }
