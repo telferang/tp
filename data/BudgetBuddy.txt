@@ -1,0 +1,12 @@
+expense | plane | 1000.0 | 15/9/2024 | FOOD
+expense | hello | 2.0 | 15/9/2024 | OTHERS
+expense | go skiing | 500.0 | 15/9/2024 | OTHERS
+expense | plane tickets to korea | 1000.0 | 15/9/2024 | OTHERS
+expense | zoo tickets | 20.0 | 15/9/2024 | FOOD
+expense | plane tickets to japan | 1000.0 | 15/10/2024 | OTHERS
+expense | plane tickets to europe | 1000.0 | 1/8/2024 | OTHERS
+income | tuition fees | 1000.0 | 15/9/2024
+income | tuition | 2.0E8 | 15/9/2024
+income | tuition fee | 1000.0 | 15/9/2024
+budget | 900.0 | 2024-09
+budget | 900.0 | 2024-10

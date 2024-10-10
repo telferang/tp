@@ -71,7 +71,67 @@ public class Ui {
                                                     int count) {
         String result = "The following " + expenseOrIncome + " transaction has been " + addOrDelete + ":\n"
                 + transaction + '\n'
-                + "You have " + count + " " + expenseOrIncome + " transaction(s) in total";
+                + "You have " + count + " " + expenseOrIncome + " transaction(s) in total.";
         displayToUser(result);
+    }
+
+    /**
+     * Displays a message regarding a budget transaction, indicating updating the amount,
+     * and shows the current total number of budgets.
+     *
+     * @param transaction The details of the budget transaction.
+     * @param count The total number of budgets after the transaction.
+     */
+    public static void displayBudgetTransactionMessage(String transaction, int count) {
+        String result = "The following budget amount has been updated:\n"
+                + transaction + '\n'
+                + "You have " + count + " budget(s) in total.";
+        displayToUser(result);
+    }
+
+    /**
+     * Displays a message indicating that a budget has been deleted because its amount has reached zero,
+     * and shows the current total number of remaining budgets.
+     *
+     * @param transaction The details of the deleted budget.
+     * @param count The total number of budgets after the deletion.
+     */
+    public static void displayBudgetDeletedMessage(String transaction, int count) {
+        String result = "The following budget has been deleted as its amount reached zero:\n"
+                + transaction + '\n'
+                + "You have " + count + " budget(s) in total.";
+        displayToUser(result);
+    }
+
+    /**
+     * Displays entire help message, acts as a help guide for new users.
+     */
+    public static void displayHelpMessage(){
+        String message = "1. Add expense/income entry. Note: amount - a/, date - d/, category - c/ \n" +
+                "Examples:\nadd expense plane ticket to Japan a/1000 d/25/12/2024 c/transport \n" +
+                "add income tuition fees " + "a/1000 d/13/12/2024 \n" +
+                "2. Delete expense/income entry as shown in the income and expense lists." +
+                "Examples:\ndel expense 1 \n"  + "del income 2 \n" +
+                "3. Tag new category to expense. \n" + "Example:\n tag expense 2 /c food \n" +
+                "4. List all expenses/income. \n" + "Examples:\nlist expenses \n" + "list income\n" +
+                "5. Display expenses based on category and month. Note: category - c/, month (optional) - m/MM/yyyy\n" +
+                "Example:\ndisplay expenses c/food m/10/2024\n" +
+                "6. Display income based on month. Note: month (optional) - m/MM/yyyy\n" +
+                "Example:\ndisplay incomes m/10/2024\n" +
+                "7. Add budget for current month. Note: month - m/MM/yyyy \n" +
+                "Example:\nadd budget a/1000 m/09/2024\n" +
+                "8. Deduct budget for current month. Note: month - m/MM/yyyy \n" +
+                "Example:\ndeduct budget a/500 m/10/2024\n" +
+                "9. list budget for specific month. Note: month - m/MM/yyyy \n" +
+                "Example:\nlist budget m/05/2024\n" +
+                "10. list budget for the 12 most recent entries. \n" +
+                "Example:\nlist budget\n" +
+                "11. Exit app. \n" +
+                "Example:\nbye\n";
+        displayToUser(message);
+    }
+
+    public static void showMessage(String message) {
+        System.out.println(message);
     }
 }

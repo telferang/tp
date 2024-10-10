@@ -38,4 +38,40 @@ public class Expense extends Transaction {
         output += "  Category: " + category;
         return output;
     }
+
+    /**
+     * Retrieves the description of the transaction.
+     *
+     * @return A string representing the description of the transaction.
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * Retrieves the amount of the transaction.
+     *
+     * @return A double representing the amount of the transaction.
+     */
+    public double getAmount() {
+        return amount;
+    }
+
+    /**
+     * Retrieves the date of the transaction.
+     *
+     * @return A LocalDate representing the date of the transaction.
+     */
+    public LocalDate getDate() {
+        return date;
+    }
+
+    /**
+     * Retrieves the category of the expense.
+     *
+     * @return The {@code Category} of the expense.
+     */
+    public Category getCategory() {
+        return category;
+    }
 }
