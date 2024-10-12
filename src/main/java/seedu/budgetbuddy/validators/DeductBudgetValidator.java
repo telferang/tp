@@ -15,7 +15,7 @@ import static seedu.budgetbuddy.validators.DateValidator.validateYearMonth;
  * Validates commands for deducting budgets.
  */
 public class DeductBudgetValidator {
-    private static final Logger logger = Logger.getLogger(DeductBudgetValidator.class.getName());
+    private static Logger logger = Logger.getLogger(DeductBudgetValidator.class.getName());
 
     public static Command processCommand(String command) throws BudgetBuddyException {
         assert command != null : "Command cannot be null";

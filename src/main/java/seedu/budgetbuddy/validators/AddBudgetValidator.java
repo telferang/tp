@@ -14,7 +14,7 @@ import static seedu.budgetbuddy.validators.DateValidator.validateYearMonth;
  * Validates commands for adding budgets.
  */
 public class AddBudgetValidator {
-    private static final Logger logger = Logger.getLogger(AddBudgetValidator.class.getName());
+    private static Logger logger = Logger.getLogger(AddBudgetValidator.class.getName());
 
     public static Command processCommand(String command) throws BudgetBuddyException {
         assert command != null : "Command cannot be null";
