@@ -48,7 +48,7 @@ public class BudgetBuddy {
 
             expenseManager = new ExpenseManager(expenses, numberOfExpenses);
             incomeManager = new IncomeManager(incomes, numberOfIncomes);
-            budgetManager = new BudgetManager(budgets);
+            budgetManager = new BudgetManager(budgets, numberOfBudgets);
         } catch (IOException e) {
             Ui.showMessage("Error updating File");
         }
