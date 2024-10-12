@@ -4,6 +4,7 @@ import seedu.budgetbuddy.transaction.budget.Budget;
 import seedu.budgetbuddy.transaction.budget.BudgetManager;
 
 import java.time.YearMonth;
+import java.util.logging.Logger;
 
 /**
  * Represents a command to add a budget for a specific month and year.
@@ -11,6 +12,7 @@ import java.time.YearMonth;
 public class AddBudgetCommand extends Command {
     private double amount;
     private YearMonth date;
+    private static final Logger logger = Logger.getLogger(AddBudgetCommand.class.getName());
 
     /**
      * Constructs an AddBudgetCommand with the specified amount and date.
@@ -19,6 +21,8 @@ public class AddBudgetCommand extends Command {
      * @param date The YearMonth representing the month and year for the budget.
      */
     public AddBudgetCommand(double amount, YearMonth date) {
+        assert amount >= 0 : "Amount must be non-negative";
+        assert date != null : "Date cannot be null";
         this.amount = amount;
         this.date = date;
     }
@@ -40,15 +44,19 @@ public class AddBudgetCommand extends Command {
      */
     @Override
     public void execute() {
+        if (amount < 0) {
+            throw new IllegalArgumentException("Amount must be non-negative.");
+        }
+
         // Check if a budget already exists for the specified date
         Budget existingBudget = BudgetManager.getBudget(date);
 
         if (existingBudget != null) {
-            // Update the existing budget's amount
             existingBudget.addAmount(amount);
+            logger.info("Updated existing budget for date: " + date + " with amount: " + amount);
         } else {
-            // Add a new budget since it does not exist
             BudgetManager.addBudget(new Budget(amount, date));
+            logger.info("Added new budget for date: " + date + " with amount: " + amount);
         }
     }
 }
