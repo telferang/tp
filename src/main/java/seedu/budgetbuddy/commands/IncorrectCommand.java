@@ -25,4 +25,8 @@ public class IncorrectCommand extends Command {
     public void execute () {
         Ui.displayToUser(feedbackToUser);
     }
+
+    public String getFeedbackToUser() {
+        return feedbackToUser;
+    }
 }
