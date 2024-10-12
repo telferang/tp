@@ -8,7 +8,7 @@ import java.util.Scanner;
  */
 public class Ui {
 
-    public static final String SEPARATOR = "========================================================\n";
+    public static final String SEPARATOR = "========================================================";
     public static final String WELCOME_MESSAGE = "Welcome to Budget Buddy!";
     public static final String EXIT_MESSAGE = "Bye!";
     private static final Scanner scanner = new Scanner(System.in);
@@ -39,9 +39,9 @@ public class Ui {
      * @param message The message to display to the user.
      */
     public static void displayToUser(String message) {
-        System.out.print(SEPARATOR);
+        System.out.println(SEPARATOR);
         System.out.println(message);
-        System.out.print(SEPARATOR);
+        System.out.println(SEPARATOR);
     }
 
     /**

@@ -2,6 +2,7 @@ package seedu.budgetbuddy;
 
 import seedu.budgetbuddy.commands.Command;
 import seedu.budgetbuddy.commands.ExitCommand;
+import seedu.budgetbuddy.exceptions.BudgetBuddyException;
 import seedu.budgetbuddy.transaction.budget.Budget;
 import seedu.budgetbuddy.transaction.budget.BudgetManager;
 import seedu.budgetbuddy.transaction.expense.Expense;
@@ -61,12 +62,16 @@ public class BudgetBuddy {
      */
     public void run() {
         Ui.displayWelcomeMessage();
-        Command command;
+        Command command = null;
         Parser parser = new Parser(expenseManager, incomeManager, budgetManager);
         do {
             String userCommandText = Ui.getUserCommand();
-            command = parser.parseCommand(userCommandText);
-            command.execute();
+            try {
+                command = parser.parseCommand(userCommandText);
+                command.execute();
+            } catch (BudgetBuddyException e) {
+                System.out.println(e.getMessage());
+            }
             try {
                 storage.save(expenseManager, incomeManager, budgetManager);
             } catch (IOException e) {
