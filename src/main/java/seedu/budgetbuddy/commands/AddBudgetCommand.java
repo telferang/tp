@@ -10,9 +10,9 @@ import java.util.logging.Logger;
  * Represents a command to add a budget for a specific month and year.
  */
 public class AddBudgetCommand extends Command {
+    private static Logger logger = Logger.getLogger(AddBudgetCommand.class.getName());
     private double amount;
     private YearMonth date;
-    private static final Logger logger = Logger.getLogger(AddBudgetCommand.class.getName());
 
     /**
      * Constructs an AddBudgetCommand with the specified amount and date.
