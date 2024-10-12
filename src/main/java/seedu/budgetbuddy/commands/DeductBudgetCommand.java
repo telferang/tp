@@ -4,11 +4,13 @@ import seedu.budgetbuddy.transaction.budget.Budget;
 import seedu.budgetbuddy.transaction.budget.BudgetManager;
 
 import java.time.YearMonth;
+import java.util.logging.Logger;
 
 /**
  * Represents a command to deduct a budget for a specific month and year.
  */
 public class DeductBudgetCommand extends Command {
+    private static Logger logger = Logger.getLogger(DeductBudgetCommand.class.getName());
     private double amount;
     private YearMonth date;
 
@@ -19,6 +21,8 @@ public class DeductBudgetCommand extends Command {
      * @param date The YearMonth representing the month and year for the budget.
      */
     public DeductBudgetCommand(double amount, YearMonth date) {
+        assert amount >= 0 : "Amount must be non-negative";
+        assert date != null : "Date cannot be null";
         this.amount = amount;
         this.date = date;
     }
@@ -42,12 +46,7 @@ public class DeductBudgetCommand extends Command {
     public void execute() {
         // Assume validation has guaranteed that existingBudget is not null
         Budget existingBudget = BudgetManager.getBudget(date);
-
-        // Handle if existingBudget is null smoothly
-        if (existingBudget == null) {
-            return;
-        }
-        // Deduct the amount from the existing budget
         existingBudget.deductAmount(amount);
+        logger.info("Deducted " + amount + " from budget for date: " + date);
     }
 }
