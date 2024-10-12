@@ -15,6 +15,7 @@ import seedu.budgetbuddy.commands.ListBudgetCommand;
 import seedu.budgetbuddy.commands.ListExpenseCommand;
 import seedu.budgetbuddy.commands.ListIncomeCommand;
 import seedu.budgetbuddy.commands.DisplayExpenseCommand;
+import seedu.budgetbuddy.exceptions.BudgetBuddyException;
 import seedu.budgetbuddy.transaction.budget.Budget;
 import seedu.budgetbuddy.transaction.budget.BudgetManager;
 import seedu.budgetbuddy.transaction.expense.Category;
@@ -61,7 +62,7 @@ public class Parser {
      * @return The corresponding {@code Command} to execute, or an {@code IncorrectCommand}
      *         if the input is invalid.
      */
-    public Command parseCommand(String userCommandText) {
+    public Command parseCommand(String userCommandText) throws BudgetBuddyException {
         if (AddExpenseCommand.isCommand(userCommandText)) {
             return AddExpenseValidator.processCommand(userCommandText);
         }

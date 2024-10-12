@@ -2,7 +2,6 @@ package seedu.budgetbuddy.validators;
 
 import seedu.budgetbuddy.commands.Command;
 import seedu.budgetbuddy.commands.DeductBudgetCommand;
-import seedu.budgetbuddy.commands.IncorrectCommand;
 import seedu.budgetbuddy.exceptions.BudgetBuddyException;
 import seedu.budgetbuddy.transaction.budget.BudgetManager;
 
@@ -23,7 +22,7 @@ public class DeductBudgetValidator {
 
         if (command.equals("deduct budget")) {
             logger.warning("Attempted to deduct budget without description.");
-            return new IncorrectCommand("No description provided.");
+            throw new BudgetBuddyException("No description provided.");
         }
 
         String trimmedCommand = command.substring("deduct budget ".length());
@@ -38,7 +37,7 @@ public class DeductBudgetValidator {
             if (part.startsWith("a/")) {
                 amount = validateAmount(part);
                 if (amount == -1) {
-                    return new IncorrectCommand("Invalid amount format. Amount should be a positive number.");
+                    throw new BudgetBuddyException("Invalid amount format. Amount should be a positive number.");
                 }
             } else if (part.startsWith("m/")) {
                 date = validateYearMonth(part);

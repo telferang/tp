@@ -2,7 +2,7 @@ package seedu.budgetbuddy.validators;
 
 import seedu.budgetbuddy.commands.AddBudgetCommand;
 import seedu.budgetbuddy.commands.Command;
-import seedu.budgetbuddy.commands.IncorrectCommand;
+import seedu.budgetbuddy.exceptions.BudgetBuddyException;
 
 import java.time.YearMonth;
 import java.util.logging.Logger;
@@ -16,12 +16,12 @@ import static seedu.budgetbuddy.validators.DateValidator.validateYearMonth;
 public class AddBudgetValidator {
     private static final Logger logger = Logger.getLogger(AddBudgetValidator.class.getName());
 
-    public static Command processCommand(String command) {
+    public static Command processCommand(String command) throws BudgetBuddyException {
         assert command != null : "Command cannot be null";
 
         if (command.equals("add budget")) {
             logger.warning("Attempted to add budget without description.");
-            return new IncorrectCommand("No description provided.");
+            throw new BudgetBuddyException("No description provided.");
         }
 
         String trimmedCommand = command.substring("add budget ".length());
@@ -36,7 +36,7 @@ public class AddBudgetValidator {
             if (part.startsWith("a/")) {
                 amount = validateAmount(part);
                 if (amount == -1) {
-                    return new IncorrectCommand("Invalid amount format. " +
+                    throw new BudgetBuddyException("Invalid amount format. " +
                             "Amount should be a positive number.");
                 }
             } else if (part.startsWith("m/")) {
@@ -46,12 +46,12 @@ public class AddBudgetValidator {
 
         // Validate amount
         if (amount <= 0) {
-            throw new IllegalArgumentException("Invalid amount: " + amount + ". Amount must be a positive value.");
+            throw new BudgetBuddyException("Invalid amount: " + amount + ". Amount must be a positive value.");
         }
 
         // Validate date
         if (date == null) {
-            throw new IllegalArgumentException("Invalid date format. Use m/MM/yyyy.");
+            throw new BudgetBuddyException("Invalid date format. Use m/MM/yyyy.");
         }
 
         // All validations passed, return the command
