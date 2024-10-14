@@ -1,7 +1,7 @@
-package seedu.budgetbuddy.validators;
+package seedu.budgetbuddy.validators.expense;
 
 import seedu.budgetbuddy.commands.Command;
-import seedu.budgetbuddy.commands.SearchExpenseCommand;
+import seedu.budgetbuddy.commands.expense.SearchExpenseCommand;
 
 public class SearchExpenseValidator {
     /**

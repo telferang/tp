@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- * The main class for the BudgetBuddy application.
+ * Runs the main class for the BudgetBuddy application.
  *
  * This class initiates the BudgetBuddy application by managing the overall lifecycle
  * of the application, including loading saved data, handling user commands, and saving

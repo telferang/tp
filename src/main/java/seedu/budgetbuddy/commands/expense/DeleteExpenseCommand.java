@@ -1,5 +1,6 @@
-package seedu.budgetbuddy.commands;
+package seedu.budgetbuddy.commands.expense;
 
+import seedu.budgetbuddy.commands.Command;
 import seedu.budgetbuddy.transaction.expense.ExpenseManager;
 
 /**

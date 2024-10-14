@@ -6,6 +6,8 @@ import java.time.YearMonth;
 import java.util.ArrayList;
 
 import java.time.LocalDate;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Manages a list of expenses, providing functionalities to add, delete,
@@ -14,6 +16,7 @@ import java.time.LocalDate;
 public class ExpenseManager {
     private static int numberOfExpenses = 0;
     private static ArrayList<Expense> expenses = new ArrayList<>();
+    private static final Logger LOGGER = Logger.getLogger(ExpenseManager.class.getName());
 
     /**
      * Construct a ExpenseManager of array content incomes
@@ -21,6 +24,7 @@ public class ExpenseManager {
      * @param expenses is the content to be instantiated
      */
     public ExpenseManager(ArrayList<Expense> expenses, int numberOfExpenses) {
+        assert numberOfExpenses >= 0: "numberOfExpenses should be greater than 0";
         ExpenseManager.expenses = expenses;
         ExpenseManager.numberOfExpenses = numberOfExpenses;
     }
@@ -67,6 +71,7 @@ public class ExpenseManager {
             result += counter + ". " + expense.toString() + "\n";
             counter++;
         }
+        LOGGER.log(Level.INFO, "Listing {0} expenses", numberOfExpenses);
         Ui.displayToUser(result);
     }
 

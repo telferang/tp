@@ -1,5 +1,6 @@
-package seedu.budgetbuddy.commands;
+package seedu.budgetbuddy.commands.budget;
 
+import seedu.budgetbuddy.commands.Command;
 import seedu.budgetbuddy.transaction.budget.Budget;
 import seedu.budgetbuddy.transaction.budget.BudgetManager;
 
