@@ -24,8 +24,8 @@ import java.util.logging.Logger;
  * and saving the state of the Expense, Income, and Budget transactions.
  */
 public class Storage {
-    private String filePath;
     private static final Logger logger = Logger.getLogger(Storage.class.getName());
+    private String filePath;
 
     /**
      * Initializes the Storage object with the specified file path.
