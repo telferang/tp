@@ -78,6 +78,8 @@ public class ExpenseManager {
      * @return result String to be displayed to user
      */
     public static String displayExpensesWithCategoryAndDate(Category category, YearMonth month) {
+        assert category != null : "category cannot be null";
+        assert month != null : "month cannot be null";
         String result = "";
         int counter = 1;
         for (Expense expense : expenses) {
@@ -99,6 +101,7 @@ public class ExpenseManager {
      * @return result String to be displayed to user
      */
     public static String displayExpensesWithCategory(Category category) {
+        assert category != null : "category cannot be null";
         String result = "";
         int counter = 1;
         for (Expense expense : expenses) {
@@ -120,6 +123,7 @@ public class ExpenseManager {
      * @return result String to be displayed to user
      */
     public static String displayExpensesWithDate(YearMonth month) {
+        assert month != null : "month cannot be null";
         String result = "";
         int counter = 1;
         for (Expense expense : expenses) {
