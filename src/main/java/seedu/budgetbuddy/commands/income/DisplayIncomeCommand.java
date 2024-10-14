@@ -36,10 +36,9 @@ public class DisplayIncomeCommand extends Command {
 
     @Override
     public void execute() {
-        if(month == null) {
+        if (month == null) {
             IncomeManager.listIncomes();
-        }
-        else{
+        } else{
             IncomeManager.displayIncomeWithMonth(month);
         }
     }
