@@ -36,8 +36,7 @@ public class SearchExpenseCommand extends Command{
     public void execute(){
         if (getKeyword().equals("")){
             Ui.searchEmptyMessage();
-        }
-        else{
+        } else{
             Ui.displayToUser(ExpenseManager.searchExpenses(getKeyword()));
         }
     }

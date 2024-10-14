@@ -15,6 +15,8 @@ import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * The Storage class is responsible for handling the reading and writing of data from
@@ -22,6 +24,7 @@ import java.util.Scanner;
  * and saving the state of the Expense, Income, and Budget transactions.
  */
 public class Storage {
+    private static final Logger logger = Logger.getLogger(Storage.class.getName());
     private String filePath;
 
     /**
@@ -31,6 +34,7 @@ public class Storage {
      */
     public Storage(String filepath) {
         this.filePath = filepath;
+        logger.log(Level.INFO, "Storing " + filepath);
     }
 
     /**
@@ -44,6 +48,7 @@ public class Storage {
     public ArrayList<ArrayList<?>> load() throws FileNotFoundException {
         File file = new File(filePath);
         if (!file.exists()) {
+            logger.warning("File does not exist: " + file.getAbsolutePath());
             throw new FileNotFoundException("File does not exist: " + file.getAbsolutePath());
         }
         ArrayList<Expense> expenses = new ArrayList<>();
@@ -53,6 +58,7 @@ public class Storage {
 
         while (sc.hasNextLine()) {
             String input = sc.nextLine();
+            logger.fine("Parsing line: " + input);  // Log each line being parsed
             Parser.parseFile(input, expenses, incomes, budgets);
         }
         sc.close();
@@ -60,6 +66,8 @@ public class Storage {
         list.add(expenses);
         list.add(incomes);
         list.add(budgets);
+        logger.info("Data loaded successfully. Expenses: " + expenses.size() + ", Incomes: " + incomes.size()
+                + ", Budgets: " + budgets.size());
         return list;
     }
 
@@ -74,6 +82,11 @@ public class Storage {
      */
     public void save(ExpenseManager expenseList, IncomeManager incomeList, BudgetManager budgetList)
             throws IOException {
+
+        assert expenseList != null : "Expense list cannot be null";  // Assert that the expense list is not null
+        assert incomeList != null : "Income list cannot be null";      // Assert that the income list is not null
+        assert budgetList != null : "Budget list cannot be null";      // Assert that the budget list is not null
+        logger.info("Saving data to file: " + filePath);
 
         FileWriter fw = new FileWriter(filePath, false); // Overwrites the file
 
