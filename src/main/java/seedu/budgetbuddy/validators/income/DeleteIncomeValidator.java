@@ -1,8 +1,9 @@
-package seedu.budgetbuddy.validators;
+package seedu.budgetbuddy.validators.income;
 
 import seedu.budgetbuddy.commands.Command;
-import seedu.budgetbuddy.commands.DeleteIncomeCommand;
+import seedu.budgetbuddy.commands.income.DeleteIncomeCommand;
 import seedu.budgetbuddy.commands.IncorrectCommand;
+import seedu.budgetbuddy.validators.IndexValidator;
 
 /**
  * Validates the command for deleting an income.

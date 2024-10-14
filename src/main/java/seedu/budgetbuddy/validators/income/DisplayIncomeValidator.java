@@ -1,7 +1,7 @@
-package seedu.budgetbuddy.validators;
+package seedu.budgetbuddy.validators.income;
 
 import seedu.budgetbuddy.commands.Command;
-import seedu.budgetbuddy.commands.DisplayIncomeCommand;
+import seedu.budgetbuddy.commands.income.DisplayIncomeCommand;
 import seedu.budgetbuddy.commands.IncorrectCommand;
 
 import java.time.YearMonth;

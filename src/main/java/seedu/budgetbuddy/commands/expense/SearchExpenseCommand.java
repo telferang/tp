@@ -1,9 +1,10 @@
-package seedu.budgetbuddy.commands;
+package seedu.budgetbuddy.commands.expense;
 
 import seedu.budgetbuddy.Ui;
+import seedu.budgetbuddy.commands.Command;
 import seedu.budgetbuddy.transaction.expense.ExpenseManager;
 
-public class SearchExpenseCommand extends Command{
+public class SearchExpenseCommand extends Command {
     private String keyword;
 
     /**

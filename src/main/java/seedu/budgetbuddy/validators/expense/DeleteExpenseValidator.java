@@ -1,8 +1,9 @@
-package seedu.budgetbuddy.validators;
+package seedu.budgetbuddy.validators.expense;
 
 import seedu.budgetbuddy.commands.Command;
-import seedu.budgetbuddy.commands.DeleteExpenseCommand;
+import seedu.budgetbuddy.commands.expense.DeleteExpenseCommand;
 import seedu.budgetbuddy.commands.IncorrectCommand;
+import seedu.budgetbuddy.validators.IndexValidator;
 
 /**
  * Validates the command for deleting an expense.
