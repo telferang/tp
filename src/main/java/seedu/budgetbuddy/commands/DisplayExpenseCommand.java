@@ -1,5 +1,6 @@
 package seedu.budgetbuddy.commands;
 
+import seedu.budgetbuddy.Ui;
 import seedu.budgetbuddy.transaction.expense.Category;
 import seedu.budgetbuddy.transaction.expense.ExpenseManager;
 
@@ -56,6 +57,14 @@ public class DisplayExpenseCommand extends Command {
         return command.startsWith("display expenses");
     }
 
+    public Category getCategory() {
+        return category;
+    }
+
+    public YearMonth getMonth() {
+        return month;
+    }
+
     /**
      * Executes the command to list all expenses by invoking the ExpenseManager's method.
      */
@@ -64,11 +73,11 @@ public class DisplayExpenseCommand extends Command {
         if (category == null && month == null) {
             ExpenseManager.listExpenses();
         } else if (category == null){
-            ExpenseManager.displayExpensesWithDate(month);
+            Ui.displayToUser(ExpenseManager.displayExpensesWithDate(month));
         } else if (month == null) {
-            ExpenseManager.displayExpensesWithCategory(category);
+            Ui.displayToUser(ExpenseManager.displayExpensesWithCategory(category));
         } else {
-            ExpenseManager.displayExpensesWithCategoryAndDate(category,month);
+            Ui.displayToUser(ExpenseManager.displayExpensesWithCategoryAndDate(category,month));
         }
     }
 

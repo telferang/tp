@@ -49,4 +49,20 @@ public class AddExpenseCommand extends Command {
     public void execute() {
         ExpenseManager.addExpense(new Expense(description, amount, date, category));
     }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
 }

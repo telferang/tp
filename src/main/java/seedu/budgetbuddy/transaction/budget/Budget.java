@@ -21,6 +21,7 @@ public class Budget {
      * @param date   The YearMonth representing the month and year for the budget.
      */
     public Budget(double amount, YearMonth date) {
+        assert amount >= 0 : "Initial amount cannot be negative";
         this.amount = amount;
         this.date = date;
     }
@@ -31,6 +32,7 @@ public class Budget {
      * @param additionalAmount The amount to be added to the existing budget.
      */
     public void addAmount(double additionalAmount) {
+        assert additionalAmount >= 0 : "Amount to add cannot be negative";
         this.amount += additionalAmount;
         Ui.displayBudgetTransactionMessage(toString(), BudgetManager.getNumberOfBudgets());
     }
@@ -41,6 +43,7 @@ public class Budget {
      * @param deductedAmount The amount to be deducted from the existing budget.
      */
     public void deductAmount(double deductedAmount) {
+        assert deductedAmount >= 0 : "Amount to deduct cannot be negative";
         this.amount -= deductedAmount;
         if (amount <= 0) {
             this.amount = 0;
