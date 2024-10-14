@@ -59,4 +59,23 @@ class ExpenseManagerTest {
         assertEquals(EMPTY_DISPLAY_STRING,
                 ExpenseManager.displayExpensesWithCategoryAndDate(category, yearMonth));
     }
+
+    @Test
+    void searchExpense_noDescriptor_expectEmptyDisplayString(){
+        initializeTestContent();
+        assertEquals(EMPTY_DISPLAY_STRING, ExpenseManager.searchExpenses(""));
+    }
+
+    @Test
+    void searchExpense_descriptorProvidedNoFoundExpense_expectEmptyDisplayString(){
+        initializeTestContent();
+        assertEquals(EMPTY_DISPLAY_STRING, ExpenseManager.searchExpenses("RANDOMMESSAGE"));
+    }
+
+    @Test
+    void searchExpense_foundExpense_expectOutput(){
+        initializeTestContent();
+        assertEquals("1. Description: New Food  Amount: 12.0  Date: 2024-02-12  Category: FOOD\n",
+                ExpenseManager.searchExpenses("New"));
+    }
 }
