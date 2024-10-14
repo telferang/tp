@@ -10,10 +10,10 @@ public class SearchExpenseValidator {
      * @return new SearchExpenseCommand object.
      */
     public static Command processCommand(String command){
-        if (command.equals("search")){
+        if (command.equals("search expense")){
             return new SearchExpenseCommand();
         }
-        String trimmedCommand = command.substring("search ".length());
+        String trimmedCommand = command.substring("search expense ".length());
         return new SearchExpenseCommand(trimmedCommand);
     }
 }

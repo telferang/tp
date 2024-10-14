@@ -27,7 +27,7 @@ public class SearchExpenseCommand extends Command{
      * @return True if command starts with "search", False otherwise
      */
     public static boolean isCommand(String command){
-        return command.startsWith("search");
+        return command.startsWith("search expense");
     }
 
     /**
