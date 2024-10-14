@@ -23,7 +23,7 @@ public class IncomeManager {
      * @param incomes is the content to be instantiated
      */
     public IncomeManager(ArrayList<Income> incomes, int numberOfIncomes) {
-        assert numberOfIncomes > 0 : "numberOfIncomes should be greater than 0";
+        assert numberOfIncomes >= 0 : "numberOfIncomes should be greater than 0";
         IncomeManager.incomes = incomes;
         IncomeManager.numberOfIncomes = numberOfIncomes;
     }
