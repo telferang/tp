@@ -149,6 +149,7 @@ public class ExpenseManager {
      * @return result String displayed to user
      */
     public static String searchExpenses(String keyword){
+        assert keyword != null: "Keyword should not be null";
         String result = "";
         if (keyword.equals("")){
             result = getEmptyDisplayMessage();
@@ -173,6 +174,7 @@ public class ExpenseManager {
      * @return
      */
     public static YearMonth getYearMonthFromDate(LocalDate date) {
+        assert date != null: "Date should not be null";
         return YearMonth.from(date);
     }
 
