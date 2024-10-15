@@ -10,6 +10,7 @@ public class SearchExpenseValidator {
      * @return new SearchExpenseCommand object.
      */
     public static Command processCommand(String command){
+        assert command != null: "Command cannot be null";
         if (command.equals("search expense")){
             return new SearchExpenseCommand();
         }
