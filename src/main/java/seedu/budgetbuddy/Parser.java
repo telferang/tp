@@ -1,6 +1,11 @@
 package seedu.budgetbuddy;
 
-import seedu.budgetbuddy.commands.expense.*;
+import seedu.budgetbuddy.commands.expense.DeleteExpenseCommand;
+import seedu.budgetbuddy.commands.expense.AddExpenseCommand;
+import seedu.budgetbuddy.commands.expense.SearchExpenseCommand;
+import seedu.budgetbuddy.commands.expense.ListExpenseCommand;
+import seedu.budgetbuddy.commands.expense.DisplayExpenseCommand;
+import seedu.budgetbuddy.commands.expense.DisplayTotalExpensesCommand;
 import seedu.budgetbuddy.commands.income.AddIncomeCommand;
 import seedu.budgetbuddy.commands.budget.AddBudgetCommand;
 import seedu.budgetbuddy.commands.Command;

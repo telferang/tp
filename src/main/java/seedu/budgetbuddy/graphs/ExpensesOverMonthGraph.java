@@ -5,7 +5,7 @@ import org.knowm.xchart.XYChart;
 import org.knowm.xchart.XYChartBuilder;
 import seedu.budgetbuddy.transaction.expense.Expense;
 
-import javax.swing.*;
+import javax.swing.JFrame;
 import java.time.YearMonth;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,7 +44,7 @@ public class ExpensesOverMonthGraph {
      * @param yearMonth The YearMonth for which the total expense is to be retrieved.
      * @return The total expense for the given YearMonth, or 0.0 if no expenses are found for that month.
      */
-    public static double ExpensesForMonth(Map<YearMonth, Double> monthlyExpenseMap, YearMonth yearMonth) {
+    public static double expensesForMonth(Map<YearMonth, Double> monthlyExpenseMap, YearMonth yearMonth) {
         return monthlyExpenseMap.getOrDefault(yearMonth, 0.0);
     }
 
@@ -55,7 +55,7 @@ public class ExpensesOverMonthGraph {
      * @param monthlyExpenseMap A map containing YearMonth as keys and total expenses as values.
      * @param year The year for which the expenses will be displayed.
      */
-    public static void ChartPrinter(Map<YearMonth, Double> monthlyExpenseMap, int year) {
+    public static void chartPrinter(Map<YearMonth, Double> monthlyExpenseMap, int year) {
         // Create a list to hold all months in the year
         List<Double> xAxis = new ArrayList<>();
         List<Double> yAxis = new ArrayList<>();

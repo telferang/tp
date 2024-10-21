@@ -180,7 +180,7 @@ public class ExpenseManager {
     public static void displayExpensesOverMonthGraph(int year) {
         ArrayList<Expense> expensesOverMonthArray = getExpenses();
         Map<YearMonth, Double> monthlyExpensesMap = ExpensesOverMonthGraph.monthMapBuilder(expensesOverMonthArray);
-        ExpensesOverMonthGraph.ChartPrinter(monthlyExpensesMap, year);
+        ExpensesOverMonthGraph.chartPrinter(monthlyExpensesMap, year);
     }
 
     /**
@@ -192,7 +192,7 @@ public class ExpenseManager {
         ArrayList<Expense> expensesOverMonthArray = getExpenses();
         Map<YearMonth, Double> monthlyExpensesMap = ExpensesOverMonthGraph.monthMapBuilder(expensesOverMonthArray);
         Ui.displayToUser("Your expenses for " + yearMonth.toString() + " is " +
-                ExpensesOverMonthGraph.ExpensesForMonth(monthlyExpensesMap, yearMonth));
+                ExpensesOverMonthGraph.expensesForMonth(monthlyExpensesMap, yearMonth));
     }
 
 
