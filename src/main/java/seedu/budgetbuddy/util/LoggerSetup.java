@@ -1,5 +1,6 @@
 package seedu.budgetbuddy.util;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
@@ -10,6 +11,12 @@ public class LoggerSetup {
 
     static {
         try {
+            //Ensure the Log Directory Exist
+            File logDirectory = new File("logs");
+            if (!logDirectory.exists()) {
+                logDirectory.mkdir();
+            }
+
             // Create a file handler that writes logs messages to logs/app.log
             FileHandler fileHandler = new FileHandler("logs/app.log", true);
             fileHandler.setFormatter(new SimpleFormatter()); // Use a simple text format for the logs

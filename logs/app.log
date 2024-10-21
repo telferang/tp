@@ -686,3 +686,15 @@ Oct 21, 2024 11:27:33 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
 Oct 21, 2024 11:27:37 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
+Oct 22, 2024 12:07:08 AM seedu.budgetbuddy.Storage <init>
+INFO: Storing ./data/BudgetBuddy.txt
+Oct 22, 2024 12:07:08 AM seedu.budgetbuddy.Storage load
+INFO: Data loaded successfully. Expenses: 11, Incomes: 3, Budgets: 7
+Oct 22, 2024 12:07:32 AM seedu.budgetbuddy.validators.expense.DisplayTotalExpensesValidator processCommand
+INFO: Processing command: display monthly expenses y/2024
+Oct 22, 2024 12:07:32 AM seedu.budgetbuddy.commands.expense.DisplayTotalExpensesCommand execute
+INFO: Displaying expense graph
+Oct 22, 2024 12:07:33 AM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Oct 22, 2024 12:07:39 AM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
