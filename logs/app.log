@@ -280,3 +280,57 @@ Oct 21, 2024 7:47:23 PM seedu.budgetbuddy.commands.expense.DisplayTotalExpensesC
 INFO: Displaying monthly expense
 Oct 21, 2024 7:47:23 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
+Oct 21, 2024 8:26:49 PM seedu.budgetbuddy.Storage <init>
+INFO: Storing ./data/BudgetBuddy.txt
+Oct 21, 2024 8:26:49 PM seedu.budgetbuddy.Storage load
+INFO: Data loaded successfully. Expenses: 10, Incomes: 3, Budgets: 5
+Oct 21, 2024 8:27:11 PM seedu.budgetbuddy.commands.expense.DisplayTotalExpensesCommand execute
+INFO: Displaying monthly expense
+Oct 21, 2024 8:27:11 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Oct 21, 2024 8:27:20 PM seedu.budgetbuddy.commands.expense.DisplayTotalExpensesCommand execute
+INFO: Displaying expense graph
+Oct 21, 2024 8:27:20 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Oct 21, 2024 8:27:48 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Oct 21, 2024 8:27:58 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Oct 21, 2024 8:45:16 PM seedu.budgetbuddy.Storage <init>
+INFO: Storing ./data/BudgetBuddy.txt
+Oct 21, 2024 8:45:16 PM seedu.budgetbuddy.Storage load
+INFO: Data loaded successfully. Expenses: 10, Incomes: 3, Budgets: 5
+Oct 21, 2024 8:45:24 PM seedu.budgetbuddy.validators.expense.DisplayTotalExpensesValidator processCommand
+INFO: Processing command: display monthly expenses
+Oct 21, 2024 8:45:24 PM seedu.budgetbuddy.validators.expense.DisplayTotalExpensesValidator processCommand
+WARNING: Trimmed command is empty
+Oct 21, 2024 8:45:24 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Oct 21, 2024 8:45:29 PM seedu.budgetbuddy.validators.expense.DisplayTotalExpensesValidator processCommand
+INFO: Processing command: display monthly expenses
+Oct 21, 2024 8:45:29 PM seedu.budgetbuddy.validators.expense.DisplayTotalExpensesValidator processCommand
+WARNING: Trimmed command is empty
+Oct 21, 2024 8:45:29 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Oct 21, 2024 8:45:38 PM seedu.budgetbuddy.validators.expense.DisplayTotalExpensesValidator processCommand
+INFO: Processing command: display monthly expenses y/2024
+Oct 21, 2024 8:45:38 PM seedu.budgetbuddy.commands.expense.DisplayTotalExpensesCommand execute
+INFO: Displaying expense graph
+Oct 21, 2024 8:45:38 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Oct 21, 2024 8:45:50 PM seedu.budgetbuddy.validators.expense.DisplayTotalExpensesValidator processCommand
+INFO: Processing command: display monthly expenses y/2024 m
+Oct 21, 2024 8:45:50 PM seedu.budgetbuddy.validators.expense.DisplayTotalExpensesValidator processCommand
+WARNING: Invalid Command: m
+Oct 21, 2024 8:45:50 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Oct 21, 2024 8:45:58 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Oct 21, 2024 8:46:09 PM seedu.budgetbuddy.validators.expense.DisplayTotalExpensesValidator processCommand
+INFO: Processing command: display monthly expenses y/2024 m/09
+Oct 21, 2024 8:46:09 PM seedu.budgetbuddy.commands.expense.DisplayTotalExpensesCommand execute
+INFO: Displaying monthly expense
+Oct 21, 2024 8:46:09 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Oct 21, 2024 8:46:14 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt

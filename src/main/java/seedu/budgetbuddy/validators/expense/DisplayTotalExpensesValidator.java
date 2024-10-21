@@ -6,6 +6,7 @@ import seedu.budgetbuddy.commands.expense.DisplayTotalExpensesCommand;
 import seedu.budgetbuddy.util.LoggerSetup;
 
 import java.time.YearMonth;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
@@ -14,7 +15,6 @@ import java.util.logging.Logger;
  */
 public class DisplayTotalExpensesValidator {
     private static final Logger LOGGER = LoggerSetup.getLogger();
-
     /**
      * Processes the command input, validates the year and month (if provided), and returns a corresponding command.
      *
@@ -25,9 +25,12 @@ public class DisplayTotalExpensesValidator {
         int year;
         YearMonth month = null;
 
+        LOGGER.log(Level.INFO, "Processing command: " + command);
+
         // Extract the portion of the command after "display monthly expenses"
         String trimmedCommand = command.substring("display monthly expenses".length()).trim();
         if (trimmedCommand.isEmpty()) {
+            LOGGER.log(Level.WARNING, "Trimmed command is empty");
             return new IncorrectCommand("Please provide a year.");
         }
 
@@ -45,15 +48,18 @@ public class DisplayTotalExpensesValidator {
                 if (arg.length() > 2) {
                     monthArg = arg.substring(2); // Remove the "m/" prefix
                 } else {
+                    LOGGER.log(Level.WARNING, "Invalid month argument: " + arg);
                     return new IncorrectCommand("Month is missing after 'm/'. Please provide a valid month.");
                 }
             } else {
+                LOGGER.log(Level.WARNING, "Invalid Command: " + arg);
                 return new IncorrectCommand("Unknown command '" + trimmedCommand + "'.");
             }
         }
 
         // Validate and parse the year
         if (yearArg == null || !isValidYear(yearArg)) {
+            LOGGER.log(Level.WARNING, "Invalid year: " + yearArg);
             return new IncorrectCommand("Invalid or missing year format.");
         }
         year = Integer.parseInt(yearArg);
@@ -61,6 +67,7 @@ public class DisplayTotalExpensesValidator {
         // If a month is provided, validate and parse it
         if (monthArg != null) {
             if (!isValidMonth(monthArg)) {
+                LOGGER.log(Level.WARNING, "Invalid month: " + monthArg);
                 return new IncorrectCommand("Invalid month format.");
             }
             month = YearMonth.of(year, Integer.parseInt(monthArg));
