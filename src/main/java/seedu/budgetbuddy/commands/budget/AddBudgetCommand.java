@@ -1,5 +1,6 @@
 package seedu.budgetbuddy.commands.budget;
 
+import seedu.budgetbuddy.Ui;
 import seedu.budgetbuddy.commands.Command;
 import seedu.budgetbuddy.transaction.Category;
 import seedu.budgetbuddy.transaction.budget.Budget;
@@ -59,9 +60,13 @@ public class AddBudgetCommand extends Command {
 
         if (existingBudget != null) {
             existingBudget.addAmount(category, amount);
+            Ui.displayBudgetTransactionMessage(existingBudget.toString(), BudgetManager.getNumberOfBudgets());
             LOGGER.info("Updated existing budget for date: " + date + " with amount: " + amount);
         } else {
-            BudgetManager.addBudget(new Budget(amount, date));
+            Budget budget = new Budget(amount, date);
+            BudgetManager.addBudget(budget);
+            budget.addAmount(category, amount);
+            Ui.displayBudgetTransactionMessage(budget.toString(), BudgetManager.getNumberOfBudgets());
             LOGGER.info("Added new budget for date: " + date + " with amount: " + amount);
         }
     }
