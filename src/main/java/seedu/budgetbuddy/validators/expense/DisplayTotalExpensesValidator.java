@@ -19,8 +19,7 @@ public class DisplayTotalExpensesValidator {
      * Processes the command input, validates the year and month (if provided), and returns a corresponding command.
      *
      * @param command The raw command string entered by the user.
-     * @return A {@link Command} object, either a {@link DisplayTotalExpensesCommand} or
-     * an {@link IncorrectCommand} if input is invalid.
+     * @return A {@link Command} object, {@link DisplayTotalExpensesCommand} or {@link IncorrectCommand}.
      */
     public static Command processCommand(String command) {
         int year;

@@ -25,13 +25,17 @@ import seedu.budgetbuddy.transaction.expense.Expense;
 import seedu.budgetbuddy.transaction.expense.ExpenseManager;
 import seedu.budgetbuddy.transaction.income.Income;
 import seedu.budgetbuddy.transaction.income.IncomeManager;
-import seedu.budgetbuddy.validators.expense.*;
 import seedu.budgetbuddy.validators.income.AddIncomeValidator;
 import seedu.budgetbuddy.validators.budget.AddBudgetValidator;
 import seedu.budgetbuddy.validators.budget.DeductBudgetValidator;
 import seedu.budgetbuddy.validators.income.DeleteIncomeValidator;
 import seedu.budgetbuddy.validators.income.DisplayIncomeValidator;
 import seedu.budgetbuddy.validators.budget.ListBudgetValidator;
+import seedu.budgetbuddy.validators.expense.AddExpenseValidator;
+import seedu.budgetbuddy.validators.expense.DeleteExpenseValidator;
+import seedu.budgetbuddy.validators.expense.DisplayExpenseValidator;
+import seedu.budgetbuddy.validators.expense.DisplayTotalExpensesValidator;
+import seedu.budgetbuddy.validators.expense.SearchExpenseValidator;
 
 import java.time.LocalDate;
 import java.time.YearMonth;
