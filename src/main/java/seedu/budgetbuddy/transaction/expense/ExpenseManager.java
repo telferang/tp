@@ -8,7 +8,6 @@ import java.time.YearMonth;
 import java.util.ArrayList;
 
 import java.time.LocalDate;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -178,8 +177,11 @@ public class ExpenseManager {
         ExpensesOverMonthGraph.ChartPrinter(monthlyExpensesMap, year);
     }
 
-    public static void displayExpensesforMonth (int month) {
-
+    public static void displayTotalExpensesForMonth(YearMonth yearMonth) {
+        ArrayList<Expense> expensesOverMonthArray = getExpenses();
+        Map<YearMonth, Double> monthlyExpensesMap = ExpensesOverMonthGraph.monthMapBuilder(expensesOverMonthArray);
+        Ui.displayToUser("Your expenses for " + yearMonth.toString() + " is " +
+                Double.toString(ExpensesOverMonthGraph.ExpensesForMonth(monthlyExpensesMap, yearMonth)));
     }
 
     /**
