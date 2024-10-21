@@ -7,6 +7,7 @@ import seedu.budgetbuddy.transaction.expense.Expense;
 import seedu.budgetbuddy.transaction.expense.ExpenseManager;
 import seedu.budgetbuddy.transaction.income.Income;
 import seedu.budgetbuddy.transaction.income.IncomeManager;
+import seedu.budgetbuddy.util.LoggerSetup;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -24,7 +25,7 @@ import java.util.logging.Logger;
  * and saving the state of the Expense, Income, and Budget transactions.
  */
 public class Storage {
-    private static final Logger logger = Logger.getLogger(Storage.class.getName());
+    private static final Logger LOGGER = LoggerSetup.getLogger();
     private String filePath;
 
     /**
@@ -34,7 +35,7 @@ public class Storage {
      */
     public Storage(String filepath) {
         this.filePath = filepath;
-        logger.log(Level.INFO, "Storing " + filepath);
+        LOGGER.log(Level.INFO, "Storing " + filepath);
     }
 
     /**
@@ -48,7 +49,7 @@ public class Storage {
     public ArrayList<ArrayList<?>> load() throws FileNotFoundException {
         File file = new File(filePath);
         if (!file.exists()) {
-            logger.warning("File does not exist: " + file.getAbsolutePath());
+            LOGGER.warning("File does not exist: " + file.getAbsolutePath());
             throw new FileNotFoundException("File does not exist: " + file.getAbsolutePath());
         }
         ArrayList<Expense> expenses = new ArrayList<>();
@@ -58,7 +59,7 @@ public class Storage {
 
         while (sc.hasNextLine()) {
             String input = sc.nextLine();
-            logger.fine("Parsing line: " + input);  // Log each line being parsed
+            LOGGER.fine("Parsing line: " + input);  // Log each line being parsed
             Parser.parseFile(input, expenses, incomes, budgets);
         }
         sc.close();
@@ -66,7 +67,7 @@ public class Storage {
         list.add(expenses);
         list.add(incomes);
         list.add(budgets);
-        logger.info("Data loaded successfully. Expenses: " + expenses.size() + ", Incomes: " + incomes.size()
+        LOGGER.info("Data loaded successfully. Expenses: " + expenses.size() + ", Incomes: " + incomes.size()
                 + ", Budgets: " + budgets.size());
         return list;
     }
@@ -86,7 +87,7 @@ public class Storage {
         assert expenseList != null : "Expense list cannot be null";  // Assert that the expense list is not null
         assert incomeList != null : "Income list cannot be null";      // Assert that the income list is not null
         assert budgetList != null : "Budget list cannot be null";      // Assert that the budget list is not null
-        logger.info("Saving data to file: " + filePath);
+        LOGGER.info("Saving data to file: " + filePath);
 
         FileWriter fw = new FileWriter(filePath, false); // Overwrites the file
 

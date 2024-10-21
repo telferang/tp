@@ -3,6 +3,7 @@ package seedu.budgetbuddy.commands.budget;
 import seedu.budgetbuddy.commands.Command;
 import seedu.budgetbuddy.transaction.budget.Budget;
 import seedu.budgetbuddy.transaction.budget.BudgetManager;
+import seedu.budgetbuddy.util.LoggerSetup;
 
 import java.time.YearMonth;
 import java.util.logging.Logger;
@@ -11,7 +12,7 @@ import java.util.logging.Logger;
  * Represents a command to add a budget for a specific month and year.
  */
 public class AddBudgetCommand extends Command {
-    private static Logger logger = Logger.getLogger(AddBudgetCommand.class.getName());
+    private static final Logger LOGGER = LoggerSetup.getLogger();
     private double amount;
     private YearMonth date;
 
@@ -54,10 +55,10 @@ public class AddBudgetCommand extends Command {
 
         if (existingBudget != null) {
             existingBudget.addAmount(amount);
-            logger.info("Updated existing budget for date: " + date + " with amount: " + amount);
+            LOGGER.info("Updated existing budget for date: " + date + " with amount: " + amount);
         } else {
             BudgetManager.addBudget(new Budget(amount, date));
-            logger.info("Added new budget for date: " + date + " with amount: " + amount);
+            LOGGER.info("Added new budget for date: " + date + " with amount: " + amount);
         }
     }
 }

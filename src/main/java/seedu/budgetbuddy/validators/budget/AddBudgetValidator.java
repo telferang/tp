@@ -3,6 +3,7 @@ package seedu.budgetbuddy.validators.budget;
 import seedu.budgetbuddy.commands.budget.AddBudgetCommand;
 import seedu.budgetbuddy.commands.Command;
 import seedu.budgetbuddy.exceptions.BudgetBuddyException;
+import seedu.budgetbuddy.util.LoggerSetup;
 
 import java.time.YearMonth;
 import java.util.logging.Logger;
@@ -14,13 +15,13 @@ import static seedu.budgetbuddy.validators.DateValidator.validateYearMonth;
  * Validates commands for adding budgets.
  */
 public class AddBudgetValidator {
-    private static Logger logger = Logger.getLogger(AddBudgetValidator.class.getName());
+    private static final Logger LOGGER = LoggerSetup.getLogger();
 
     public static Command processCommand(String command) throws BudgetBuddyException {
         assert command != null : "Command cannot be null";
 
         if (command.equals("add budget")) {
-            logger.warning("Attempted to add budget without description.");
+            LOGGER.warning("Attempted to add budget without description.");
             throw new BudgetBuddyException("No description provided.");
         }
 

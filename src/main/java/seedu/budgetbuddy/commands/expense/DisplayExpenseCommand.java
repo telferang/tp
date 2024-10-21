@@ -4,6 +4,7 @@ import seedu.budgetbuddy.Ui;
 import seedu.budgetbuddy.commands.Command;
 import seedu.budgetbuddy.transaction.expense.Category;
 import seedu.budgetbuddy.transaction.expense.ExpenseManager;
+import seedu.budgetbuddy.util.LoggerSetup;
 
 import java.time.YearMonth;
 import java.util.logging.Level;
@@ -11,7 +12,7 @@ import java.util.logging.Logger;
 
 public class DisplayExpenseCommand extends Command {
 
-    private static Logger logger = Logger.getLogger(DisplayExpenseCommand.class.getName());
+    private static final Logger LOGGER = LoggerSetup.getLogger();
     private Category category;
     private YearMonth month;
 
@@ -75,16 +76,16 @@ public class DisplayExpenseCommand extends Command {
     @Override
     public void execute() {
         if (category == null && month == null) {
-            logger.log(Level.INFO, "Displaying expenses listed with no Filter");
+            LOGGER.log(Level.INFO, "Displaying expenses listed with no Filter");
             ExpenseManager.listExpenses();
         } else if (category == null){
-            logger.info("Displaying expenses listed in the Month: " + month);
+            LOGGER.info("Displaying expenses listed in the Month: " + month);
             Ui.displayToUser(ExpenseManager.displayExpensesWithDate(month));
         } else if (month == null) {
-            logger.info("Displaying expenses listed with Category: " + category);
+            LOGGER.info("Displaying expenses listed with Category: " + category);
             Ui.displayToUser(ExpenseManager.displayExpensesWithCategory(category));
         } else {
-            logger.info("Displaying expenses listed with Category: " + category + " and Month: " + month);
+            LOGGER.info("Displaying expenses listed with Category: " + category + " and Month: " + month);
             Ui.displayToUser(ExpenseManager.displayExpensesWithCategoryAndDate(category,month));
         }
     }
