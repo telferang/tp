@@ -3,12 +3,14 @@ package seedu.budgetbuddy.validators.budget;
 import seedu.budgetbuddy.commands.budget.AddBudgetCommand;
 import seedu.budgetbuddy.commands.Command;
 import seedu.budgetbuddy.exceptions.BudgetBuddyException;
+import seedu.budgetbuddy.transaction.Category;
 import seedu.budgetbuddy.util.LoggerSetup;
 
 import java.time.YearMonth;
 import java.util.logging.Logger;
 
 import static seedu.budgetbuddy.validators.AmountValidator.validateAmount;
+import static seedu.budgetbuddy.validators.CategoryValidator.validateCategory;
 import static seedu.budgetbuddy.validators.DateValidator.validateYearMonth;
 
 /**
@@ -31,6 +33,7 @@ public class AddBudgetValidator {
         // Initialize default values
         double amount = 0; // invalid amount initially
         YearMonth date = null; // invalid date initially
+        Category category = Category.OTHERS;
 
         // Process parts to extract details
         for (String part : parts) {
@@ -42,6 +45,8 @@ public class AddBudgetValidator {
                 }
             } else if (part.startsWith("m/")) {
                 date = validateYearMonth(part);
+            } else if (part.startsWith("c/")) {
+                category = validateCategory(part);
             }
         }
 
@@ -56,7 +61,6 @@ public class AddBudgetValidator {
         }
 
         // All validations passed, return the command
-        return new AddBudgetCommand(amount, date);
+        return new AddBudgetCommand(amount, date, category);
     }
-
 }
