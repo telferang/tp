@@ -1,22 +1,18 @@
 package seedu.budgetbuddy;
 
-import seedu.budgetbuddy.commands.expense.AddExpenseCommand;
+import seedu.budgetbuddy.commands.expense.*;
 import seedu.budgetbuddy.commands.income.AddIncomeCommand;
 import seedu.budgetbuddy.commands.budget.AddBudgetCommand;
 import seedu.budgetbuddy.commands.Command;
 import seedu.budgetbuddy.commands.budget.DeductBudgetCommand;
-import seedu.budgetbuddy.commands.expense.DeleteExpenseCommand;
 import seedu.budgetbuddy.commands.income.DeleteIncomeCommand;
 import seedu.budgetbuddy.commands.income.DisplayIncomeCommand;
 import seedu.budgetbuddy.commands.ExitCommand;
 import seedu.budgetbuddy.commands.HelpCommand;
 import seedu.budgetbuddy.commands.IncorrectCommand;
 import seedu.budgetbuddy.commands.budget.ListBudgetCommand;
-import seedu.budgetbuddy.commands.expense.ListExpenseCommand;
 import seedu.budgetbuddy.commands.income.ListIncomeCommand;
-import seedu.budgetbuddy.commands.expense.DisplayExpenseCommand;
 import seedu.budgetbuddy.exceptions.BudgetBuddyException;
-import seedu.budgetbuddy.commands.expense.SearchExpenseCommand;
 import seedu.budgetbuddy.transaction.budget.Budget;
 import seedu.budgetbuddy.transaction.budget.BudgetManager;
 import seedu.budgetbuddy.transaction.expense.Category;
@@ -24,16 +20,13 @@ import seedu.budgetbuddy.transaction.expense.Expense;
 import seedu.budgetbuddy.transaction.expense.ExpenseManager;
 import seedu.budgetbuddy.transaction.income.Income;
 import seedu.budgetbuddy.transaction.income.IncomeManager;
-import seedu.budgetbuddy.validators.expense.AddExpenseValidator;
+import seedu.budgetbuddy.validators.expense.*;
 import seedu.budgetbuddy.validators.income.AddIncomeValidator;
 import seedu.budgetbuddy.validators.budget.AddBudgetValidator;
 import seedu.budgetbuddy.validators.budget.DeductBudgetValidator;
-import seedu.budgetbuddy.validators.expense.DeleteExpenseValidator;
 import seedu.budgetbuddy.validators.income.DeleteIncomeValidator;
 import seedu.budgetbuddy.validators.income.DisplayIncomeValidator;
 import seedu.budgetbuddy.validators.budget.ListBudgetValidator;
-import seedu.budgetbuddy.validators.expense.DisplayExpenseValidator;
-import seedu.budgetbuddy.validators.expense.SearchExpenseValidator;
 
 import java.time.LocalDate;
 import java.time.YearMonth;
@@ -106,6 +99,9 @@ public class Parser {
         }
         if (SearchExpenseCommand.isCommand(userCommandText)){
             return SearchExpenseValidator.processCommand(userCommandText);
+        }
+        if (DisplayExpenseGraphCommand.isCommand(userCommandText)){
+            return DisplayExpenseGraphValidator.processCommand(userCommandText);
         }
         return new IncorrectCommand("Invalid input");
     }
