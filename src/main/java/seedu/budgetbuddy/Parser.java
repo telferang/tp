@@ -100,8 +100,8 @@ public class Parser {
         if (SearchExpenseCommand.isCommand(userCommandText)){
             return SearchExpenseValidator.processCommand(userCommandText);
         }
-        if (DisplayExpenseGraphCommand.isCommand(userCommandText)){
-            return DisplayExpenseGraphValidator.processCommand(userCommandText);
+        if (DisplayTotalExpensesCommand.isCommand(userCommandText)){
+            return DisplayTotalExpensesValidator.processCommand(userCommandText);
         }
         return new IncorrectCommand("Invalid input");
     }

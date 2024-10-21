@@ -12,7 +12,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * A class that generates and displays a graph showing expenses over months in a given year.
+ */
 public class ExpensesOverMonthGraph {
+
+    /**
+     * Builds a map of YearMonth to total expenses for that month.
+     * It accumulates expenses into their respective months.
+     *
+     * @param expenses An ArrayList of Expense objects.
+     * @return A map where the keys are YearMonth objects and the values are total expenses for that month.
+     */
     public static Map<YearMonth, Double> monthMapBuilder(ArrayList<Expense> expenses) {
         Map<YearMonth, Double> monthlyExpenseMap = new HashMap<>();
 
@@ -26,10 +37,24 @@ public class ExpensesOverMonthGraph {
         return monthlyExpenseMap;
     }
 
+    /**
+     * Retrieves the total expense for a given YearMonth from the monthly expense map.
+     *
+     * @param monthlyExpenseMap A map containing YearMonth as keys and total expenses as values.
+     * @param yearMonth The YearMonth for which the total expense is to be retrieved.
+     * @return The total expense for the given YearMonth, or 0.0 if no expenses are found for that month.
+     */
     public static double ExpensesForMonth(Map<YearMonth, Double> monthlyExpenseMap, YearMonth yearMonth) {
         return monthlyExpenseMap.getOrDefault(yearMonth, 0.0);
     }
 
+    /**
+     * Prints a chart that displays expenses for each month in the specified year.
+     * The chart is displayed using Swing and is set to close without terminating the program.
+     *
+     * @param monthlyExpenseMap A map containing YearMonth as keys and total expenses as values.
+     * @param year The year for which the expenses will be displayed.
+     */
     public static void ChartPrinter(Map<YearMonth, Double> monthlyExpenseMap, int year) {
         // Create a list to hold all months in the year
         List<Double> xAxis = new ArrayList<>();
@@ -61,5 +86,4 @@ public class ExpensesOverMonthGraph {
         javax.swing.SwingUtilities.invokeLater(() -> frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE));
     }
 }
-
 

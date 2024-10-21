@@ -42,7 +42,7 @@ Oct 21, 2024 3:49:29 PM seedu.budgetbuddy.Storage <init>
 INFO: Storing ./data/BudgetBuddy.txt
 Oct 21, 2024 3:49:29 PM seedu.budgetbuddy.Storage load
 INFO: Data loaded successfully. Expenses: 10, Incomes: 3, Budgets: 5
-Oct 21, 2024 3:49:42 PM seedu.budgetbuddy.commands.expense.DisplayExpenseGraphCommand execute
+Oct 21, 2024 3:49:42 PM seedu.budgetbuddy.commands.expense.DisplayTotalExpensesCommand execute
 INFO: Displaying expense graph
 Oct 21, 2024 3:49:43 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
@@ -50,7 +50,7 @@ Oct 21, 2024 3:51:38 PM seedu.budgetbuddy.Storage <init>
 INFO: Storing ./data/BudgetBuddy.txt
 Oct 21, 2024 3:51:38 PM seedu.budgetbuddy.Storage load
 INFO: Data loaded successfully. Expenses: 10, Incomes: 3, Budgets: 5
-Oct 21, 2024 3:51:48 PM seedu.budgetbuddy.commands.expense.DisplayExpenseGraphCommand execute
+Oct 21, 2024 3:51:48 PM seedu.budgetbuddy.commands.expense.DisplayTotalExpensesCommand execute
 INFO: Displaying expense graph
 Oct 21, 2024 3:51:49 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
@@ -60,11 +60,11 @@ Oct 21, 2024 4:16:23 PM seedu.budgetbuddy.Storage load
 INFO: Data loaded successfully. Expenses: 10, Incomes: 3, Budgets: 5
 Oct 21, 2024 4:16:33 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
-Oct 21, 2024 4:16:40 PM seedu.budgetbuddy.commands.expense.DisplayExpenseGraphCommand execute
+Oct 21, 2024 4:16:40 PM seedu.budgetbuddy.commands.expense.DisplayTotalExpensesCommand execute
 INFO: Displaying expense graph
 Oct 21, 2024 4:16:41 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
-Oct 21, 2024 4:17:12 PM seedu.budgetbuddy.commands.expense.DisplayExpenseGraphCommand execute
+Oct 21, 2024 4:17:12 PM seedu.budgetbuddy.commands.expense.DisplayTotalExpensesCommand execute
 INFO: Displaying expense graph
 Oct 21, 2024 4:17:12 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
@@ -74,7 +74,7 @@ Oct 21, 2024 4:34:46 PM seedu.budgetbuddy.Storage <init>
 INFO: Storing ./data/BudgetBuddy.txt
 Oct 21, 2024 4:34:46 PM seedu.budgetbuddy.Storage load
 INFO: Data loaded successfully. Expenses: 10, Incomes: 3, Budgets: 5
-Oct 21, 2024 4:34:56 PM seedu.budgetbuddy.commands.expense.DisplayExpenseGraphCommand execute
+Oct 21, 2024 4:34:56 PM seedu.budgetbuddy.commands.expense.DisplayTotalExpensesCommand execute
 INFO: Displaying expense graph
 Oct 21, 2024 4:34:56 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
@@ -88,7 +88,7 @@ Oct 21, 2024 4:36:31 PM seedu.budgetbuddy.transaction.expense.ExpenseManager lis
 INFO: Listing 10 expenses
 Oct 21, 2024 4:36:31 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
-Oct 21, 2024 4:36:44 PM seedu.budgetbuddy.commands.expense.DisplayExpenseGraphCommand execute
+Oct 21, 2024 4:36:44 PM seedu.budgetbuddy.commands.expense.DisplayTotalExpensesCommand execute
 INFO: Displaying expense graph
 Oct 21, 2024 4:36:45 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
@@ -100,11 +100,11 @@ Oct 21, 2024 4:43:00 PM seedu.budgetbuddy.Storage <init>
 INFO: Storing ./data/BudgetBuddy.txt
 Oct 21, 2024 4:43:00 PM seedu.budgetbuddy.Storage load
 INFO: Data loaded successfully. Expenses: 10, Incomes: 3, Budgets: 5
-Oct 21, 2024 4:43:09 PM seedu.budgetbuddy.commands.expense.DisplayExpenseGraphCommand execute
+Oct 21, 2024 4:43:09 PM seedu.budgetbuddy.commands.expense.DisplayTotalExpensesCommand execute
 INFO: Displaying expense graph
 Oct 21, 2024 4:43:09 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
-Oct 21, 2024 4:43:22 PM seedu.budgetbuddy.commands.expense.DisplayExpenseGraphCommand execute
+Oct 21, 2024 4:43:22 PM seedu.budgetbuddy.commands.expense.DisplayTotalExpensesCommand execute
 INFO: Displaying expense graph
 Oct 21, 2024 4:43:22 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
@@ -128,7 +128,7 @@ Oct 21, 2024 4:49:09 PM seedu.budgetbuddy.Storage <init>
 INFO: Storing ./data/BudgetBuddy.txt
 Oct 21, 2024 4:49:09 PM seedu.budgetbuddy.Storage load
 INFO: Data loaded successfully. Expenses: 10, Incomes: 3, Budgets: 5
-Oct 21, 2024 4:49:18 PM seedu.budgetbuddy.commands.expense.DisplayExpenseGraphCommand execute
+Oct 21, 2024 4:49:18 PM seedu.budgetbuddy.commands.expense.DisplayTotalExpensesCommand execute
 INFO: Displaying expense graph
 Oct 21, 2024 4:49:18 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
@@ -152,7 +152,7 @@ Oct 21, 2024 4:57:03 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
 Oct 21, 2024 4:57:11 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
-Oct 21, 2024 4:57:17 PM seedu.budgetbuddy.commands.expense.DisplayExpenseGraphCommand execute
+Oct 21, 2024 4:57:17 PM seedu.budgetbuddy.commands.expense.DisplayTotalExpensesCommand execute
 INFO: Displaying expense graph
 Oct 21, 2024 4:57:17 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
@@ -170,7 +170,7 @@ Oct 21, 2024 7:16:12 PM seedu.budgetbuddy.Storage <init>
 INFO: Storing ./data/BudgetBuddy.txt
 Oct 21, 2024 7:16:12 PM seedu.budgetbuddy.Storage load
 INFO: Data loaded successfully. Expenses: 10, Incomes: 3, Budgets: 5
-Oct 21, 2024 7:16:23 PM seedu.budgetbuddy.commands.expense.DisplayExpenseGraphCommand execute
+Oct 21, 2024 7:16:23 PM seedu.budgetbuddy.commands.expense.DisplayTotalExpensesCommand execute
 INFO: Displaying monthly expense
 Oct 21, 2024 7:16:23 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
@@ -182,7 +182,7 @@ Oct 21, 2024 7:17:28 PM seedu.budgetbuddy.validators.expense.DisplayExpenseValid
 WARNING: Invalid month format. Month found: m/02
 Oct 21, 2024 7:17:28 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
-Oct 21, 2024 7:17:39 PM seedu.budgetbuddy.commands.expense.DisplayExpenseGraphCommand execute
+Oct 21, 2024 7:17:39 PM seedu.budgetbuddy.commands.expense.DisplayTotalExpensesCommand execute
 INFO: Displaying monthly expense
 Oct 21, 2024 7:17:39 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
@@ -198,17 +198,17 @@ Oct 21, 2024 7:22:36 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
 Oct 21, 2024 7:22:42 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
-Oct 21, 2024 7:22:50 PM seedu.budgetbuddy.commands.expense.DisplayExpenseGraphCommand execute
+Oct 21, 2024 7:22:50 PM seedu.budgetbuddy.commands.expense.DisplayTotalExpensesCommand execute
 INFO: Displaying expense graph
 Oct 21, 2024 7:22:50 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
-Oct 21, 2024 7:23:04 PM seedu.budgetbuddy.commands.expense.DisplayExpenseGraphCommand execute
+Oct 21, 2024 7:23:04 PM seedu.budgetbuddy.commands.expense.DisplayTotalExpensesCommand execute
 INFO: Displaying expense graph
 Oct 21, 2024 7:23:04 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
 Oct 21, 2024 7:23:18 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
-Oct 21, 2024 7:23:28 PM seedu.budgetbuddy.commands.expense.DisplayExpenseGraphCommand execute
+Oct 21, 2024 7:23:28 PM seedu.budgetbuddy.commands.expense.DisplayTotalExpensesCommand execute
 INFO: Displaying expense graph
 Oct 21, 2024 7:23:28 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
@@ -216,7 +216,7 @@ Oct 21, 2024 7:31:48 PM seedu.budgetbuddy.Storage <init>
 INFO: Storing ./data/BudgetBuddy.txt
 Oct 21, 2024 7:31:48 PM seedu.budgetbuddy.Storage load
 INFO: Data loaded successfully. Expenses: 10, Incomes: 3, Budgets: 5
-Oct 21, 2024 7:32:07 PM seedu.budgetbuddy.commands.expense.DisplayExpenseGraphCommand execute
+Oct 21, 2024 7:32:07 PM seedu.budgetbuddy.commands.expense.DisplayTotalExpensesCommand execute
 INFO: Displaying expense graph
 Oct 21, 2024 7:32:07 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
@@ -230,7 +230,7 @@ Oct 21, 2024 7:35:13 PM seedu.budgetbuddy.Storage <init>
 INFO: Storing ./data/BudgetBuddy.txt
 Oct 21, 2024 7:35:13 PM seedu.budgetbuddy.Storage load
 INFO: Data loaded successfully. Expenses: 10, Incomes: 3, Budgets: 5
-Oct 21, 2024 7:35:27 PM seedu.budgetbuddy.commands.expense.DisplayExpenseGraphCommand execute
+Oct 21, 2024 7:35:27 PM seedu.budgetbuddy.commands.expense.DisplayTotalExpensesCommand execute
 INFO: Displaying expense graph
 Oct 21, 2024 7:35:28 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
@@ -238,11 +238,11 @@ Oct 21, 2024 7:39:06 PM seedu.budgetbuddy.Storage <init>
 INFO: Storing ./data/BudgetBuddy.txt
 Oct 21, 2024 7:39:06 PM seedu.budgetbuddy.Storage load
 INFO: Data loaded successfully. Expenses: 10, Incomes: 3, Budgets: 5
-Oct 21, 2024 7:39:21 PM seedu.budgetbuddy.commands.expense.DisplayExpenseGraphCommand execute
+Oct 21, 2024 7:39:21 PM seedu.budgetbuddy.commands.expense.DisplayTotalExpensesCommand execute
 INFO: Displaying expense graph
 Oct 21, 2024 7:39:21 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
-Oct 21, 2024 7:39:34 PM seedu.budgetbuddy.commands.expense.DisplayExpenseGraphCommand execute
+Oct 21, 2024 7:39:34 PM seedu.budgetbuddy.commands.expense.DisplayTotalExpensesCommand execute
 INFO: Displaying expense graph
 Oct 21, 2024 7:39:34 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
@@ -254,13 +254,13 @@ Oct 21, 2024 7:43:00 PM seedu.budgetbuddy.Storage load
 INFO: Data loaded successfully. Expenses: 10, Incomes: 3, Budgets: 5
 Oct 21, 2024 7:43:20 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
-Oct 21, 2024 7:43:31 PM seedu.budgetbuddy.commands.expense.DisplayExpenseGraphCommand execute
+Oct 21, 2024 7:43:31 PM seedu.budgetbuddy.commands.expense.DisplayTotalExpensesCommand execute
 INFO: Displaying expense graph
 Oct 21, 2024 7:43:32 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
 Oct 21, 2024 7:43:44 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
-Oct 21, 2024 7:43:55 PM seedu.budgetbuddy.commands.expense.DisplayExpenseGraphCommand execute
+Oct 21, 2024 7:43:55 PM seedu.budgetbuddy.commands.expense.DisplayTotalExpensesCommand execute
 INFO: Displaying monthly expense
 Oct 21, 2024 7:43:55 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
@@ -276,7 +276,7 @@ Oct 21, 2024 7:44:29 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
 Oct 21, 2024 7:47:13 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
-Oct 21, 2024 7:47:23 PM seedu.budgetbuddy.commands.expense.DisplayExpenseGraphCommand execute
+Oct 21, 2024 7:47:23 PM seedu.budgetbuddy.commands.expense.DisplayTotalExpensesCommand execute
 INFO: Displaying monthly expense
 Oct 21, 2024 7:47:23 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt

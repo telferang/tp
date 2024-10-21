@@ -171,18 +171,29 @@ public class ExpenseManager {
         return result;
     }
 
-    public static void displayExpensesOverMonthGraph (int year) {
+    /**
+     * Displays a graph of expenses over the given year.
+     *
+     * @param year The year for which the expenses graph is to be displayed.
+     */
+    public static void displayExpensesOverMonthGraph(int year) {
         ArrayList<Expense> expensesOverMonthArray = getExpenses();
         Map<YearMonth, Double> monthlyExpensesMap = ExpensesOverMonthGraph.monthMapBuilder(expensesOverMonthArray);
         ExpensesOverMonthGraph.ChartPrinter(monthlyExpensesMap, year);
     }
 
+    /**
+     * Displays the total expenses for a specific month.
+     *
+     * @param yearMonth The YearMonth object representing the month for which the total expenses are to be displayed.
+     */
     public static void displayTotalExpensesForMonth(YearMonth yearMonth) {
         ArrayList<Expense> expensesOverMonthArray = getExpenses();
         Map<YearMonth, Double> monthlyExpensesMap = ExpensesOverMonthGraph.monthMapBuilder(expensesOverMonthArray);
         Ui.displayToUser("Your expenses for " + yearMonth.toString() + " is " +
-                Double.toString(ExpensesOverMonthGraph.ExpensesForMonth(monthlyExpensesMap, yearMonth)));
+                ExpensesOverMonthGraph.ExpensesForMonth(monthlyExpensesMap, yearMonth));
     }
+
 
     /**
      * Extract YearMonth value from date
