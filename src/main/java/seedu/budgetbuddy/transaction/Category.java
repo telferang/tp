@@ -1,4 +1,4 @@
-package seedu.budgetbuddy.transaction.expense;
+package seedu.budgetbuddy.transaction;
 
 /**
  * Represents the different categories of expenses in the budget management system.

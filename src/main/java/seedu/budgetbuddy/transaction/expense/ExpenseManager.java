@@ -1,6 +1,7 @@
 package seedu.budgetbuddy.transaction.expense;
 
 import seedu.budgetbuddy.Ui;
+import seedu.budgetbuddy.transaction.Category;
 import seedu.budgetbuddy.util.LoggerSetup;
 import seedu.budgetbuddy.graphs.ExpensesOverMonthGraph;
 
