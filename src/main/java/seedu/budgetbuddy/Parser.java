@@ -145,11 +145,20 @@ public class Parser {
             break;
         }
         case "budget": {
-            double amount = Double.parseDouble(parts[1]); // For budget, only amount is relevant
             YearMonth budgetDate = YearMonth.parse(parts[2], DateTimeFormatter.ofPattern("yyyy-MM"));
             // Adjust date format for YearMonth
+            String categoryPart = parts[3].trim();
+            categoryPart = categoryPart.substring(1, categoryPart.length() - 1);
+            Budget budget = new Budget(0, budgetDate);
 
-            budgets.add(new Budget(amount, budgetDate)); // Only 2 parameters required for budget
+            String[] categories = categoryPart.split(", ");
+            for (String categoryEntry : categories) {
+                String[] categorySplit = categoryEntry.split("=");
+                Category category = Category.valueOf(categorySplit[0].toUpperCase());
+                double categoryAmount = Double.parseDouble(categorySplit[1]);
+                budget.addAmount(category, categoryAmount);
+            }
+            budgets.add(budget);
             break;
         }
         default:

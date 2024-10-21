@@ -38,7 +38,7 @@ public class BudgetManager {
         budgets.add(budget);
         numberOfBudgets++;
         LOGGER.info("Added budget: " + budget);
-        Ui.displayBudgetTransactionMessage(budget.toString(), numberOfBudgets);
+        Ui.displayBudgetTransactionMessage(budget.toString(), BudgetManager.getNumberOfBudgets());
     }
 
     /**

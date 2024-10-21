@@ -1,6 +1,7 @@
 package seedu.budgetbuddy.commands.budget;
 
 import seedu.budgetbuddy.commands.Command;
+import seedu.budgetbuddy.transaction.Category;
 import seedu.budgetbuddy.transaction.budget.Budget;
 import seedu.budgetbuddy.transaction.budget.BudgetManager;
 import seedu.budgetbuddy.util.LoggerSetup;
@@ -15,6 +16,7 @@ public class DeductBudgetCommand extends Command {
     private static final Logger LOGGER = LoggerSetup.getLogger();
     private double amount;
     private YearMonth date;
+    private Category category;
 
     /**
      * Constructs a DeductBudgetCommand with the specified amount and date.
@@ -22,11 +24,13 @@ public class DeductBudgetCommand extends Command {
      * @param amount The amount of the budget to be deducted.
      * @param date The YearMonth representing the month and year for the budget.
      */
-    public DeductBudgetCommand(double amount, YearMonth date) {
+    public DeductBudgetCommand(double amount, YearMonth date, Category category) {
         assert amount >= 0 : "Amount must be non-negative";
         assert date != null : "Date cannot be null";
+        assert category != null : "Category cannot be null";
         this.amount = amount;
         this.date = date;
+        this.category = category;
     }
 
     /**
@@ -48,7 +52,7 @@ public class DeductBudgetCommand extends Command {
     public void execute() {
         // Assume validation has guaranteed that existingBudget is not null
         Budget existingBudget = BudgetManager.getBudget(date);
-        existingBudget.deductAmount(amount);
+        existingBudget.deductAmount(category, amount);
         LOGGER.info("Deducted " + amount + " from budget for date: " + date);
     }
 }

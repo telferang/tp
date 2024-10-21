@@ -1,18 +1,23 @@
 package seedu.budgetbuddy.transaction.budget;
 
 import seedu.budgetbuddy.Ui;
+import seedu.budgetbuddy.transaction.Category;
 
 import java.time.YearMonth;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Represents a budget for a specific month and year.
- * A budget tracks a specified amount of money and the corresponding month and year.
- * Provides methods to edit and retrieve budget details.
+ * A budget tracks a specified amount of money for each category and calculates the total budget for the month.
+ * Provides methods to add category-specific amounts, adjust the budget, and retrieve details.
  */
 public class Budget {
 
     private double amount;
     private YearMonth date;
+    private Map<Category, Double> categoryBudgets;
+    private double totalMonthlyBudget;
 
     /**
      * Constructs a Budget object with the specified amount and date.
@@ -22,44 +27,65 @@ public class Budget {
      */
     public Budget(double amount, YearMonth date) {
         assert amount >= 0 : "Initial amount cannot be negative";
-        this.amount = amount;
         this.date = date;
+        this.categoryBudgets = new HashMap<>();
     }
 
     /**
-     * Adds an additional amount to the current budget and displays a message indicating the updated budget.
+     * Adds or updates the budget amount for a specific category.
+     * If the category already has a budget, the new amount is added to the existing amount.
      *
-     * @param additionalAmount The amount to be added to the existing budget.
+     * @param category The category to which the amount should be allocated.
+     * @param amount   The amount to be added for the specified category.
      */
-    public void addAmount(double additionalAmount) {
-        assert additionalAmount >= 0 : "Amount to add cannot be negative";
-        this.amount += additionalAmount;
-        Ui.displayBudgetTransactionMessage(toString(), BudgetManager.getNumberOfBudgets());
+    public void addAmount(Category category, double amount) {
+        categoryBudgets.put(category, categoryBudgets.getOrDefault(category, 0.0) + amount);
+        updateTotalBudget();
     }
 
     /**
-     * Deducts amount from the current budget and displays a message indicating the updated budget.
+     * Deducts an amount from the budget for a specific category.
+     * If the deducted amount brings the category's budget to zero or below, it is removed.
      *
-     * @param deductedAmount The amount to be deducted from the existing budget.
+     * @param category        The category from which the amount should be deducted.
+     * @param deductedAmount  The amount to be deducted.
      */
-    public void deductAmount(double deductedAmount) {
+    public void deductAmount(Category category, double deductedAmount) {
         assert deductedAmount >= 0 : "Amount to deduct cannot be negative";
-        this.amount -= deductedAmount;
-        if (amount <= 0) {
-            this.amount = 0;
+        double currentAmount = categoryBudgets.getOrDefault(category, 0.0);
+
+        // Deduct the amount or remove the category if the budget goes to zero or below
+        if (currentAmount - deductedAmount <= 0) {
+            categoryBudgets.remove(category);
+        } else {
+            categoryBudgets.put(category, currentAmount - deductedAmount);
+        }
+        if (categoryBudgets.isEmpty()) {
             BudgetManager.deleteBudget(this);
         } else {
+            updateTotalBudget();
             Ui.displayBudgetTransactionMessage(toString(), BudgetManager.getNumberOfBudgets());
         }
     }
 
     /**
-     * Gets the amount of the budget.
-     *
-     * @return The budget amount.
+     * Updates the total monthly budget by summing up all the category budgets.
      */
-    public double getAmount() {
-        return amount; // Getter for the budget amount
+    private void updateTotalBudget() {
+        totalMonthlyBudget = categoryBudgets.values().stream().mapToDouble(Double::doubleValue).sum();
+    }
+
+    /**
+     * Retrieves the total monthly budget, which is the sum of all category budgets for the month.
+     *
+     * @return The total budget for the month.
+     */
+    public double getTotalMonthlyBudget() {
+        return totalMonthlyBudget;
+    }
+
+    public Map<Category, Double> getCategoryBudgets() {
+        return categoryBudgets;
     }
 
     /**
@@ -77,9 +103,9 @@ public class Budget {
      * @return A string in the format "Amount: {amount}  Date: {date}".
      */
     public String toString() {
-        String output = "";
-        output += "Amount: " + amount;
+        String output = "Total Monthly Budget: " + totalMonthlyBudget;
         output += "  Date: " + date;
+        output += "  Category: " + categoryBudgets;
         return output;
     }
 }
