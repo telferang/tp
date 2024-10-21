@@ -426,3 +426,53 @@ Oct 21, 2024 9:49:32 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
 Oct 21, 2024 9:49:36 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
+Oct 21, 2024 9:57:44 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 0.0  Date: 2024-08  Category: {}
+Oct 21, 2024 9:57:44 PM seedu.budgetbuddy.transaction.budget.BudgetManager getBudget
+INFO: Retrieved budget for date: 2024-08
+Oct 21, 2024 9:57:44 PM seedu.budgetbuddy.transaction.budget.BudgetManager getBudget
+INFO: No budget found for date: 2024-12
+Oct 21, 2024 9:57:44 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 0.0  Date: 2024-03  Category: {}
+Oct 21, 2024 9:57:44 PM seedu.budgetbuddy.transaction.budget.BudgetManager deleteBudget
+INFO: Deleted budget: Total Monthly Budget: 0.0  Date: 2024-03  Category: {}
+Oct 21, 2024 9:57:44 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 0.0  Date: 2024-05  Category: {}
+Oct 21, 2024 9:57:44 PM seedu.budgetbuddy.transaction.budget.BudgetManager deleteBudget
+INFO: Deleted budget: Total Monthly Budget: 0.0  Date: 2024-05  Category: {}
+Oct 21, 2024 9:57:44 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 0.0  Date: 2024-01  Category: {}
+Oct 21, 2024 9:57:44 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 0.0  Date: 2024-07  Category: {}
+Oct 21, 2024 9:57:53 PM seedu.budgetbuddy.transaction.budget.BudgetManager deleteBudget
+INFO: Deleted budget: Total Monthly Budget: 0.0  Date: 2024-10  Category: {}
+Oct 21, 2024 9:57:54 PM seedu.budgetbuddy.transaction.budget.BudgetManager deleteBudget
+INFO: Deleted budget: Total Monthly Budget: 0.0  Date: 2024-10  Category: {}
+Oct 21, 2024 9:57:54 PM seedu.budgetbuddy.transaction.budget.BudgetManager deleteBudget
+INFO: Deleted budget: Total Monthly Budget: 0.0  Date: 2024-02  Category: {}
+Oct 21, 2024 9:57:54 PM seedu.budgetbuddy.transaction.budget.BudgetManager deleteBudget
+INFO: Deleted budget: Total Monthly Budget: 0.0  Date: 2024-10  Category: {}
+Oct 21, 2024 10:00:36 PM seedu.budgetbuddy.transaction.budget.BudgetManager deleteBudget
+INFO: Deleted budget: Total Monthly Budget: 0.0  Date: 2024-10  Category: {}
+Oct 21, 2024 10:00:36 PM seedu.budgetbuddy.transaction.budget.BudgetManager deleteBudget
+INFO: Deleted budget: Total Monthly Budget: 200.0  Date: 2024-10  Category: {}
+Oct 21, 2024 10:01:47 PM seedu.budgetbuddy.transaction.budget.BudgetManager deleteBudget
+INFO: Deleted budget: Total Monthly Budget: 0.0  Date: 2024-10  Category: {}
+Oct 21, 2024 10:01:47 PM seedu.budgetbuddy.transaction.budget.BudgetManager deleteBudget
+INFO: Deleted budget: Total Monthly Budget: 200.0  Date: 2024-10  Category: {}
+Oct 21, 2024 10:02:38 PM seedu.budgetbuddy.transaction.budget.BudgetManager deleteBudget
+INFO: Deleted budget: Total Monthly Budget: 0.0  Date: 2024-10  Category: {}
+Oct 21, 2024 10:02:38 PM seedu.budgetbuddy.transaction.budget.BudgetManager deleteBudget
+INFO: Deleted budget: Total Monthly Budget: 200.0  Date: 2024-10  Category: {}
+Oct 21, 2024 10:04:16 PM seedu.budgetbuddy.transaction.budget.BudgetManager deleteBudget
+INFO: Deleted budget: Total Monthly Budget: 0.0  Date: 2024-10  Category: {}
+Oct 21, 2024 10:04:16 PM seedu.budgetbuddy.transaction.budget.BudgetManager deleteBudget
+INFO: Deleted budget: Total Monthly Budget: 200.0  Date: 2024-10  Category: {}
+Oct 21, 2024 10:04:54 PM seedu.budgetbuddy.transaction.budget.BudgetManager deleteBudget
+INFO: Deleted budget: Total Monthly Budget: 0.0  Date: 2024-10  Category: {}
+Oct 21, 2024 10:04:54 PM seedu.budgetbuddy.transaction.budget.BudgetManager deleteBudget
+INFO: Deleted budget: Total Monthly Budget: 200.0  Date: 2024-10  Category: {}
+Oct 21, 2024 10:05:44 PM seedu.budgetbuddy.transaction.budget.BudgetManager deleteBudget
+INFO: Deleted budget: Total Monthly Budget: 100.0  Date: 2024-10  Category: {}
+Oct 21, 2024 10:05:44 PM seedu.budgetbuddy.transaction.budget.BudgetManager deleteBudget
+INFO: Deleted budget: Total Monthly Budget: 200.0  Date: 2024-10  Category: {}
