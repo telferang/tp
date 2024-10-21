@@ -3,11 +3,13 @@ package seedu.budgetbuddy.transaction.expense;
 import seedu.budgetbuddy.Ui;
 import seedu.budgetbuddy.transaction.Category;
 import seedu.budgetbuddy.util.LoggerSetup;
+import seedu.budgetbuddy.graphs.ExpensesOverMonthGraph;
 
 import java.time.YearMonth;
 import java.util.ArrayList;
 
 import java.time.LocalDate;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -169,6 +171,30 @@ public class ExpenseManager {
         }
         return result;
     }
+
+    /**
+     * Displays a graph of expenses over the given year.
+     *
+     * @param year The year for which the expenses graph is to be displayed.
+     */
+    public static void displayExpensesOverMonthGraph(int year) {
+        ArrayList<Expense> expensesOverMonthArray = getExpenses();
+        Map<YearMonth, Double> monthlyExpensesMap = ExpensesOverMonthGraph.monthMapBuilder(expensesOverMonthArray);
+        ExpensesOverMonthGraph.chartPrinter(monthlyExpensesMap, year);
+    }
+
+    /**
+     * Displays the total expenses for a specific month.
+     *
+     * @param yearMonth The YearMonth object representing the month for which the total expenses are to be displayed.
+     */
+    public static void displayTotalExpensesForMonth(YearMonth yearMonth) {
+        ArrayList<Expense> expensesOverMonthArray = getExpenses();
+        Map<YearMonth, Double> monthlyExpensesMap = ExpensesOverMonthGraph.monthMapBuilder(expensesOverMonthArray);
+        Ui.displayToUser("Your expenses for " + yearMonth.toString() + " is " +
+                ExpensesOverMonthGraph.expensesForMonth(monthlyExpensesMap, yearMonth));
+    }
+
 
     /**
      * Extract YearMonth value from date
