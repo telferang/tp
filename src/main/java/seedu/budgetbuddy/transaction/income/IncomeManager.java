@@ -1,7 +1,7 @@
 package seedu.budgetbuddy.transaction.income;
 
 import seedu.budgetbuddy.Ui;
-import seedu.budgetbuddy.transaction.expense.ExpenseManager;
+import seedu.budgetbuddy.util.LoggerSetup;
 
 import java.time.LocalDate;
 import java.time.YearMonth;
@@ -14,9 +14,10 @@ import java.util.logging.Logger;
  * Provides functionality to add, delete, and list incomes.
  */
 public class IncomeManager {
+    private static final Logger LOGGER = LoggerSetup.getLogger();
     private static int numberOfIncomes = 0;
     private static ArrayList<Income> incomes = new ArrayList<>();
-    private static final Logger LOGGER = Logger.getLogger(ExpenseManager.class.getName());
+
     /**
      * Construct a IncomeManager of array content incomes
      *

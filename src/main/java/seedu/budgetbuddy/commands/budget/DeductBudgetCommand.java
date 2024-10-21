@@ -3,6 +3,7 @@ package seedu.budgetbuddy.commands.budget;
 import seedu.budgetbuddy.commands.Command;
 import seedu.budgetbuddy.transaction.budget.Budget;
 import seedu.budgetbuddy.transaction.budget.BudgetManager;
+import seedu.budgetbuddy.util.LoggerSetup;
 
 import java.time.YearMonth;
 import java.util.logging.Logger;
@@ -11,7 +12,7 @@ import java.util.logging.Logger;
  * Represents a command to deduct a budget for a specific month and year.
  */
 public class DeductBudgetCommand extends Command {
-    private static Logger logger = Logger.getLogger(DeductBudgetCommand.class.getName());
+    private static final Logger LOGGER = LoggerSetup.getLogger();
     private double amount;
     private YearMonth date;
 
@@ -48,6 +49,6 @@ public class DeductBudgetCommand extends Command {
         // Assume validation has guaranteed that existingBudget is not null
         Budget existingBudget = BudgetManager.getBudget(date);
         existingBudget.deductAmount(amount);
-        logger.info("Deducted " + amount + " from budget for date: " + date);
+        LOGGER.info("Deducted " + amount + " from budget for date: " + date);
     }
 }

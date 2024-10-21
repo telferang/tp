@@ -1,6 +1,7 @@
 package seedu.budgetbuddy.transaction.expense;
 
 import seedu.budgetbuddy.Ui;
+import seedu.budgetbuddy.util.LoggerSetup;
 
 import java.time.YearMonth;
 import java.util.ArrayList;
@@ -14,9 +15,9 @@ import java.util.logging.Logger;
  * and list expenses, as well as tracking the total number of expenses.
  */
 public class ExpenseManager {
+    private static final Logger LOGGER = LoggerSetup.getLogger();
     private static int numberOfExpenses = 0;
     private static ArrayList<Expense> expenses = new ArrayList<>();
-    private static final Logger LOGGER = Logger.getLogger(ExpenseManager.class.getName());
 
     /**
      * Construct a ExpenseManager of array content incomes
