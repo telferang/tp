@@ -19,7 +19,7 @@ import seedu.budgetbuddy.exceptions.BudgetBuddyException;
 import seedu.budgetbuddy.commands.expense.SearchExpenseCommand;
 import seedu.budgetbuddy.transaction.budget.Budget;
 import seedu.budgetbuddy.transaction.budget.BudgetManager;
-import seedu.budgetbuddy.transaction.expense.Category;
+import seedu.budgetbuddy.transaction.Category;
 import seedu.budgetbuddy.transaction.expense.Expense;
 import seedu.budgetbuddy.transaction.expense.ExpenseManager;
 import seedu.budgetbuddy.transaction.income.Income;

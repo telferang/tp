@@ -3,7 +3,7 @@ package seedu.budgetbuddy.validators.expense;
 import seedu.budgetbuddy.commands.expense.AddExpenseCommand;
 import seedu.budgetbuddy.commands.Command;
 import seedu.budgetbuddy.commands.IncorrectCommand;
-import seedu.budgetbuddy.transaction.expense.Category;
+import seedu.budgetbuddy.transaction.Category;
 
 import java.time.LocalDate;
 

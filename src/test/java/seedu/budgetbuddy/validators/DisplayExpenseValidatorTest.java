@@ -2,7 +2,7 @@ package seedu.budgetbuddy.validators;
 
 import org.junit.jupiter.api.Test;
 import seedu.budgetbuddy.commands.expense.DisplayExpenseCommand;
-import seedu.budgetbuddy.transaction.expense.Category;
+import seedu.budgetbuddy.transaction.Category;
 import seedu.budgetbuddy.validators.expense.DisplayExpenseValidator;
 
 import java.time.YearMonth;
