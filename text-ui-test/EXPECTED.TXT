@@ -79,22 +79,27 @@ Invalid date format. Use m/MM/yyyy.
 ========================================================
 Enter commands: ========================================================
 The following budget amount has been updated:
-Total Monthly Budget: 0.0  Date: 2024-11  Category: {}
+Total Monthly Budget: 1234.0  Date: 2024-11  Category: {OTHERS=1234.0}
 You have 1 budget(s) in total.
 ========================================================
 Enter commands: ========================================================
 The following budget amount has been updated:
-Total Monthly Budget: 0.0  Date: 2024-03  Category: {}
+Total Monthly Budget: 800.0  Date: 2024-03  Category: {OTHERS=800.0}
 You have 2 budget(s) in total.
 ========================================================
-Enter commands: Enter commands: ========================================================
+Enter commands: ========================================================
 The following budget amount has been updated:
-Total Monthly Budget: 0.0  Date: 2024-07  Category: {}
+Total Monthly Budget: 3534.0  Date: 2024-11  Category: {OTHERS=3534.0}
+You have 2 budget(s) in total.
+========================================================
+Enter commands: ========================================================
+The following budget amount has been updated:
+Total Monthly Budget: 3000.0  Date: 2024-07  Category: {OTHERS=3000.0}
 You have 3 budget(s) in total.
 ========================================================
 Enter commands: ========================================================
 The following budget amount has been updated:
-Total Monthly Budget: 0.0  Date: 2024-02  Category: {}
+Total Monthly Budget: 5000.0  Date: 2024-02  Category: {OTHERS=5000.0}
 You have 4 budget(s) in total.
 ========================================================
 Enter commands: ========================================================
@@ -108,30 +113,32 @@ Invalid date format. Use m/MM/yyyy.
 ========================================================
 Enter commands: ========================================================
 The following budget amount has been updated:
-Total Monthly Budget: 1066.0  Date: 2024-11  Category: {OTHERS=1066.0}
+Total Monthly Budget: 2300.0  Date: 2024-11  Category: {OTHERS=2300.0}
 You have 4 budget(s) in total.
 ========================================================
 Enter commands: ========================================================
 The following budget has been deleted as its amount reached zero:
-Total Monthly Budget: 0.0  Date: 2024-03  Category: {}
+Total Monthly Budget: 800.0  Date: 2024-03  Category: {}
 You have 3 budget(s) in total.
 ========================================================
 Enter commands: ========================================================
 The following budget has been deleted as its amount reached zero:
-Total Monthly Budget: 1066.0  Date: 2024-11  Category: {}
+Total Monthly Budget: 2300.0  Date: 2024-11  Category: {}
 You have 2 budget(s) in total.
 ========================================================
 Enter commands: ========================================================
-The following budget has been deleted as its amount reached zero:
-Total Monthly Budget: 0.0  Date: 2024-02  Category: {}
-You have 1 budget(s) in total.
+The following budget amount has been updated:
+Total Monthly Budget: 3500.0  Date: 2024-02  Category: {OTHERS=3500.0}
+You have 2 budget(s) in total.
 ========================================================
 Enter commands: ========================================================
-
+Here is the budget for the specified month:
+Total Monthly Budget: 3500.0  Date: 2024-02  Category: {OTHERS=3500.0}
 ========================================================
 Enter commands: ========================================================
 Here are the budgets for the 12 most recent entries:
-1. Total Monthly Budget: 0.0  Date: 2024-07  Category: {}
+1. Total Monthly Budget: 3500.0  Date: 2024-02  Category: {OTHERS=3500.0}
+2. Total Monthly Budget: 3000.0  Date: 2024-07  Category: {OTHERS=3000.0}
 
 ========================================================
 Enter commands: ========================================================
