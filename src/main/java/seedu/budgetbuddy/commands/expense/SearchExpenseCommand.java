@@ -1,9 +1,10 @@
-package seedu.budgetbuddy.commands;
+package seedu.budgetbuddy.commands.expense;
 
 import seedu.budgetbuddy.Ui;
+import seedu.budgetbuddy.commands.Command;
 import seedu.budgetbuddy.transaction.expense.ExpenseManager;
 
-public class SearchExpenseCommand extends Command{
+public class SearchExpenseCommand extends Command {
     private String keyword;
 
     /**
@@ -36,8 +37,7 @@ public class SearchExpenseCommand extends Command{
     public void execute(){
         if (getKeyword().equals("")){
             Ui.searchEmptyMessage();
-        }
-        else{
+        } else{
             Ui.displayToUser(ExpenseManager.searchExpenses(getKeyword()));
         }
     }

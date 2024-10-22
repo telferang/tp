@@ -1,27 +1,30 @@
-package seedu.budgetbuddy.validators;
+package seedu.budgetbuddy.validators.budget;
 
 import seedu.budgetbuddy.commands.Command;
-import seedu.budgetbuddy.commands.DeductBudgetCommand;
+import seedu.budgetbuddy.commands.budget.DeductBudgetCommand;
 import seedu.budgetbuddy.exceptions.BudgetBuddyException;
+import seedu.budgetbuddy.transaction.Category;
 import seedu.budgetbuddy.transaction.budget.BudgetManager;
+import seedu.budgetbuddy.util.LoggerSetup;
 
 import java.time.YearMonth;
 import java.util.logging.Logger;
 
 import static seedu.budgetbuddy.validators.AmountValidator.validateAmount;
+import static seedu.budgetbuddy.validators.CategoryValidator.validateCategory;
 import static seedu.budgetbuddy.validators.DateValidator.validateYearMonth;
 
 /**
  * Validates commands for deducting budgets.
  */
 public class DeductBudgetValidator {
-    private static Logger logger = Logger.getLogger(DeductBudgetValidator.class.getName());
+    private static final Logger LOGGER = LoggerSetup.getLogger();
 
     public static Command processCommand(String command) throws BudgetBuddyException {
         assert command != null : "Command cannot be null";
 
         if (command.equals("deduct budget")) {
-            logger.warning("Attempted to deduct budget without description.");
+            LOGGER.warning("Attempted to deduct budget without description.");
             throw new BudgetBuddyException("No description provided.");
         }
 
@@ -31,6 +34,7 @@ public class DeductBudgetValidator {
         // Initialize default values
         double amount = 0; // invalid amount initially
         YearMonth date = null; // invalid date initially
+        Category category = Category.OTHERS;
 
         // Process parts to extract details
         for (String part : parts) {
@@ -41,6 +45,8 @@ public class DeductBudgetValidator {
                 }
             } else if (part.startsWith("m/")) {
                 date = validateYearMonth(part);
+            } else if (part.startsWith("c/")) {
+                category = validateCategory(part);
             }
         }
 
@@ -60,6 +66,6 @@ public class DeductBudgetValidator {
         }
 
         // All validations passed, return the command
-        return new DeductBudgetCommand(amount, date);
+        return new DeductBudgetCommand(amount, date, category);
     }
 }

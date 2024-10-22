@@ -1,6 +1,7 @@
 package seedu.budgetbuddy.transaction.expense;
 
 import org.junit.jupiter.api.Test;
+import seedu.budgetbuddy.transaction.Category;
 
 import java.time.LocalDate;
 import java.time.YearMonth;

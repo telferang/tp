@@ -1,17 +1,24 @@
 package seedu.budgetbuddy.transaction.expense;
 
 import seedu.budgetbuddy.Ui;
+import seedu.budgetbuddy.transaction.Category;
+import seedu.budgetbuddy.util.LoggerSetup;
+import seedu.budgetbuddy.graphs.ExpensesOverMonthGraph;
 
 import java.time.YearMonth;
 import java.util.ArrayList;
 
 import java.time.LocalDate;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Manages a list of expenses, providing functionalities to add, delete,
  * and list expenses, as well as tracking the total number of expenses.
  */
 public class ExpenseManager {
+    private static final Logger LOGGER = LoggerSetup.getLogger();
     private static int numberOfExpenses = 0;
     private static ArrayList<Expense> expenses = new ArrayList<>();
 
@@ -21,6 +28,7 @@ public class ExpenseManager {
      * @param expenses is the content to be instantiated
      */
     public ExpenseManager(ArrayList<Expense> expenses, int numberOfExpenses) {
+        assert numberOfExpenses >= 0: "numberOfExpenses should be greater than 0";
         ExpenseManager.expenses = expenses;
         ExpenseManager.numberOfExpenses = numberOfExpenses;
     }
@@ -67,6 +75,7 @@ public class ExpenseManager {
             result += counter + ". " + expense.toString() + "\n";
             counter++;
         }
+        LOGGER.log(Level.INFO, "Listing {0} expenses", numberOfExpenses);
         Ui.displayToUser(result);
     }
 
@@ -78,6 +87,8 @@ public class ExpenseManager {
      * @return result String to be displayed to user
      */
     public static String displayExpensesWithCategoryAndDate(Category category, YearMonth month) {
+        assert category != null : "category cannot be null";
+        assert month != null : "month cannot be null";
         String result = "";
         int counter = 1;
         for (Expense expense : expenses) {
@@ -99,6 +110,7 @@ public class ExpenseManager {
      * @return result String to be displayed to user
      */
     public static String displayExpensesWithCategory(Category category) {
+        assert category != null : "category cannot be null";
         String result = "";
         int counter = 1;
         for (Expense expense : expenses) {
@@ -120,6 +132,7 @@ public class ExpenseManager {
      * @return result String to be displayed to user
      */
     public static String displayExpensesWithDate(YearMonth month) {
+        assert month != null : "month cannot be null";
         String result = "";
         int counter = 1;
         for (Expense expense : expenses) {
@@ -140,6 +153,7 @@ public class ExpenseManager {
      * @return result String displayed to user
      */
     public static String searchExpenses(String keyword){
+        assert keyword != null: "Keyword should not be null";
         String result = "";
         if (keyword.equals("")){
             result = getEmptyDisplayMessage();
@@ -159,11 +173,36 @@ public class ExpenseManager {
     }
 
     /**
+     * Displays a graph of expenses over the given year.
+     *
+     * @param year The year for which the expenses graph is to be displayed.
+     */
+    public static void displayExpensesOverMonthGraph(int year) {
+        ArrayList<Expense> expensesOverMonthArray = getExpenses();
+        Map<YearMonth, Double> monthlyExpensesMap = ExpensesOverMonthGraph.monthMapBuilder(expensesOverMonthArray);
+        ExpensesOverMonthGraph.chartPrinter(monthlyExpensesMap, year);
+    }
+
+    /**
+     * Displays the total expenses for a specific month.
+     *
+     * @param yearMonth The YearMonth object representing the month for which the total expenses are to be displayed.
+     */
+    public static void displayTotalExpensesForMonth(YearMonth yearMonth) {
+        ArrayList<Expense> expensesOverMonthArray = getExpenses();
+        Map<YearMonth, Double> monthlyExpensesMap = ExpensesOverMonthGraph.monthMapBuilder(expensesOverMonthArray);
+        Ui.displayToUser("Your expenses for " + yearMonth.toString() + " is " +
+                ExpensesOverMonthGraph.expensesForMonth(monthlyExpensesMap, yearMonth));
+    }
+
+
+    /**
      * Extract YearMonth value from date
      * @param date
      * @return
      */
     public static YearMonth getYearMonthFromDate(LocalDate date) {
+        assert date != null: "Date should not be null";
         return YearMonth.from(date);
     }
 

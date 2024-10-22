@@ -1,13 +1,14 @@
-package seedu.budgetbuddy.validators;
+package seedu.budgetbuddy.validators.expense;
 
-import seedu.budgetbuddy.commands.AddExpenseCommand;
+import seedu.budgetbuddy.commands.expense.AddExpenseCommand;
 import seedu.budgetbuddy.commands.Command;
 import seedu.budgetbuddy.commands.IncorrectCommand;
-import seedu.budgetbuddy.transaction.expense.Category;
+import seedu.budgetbuddy.transaction.Category;
 
 import java.time.LocalDate;
 
 import static seedu.budgetbuddy.validators.AmountValidator.validateAmount;
+import static seedu.budgetbuddy.validators.CategoryValidator.validateCategory;
 import static seedu.budgetbuddy.validators.DateValidator.validateDate;
 
 public class AddExpenseValidator {
@@ -46,7 +47,7 @@ public class AddExpenseValidator {
                     return new IncorrectCommand("Invalid date format. Use d/dd/MM/yyyy.");
                 }
             } else if (part.startsWith("c/")) {
-                category = parseCategory(part);
+                category = validateCategory(part);
             } else {
                 description += part + " ";
             }
@@ -68,20 +69,5 @@ public class AddExpenseValidator {
 
         // All validations passed, return the command
         return new AddExpenseCommand(description, amount, date, category);
-    }
-
-    /**
-     * Parses the category from the command part.
-     *
-     * @param part The command part containing the category.
-     * @return The parsed category or OTHERS if invalid.
-     */
-    private static Category parseCategory(String part) {
-        String categoryStr = part.substring(2).toUpperCase();
-        try {
-            return Category.valueOf(categoryStr);
-        } catch (IllegalArgumentException e) {
-            return Category.OTHERS;  // Default category if invalid
-        }
     }
 }

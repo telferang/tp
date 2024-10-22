@@ -1,6 +1,7 @@
-package seedu.budgetbuddy.commands;
+package seedu.budgetbuddy.commands.expense;
 
-import seedu.budgetbuddy.transaction.expense.Category;
+import seedu.budgetbuddy.commands.Command;
+import seedu.budgetbuddy.transaction.Category;
 import seedu.budgetbuddy.transaction.expense.Expense;
 import seedu.budgetbuddy.transaction.expense.ExpenseManager;
 

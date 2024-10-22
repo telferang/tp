@@ -1,6 +1,7 @@
 package seedu.budgetbuddy.transaction.budget;
 
 import seedu.budgetbuddy.Ui;
+import seedu.budgetbuddy.util.LoggerSetup;
 
 import java.time.YearMonth;
 import java.util.ArrayList;
@@ -11,9 +12,9 @@ import java.util.logging.Logger;
  * Provides methods to add, retrieve, and manage multiple budgets.
  */
 public class BudgetManager {
+    private static final Logger LOGGER = LoggerSetup.getLogger();
     private static int numberOfBudgets = 0;
     private static ArrayList<Budget> budgets = new ArrayList<>();
-    private static final Logger logger = Logger.getLogger(BudgetManager.class.getName());
 
     /**
      * Construct a BudgetManager of array content incomes
@@ -36,8 +37,7 @@ public class BudgetManager {
         assert budget != null : "Budget to be added cannot be null";
         budgets.add(budget);
         numberOfBudgets++;
-        logger.info("Added budget: " + budget);
-        Ui.displayBudgetTransactionMessage(budget.toString(), numberOfBudgets);
+        LOGGER.info("Added budget: " + budget);
     }
 
     /**
@@ -50,7 +50,7 @@ public class BudgetManager {
         assert budget != null : "Budget to be deleted cannot be null";
         budgets.remove(budget);
         numberOfBudgets--;
-        logger.info("Deleted budget: " + budget);
+        LOGGER.info("Deleted budget: " + budget);
         Ui.displayBudgetDeletedMessage(budget.toString(), numberOfBudgets);
     }
 
@@ -73,11 +73,11 @@ public class BudgetManager {
         assert date != null : "Date cannot be null";
         for (Budget budget : budgets) {
             if (budget.getDate().equals(date)) {
-                logger.info("Retrieved budget for date: " + date);
+                LOGGER.info("Retrieved budget for date: " + date);
                 return budget;
             }
         }
-        logger.info("No budget found for date: " + date);
+        LOGGER.info("No budget found for date: " + date);
         return null; // No budget found for the specified date
     }
 
@@ -88,7 +88,7 @@ public class BudgetManager {
     public static void listBudgets(YearMonth date) {
         String result = "";
         if (date == null) {
-            logger.info("No date specified for listing budget.");
+            LOGGER.info("No date specified for listing budget.");
 
             result += "Here are the budgets for the 12 most recent entries:\n";
 
@@ -99,7 +99,7 @@ public class BudgetManager {
             }
         } else {
             // Assume validator guarantees date is valid
-            logger.info("Listing budgets for date: " + date);
+            LOGGER.info("Listing budgets for date: " + date);
 
             Budget budget = getBudget(date);
 

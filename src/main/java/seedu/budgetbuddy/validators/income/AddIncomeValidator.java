@@ -1,6 +1,6 @@
-package seedu.budgetbuddy.validators;
+package seedu.budgetbuddy.validators.income;
 
-import seedu.budgetbuddy.commands.AddIncomeCommand;
+import seedu.budgetbuddy.commands.income.AddIncomeCommand;
 import seedu.budgetbuddy.commands.Command;
 import seedu.budgetbuddy.commands.IncorrectCommand;
 

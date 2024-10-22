@@ -1,5 +1,6 @@
-package seedu.budgetbuddy.commands;
+package seedu.budgetbuddy.commands.income;
 
+import seedu.budgetbuddy.commands.Command;
 import seedu.budgetbuddy.transaction.income.IncomeManager;
 
 import java.time.YearMonth;
@@ -29,14 +30,15 @@ public class DisplayIncomeCommand extends Command {
      * @param command The command to be checked.
      * @return True if the command matches "display expenses", false otherwise.
      */
-    public static boolean isCommand(String command) { return command.startsWith("display incomes"); }
+    public static boolean isCommand(String command) {
+        return command.startsWith("display incomes");
+    }
 
     @Override
     public void execute() {
-        if(month == null) {
+        if (month == null) {
             IncomeManager.listIncomes();
-        }
-        else{
+        } else{
             IncomeManager.displayIncomeWithMonth(month);
         }
     }
