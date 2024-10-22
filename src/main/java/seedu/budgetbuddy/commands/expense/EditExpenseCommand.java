@@ -24,15 +24,6 @@ public class EditExpenseCommand extends Command {
     private static double amount;
     private Expense expense;
 
-    /**
-     * Checks if the provided command matches the command to list expenses.
-     *
-     * @param command The command to be checked.
-     * @return True if the command matches "list expenses", false otherwise.
-     */
-    public static boolean isCommand(String command) {
-        return command.startsWith("edit expenses");
-    }
 
     public EditExpenseCommand(String command) throws BudgetBuddyException {
         getExpense(command);
@@ -45,6 +36,16 @@ public class EditExpenseCommand extends Command {
      */
     public EditExpenseCommand(Expense expense) { this.expense = expense; }
 
+    /**
+     * Checks if the provided command matches the command to list expenses.
+     *
+     * @param command The command to be checked.
+     * @return True if the command matches "list expenses", false otherwise.
+     */
+    public static boolean isCommand(String command) {
+        return command.startsWith("edit expenses");
+    }
+    
     /**
      * Set date that will be used to update expenses
      *
