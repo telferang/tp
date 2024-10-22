@@ -32,6 +32,19 @@ public class Budget {
     }
 
     /**
+     * Constructs a Budget object by copying another Budget object.
+     *
+     * @param other The Budget object to copy from.
+     */
+    public Budget(Budget other) {
+        this.amount = other.amount; // Copy the original amount
+        this.date = other.date; // Copy the date
+        this.categoryBudgets = new HashMap<>(other.categoryBudgets); // Deep copy of the category budgets
+        this.totalMonthlyBudget = other.totalMonthlyBudget; // Copy the total monthly budget
+    }
+
+
+    /**
      * Adds or updates the budget amount for a specific category.
      * If the category already has a budget, the new amount is added to the existing amount.
      *
@@ -66,6 +79,24 @@ public class Budget {
             updateTotalBudget();
             Ui.displayBudgetTransactionMessage(toString(), BudgetManager.getNumberOfBudgets());
         }
+    }
+
+    /**
+     * Deducts an amount from the budget for a specific category.
+     * This is used by RemainingBudgetManager
+     *
+     * @param category        The category from which the amount should be deducted.
+     * @param deductedAmount  The amount to be deducted.
+     */
+    public void deductExpense(Category category, double deductedAmount) {
+        assert deductedAmount >= 0 : "Amount to deduct cannot be negative";
+        double currentAmount = categoryBudgets.getOrDefault(category, 0.0);
+
+        // Deduct the amount and allow the category to go negative
+        categoryBudgets.put(category, currentAmount - deductedAmount);
+
+        // Update the total budget
+        updateTotalBudget();
     }
 
     /**

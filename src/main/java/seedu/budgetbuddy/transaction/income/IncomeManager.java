@@ -37,7 +37,10 @@ public class IncomeManager {
     public static void addIncome(Income income) {
         incomes.add(income);
         numberOfIncomes++;
-        Ui.displayAcknowledgmentMessage(income.toString(), "added", "income", numberOfIncomes);
+        String result = "The following income transaction has been added:\n"
+                + income + '\n'
+                + "You have " + numberOfIncomes + " income transaction(s) in total.";
+        Ui.displayToUser(result);
     }
 
     /**
@@ -47,8 +50,11 @@ public class IncomeManager {
      */
     public static void deleteIncome(int index) {
         numberOfIncomes--;
-        Ui.displayAcknowledgmentMessage(incomes.get(index).toString(), "deleted", "income", numberOfIncomes);
+        String result = "The following income transaction has been deleted:\n"
+                + incomes.get(index) + '\n'
+                + "You have " + numberOfIncomes + " income transaction(s) in total.";
         incomes.remove(index);
+        Ui.displayToUser(result);
     }
 
     /**
