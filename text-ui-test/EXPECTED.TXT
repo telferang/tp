@@ -226,6 +226,13 @@ No income entry with given month found, try again with a different month.
 Enter commands: ========================================================
 Invalid month format. Use m/MM/yyyy.
 ========================================================
+Enter commands: Edit the following fields as follows: Amount: a/, Category: c/, Date: d/
+Currently Editing Entry:
+Description: Ipad  Amount: 123.45  Date: 2024-08-30  Category: EDUCATION
+Enter edit Field: ========================================================
+Edited Expense:
+Description: Ipad  Amount: 50.0  Date: 2024-08-30  Category: EDUCATION
+========================================================
 Enter commands: ========================================================
 Bye!
 ========================================================

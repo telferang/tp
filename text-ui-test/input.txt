@@ -54,4 +54,6 @@ display incomes
 display incomes m/10/2024
 display incomes m/08/2024
 display incomes m/20/2024
+edit expenses 1
+a/50
 bye

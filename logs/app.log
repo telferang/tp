@@ -762,3 +762,105 @@ Oct 22, 2024 10:09:26 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
 Oct 22, 2024 10:10:19 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
+Oct 22, 2024 10:50:51 PM seedu.budgetbuddy.Storage <init>
+INFO: Storing ./data/BudgetBuddy.txt
+Oct 22, 2024 10:50:51 PM seedu.budgetbuddy.Storage load
+INFO: Data loaded successfully. Expenses: 11, Incomes: 3, Budgets: 7
+Oct 22, 2024 10:51:00 PM seedu.budgetbuddy.commands.expense.DisplayExpenseCommand execute
+INFO: Displaying expenses listed with no Filter
+Oct 22, 2024 10:51:00 PM seedu.budgetbuddy.transaction.expense.ExpenseManager listExpenses
+INFO: Listing 11 expenses
+Oct 22, 2024 10:51:00 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Oct 22, 2024 10:52:26 PM seedu.budgetbuddy.Storage <init>
+INFO: Storing ./data/BudgetBuddy.txt
+Oct 22, 2024 10:52:26 PM seedu.budgetbuddy.Storage load
+INFO: Data loaded successfully. Expenses: 11, Incomes: 3, Budgets: 7
+Oct 22, 2024 10:53:02 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Oct 22, 2024 10:53:25 PM seedu.budgetbuddy.commands.expense.DisplayExpenseCommand execute
+INFO: Displaying expenses listed with no Filter
+Oct 22, 2024 10:53:25 PM seedu.budgetbuddy.transaction.expense.ExpenseManager listExpenses
+INFO: Listing 11 expenses
+Oct 22, 2024 10:53:25 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Oct 22, 2024 10:54:45 PM seedu.budgetbuddy.Storage <init>
+INFO: Storing ./data/BudgetBuddy.txt
+Oct 22, 2024 10:54:45 PM seedu.budgetbuddy.Storage load
+INFO: Data loaded successfully. Expenses: 11, Incomes: 3, Budgets: 7
+Oct 22, 2024 10:54:51 PM seedu.budgetbuddy.commands.expense.DisplayExpenseCommand execute
+INFO: Displaying expenses listed with no Filter
+Oct 22, 2024 10:54:51 PM seedu.budgetbuddy.transaction.expense.ExpenseManager listExpenses
+INFO: Listing 11 expenses
+Oct 22, 2024 10:54:51 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Oct 22, 2024 10:55:58 PM seedu.budgetbuddy.Storage <init>
+INFO: Storing ./data/BudgetBuddy.txt
+Oct 22, 2024 10:55:58 PM seedu.budgetbuddy.Storage load
+INFO: Data loaded successfully. Expenses: 11, Incomes: 3, Budgets: 7
+Oct 22, 2024 10:56:16 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Oct 22, 2024 10:59:07 PM seedu.budgetbuddy.Storage <init>
+INFO: Storing ./data/BudgetBuddy.txt
+Oct 22, 2024 10:59:07 PM seedu.budgetbuddy.Storage load
+INFO: Data loaded successfully. Expenses: 11, Incomes: 3, Budgets: 7
+Oct 22, 2024 11:01:49 PM seedu.budgetbuddy.Storage <init>
+INFO: Storing ./data/BudgetBuddy.txt
+Oct 22, 2024 11:01:49 PM seedu.budgetbuddy.Storage load
+INFO: Data loaded successfully. Expenses: 11, Incomes: 3, Budgets: 7
+Oct 22, 2024 11:13:26 PM seedu.budgetbuddy.Storage <init>
+INFO: Storing ./data/BudgetBuddy.txt
+Oct 22, 2024 11:13:26 PM seedu.budgetbuddy.Storage load
+INFO: Data loaded successfully. Expenses: 11, Incomes: 3, Budgets: 7
+Oct 22, 2024 11:13:49 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Oct 22, 2024 11:18:29 PM seedu.budgetbuddy.Storage <init>
+INFO: Storing ./data/BudgetBuddy.txt
+Oct 22, 2024 11:18:37 PM seedu.budgetbuddy.Storage <init>
+INFO: Storing ./data/BudgetBuddy.txt
+Oct 22, 2024 11:18:49 PM seedu.budgetbuddy.Storage <init>
+INFO: Storing ./data/BudgetBuddy.txt
+Oct 22, 2024 11:19:48 PM seedu.budgetbuddy.Storage <init>
+INFO: Storing ./data/BudgetBuddy.txt
+Oct 22, 2024 11:20:06 PM seedu.budgetbuddy.Storage <init>
+INFO: Storing ./data/BudgetBuddy.txt
+Oct 22, 2024 11:20:49 PM seedu.budgetbuddy.Storage <init>
+INFO: Storing ./data/BudgetBuddy.txt
+Oct 22, 2024 11:21:15 PM seedu.budgetbuddy.Storage <init>
+INFO: Storing ./data/BudgetBuddy.txt
+Oct 22, 2024 11:21:45 PM seedu.budgetbuddy.Storage <init>
+INFO: Storing ./data/BudgetBuddy.txt
+Oct 22, 2024 11:21:45 PM seedu.budgetbuddy.Storage load
+INFO: Data loaded successfully. Expenses: 11, Incomes: 3, Budgets: 7
+Oct 22, 2024 11:22:16 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Oct 22, 2024 11:22:58 PM seedu.budgetbuddy.Storage <init>
+INFO: Storing ./data/BudgetBuddy.txt
+Oct 22, 2024 11:22:58 PM seedu.budgetbuddy.Storage load
+INFO: Data loaded successfully. Expenses: 11, Incomes: 3, Budgets: 7
+Oct 22, 2024 11:23:12 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Oct 22, 2024 11:23:33 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Oct 22, 2024 11:23:56 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Oct 22, 2024 11:24:19 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Oct 22, 2024 11:24:33 PM seedu.budgetbuddy.validators.expense.EditExpenseValidator processCommand
+WARNING: Invalid date format. Date found: d/fdfs
+Oct 22, 2024 11:24:33 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Oct 22, 2024 11:24:43 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Oct 22, 2024 11:25:21 PM seedu.budgetbuddy.commands.expense.DisplayExpenseCommand execute
+INFO: Displaying expenses listed with Category: OTHERS
+Oct 22, 2024 11:25:21 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Oct 22, 2024 11:26:48 PM seedu.budgetbuddy.Storage <init>
+INFO: Storing ./data/BudgetBuddy.txt
+Oct 22, 2024 11:26:48 PM seedu.budgetbuddy.Storage load
+INFO: Data loaded successfully. Expenses: 11, Incomes: 3, Budgets: 7
+Oct 22, 2024 11:30:54 PM seedu.budgetbuddy.Storage <init>
+INFO: Storing ./data/BudgetBuddy.txt
+Oct 22, 2024 11:30:54 PM seedu.budgetbuddy.Storage load
+INFO: Data loaded successfully. Expenses: 11, Incomes: 3, Budgets: 7

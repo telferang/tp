@@ -37,9 +37,11 @@ public class Transaction {
         return output;
     }
 
-    public void editEntry(String newDescription, double newAmount, LocalDate newDate) {
-        description = newDescription;
-        amount = newAmount;
-        date = newDate;
+    public void editAmount(double amount) {
+        this.amount = amount;
+    }
+
+    public void editDate(LocalDate date) {
+        this.date = date;
     }
 }
