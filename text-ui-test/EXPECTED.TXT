@@ -141,9 +141,12 @@ Here is the budget for the specified month:
 Total Monthly Budget: 3500.0  Date: 2024-02  Category: {OTHERS=3500.0}
 ========================================================
 Enter commands: ========================================================
-Here are the budgets for the 12 most recent entries:
-1. Total Monthly Budget: 3500.0  Date: 2024-02  Category: {OTHERS=3500.0}
-2. Total Monthly Budget: 3000.0  Date: 2024-07  Category: {OTHERS=3000.0}
+No budget found for date: 2022-07
+========================================================
+Enter commands: ========================================================
+Here are the 12 latest budgets:
+1. Total Monthly Budget: 3000.0  Date: 2024-07  Category: {OTHERS=3000.0}
+2. Total Monthly Budget: 3500.0  Date: 2024-02  Category: {OTHERS=3500.0}
 
 ========================================================
 Enter commands: ========================================================
