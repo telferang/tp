@@ -32,6 +32,19 @@ public class Budget {
     }
 
     /**
+     * Constructs a Budget object by copying another Budget object.
+     *
+     * @param other The Budget object to copy from.
+     */
+    public Budget(Budget other) {
+        this.amount = other.amount; // Copy the original amount
+        this.date = other.date; // Copy the date
+        this.categoryBudgets = new HashMap<>(other.categoryBudgets); // Deep copy of the category budgets
+        this.totalMonthlyBudget = other.totalMonthlyBudget; // Copy the total monthly budget
+    }
+
+
+    /**
      * Adds or updates the budget amount for a specific category.
      * If the category already has a budget, the new amount is added to the existing amount.
      *
@@ -66,6 +79,24 @@ public class Budget {
             updateTotalBudget();
             Ui.displayBudgetTransactionMessage(toString(), BudgetManager.getNumberOfBudgets());
         }
+    }
+
+    /**
+     * Deducts an amount from the budget for a specific category.
+     * This is used by RemainingBudgetManager
+     *
+     * @param category        The category from which the amount should be deducted.
+     * @param deductedAmount  The amount to be deducted.
+     */
+    public void deductExpense(Category category, double deductedAmount) {
+        assert deductedAmount >= 0 : "Amount to deduct cannot be negative";
+        double currentAmount = categoryBudgets.getOrDefault(category, 0.0);
+
+        // Deduct the amount and allow the category to go negative
+        categoryBudgets.put(category, currentAmount - deductedAmount);
+
+        // Update the total budget
+        updateTotalBudget();
     }
 
     /**
@@ -105,7 +136,16 @@ public class Budget {
     public String toString() {
         String output = "Total Monthly Budget: " + totalMonthlyBudget;
         output += "  Date: " + date;
-        output += "  Category: " + categoryBudgets;
+
+        // Sort categoryBudgets by key (category name) and build the string
+        String sortedCategories = categoryBudgets.entrySet()
+                .stream()
+                .sorted(Map.Entry.comparingByKey())  // Sort by category names
+                .map(entry -> entry.getKey() + "=" + entry.getValue())  // Convert to "Category=Budget" format
+                .reduce((c1, c2) -> c1 + ", " + c2)  // Join entries with ", "
+                .orElse("");  // Handle the case when the map is empty
+
+        output += "  Category: {" + sortedCategories + "}";
         return output;
     }
 }

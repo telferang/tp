@@ -1,5 +1,6 @@
 package seedu.budgetbuddy;
 
+import seedu.budgetbuddy.commands.budget.ListRemainingBudgetCommand;
 import seedu.budgetbuddy.commands.expense.DeleteExpenseCommand;
 import seedu.budgetbuddy.commands.expense.AddExpenseCommand;
 import seedu.budgetbuddy.commands.expense.SearchExpenseCommand;
@@ -111,6 +112,9 @@ public class Parser {
         }
         if (DisplayTotalExpensesCommand.isCommand(userCommandText)){
             return DisplayTotalExpensesValidator.processCommand(userCommandText);
+        }
+        if (ListRemainingBudgetCommand.isCommand(userCommandText)) {
+            return new ListRemainingBudgetCommand();
         }
         return new IncorrectCommand("Invalid input");
     }
