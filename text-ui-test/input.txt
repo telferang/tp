@@ -54,4 +54,7 @@ display incomes
 display incomes m/10/2024
 display incomes m/08/2024
 display incomes m/20/2024
+add expense Fridge a/5000 d/1/2/2024 c/others
+add budget a/2000 m/02/2024
+list remaining budget
 bye
