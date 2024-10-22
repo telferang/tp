@@ -1,6 +1,7 @@
 package seedu.budgetbuddy.transaction.expense;
 
 import seedu.budgetbuddy.Ui;
+import seedu.budgetbuddy.exceptions.BudgetBuddyException;
 import seedu.budgetbuddy.transaction.Category;
 import seedu.budgetbuddy.transaction.budget.RemainingBudgetManager;
 import seedu.budgetbuddy.util.LoggerSetup;
@@ -234,6 +235,14 @@ public class ExpenseManager {
      */
     public static ArrayList<Expense> getExpenses() {
         return expenses;
+    }
+
+    public static Expense getExpenseByIndex(int index) throws BudgetBuddyException {
+        if(index > numberOfExpenses) {
+            throw new BudgetBuddyException("Input index is larger than the number of expenses. " +
+                    "Try with a smaller index");
+        }
+        return expenses.get(index);
     }
 
     /**
