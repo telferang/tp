@@ -16,13 +16,13 @@ import java.util.logging.Logger;
 public class EditExpenseCommand extends Command {
 
     private static final Logger LOGGER = LoggerSetup.getLogger();
-    private static Category category;
-    private static LocalDate date;
-    private Expense expense;
-    private static double amount;
     private static final double EMPTY_AMOUNT = -1.0;
     private static final Category EMPTY_CATEGORY = Category.EMPTY;
     private static final LocalDate EMPTY_DATE = null;
+    private static Category category;
+    private static LocalDate date;
+    private static double amount;
+    private Expense expense;
 
     /**
      * Checks if the provided command matches the command to list expenses.

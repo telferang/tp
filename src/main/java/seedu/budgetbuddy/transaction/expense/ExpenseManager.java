@@ -239,7 +239,8 @@ public class ExpenseManager {
 
     public static Expense getExpenseByIndex(int index) throws BudgetBuddyException {
         if(index > numberOfExpenses) {
-            throw new BudgetBuddyException("Input index is larger than the number of expenses. Try with a smaller index");
+            throw new BudgetBuddyException("Input index is larger than the number of expenses. " +
+                    "Try with a smaller index");
         }
         return expenses.get(index);
     }
