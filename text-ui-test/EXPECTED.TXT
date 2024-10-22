@@ -251,7 +251,7 @@ Enter commands: ========================================================
 All budgets after deductions:
 Total Monthly Budget: 3000.0  Date: 2024-07  Category: {OTHERS=3000.0}
 Total Monthly Budget: 500.0  Date: 2024-02  Category: {OTHERS=500.0}
-Total Monthly Budget: -223.55  Date: 2024-10  Category: {OTHERS=-100.1, TRANSPORT=-123.45}
+Total Monthly Budget: -223.55  Date: 2024-10  Category: {TRANSPORT=-123.45, OTHERS=-100.1}
 Total Monthly Budget: -123.45  Date: 2024-08  Category: {EDUCATION=-123.45}
 
 ========================================================

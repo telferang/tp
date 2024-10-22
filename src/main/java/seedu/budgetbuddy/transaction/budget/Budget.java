@@ -136,7 +136,16 @@ public class Budget {
     public String toString() {
         String output = "Total Monthly Budget: " + totalMonthlyBudget;
         output += "  Date: " + date;
-        output += "  Category: " + categoryBudgets;
+
+        // Sort categoryBudgets by key (category name) and build the string
+        String sortedCategories = categoryBudgets.entrySet()
+                .stream()
+                .sorted(Map.Entry.comparingByKey())  // Sort by category names
+                .map(entry -> entry.getKey() + "=" + entry.getValue())  // Convert to "Category=Budget" format
+                .reduce((c1, c2) -> c1 + ", " + c2)  // Join entries with ", "
+                .orElse("");  // Handle the case when the map is empty
+
+        output += "  Category: {" + sortedCategories + "}";
         return output;
     }
 }
