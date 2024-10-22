@@ -1,18 +1,11 @@
 package seedu.budgetbuddy.validators.expense;
 
 import seedu.budgetbuddy.Ui;
-import seedu.budgetbuddy.commands.Command;
-import seedu.budgetbuddy.commands.IncorrectCommand;
-import seedu.budgetbuddy.commands.expense.DisplayExpenseCommand;
 import seedu.budgetbuddy.commands.expense.EditExpenseCommand;
-import seedu.budgetbuddy.exceptions.BudgetBuddyException;
 import seedu.budgetbuddy.transaction.Category;
-import seedu.budgetbuddy.transaction.expense.Expense;
-import seedu.budgetbuddy.transaction.expense.ExpenseManager;
 import seedu.budgetbuddy.util.LoggerSetup;
 
 import java.time.LocalDate;
-import java.time.YearMonth;
 import java.util.logging.Logger;
 
 import static seedu.budgetbuddy.validators.AmountValidator.validateAmount;
@@ -27,10 +20,10 @@ public class EditExpenseValidator {
      * Processes the command string to determine if it is valid for editing.
      * If valid, it updates the fields to be changed and returns a true for validity of command.
      * otherwise, it will display error message and return a false validity of command.
-     * For any invalid category input, it will be set to others by default
+     * For any invalid category input, it will be set to others by default.
      *
-     * @param command
-     * @return boolean object that checks for validity of command
+     * @param command Input given by user
+     * @return Validity of command {@code Boolean}
      */
     public static boolean processCommand(String command){
 

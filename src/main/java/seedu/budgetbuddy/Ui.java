@@ -33,6 +33,13 @@ public class Ui {
         return inputCommand;
     }
 
+    /**
+     * Retrieves the user's command input.
+     * If an empty command is received, it will end the command and give an
+     * acknowledgment message.
+     *
+     * @return The user’s command as a trimmed {@code String}.
+     */
     public static String getUserEditFields(){
         String inputCommand;
 
