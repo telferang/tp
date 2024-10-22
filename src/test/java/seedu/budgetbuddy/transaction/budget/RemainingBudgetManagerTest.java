@@ -40,7 +40,8 @@ public class RemainingBudgetManagerTest {
     @Test
     public void getRemainingBudgets_expenseWithoutBudget_negativeBudget() {
         String result = remainingBudgetManager.getRemainingBudgets(LocalDate.of(2024, 11, 5), Category.FOOD);
-        assertEquals("The remaining budget for 2024-11 in the FOOD category is: -50.0", result);
+        assertEquals("The remaining budget for 2024-11 in the FOOD category is: -50.0\n" +
+                "Caution! You have exceeded your budget!", result);
     }
 
     @Test
