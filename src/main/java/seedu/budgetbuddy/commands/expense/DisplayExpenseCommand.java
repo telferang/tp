@@ -2,7 +2,7 @@ package seedu.budgetbuddy.commands.expense;
 
 import seedu.budgetbuddy.Ui;
 import seedu.budgetbuddy.commands.Command;
-import seedu.budgetbuddy.transaction.expense.Category;
+import seedu.budgetbuddy.transaction.Category;
 import seedu.budgetbuddy.transaction.expense.ExpenseManager;
 import seedu.budgetbuddy.util.LoggerSetup;
 

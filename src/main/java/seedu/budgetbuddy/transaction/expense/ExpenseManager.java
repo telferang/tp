@@ -1,12 +1,16 @@
 package seedu.budgetbuddy.transaction.expense;
 
 import seedu.budgetbuddy.Ui;
+import seedu.budgetbuddy.transaction.Category;
+import seedu.budgetbuddy.transaction.budget.RemainingBudgetManager;
 import seedu.budgetbuddy.util.LoggerSetup;
+import seedu.budgetbuddy.graphs.ExpensesOverMonthGraph;
 
 import java.time.YearMonth;
 import java.util.ArrayList;
 
 import java.time.LocalDate;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -38,7 +42,12 @@ public class ExpenseManager {
     public static void addExpense(Expense expense) {
         expenses.add(expense);
         numberOfExpenses++;
-        Ui.displayAcknowledgmentMessage(expense.toString(), "added", "expense", numberOfExpenses);
+        String budgetRemaining = new RemainingBudgetManager().getRemainingBudgets(expense.getDate()
+                , expense.getCategory());
+        String result = "The following expense transaction has been added:\n"
+                + expense + '\n'
+                + "You have " + numberOfExpenses + " expense transaction(s) in total.\n" + budgetRemaining;
+        Ui.displayToUser(result);
     }
 
     /**
@@ -48,8 +57,15 @@ public class ExpenseManager {
      */
     public static void deleteExpense(int index) {
         numberOfExpenses--;
-        Ui.displayAcknowledgmentMessage(expenses.get(index).toString(), "deleted", "expense", numberOfExpenses);
+        String result = "The following expense transaction has been deleted:\n"
+                + expenses.get(index) + '\n'
+                + "You have " + numberOfExpenses + " expense transaction(s) in total.\n";
+        LocalDate date = expenses.get(index).getDate();
+        Category category = expenses.get(index).getCategory();
         expenses.remove(index);
+        String budgetRemaining = new RemainingBudgetManager().getRemainingBudgets(date, category);
+        result += budgetRemaining;
+        Ui.displayToUser(result);
     }
 
     /**
@@ -170,6 +186,30 @@ public class ExpenseManager {
     }
 
     /**
+     * Displays a graph of expenses over the given year.
+     *
+     * @param year The year for which the expenses graph is to be displayed.
+     */
+    public static void displayExpensesOverMonthGraph(int year) {
+        ArrayList<Expense> expensesOverMonthArray = getExpenses();
+        Map<YearMonth, Double> monthlyExpensesMap = ExpensesOverMonthGraph.monthMapBuilder(expensesOverMonthArray);
+        ExpensesOverMonthGraph.chartPrinter(monthlyExpensesMap, year);
+    }
+
+    /**
+     * Displays the total expenses for a specific month.
+     *
+     * @param yearMonth The YearMonth object representing the month for which the total expenses are to be displayed.
+     */
+    public static void displayTotalExpensesForMonth(YearMonth yearMonth) {
+        ArrayList<Expense> expensesOverMonthArray = getExpenses();
+        Map<YearMonth, Double> monthlyExpensesMap = ExpensesOverMonthGraph.monthMapBuilder(expensesOverMonthArray);
+        Ui.displayToUser("Your expenses for " + yearMonth.toString() + " is " +
+                ExpensesOverMonthGraph.expensesForMonth(monthlyExpensesMap, yearMonth));
+    }
+
+
+    /**
      * Extract YearMonth value from date
      * @param date
      * @return
@@ -194,5 +234,19 @@ public class ExpenseManager {
      */
     public static ArrayList<Expense> getExpenses() {
         return expenses;
+    }
+
+    /**
+     * Resets the state of the ExpenseManager by clearing all expenses and
+     * setting the total number of expenses to zero.
+     * <p>
+     * This method is used for unit testing, ensuring that each test
+     * starts with a clean slate and does not retain any state from
+     * previous tests.
+     * </p>
+     */
+    public static void reset() {
+        numberOfExpenses = 0;
+        expenses.clear();
     }
 }

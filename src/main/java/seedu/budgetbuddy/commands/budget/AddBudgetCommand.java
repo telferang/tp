@@ -1,6 +1,8 @@
 package seedu.budgetbuddy.commands.budget;
 
+import seedu.budgetbuddy.Ui;
 import seedu.budgetbuddy.commands.Command;
+import seedu.budgetbuddy.transaction.Category;
 import seedu.budgetbuddy.transaction.budget.Budget;
 import seedu.budgetbuddy.transaction.budget.BudgetManager;
 import seedu.budgetbuddy.util.LoggerSetup;
@@ -15,6 +17,7 @@ public class AddBudgetCommand extends Command {
     private static final Logger LOGGER = LoggerSetup.getLogger();
     private double amount;
     private YearMonth date;
+    private Category category;
 
     /**
      * Constructs an AddBudgetCommand with the specified amount and date.
@@ -22,11 +25,13 @@ public class AddBudgetCommand extends Command {
      * @param amount The amount of the budget to be added.
      * @param date The YearMonth representing the month and year for the budget.
      */
-    public AddBudgetCommand(double amount, YearMonth date) {
+    public AddBudgetCommand(double amount, YearMonth date, Category category) {
         assert amount >= 0 : "Amount must be non-negative";
         assert date != null : "Date cannot be null";
+        assert category != null : "Category cannot be null";
         this.amount = amount;
         this.date = date;
+        this.category = category;
     }
 
     /**
@@ -54,10 +59,14 @@ public class AddBudgetCommand extends Command {
         Budget existingBudget = BudgetManager.getBudget(date);
 
         if (existingBudget != null) {
-            existingBudget.addAmount(amount);
+            existingBudget.addAmount(category, amount);
+            Ui.displayBudgetTransactionMessage(existingBudget.toString(), BudgetManager.getNumberOfBudgets());
             LOGGER.info("Updated existing budget for date: " + date + " with amount: " + amount);
         } else {
-            BudgetManager.addBudget(new Budget(amount, date));
+            Budget budget = new Budget(amount, date);
+            BudgetManager.addBudget(budget);
+            budget.addAmount(category, amount);
+            Ui.displayBudgetTransactionMessage(budget.toString(), BudgetManager.getNumberOfBudgets());
             LOGGER.info("Added new budget for date: " + date + " with amount: " + amount);
         }
     }

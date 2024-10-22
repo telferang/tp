@@ -1,5 +1,6 @@
 package seedu.budgetbuddy;
 
+import seedu.budgetbuddy.transaction.Category;
 import seedu.budgetbuddy.transaction.Transaction;
 import seedu.budgetbuddy.transaction.budget.Budget;
 import seedu.budgetbuddy.transaction.budget.BudgetManager;
@@ -13,8 +14,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -110,7 +113,7 @@ public class Storage {
         // Save budgets
         for (Budget budget : BudgetManager.getBudgets()) {
             if (budget != null) {
-                String line = getString(budget);
+                String line = getString(budget.getTotalMonthlyBudget(), budget.getDate(), budget.getCategoryBudgets());
                 fw.write(line + System.lineSeparator());
             }
         }
@@ -144,13 +147,21 @@ public class Storage {
     }
 
     /**
-     * Converts a Budget object into a string representation for saving to the file.
+     * Converts the total monthly budget, date, and category-specific budgets into a formatted string
+     * representation for saving to a file.
      *
-     * @param budget The budget to be converted.
-     * @return A string representation of the budget.
+     * @param totalBudget The total budget for the month.
+     * @param date The date in the format YYYY-MM representing the budget month.
+     * @param categoryBudgets A map containing category names as keys and their respective budget amounts as values.
+     * @return A formatted string representing the total budget, date, and category-specific budgets.
      */
-    private String getString(Budget budget) {
-        return "budget | " + budget.getAmount() + " | " + budget.getDate().toString();
+    private String getString(double totalBudget, YearMonth date, Map<Category, Double> categoryBudgets) {
+        StringBuilder line = new StringBuilder();
+        line.append("budget | ");
+        line.append(totalBudget).append(" | ");
+        line.append(date.format(DateTimeFormatter.ofPattern("yyyy-MM"))).append(" | ");
+        line.append(categoryBudgets.toString());
+        return line.toString();
     }
 
     /**

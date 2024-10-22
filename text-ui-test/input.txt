@@ -32,6 +32,7 @@ deduct budget a/800 m/03/2024
 deduct budget a/2300 m/11/2024
 deduct budget a/1500 m/02/2024
 list budget m/02/2024
+list budget m/07/2022
 list budget
 list incomes
 remove income 1
@@ -54,4 +55,7 @@ display incomes
 display incomes m/10/2024
 display incomes m/08/2024
 display incomes m/20/2024
+add expense Fridge a/5000 d/1/2/2024 c/others
+add budget a/2000 m/02/2024
+list remaining budget
 bye
