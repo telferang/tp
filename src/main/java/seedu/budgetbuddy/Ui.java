@@ -81,23 +81,6 @@ public class Ui {
     }
 
     /**
-     * Displays an acknowledgment message after an expense or income transaction is
-     * added or deleted, along with the total count of transactions.
-     *
-     * @param transaction The details of the transaction.
-     * @param addOrDelete Indicates whether the transaction was added or deleted.
-     * @param expenseOrIncome Specifies whether the transaction is an expense or income.
-     * @param count The total number of transactions of the specified type.
-     */
-    public static void displayAcknowledgmentMessage(String transaction, String addOrDelete, String expenseOrIncome,
-                                                    int count) {
-        String result = "The following " + expenseOrIncome + " transaction has been " + addOrDelete + ":\n"
-                + transaction + '\n'
-                + "You have " + count + " " + expenseOrIncome + " transaction(s) in total.";
-        displayToUser(result);
-    }
-
-    /**
      * Displays a message regarding a budget transaction, indicating updating the amount,
      * and shows the current total number of budgets.
      *

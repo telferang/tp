@@ -87,14 +87,18 @@ public class BudgetManager {
      */
     public static void listBudgets(YearMonth date) {
         String result = "";
+
+        // Sort the budgets by YearMonth in descending order
+        budgets.sort((b1, b2) -> b2.getDate().compareTo(b1.getDate()));
+
         if (date == null) {
             LOGGER.info("No date specified for listing budget.");
 
-            result += "Here are the budgets for the 12 most recent entries:\n";
+            result += "Here are the 12 latest budgets:\n";
 
             int entriesToDisplay = Math.min(budgets.size(), 12);
             for (int counter = 1; counter <= entriesToDisplay; counter++) {
-                Budget budget = budgets.get(budgets.size() - counter);
+                Budget budget = budgets.get(counter - 1);
                 result += counter + ". " + budget.toString() + "\n";
             }
         } else {
@@ -106,6 +110,8 @@ public class BudgetManager {
             if (budget != null) {
                 result += "Here is the budget for the specified month:\n";
                 result += budget.toString();
+            } else {
+                result += "No budget found for date: " + date;
             }
         }
         Ui.displayToUser(result);
