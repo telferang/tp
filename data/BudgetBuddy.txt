@@ -1,6 +1,6 @@
 expense | plane | 1000.0 | 15/9/2024 | FOOD
 expense | hello | 2.0 | 15/9/2024 | OTHERS
-expense | go skiing | 500.0 | 15/9/2024 | OTHERS
+expense | go skiing | 200.0 | 23/10/2024 | OTHERS
 expense | plane tickets to korea | 500.0 | 15/9/2024 | TRANSPORT
 expense | zoo tickets | 20.0 | 15/9/2024 | FOOD
 expense | plane tickets to japan | 1000.0 | 15/10/2024 | OTHERS
@@ -12,10 +12,10 @@ expense | test | 10.0 | 10/10/2024 | OTHERS
 income | tuition fees | 1000.0 | 15/9/2024
 income | tuition | 2.0E8 | 15/9/2024
 income | tuition fee | 1000.0 | 15/9/2024
-budget | 2400.0 | 2024-10 | {TRANSPORT=1200.0, ENTERTAINMENT=1200.0}
-budget | 1700.0 | 2023-02 | {FOOD=1000.0, OTHERS=700.0}
+budget | 2400.0 | 2024-10 | {ENTERTAINMENT=1200.0, TRANSPORT=1200.0}
+budget | 1700.0 | 2023-02 | {OTHERS=700.0, FOOD=1000.0}
 budget | 3200.0 | 2024-11 | {ENTERTAINMENT=3000.0, FOOD=200.0}
-budget | 3900.0 | 2024-05 | {ENTERTAINMENT=1300.0, FOOD=1300.0, OTHERS=1300.0}
+budget | 3900.0 | 2024-05 | {ENTERTAINMENT=1300.0, OTHERS=1300.0, FOOD=1300.0}
 budget | 1700.0 | 2024-07 | {OTHERS=1700.0}
-budget | 2550.0 | 2024-08 | {FOOD=750.0, OTHERS=1800.0}
+budget | 2550.0 | 2024-08 | {OTHERS=1800.0, FOOD=750.0}
 budget | 1300.0 | 2023-08 | {OTHERS=600.0, UTILITIES=700.0}

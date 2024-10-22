@@ -39,6 +39,13 @@ public class EditExpenseCommand extends Command {
     }
 
     /**
+     * Used for Unit Testing
+     *
+     * @param expense Created expense object to be tested
+     */
+    public EditExpenseCommand(Expense expense) { this.expense = expense; }
+
+    /**
      * Set date that will be used to update expenses
      *
      * @param newDate new Expense Date
@@ -107,16 +114,27 @@ public class EditExpenseCommand extends Command {
      * @throws BudgetBuddyException
      */
     private void getExpense(String command) throws BudgetBuddyException {
-        String[] split = command.split(" ",4);
-        int editIndex = Integer.parseInt(split[2]) + 1;
-        this.expense = ExpenseManager.getExpenseByIndex(editIndex);
+        if (command.equals("edit expenses")) {
+            throw new BudgetBuddyException("No index detected, try again with an index.");
+        }
+        try {
+            String trimmedCommand = command.substring("edit expenses ".length());
+            String[] parts = trimmedCommand.split(" ");
+            int editIndex = Integer.parseInt(parts[0]) + 1;
+            if (editIndex <= 0) {
+                throw new BudgetBuddyException("Edit index must be greater than 0.");
+            }
+            this.expense = ExpenseManager.getExpenseByIndex(editIndex);
+        } catch (NumberFormatException e) {
+            throw new BudgetBuddyException("Index must be a valid number larger than 0.");
+        }
     }
 
     /**
      * Process which fields to edit based on values stored
      * For any field that is not left empty by user, it will update the Expense object.
      */
-    private void processEdit(){
+    public void processEdit(){
         if(category != EMPTY_CATEGORY) {
             expense.editCategory(category);
         }
