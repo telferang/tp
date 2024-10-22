@@ -222,4 +222,12 @@ public class ExpenseManager {
     public static ArrayList<Expense> getExpenses() {
         return expenses;
     }
+
+    public static void editExpense(String editFields){
+
+    }
+
+    public static Expense getExpenseByIndex(int index){
+        return expenses.get(index);
+    }
 }

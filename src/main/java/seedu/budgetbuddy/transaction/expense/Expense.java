@@ -75,4 +75,9 @@ public class Expense extends Transaction {
     public Category getCategory() {
         return category;
     }
+
+    public void editEntry(String newDescription, double newAmount, LocalDate newDate, Category newCategory) {
+        super.editEntry(newDescription, newAmount, newDate);
+        this.category = newCategory;
+    }
 }

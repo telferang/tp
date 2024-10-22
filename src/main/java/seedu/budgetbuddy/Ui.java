@@ -33,6 +33,21 @@ public class Ui {
         return inputCommand;
     }
 
+    public static String getUserEditFields(){
+        String inputCommand;
+
+        do {
+            System.out.print("Enter edit Field: ");
+            inputCommand = scanner.nextLine().trim();
+
+            if (inputCommand.isEmpty()) {
+                displayToUser("Empty Input Detected, Exiting change menu.");
+                return "";
+            }
+        } while (inputCommand.isEmpty());
+        return inputCommand;
+    }
+
     /**
      * Displays a given message to the user, surrounded by separators for readability.
      *

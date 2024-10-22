@@ -36,4 +36,10 @@ public class Transaction {
         output += "  Date: " + date;
         return output;
     }
+
+    public void editEntry(String newDescription, double newAmount, LocalDate newDate) {
+        description = newDescription;
+        amount = newAmount;
+        date = newDate;
+    }
 }

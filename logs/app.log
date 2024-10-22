@@ -698,3 +698,67 @@ Oct 22, 2024 12:07:33 AM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
 Oct 22, 2024 12:07:39 AM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
+Oct 22, 2024 1:45:11 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 0.0  Date: 2024-08  Category: {}
+Oct 22, 2024 1:45:11 PM seedu.budgetbuddy.transaction.budget.BudgetManager getBudget
+INFO: Retrieved budget for date: 2024-08
+Oct 22, 2024 1:45:11 PM seedu.budgetbuddy.transaction.budget.BudgetManager getBudget
+INFO: No budget found for date: 2024-12
+Oct 22, 2024 1:45:11 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 0.0  Date: 2024-03  Category: {}
+Oct 22, 2024 1:45:11 PM seedu.budgetbuddy.transaction.budget.BudgetManager deleteBudget
+INFO: Deleted budget: Total Monthly Budget: 0.0  Date: 2024-03  Category: {}
+Oct 22, 2024 1:45:11 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 0.0  Date: 2024-05  Category: {}
+Oct 22, 2024 1:45:11 PM seedu.budgetbuddy.transaction.budget.BudgetManager deleteBudget
+INFO: Deleted budget: Total Monthly Budget: 0.0  Date: 2024-05  Category: {}
+Oct 22, 2024 1:45:11 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 0.0  Date: 2024-01  Category: {}
+Oct 22, 2024 1:45:11 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 0.0  Date: 2024-07  Category: {}
+Oct 22, 2024 1:45:12 PM seedu.budgetbuddy.transaction.income.IncomeManager listIncomes
+INFO: Listing 2 expenses
+Oct 22, 2024 1:45:34 PM seedu.budgetbuddy.Storage <init>
+INFO: Storing ./data/BudgetBuddy.txt
+Oct 22, 2024 1:45:34 PM seedu.budgetbuddy.Storage load
+INFO: Data loaded successfully. Expenses: 11, Incomes: 3, Budgets: 7
+Oct 22, 2024 1:45:46 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Oct 22, 2024 1:45:52 PM seedu.budgetbuddy.commands.expense.DisplayExpenseCommand execute
+INFO: Displaying expenses listed with no Filter
+Oct 22, 2024 1:45:52 PM seedu.budgetbuddy.transaction.expense.ExpenseManager listExpenses
+INFO: Listing 11 expenses
+Oct 22, 2024 1:45:52 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Oct 22, 2024 10:05:34 PM seedu.budgetbuddy.Storage <init>
+INFO: Storing ./data/BudgetBuddy.txt
+Oct 22, 2024 10:05:34 PM seedu.budgetbuddy.Storage load
+INFO: Data loaded successfully. Expenses: 11, Incomes: 3, Budgets: 7
+Oct 22, 2024 10:05:56 PM seedu.budgetbuddy.commands.expense.DisplayExpenseCommand execute
+INFO: Displaying expenses listed with no Filter
+Oct 22, 2024 10:05:56 PM seedu.budgetbuddy.transaction.expense.ExpenseManager listExpenses
+INFO: Listing 11 expenses
+Oct 22, 2024 10:05:56 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Oct 22, 2024 10:06:06 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Oct 22, 2024 10:07:03 PM seedu.budgetbuddy.Storage <init>
+INFO: Storing ./data/BudgetBuddy.txt
+Oct 22, 2024 10:07:03 PM seedu.budgetbuddy.Storage load
+INFO: Data loaded successfully. Expenses: 11, Incomes: 3, Budgets: 7
+Oct 22, 2024 10:07:48 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Oct 22, 2024 10:08:28 PM seedu.budgetbuddy.commands.expense.DisplayExpenseCommand execute
+INFO: Displaying expenses listed with no Filter
+Oct 22, 2024 10:08:28 PM seedu.budgetbuddy.transaction.expense.ExpenseManager listExpenses
+INFO: Listing 11 expenses
+Oct 22, 2024 10:08:28 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Oct 22, 2024 10:08:42 PM seedu.budgetbuddy.Storage <init>
+INFO: Storing ./data/BudgetBuddy.txt
+Oct 22, 2024 10:08:42 PM seedu.budgetbuddy.Storage load
+INFO: Data loaded successfully. Expenses: 11, Incomes: 3, Budgets: 7
+Oct 22, 2024 10:09:26 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Oct 22, 2024 10:10:19 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
