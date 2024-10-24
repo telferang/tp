@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class EditExpenseCommandTest {
     private static Expense expense;
     private static final double EMPTY_AMOUNT = -1.0;
-    private static final Category EMPTY_CATEGORY = Category.EMPTY;
+    private static final Category EMPTY_CATEGORY = null;
     private static final LocalDate EMPTY_DATE = null;
 
     @Test

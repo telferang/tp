@@ -22,6 +22,4 @@ public enum Category {
     /** Represents miscellaneous expenses that do not fall into other categories. */
     OTHERS,
 
-    /** Represents empty input from user. */
-    EMPTY
 }

@@ -100,7 +100,7 @@ public class ExpenseManager {
      * @param month
      * @return result String to be displayed to user
      */
-    public static String displayExpensesWithCategoryAndDate(Category category, YearMonth month) {
+    public static String listExpensesWithCategoryAndDate(Category category, YearMonth month) {
         assert category != null : "category cannot be null";
         assert month != null : "month cannot be null";
         String result = "";
@@ -123,7 +123,7 @@ public class ExpenseManager {
      * @param category
      * @return result String to be displayed to user
      */
-    public static String displayExpensesWithCategory(Category category) {
+    public static String listExpensesWithCategory(Category category) {
         assert category != null : "category cannot be null";
         String result = "";
         int counter = 1;
@@ -145,7 +145,7 @@ public class ExpenseManager {
      * @param month
      * @return result String to be displayed to user
      */
-    public static String displayExpensesWithDate(YearMonth month) {
+    public static String listExpensesWithDate(YearMonth month) {
         assert month != null : "month cannot be null";
         String result = "";
         int counter = 1;

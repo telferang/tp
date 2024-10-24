@@ -31,7 +31,7 @@ public class EditExpenseValidator {
 
         //Process Initial Value
         LocalDate date = null;
-        Category category = Category.EMPTY;
+        Category category = null;
         double amount = -1.0;
 
         //Process parts to extract details
