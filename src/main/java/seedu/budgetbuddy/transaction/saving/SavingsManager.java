@@ -48,7 +48,7 @@ public class SavingsManager {
             }
         }
         result += "Total savings: " + savings + "\n" + "First income: " + firstIncome + "\n" +
-        "First expense: " + firstExpense + "\n";
+            "First expense: " + firstExpense + "\n";
         LOGGER.info("Listing total savings");
         Ui.displayToUser(result);
     }
@@ -68,8 +68,7 @@ public class SavingsManager {
                 if (indexOfSaving == -1){
                     listYearMonths.add(incomeYearMonth);
                     savings.add(new Saving(incomeYearMonth, income.getAmount()));
-                }
-                else{
+                } else{
                     savings.get(indexOfSaving).addIncome(income.getAmount());
                 }
             }
@@ -104,8 +103,7 @@ public class SavingsManager {
     private static int findYearMonthFromArray(ArrayList<YearMonth> listYearMonth, YearMonth yearMonth){
         if (!listYearMonth.contains(yearMonth)){
             return -1;
-        }
-        else{
+        } else{
             return listYearMonth.indexOf(yearMonth);
         }
     }

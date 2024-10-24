@@ -32,8 +32,7 @@ public class DisplaySavingsCommand extends Command{
     public void execute(){
         if (byMonth){
             SavingsManager.displayTotalSavingsByMonth();
-        }
-        else{
+        } else{
             SavingsManager.displayTotalSavings();
         }
     }

@@ -23,8 +23,7 @@ public class DisplaySavingsValidator {
         assert command != null: "Command cannot be null";
         if (command.equals("display savings m/")){
             return new DisplaySavingsCommand(true);
-        }
-        else if (command.equals("display savings")){
+        } else if (command.equals("display savings")){
             return new DisplaySavingsCommand(false);
         }
         LOGGER.info("Invalid display savings message by user.");
