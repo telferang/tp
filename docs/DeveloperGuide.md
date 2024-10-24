@@ -13,8 +13,11 @@
 BudgetBuddy is a CLI-based expense, income and budget tracking application. BudgetBuddy is designed to help users manage and monitor their daily and monthly expenses. The system tracks various categories of expenses and allows users to receive insights on their budget and spending patterns.
 
 ### 2. Setup Guide
+This section describes how to setup the coding environment, along with the tools needed to work on BudgetBuddy
 
-{need to add in}
+#### 2.1 Prerequisites
+1. JDK 17
+2. Any working IDE that supports Java (Intellij IDEA preferred)
 
 ### 3. Design
 
@@ -31,10 +34,15 @@ BudgetBuddy is a CLI-based expense, income and budget tracking application. Budg
 
 ## User Stories
 
-|Version| As a ... | I want to ... | So that I can ...|
-|--------|----------|---------------|------------------|
-|v1.0|new user|see usage instructions|refer to them when I forget how to use the application|
-|v2.0|user|find a to-do item by name|locate a to-do without having to go through the entire list|
+|Version| As a ... | I want to ...                         | So that I can ...                                           |
+|--------|----------|---------------------------------------|-------------------------------------------------------------|
+|v1.0| new user | see usage instructions                | refer to them when I forget how to use the application      |
+|v1.0| user     | view a history of my past income      | see how my income changed over time                         |
+|v1.0| user     | view a history of my past expenses    | see how my expenses changed over time                       |
+|v2.0| user     | find a to-do item by name             | locate a to-do without having to go through the entire list |
+|v2.0| user     | edit an exisiting expense entry       | correct any mistakes made to an expense entry               |
+|v2.0| user     | edit an exisiting income entry        | correct any mistakes made to an income entry                |
+|v2.0| user     | track expenses in multiple currencies | manage international transactions                           |
 
 ## Non-Functional Requirements
 
