@@ -19,21 +19,21 @@ public class BudgetManagerTest {
 
     @Test
     public void testAddBudget_inputIsBudget_incrementsNumberOfBudgets() {
-        Budget budget = new Budget(100.0, YearMonth.of(2024, 1));
+        Budget budget = new Budget(YearMonth.of(2024, 1));
         BudgetManager.addBudget(budget);
         assertEquals(1, BudgetManager.getNumberOfBudgets());
     }
 
     @Test
     public void testAddBudget_inputIsBudget_addsBudgetToList() {
-        Budget budget = new Budget(100.0, YearMonth.of(2024, 7));
+        Budget budget = new Budget(YearMonth.of(2024, 7));
         BudgetManager.addBudget(budget);
         assertEquals(budget, BudgetManager.getBudgets().get(0));
     }
 
     @Test
     public void testDeleteBudget_inputIsBudget_decrementsNumberOfBudgets() {
-        Budget budget = new Budget(100.0, YearMonth.of(2024, 5));
+        Budget budget = new Budget(YearMonth.of(2024, 5));
         BudgetManager.addBudget(budget);
         BudgetManager.deleteBudget(budget);
         assertEquals(0, BudgetManager.getNumberOfBudgets());
@@ -41,7 +41,7 @@ public class BudgetManagerTest {
 
     @Test
     public void testDeleteBudget_inputIsBudget_deleteBudgetFromList() {
-        Budget budget = new Budget(100.0, YearMonth.of(2024, 3));
+        Budget budget = new Budget(YearMonth.of(2024, 3));
         BudgetManager.addBudget(budget);
         BudgetManager.deleteBudget(budget);
         assertTrue(BudgetManager.getBudgets().isEmpty());
@@ -49,7 +49,7 @@ public class BudgetManagerTest {
 
     @Test
     public void testGetBudget_returnsCorrectBudget() {
-        Budget budget = new Budget(100.0, YearMonth.of(2024, 8));
+        Budget budget = new Budget(YearMonth.of(2024, 8));
         BudgetManager.addBudget(budget);
         Budget result = BudgetManager.getBudget(YearMonth.of(2024, 8));
         assertEquals(budget, result);
