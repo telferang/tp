@@ -8,6 +8,17 @@
 
 {Describe the design and implementation of the product. Use UML diagrams and short code snippets where applicable.}
 
+### 1. Introduction
+
+BudgetBuddy is a CLI-based expense, income and budget tracking application. BudgetBuddy is designed to help users manage and monitor their daily and monthly expenses. The system tracks various categories of expenses and allows users to receive insights on their budget and spending patterns.
+
+### 2. Setup Guide
+
+{need to add in}
+
+### 3. Design
+
+#### 3.1 Architecture
 
 ## Product scope
 ### Target user profile
