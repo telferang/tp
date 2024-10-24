@@ -34,6 +34,28 @@ public class Ui {
     }
 
     /**
+     * Retrieves the user's command input.
+     * If an empty command is received, it will end the command and give an
+     * acknowledgment message.
+     *
+     * @return The user’s command as a trimmed {@code String}.
+     */
+    public static String getUserEditFields(){
+        String inputCommand;
+
+        do {
+            System.out.print("Enter edit Field: ");
+            inputCommand = scanner.nextLine().trim();
+
+            if (inputCommand.isEmpty()) {
+                displayToUser("Empty Input Detected, Exiting change menu.");
+                return "";
+            }
+        } while (inputCommand.isEmpty());
+        return inputCommand;
+    }
+
+    /**
      * Displays a given message to the user, surrounded by separators for readability.
      *
      * @param message The message to display to the user.

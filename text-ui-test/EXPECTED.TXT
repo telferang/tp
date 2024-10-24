@@ -238,6 +238,13 @@ No income entry with given month found, try again with a different month.
 Enter commands: ========================================================
 Invalid month format. Use m/MM/yyyy.
 ========================================================
+Enter commands: Edit the following fields as follows: Amount: a/, Category: c/, Date: d/
+Currently Editing Entry:
+Description: Ipad  Amount: 123.45  Date: 2024-08-30  Category: EDUCATION
+Enter edit Field: ========================================================
+Edited Expense:
+Description: Ipad  Amount: 50.0  Date: 2024-08-30  Category: EDUCATION
+========================================================
 Enter commands: ========================================================
 The following expense transaction has been added:
 Description: Fridge  Amount: 5000.0  Date: 2024-02-01  Category: OTHERS
@@ -255,7 +262,7 @@ All budgets after deductions:
 Total Monthly Budget: 3000.0  Date: 2024-07  Category: {OTHERS=3000.0}
 Total Monthly Budget: 500.0  Date: 2024-02  Category: {OTHERS=500.0}
 Total Monthly Budget: -223.55  Date: 2024-10  Category: {TRANSPORT=-123.45, OTHERS=-100.1}
-Total Monthly Budget: -123.45  Date: 2024-08  Category: {EDUCATION=-123.45}
+Total Monthly Budget: -50.0  Date: 2024-08  Category: {EDUCATION=-50.0}
 
 ========================================================
 Enter commands: ========================================================
