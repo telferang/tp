@@ -948,3 +948,277 @@ Oct 23, 2024 12:59:39 AM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
 Oct 23, 2024 12:59:50 AM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 0.0  Date: 2024-08  Category: {}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.BudgetManager getBudget
+INFO: Retrieved budget for date: 2024-08
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.BudgetManager getBudget
+INFO: No budget found for date: 2024-12
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 0.0  Date: 2024-03  Category: {}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.BudgetManager deleteBudget
+INFO: Deleted budget: Total Monthly Budget: 0.0  Date: 2024-03  Category: {}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 0.0  Date: 2024-05  Category: {}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.BudgetManager deleteBudget
+INFO: Deleted budget: Total Monthly Budget: 0.0  Date: 2024-05  Category: {}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 0.0  Date: 2024-01  Category: {}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 0.0  Date: 2024-07  Category: {}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 500.0  Date: 2024-10  Category: {EDUCATION=500.0}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 300.0  Date: 2024-09  Category: {OTHERS=300.0}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 500.0  Date: 2024-10  Category: {EDUCATION=500.0}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 300.0  Date: 2024-09  Category: {OTHERS=300.0}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager createNewBudget
+INFO: Created new budget for 2024-11 with initial amount 0.0
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 50.0 from budget for 2024-11 in category FOOD
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Remaining budgets initialized and updated after deductions.
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager getRemainingBudgets
+INFO: Retrieved remaining budget for 2024-11 in category FOOD: -50.0
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 500.0  Date: 2024-10  Category: {EDUCATION=500.0}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 300.0  Date: 2024-09  Category: {OTHERS=300.0}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager createNewBudget
+INFO: Created new budget for 2024-11 with initial amount 0.0
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 50.0 from budget for 2024-11 in category FOOD
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager searchForGivenBudget
+INFO: Found existing budget for date: 2024-09
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 30.0 from budget for 2024-09 in category OTHERS
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Remaining budgets initialized and updated after deductions.
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager getRemainingBudgets
+INFO: Retrieved remaining budget for 2024-09 in category OTHERS: 270.0
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 500.0  Date: 2024-10  Category: {EDUCATION=500.0}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 300.0  Date: 2024-09  Category: {OTHERS=300.0}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager createNewBudget
+INFO: Created new budget for 2024-11 with initial amount 0.0
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 50.0 from budget for 2024-11 in category FOOD
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager searchForGivenBudget
+INFO: Found existing budget for date: 2024-09
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 30.0 from budget for 2024-09 in category OTHERS
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Remaining budgets initialized and updated after deductions.
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 500.0  Date: 2024-10  Category: {EDUCATION=500.0}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 300.0  Date: 2024-09  Category: {OTHERS=300.0}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager createNewBudget
+INFO: Created new budget for 2024-11 with initial amount 0.0
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 50.0 from budget for 2024-11 in category FOOD
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager searchForGivenBudget
+INFO: Found existing budget for date: 2024-09
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 30.0 from budget for 2024-09 in category OTHERS
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager searchForGivenBudget
+INFO: Found existing budget for date: 2024-10
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 20.0 from budget for 2024-10 in category EDUCATION
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Remaining budgets initialized and updated after deductions.
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager getRemainingBudgets
+INFO: Retrieved remaining budget for 2024-10 in category EDUCATION: 480.0
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 500.0  Date: 2024-10  Category: {EDUCATION=500.0}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 300.0  Date: 2024-09  Category: {OTHERS=300.0}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager createNewBudget
+INFO: Created new budget for 2024-11 with initial amount 0.0
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 50.0 from budget for 2024-11 in category FOOD
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager searchForGivenBudget
+INFO: Found existing budget for date: 2024-09
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 30.0 from budget for 2024-09 in category OTHERS
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager searchForGivenBudget
+INFO: Found existing budget for date: 2024-10
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 20.0 from budget for 2024-10 in category EDUCATION
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Remaining budgets initialized and updated after deductions.
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager getRemainingBudgets
+INFO: Retrieved remaining budget for 2024-10 in category EDUCATION: 480.0
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 500.0  Date: 2024-10  Category: {EDUCATION=500.0}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 300.0  Date: 2024-09  Category: {OTHERS=300.0}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 500.0  Date: 2024-10  Category: {EDUCATION=500.0}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 300.0  Date: 2024-09  Category: {OTHERS=300.0}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager createNewBudget
+INFO: Created new budget for 2024-11 with initial amount 0.0
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 50.0 from budget for 2024-11 in category FOOD
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Remaining budgets initialized and updated after deductions.
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager getRemainingBudgets
+INFO: Retrieved remaining budget for 2024-11 in category FOOD: -50.0
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 500.0  Date: 2024-10  Category: {EDUCATION=500.0}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 300.0  Date: 2024-09  Category: {OTHERS=300.0}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager createNewBudget
+INFO: Created new budget for 2024-11 with initial amount 0.0
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 50.0 from budget for 2024-11 in category FOOD
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager searchForGivenBudget
+INFO: Found existing budget for date: 2024-09
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 30.0 from budget for 2024-09 in category OTHERS
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Remaining budgets initialized and updated after deductions.
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager getRemainingBudgets
+INFO: Retrieved remaining budget for 2024-09 in category OTHERS: 270.0
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 500.0  Date: 2024-10  Category: {EDUCATION=500.0}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 300.0  Date: 2024-09  Category: {OTHERS=300.0}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager createNewBudget
+INFO: Created new budget for 2024-11 with initial amount 0.0
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 50.0 from budget for 2024-11 in category FOOD
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager searchForGivenBudget
+INFO: Found existing budget for date: 2024-09
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 30.0 from budget for 2024-09 in category OTHERS
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Remaining budgets initialized and updated after deductions.
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager getRemainingBudgets
+INFO: Retrieved remaining budget for 2024-11 in category FOOD: -50.0
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 500.0  Date: 2024-10  Category: {EDUCATION=500.0}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 300.0  Date: 2024-09  Category: {OTHERS=300.0}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 500.0  Date: 2024-10  Category: {EDUCATION=500.0}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 300.0  Date: 2024-09  Category: {OTHERS=300.0}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager createNewBudget
+INFO: Created new budget for 2024-11 with initial amount 0.0
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 50.0 from budget for 2024-11 in category FOOD
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Remaining budgets initialized and updated after deductions.
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager getRemainingBudgets
+INFO: Retrieved remaining budget for 2024-11 in category FOOD: -50.0
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 500.0  Date: 2024-10  Category: {EDUCATION=500.0}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 300.0  Date: 2024-09  Category: {OTHERS=300.0}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager createNewBudget
+INFO: Created new budget for 2024-11 with initial amount 0.0
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 50.0 from budget for 2024-11 in category FOOD
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager searchForGivenBudget
+INFO: Found existing budget for date: 2024-09
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 30.0 from budget for 2024-09 in category OTHERS
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Remaining budgets initialized and updated after deductions.
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager getRemainingBudgets
+INFO: Retrieved remaining budget for 2024-09 in category OTHERS: 270.0
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 500.0  Date: 2024-10  Category: {EDUCATION=500.0}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 300.0  Date: 2024-09  Category: {OTHERS=300.0}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager createNewBudget
+INFO: Created new budget for 2024-11 with initial amount 0.0
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 50.0 from budget for 2024-11 in category FOOD
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager searchForGivenBudget
+INFO: Found existing budget for date: 2024-09
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 30.0 from budget for 2024-09 in category OTHERS
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Remaining budgets initialized and updated after deductions.
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager getRemainingBudgets
+INFO: Retrieved remaining budget for 2024-09 in category OTHERS: 270.0
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 500.0  Date: 2024-10  Category: {EDUCATION=500.0}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 300.0  Date: 2024-09  Category: {OTHERS=300.0}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager createNewBudget
+INFO: Created new budget for 2024-02 with initial amount 0.0
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 12.0 from budget for 2024-02 in category FOOD
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Remaining budgets initialized and updated after deductions.
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager getRemainingBudgets
+INFO: Retrieved remaining budget for 2024-02 in category FOOD: -12.0
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 500.0  Date: 2024-10  Category: {EDUCATION=500.0}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 300.0  Date: 2024-09  Category: {OTHERS=300.0}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager createNewBudget
+INFO: Created new budget for 2024-02 with initial amount 0.0
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 12.0 from budget for 2024-02 in category FOOD
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager searchForGivenBudget
+INFO: Found existing budget for date: 2024-02
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 12.0 from budget for 2024-02 in category FOOD
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Remaining budgets initialized and updated after deductions.
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager getRemainingBudgets
+INFO: Retrieved remaining budget for 2024-02 in category FOOD: -24.0
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 500.0  Date: 2024-10  Category: {EDUCATION=500.0}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 300.0  Date: 2024-09  Category: {OTHERS=300.0}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager createNewBudget
+INFO: Created new budget for 2024-02 with initial amount 0.0
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 12.0 from budget for 2024-02 in category FOOD
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager searchForGivenBudget
+INFO: Found existing budget for date: 2024-02
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 12.0 from budget for 2024-02 in category FOOD
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager searchForGivenBudget
+INFO: Found existing budget for date: 2024-02
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 12.0 from budget for 2024-02 in category FOOD
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Remaining budgets initialized and updated after deductions.
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager getRemainingBudgets
+INFO: Retrieved remaining budget for 2024-02 in category FOOD: -36.0
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 500.0  Date: 2024-10  Category: {EDUCATION=500.0}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 300.0  Date: 2024-09  Category: {OTHERS=300.0}
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager createNewBudget
+INFO: Created new budget for 2024-02 with initial amount 0.0
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 12.0 from budget for 2024-02 in category FOOD
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager searchForGivenBudget
+INFO: Found existing budget for date: 2024-02
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 12.0 from budget for 2024-02 in category FOOD
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager searchForGivenBudget
+INFO: Found existing budget for date: 2024-02
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 12.0 from budget for 2024-02 in category FOOD
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager searchForGivenBudget
+INFO: Found existing budget for date: 2024-02
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 12.0 from budget for 2024-02 in category FOOD
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Remaining budgets initialized and updated after deductions.
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager getRemainingBudgets
+INFO: Retrieved remaining budget for 2024-02 in category FOOD: -48.0
+Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.income.IncomeManager listIncomes
+INFO: Listing 2 expenses
