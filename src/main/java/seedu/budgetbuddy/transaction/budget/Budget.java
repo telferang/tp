@@ -22,10 +22,9 @@ public class Budget {
     /**
      * Constructs a Budget object with the specified amount and date.
      *
-     * @param amount The amount allocated for the budget.
-     * @param date   The YearMonth representing the month and year for the budget.
+     * @param date The YearMonth representing the month and year for the budget.
      */
-    public Budget(double amount, YearMonth date) {
+    public Budget(YearMonth date) {
         assert amount >= 0 : "Initial amount cannot be negative";
         this.date = date;
         this.categoryBudgets = new HashMap<>();

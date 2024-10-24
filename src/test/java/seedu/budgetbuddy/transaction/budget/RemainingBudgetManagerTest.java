@@ -24,9 +24,9 @@ public class RemainingBudgetManagerTest {
         // Set up budgets and expenses
         BudgetManager.reset();
         ExpenseManager.reset();
-        Budget budgetOct = new Budget(500.0, YearMonth.of(2024, 10));
+        Budget budgetOct = new Budget(YearMonth.of(2024, 10));
         budgetOct.addAmount(Category.EDUCATION, 500);
-        Budget budgetSep = new Budget(300.0, YearMonth.of(2024, 9));
+        Budget budgetSep = new Budget(YearMonth.of(2024, 9));
         budgetSep.addAmount(Category.OTHERS, 300);
         BudgetManager.addBudget(budgetOct);
         BudgetManager.addBudget(budgetSep);

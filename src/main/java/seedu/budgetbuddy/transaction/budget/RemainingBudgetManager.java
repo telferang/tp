@@ -63,7 +63,7 @@ public class RemainingBudgetManager {
     private Budget createNewBudget(Budget matchingBudget, YearMonth expenseDate) {
         assert expenseDate != null : "Expense date cannot be null";
         if (matchingBudget == null) {
-            matchingBudget = new Budget(0.0, expenseDate);
+            matchingBudget = new Budget(expenseDate);
             remainingBudgets.add(matchingBudget);  // Add the new budget to the list
             LOGGER.info("Created new budget for " + expenseDate + " with initial amount 0.0");
         }

@@ -63,7 +63,7 @@ public class AddBudgetCommand extends Command {
             Ui.displayBudgetTransactionMessage(existingBudget.toString(), BudgetManager.getNumberOfBudgets());
             LOGGER.info("Updated existing budget for date: " + date + " with amount: " + amount);
         } else {
-            Budget budget = new Budget(amount, date);
+            Budget budget = new Budget(date);
             BudgetManager.addBudget(budget);
             budget.addAmount(category, amount);
             Ui.displayBudgetTransactionMessage(budget.toString(), BudgetManager.getNumberOfBudgets());
