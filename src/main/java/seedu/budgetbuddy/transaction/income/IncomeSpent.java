@@ -1,7 +1,6 @@
 package seedu.budgetbuddy.transaction.income;
 
 import seedu.budgetbuddy.Ui;
-import seedu.budgetbuddy.exceptions.BudgetBuddyException;
 import seedu.budgetbuddy.transaction.expense.ExpenseManager;
 
 import java.time.YearMonth;
