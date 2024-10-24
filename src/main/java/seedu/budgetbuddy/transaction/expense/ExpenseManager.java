@@ -25,7 +25,7 @@ public class ExpenseManager {
     private static ArrayList<Expense> expenses = new ArrayList<>();
 
     /**
-     * Construct a ExpenseManager of array content incomes
+     * Construct a ExpenseManager of array content expenses
      *
      * @param expenses is the content to be instantiated
      */
@@ -79,6 +79,22 @@ public class ExpenseManager {
     }
 
     /**
+     * Calculates the total expenses for a specified month.
+     *
+     * @param month The month to calculate expenses for.
+     * @return The total expenses for the month; returns 0.0 if no expense is found.
+     */
+    public static double getMonthlyExpense(YearMonth month) {
+        double sum = 0;
+        for (Expense expense : expenses) {
+            if(month.equals(getYearMonthFromDate(expense.getDate()))) {
+                sum += expense.getAmount();
+            }
+        }
+        return sum;
+    }
+
+    /**
      * Lists all the expenses managed by the manager.
      * Displays each expense with its corresponding number.
      */
@@ -100,7 +116,7 @@ public class ExpenseManager {
      * @param month
      * @return result String to be displayed to user
      */
-    public static String displayExpensesWithCategoryAndDate(Category category, YearMonth month) {
+    public static String listExpensesWithCategoryAndDate(Category category, YearMonth month) {
         assert category != null : "category cannot be null";
         assert month != null : "month cannot be null";
         String result = "";
@@ -123,7 +139,7 @@ public class ExpenseManager {
      * @param category
      * @return result String to be displayed to user
      */
-    public static String displayExpensesWithCategory(Category category) {
+    public static String listExpensesWithCategory(Category category) {
         assert category != null : "category cannot be null";
         String result = "";
         int counter = 1;
@@ -145,7 +161,7 @@ public class ExpenseManager {
      * @param month
      * @return result String to be displayed to user
      */
-    public static String displayExpensesWithDate(YearMonth month) {
+    public static String listExpensesWithDate(YearMonth month) {
         assert month != null : "month cannot be null";
         String result = "";
         int counter = 1;

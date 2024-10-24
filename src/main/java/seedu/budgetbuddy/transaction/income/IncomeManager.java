@@ -67,6 +67,22 @@ public class IncomeManager {
     }
 
     /**
+     * Calculates the total income for a specified month.
+     *
+     * @param month The month to calculate income for.
+     * @return The total income for the month; returns 0.0 if no income is found.
+     */
+    public static double getMonthlyIncome(YearMonth month) {
+        double sum = 0;
+        for (Income income : incomes) {
+            if(month.equals(getYearMonthFromDate(income.getDate()))) {
+                sum += income.getAmount();
+            }
+        }
+        return sum;
+    }
+
+    /**
      * Lists all the incomes managed by the manager.
      * Displays each income with its corresponding number.
      */

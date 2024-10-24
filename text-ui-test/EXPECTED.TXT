@@ -238,6 +238,21 @@ No income entry with given month found, try again with a different month.
 Enter commands: ========================================================
 Invalid month format. Use m/MM/yyyy.
 ========================================================
+Enter commands: ========================================================
+The following income transaction has been added:
+Description: tutor  Amount: 1500.0  Date: 2023-10-20
+You have 4 income transaction(s) in total.
+========================================================
+Enter commands: ========================================================
+The following expense transaction has been added:
+Description: food  Amount: 550.0  Date: 2023-10-30  Category: OTHERS
+You have 4 expense transaction(s) in total.
+The remaining budget for 2023-10 in the OTHERS category is: -550.0
+Caution! You have exceeded your budget!
+========================================================
+Enter commands: ========================================================
+Percentage of income spent for 2023-10: 36.7%
+========================================================
 Enter commands: Edit the following fields as follows: Amount: a/, Category: c/, Date: d/
 Currently Editing Entry:
 Description: Ipad  Amount: 123.45  Date: 2024-08-30  Category: EDUCATION
@@ -248,7 +263,7 @@ Description: Ipad  Amount: 50.0  Date: 2024-08-30  Category: EDUCATION
 Enter commands: ========================================================
 The following expense transaction has been added:
 Description: Fridge  Amount: 5000.0  Date: 2024-02-01  Category: OTHERS
-You have 4 expense transaction(s) in total.
+You have 5 expense transaction(s) in total.
 The remaining budget for 2024-02 in the OTHERS category is: -1500.0
 Caution! You have exceeded your budget!
 ========================================================
@@ -263,6 +278,7 @@ Total Monthly Budget: 3000.0  Date: 2024-07  Category: {OTHERS=3000.0}
 Total Monthly Budget: 500.0  Date: 2024-02  Category: {OTHERS=500.0}
 Total Monthly Budget: -223.55  Date: 2024-10  Category: {TRANSPORT=-123.45, OTHERS=-100.1}
 Total Monthly Budget: -50.0  Date: 2024-08  Category: {EDUCATION=-50.0}
+Total Monthly Budget: -550.0  Date: 2023-10  Category: {OTHERS=-550.0}
 
 ========================================================
 Enter commands: ========================================================
