@@ -60,3 +60,25 @@ This section describes how to setup the coding environment, along with the tools
 ## Instructions for manual testing
 
 {Give instructions on how to do a manual product testing e.g., how to load sample data to be used for testing}
+
+### 4. Implementation
+
+#### 4.1 Add Budget Feature
+The Add Budget Feature allows users to add budgets for different categories. This is handled by the AddBudgetCommand 
+class, initialized by the Parser class.
+
+- The Parser processes user input and creates an AddBudgetCommand object with parameters such as amount, category, 
+and date.
+- The AddBudgetValidator ensures that inputs are valid, checking for correct amounts, valid categories, 
+and proper date format.
+- If validation passes, the budget is added; otherwise, an error is raised.
+
+#### 4.2 Deduct Budget Feature
+The Deduct Budget Feature allows users to deduct an amount from an existing budget. This is managed by the 
+DeductBudgetCommand class, initialized by the Parser class.
+
+- The Parser processes user input and creates a DeductBudgetCommand object with the amount, category, 
+and date of the deduction.
+- The DeductBudgetValidator checks if the deduction is valid, ensuring the budget exists, the date is correct, 
+and there are sufficient funds.
+- If validation passes, the specified amount is deducted from the budget; otherwise, an error is raised.
