@@ -17,6 +17,7 @@ import seedu.budgetbuddy.commands.ExitCommand;
 import seedu.budgetbuddy.commands.HelpCommand;
 import seedu.budgetbuddy.commands.IncorrectCommand;
 import seedu.budgetbuddy.commands.budget.ListBudgetCommand;
+import seedu.budgetbuddy.commands.income.DisplayIncomeSpentCommand;
 import seedu.budgetbuddy.commands.income.ListIncomeCommand;
 import seedu.budgetbuddy.exceptions.BudgetBuddyException;
 import seedu.budgetbuddy.transaction.budget.Budget;
@@ -31,6 +32,7 @@ import seedu.budgetbuddy.validators.income.AddIncomeValidator;
 import seedu.budgetbuddy.validators.budget.AddBudgetValidator;
 import seedu.budgetbuddy.validators.budget.DeductBudgetValidator;
 import seedu.budgetbuddy.validators.income.DeleteIncomeValidator;
+import seedu.budgetbuddy.validators.income.DisplayIncomeSpentValidator;
 import seedu.budgetbuddy.validators.income.DisplayIncomeValidator;
 import seedu.budgetbuddy.validators.budget.ListBudgetValidator;
 import seedu.budgetbuddy.validators.expense.AddExpenseValidator;
@@ -109,6 +111,9 @@ public class Parser {
         }
         if (DisplayTotalExpensesCommand.isCommand(userCommandText)){
             return DisplayTotalExpensesValidator.processCommand(userCommandText);
+        }
+        if (DisplayIncomeSpentCommand.isCommand(userCommandText)) {
+            return DisplayIncomeSpentValidator.processCommand(userCommandText);
         }
         if(EditExpenseCommand.isCommand(userCommandText)){
             return new EditExpenseCommand(userCommandText);
