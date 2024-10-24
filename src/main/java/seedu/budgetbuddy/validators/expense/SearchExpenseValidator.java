@@ -6,7 +6,7 @@ import seedu.budgetbuddy.commands.expense.SearchExpenseCommand;
 public class SearchExpenseValidator {
     /**
      * Validates command input by user to see if string input has a keyword provided as a descriptor
-     * @param command
+     * @param command Command input by user.
      * @return new SearchExpenseCommand object.
      */
     public static Command processCommand(String command){
