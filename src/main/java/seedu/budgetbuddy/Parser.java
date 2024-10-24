@@ -101,9 +101,6 @@ public class Parser {
         if (HelpCommand.isCommand(userCommandText)){
             return new HelpCommand();
         }
-//        if (DisplayExpenseCommand.isCommand(userCommandText)) {
-//            return DisplayExpenseValidator.processCommand(userCommandText);
-//        }
         if (DisplayIncomeCommand.isCommand(userCommandText)) {
             return DisplayIncomeValidator.processCommand(userCommandText);
         }
