@@ -25,7 +25,7 @@ public class ExpenseManager {
     private static ArrayList<Expense> expenses = new ArrayList<>();
 
     /**
-     * Construct a ExpenseManager of array content incomes
+     * Construct a ExpenseManager of array content expenses
      *
      * @param expenses is the content to be instantiated
      */
@@ -76,6 +76,22 @@ public class ExpenseManager {
      */
     public static int getNumberOfExpenses() {
         return numberOfExpenses;
+    }
+
+    /**
+     * Calculates the total expenses for a specified month.
+     *
+     * @param month The month to calculate expenses for.
+     * @return The total expenses for the month; returns 0.0 if no expense is found.
+     */
+    public static double getMonthlyExpense(YearMonth month) {
+        double sum = 0;
+        for (Expense expense : expenses) {
+            if(month.equals(getYearMonthFromDate(expense.getDate()))) {
+                sum += expense.getAmount();
+            }
+        }
+        return sum;
     }
 
     /**
