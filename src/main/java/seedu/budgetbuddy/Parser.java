@@ -19,6 +19,7 @@ import seedu.budgetbuddy.commands.IncorrectCommand;
 import seedu.budgetbuddy.commands.budget.ListBudgetCommand;
 import seedu.budgetbuddy.commands.income.DisplayIncomeSpentCommand;
 import seedu.budgetbuddy.commands.income.ListIncomeCommand;
+import seedu.budgetbuddy.commands.saving.DisplaySavingsCommand;
 import seedu.budgetbuddy.exceptions.BudgetBuddyException;
 import seedu.budgetbuddy.transaction.budget.Budget;
 import seedu.budgetbuddy.transaction.budget.BudgetManager;
@@ -39,6 +40,7 @@ import seedu.budgetbuddy.validators.expense.AddExpenseValidator;
 import seedu.budgetbuddy.validators.expense.DeleteExpenseValidator;
 import seedu.budgetbuddy.validators.expense.DisplayTotalExpensesValidator;
 import seedu.budgetbuddy.validators.expense.SearchExpenseValidator;
+import seedu.budgetbuddy.validators.saving.DisplaySavingsValidator;
 
 import java.time.LocalDate;
 import java.time.YearMonth;
@@ -120,6 +122,9 @@ public class Parser {
         }
         if (ListRemainingBudgetCommand.isCommand(userCommandText)) {
             return new ListRemainingBudgetCommand();
+        }
+        if (DisplaySavingsCommand.isCommand(userCommandText)){
+            return DisplaySavingsValidator.processCommand(userCommandText);
         }
         return new IncorrectCommand("Invalid input");
     }
