@@ -34,6 +34,28 @@ public class Ui {
     }
 
     /**
+     * Retrieves the user's command input.
+     * If an empty command is received, it will end the command and give an
+     * acknowledgment message.
+     *
+     * @return The user’s command as a trimmed {@code String}.
+     */
+    public static String getUserEditFields(){
+        String inputCommand;
+
+        do {
+            System.out.print("Enter edit Field: ");
+            inputCommand = scanner.nextLine().trim();
+
+            if (inputCommand.isEmpty()) {
+                displayToUser("Empty Input Detected, Exiting change menu.");
+                return "";
+            }
+        } while (inputCommand.isEmpty());
+        return inputCommand;
+    }
+
+    /**
      * Displays a given message to the user, surrounded by separators for readability.
      *
      * @param message The message to display to the user.
@@ -56,23 +78,6 @@ public class Ui {
      */
     public static void displayExitMessage() {
         displayToUser(EXIT_MESSAGE);
-    }
-
-    /**
-     * Displays an acknowledgment message after an expense or income transaction is
-     * added or deleted, along with the total count of transactions.
-     *
-     * @param transaction The details of the transaction.
-     * @param addOrDelete Indicates whether the transaction was added or deleted.
-     * @param expenseOrIncome Specifies whether the transaction is an expense or income.
-     * @param count The total number of transactions of the specified type.
-     */
-    public static void displayAcknowledgmentMessage(String transaction, String addOrDelete, String expenseOrIncome,
-                                                    int count) {
-        String result = "The following " + expenseOrIncome + " transaction has been " + addOrDelete + ":\n"
-                + transaction + '\n'
-                + "You have " + count + " " + expenseOrIncome + " transaction(s) in total.";
-        displayToUser(result);
     }
 
     /**

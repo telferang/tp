@@ -75,4 +75,9 @@ public class Expense extends Transaction {
     public Category getCategory() {
         return category;
     }
+
+
+    public void editCategory(Category changeCategory) {
+        this.category = changeCategory;
+    }
 }

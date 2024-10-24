@@ -1,7 +1,9 @@
 package seedu.budgetbuddy.transaction.expense;
 
 import seedu.budgetbuddy.Ui;
+import seedu.budgetbuddy.exceptions.BudgetBuddyException;
 import seedu.budgetbuddy.transaction.Category;
+import seedu.budgetbuddy.transaction.budget.RemainingBudgetManager;
 import seedu.budgetbuddy.util.LoggerSetup;
 import seedu.budgetbuddy.graphs.ExpensesOverMonthGraph;
 
@@ -41,7 +43,12 @@ public class ExpenseManager {
     public static void addExpense(Expense expense) {
         expenses.add(expense);
         numberOfExpenses++;
-        Ui.displayAcknowledgmentMessage(expense.toString(), "added", "expense", numberOfExpenses);
+        String budgetRemaining = new RemainingBudgetManager().getRemainingBudgets(expense.getDate()
+                , expense.getCategory());
+        String result = "The following expense transaction has been added:\n"
+                + expense + '\n'
+                + "You have " + numberOfExpenses + " expense transaction(s) in total.\n" + budgetRemaining;
+        Ui.displayToUser(result);
     }
 
     /**
@@ -51,8 +58,15 @@ public class ExpenseManager {
      */
     public static void deleteExpense(int index) {
         numberOfExpenses--;
-        Ui.displayAcknowledgmentMessage(expenses.get(index).toString(), "deleted", "expense", numberOfExpenses);
+        String result = "The following expense transaction has been deleted:\n"
+                + expenses.get(index) + '\n'
+                + "You have " + numberOfExpenses + " expense transaction(s) in total.\n";
+        LocalDate date = expenses.get(index).getDate();
+        Category category = expenses.get(index).getCategory();
         expenses.remove(index);
+        String budgetRemaining = new RemainingBudgetManager().getRemainingBudgets(date, category);
+        result += budgetRemaining;
+        Ui.displayToUser(result);
     }
 
     /**
@@ -221,5 +235,27 @@ public class ExpenseManager {
      */
     public static ArrayList<Expense> getExpenses() {
         return expenses;
+    }
+
+    public static Expense getExpenseByIndex(int index) throws BudgetBuddyException {
+        if(index > numberOfExpenses) {
+            throw new BudgetBuddyException("Input index is larger than the number of expenses. " +
+                    "Try with a smaller index");
+        }
+        return expenses.get(index);
+    }
+
+    /**
+     * Resets the state of the ExpenseManager by clearing all expenses and
+     * setting the total number of expenses to zero.
+     * <p>
+     * This method is used for unit testing, ensuring that each test
+     * starts with a clean slate and does not retain any state from
+     * previous tests.
+     * </p>
+     */
+    public static void reset() {
+        numberOfExpenses = 0;
+        expenses.clear();
     }
 }

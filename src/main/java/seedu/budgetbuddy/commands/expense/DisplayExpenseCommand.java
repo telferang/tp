@@ -18,6 +18,7 @@ public class DisplayExpenseCommand extends Command {
 
     /**
      * Constructs a DisplayExpenseCommand with valid category and month field
+     *
      * @param category
      * @param month
      */
@@ -28,6 +29,7 @@ public class DisplayExpenseCommand extends Command {
 
     /**
      * Constructs a DisplayExpenseCommand with valid month field
+     *
      * @param month
      */
     public DisplayExpenseCommand(YearMonth month) {
@@ -37,6 +39,7 @@ public class DisplayExpenseCommand extends Command {
 
     /**
      * Constructs a DisplayExpenseCommand with valid category field
+     *
      * @param category
      */
     public DisplayExpenseCommand(Category category) {
