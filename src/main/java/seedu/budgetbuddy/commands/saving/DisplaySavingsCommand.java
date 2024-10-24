@@ -1,5 +1,6 @@
 package seedu.budgetbuddy.commands.saving;
 
+import seedu.budgetbuddy.Ui;
 import seedu.budgetbuddy.commands.Command;
 import seedu.budgetbuddy.transaction.saving.SavingsManager;
 
@@ -31,9 +32,9 @@ public class DisplaySavingsCommand extends Command{
      */
     public void execute(){
         if (byMonth){
-            SavingsManager.displayTotalSavingsByMonth();
+            Ui.displayToUser(SavingsManager.displayTotalSavingsByMonth());
         } else{
-            SavingsManager.displayTotalSavings();
+            Ui.displayToUser(SavingsManager.displayTotalSavings());
         }
     }
 }
