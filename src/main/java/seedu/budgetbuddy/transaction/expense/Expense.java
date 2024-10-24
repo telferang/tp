@@ -1,5 +1,6 @@
 package seedu.budgetbuddy.transaction.expense;
 
+import seedu.budgetbuddy.transaction.Category;
 import seedu.budgetbuddy.transaction.Transaction;
 
 import java.time.LocalDate;
@@ -73,5 +74,10 @@ public class Expense extends Transaction {
      */
     public Category getCategory() {
         return category;
+    }
+
+
+    public void editCategory(Category changeCategory) {
+        this.category = changeCategory;
     }
 }

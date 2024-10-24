@@ -1,5 +1,6 @@
 package seedu.budgetbuddy;
 
+import seedu.budgetbuddy.transaction.Category;
 import seedu.budgetbuddy.transaction.Transaction;
 import seedu.budgetbuddy.transaction.budget.Budget;
 import seedu.budgetbuddy.transaction.budget.BudgetManager;
@@ -7,14 +8,19 @@ import seedu.budgetbuddy.transaction.expense.Expense;
 import seedu.budgetbuddy.transaction.expense.ExpenseManager;
 import seedu.budgetbuddy.transaction.income.Income;
 import seedu.budgetbuddy.transaction.income.IncomeManager;
+import seedu.budgetbuddy.util.LoggerSetup;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * The Storage class is responsible for handling the reading and writing of data from
@@ -22,6 +28,7 @@ import java.util.Scanner;
  * and saving the state of the Expense, Income, and Budget transactions.
  */
 public class Storage {
+    private static final Logger LOGGER = LoggerSetup.getLogger();
     private String filePath;
 
     /**
@@ -31,6 +38,7 @@ public class Storage {
      */
     public Storage(String filepath) {
         this.filePath = filepath;
+        LOGGER.log(Level.INFO, "Storing " + filepath);
     }
 
     /**
@@ -44,6 +52,7 @@ public class Storage {
     public ArrayList<ArrayList<?>> load() throws FileNotFoundException {
         File file = new File(filePath);
         if (!file.exists()) {
+            LOGGER.warning("File does not exist: " + file.getAbsolutePath());
             throw new FileNotFoundException("File does not exist: " + file.getAbsolutePath());
         }
         ArrayList<Expense> expenses = new ArrayList<>();
@@ -53,6 +62,7 @@ public class Storage {
 
         while (sc.hasNextLine()) {
             String input = sc.nextLine();
+            LOGGER.fine("Parsing line: " + input);  // Log each line being parsed
             Parser.parseFile(input, expenses, incomes, budgets);
         }
         sc.close();
@@ -60,6 +70,8 @@ public class Storage {
         list.add(expenses);
         list.add(incomes);
         list.add(budgets);
+        LOGGER.info("Data loaded successfully. Expenses: " + expenses.size() + ", Incomes: " + incomes.size()
+                + ", Budgets: " + budgets.size());
         return list;
     }
 
@@ -74,6 +86,11 @@ public class Storage {
      */
     public void save(ExpenseManager expenseList, IncomeManager incomeList, BudgetManager budgetList)
             throws IOException {
+
+        assert expenseList != null : "Expense list cannot be null";  // Assert that the expense list is not null
+        assert incomeList != null : "Income list cannot be null";      // Assert that the income list is not null
+        assert budgetList != null : "Budget list cannot be null";      // Assert that the budget list is not null
+        LOGGER.info("Saving data to file: " + filePath);
 
         FileWriter fw = new FileWriter(filePath, false); // Overwrites the file
 
@@ -96,7 +113,7 @@ public class Storage {
         // Save budgets
         for (Budget budget : BudgetManager.getBudgets()) {
             if (budget != null) {
-                String line = getString(budget);
+                String line = getString(budget.getTotalMonthlyBudget(), budget.getDate(), budget.getCategoryBudgets());
                 fw.write(line + System.lineSeparator());
             }
         }
@@ -130,13 +147,21 @@ public class Storage {
     }
 
     /**
-     * Converts a Budget object into a string representation for saving to the file.
+     * Converts the total monthly budget, date, and category-specific budgets into a formatted string
+     * representation for saving to a file.
      *
-     * @param budget The budget to be converted.
-     * @return A string representation of the budget.
+     * @param totalBudget The total budget for the month.
+     * @param date The date in the format YYYY-MM representing the budget month.
+     * @param categoryBudgets A map containing category names as keys and their respective budget amounts as values.
+     * @return A formatted string representing the total budget, date, and category-specific budgets.
      */
-    private String getString(Budget budget) {
-        return "budget | " + budget.getAmount() + " | " + budget.getDate().toString();
+    private String getString(double totalBudget, YearMonth date, Map<Category, Double> categoryBudgets) {
+        StringBuilder line = new StringBuilder();
+        line.append("budget | ");
+        line.append(totalBudget).append(" | ");
+        line.append(date.format(DateTimeFormatter.ofPattern("yyyy-MM"))).append(" | ");
+        line.append(categoryBudgets.toString());
+        return line.toString();
     }
 
     /**
@@ -156,4 +181,3 @@ public class Storage {
         }
     }
 }
-

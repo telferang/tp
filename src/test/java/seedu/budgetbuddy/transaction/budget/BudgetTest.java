@@ -1,74 +1,62 @@
 package seedu.budgetbuddy.transaction.budget;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import seedu.budgetbuddy.transaction.Category;
+
 import java.time.YearMonth;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BudgetTest {
 
     @Test
-    public void testAddAmount_increasesBudgetAmount() {
-        // Arrange: Set up a budget with an initial amount
-        Budget budget = new Budget(100.0, YearMonth.of(2024, 10));
-
-        // Act: Add an additional amount
-        budget.addAmount(50.0);
-
-        // Assert: Check if the amount was updated correctly
-        assertEquals(150.0, budget.getAmount());
+    public void testAddAmount_inputIsDouble_increasesBudgetTotalMonthlyBudget() {
+        Budget budget = new Budget(YearMonth.of(2024, 10));
+        budget.addAmount(Category.FOOD,50.0);
+        assertEquals(50.0, budget.getTotalMonthlyBudget());
     }
 
     @Test
-    public void testDeductAmount_decreasesBudgetAmount() {
-        // Arrange: Set up a budget with an initial amount
-        Budget budget = new Budget(100.0, YearMonth.of(2024, 10));
-
-        // Act: Deduct an amount
-        budget.deductAmount(30.0);
-
-        // Assert: Check if the amount was deducted correctly
-        assertEquals(70.0, budget.getAmount());
+    public void testDeductAmount_inputIsDouble_decreasesBudgetTotalMonthlyBudget() {
+        Budget budget = new Budget(YearMonth.of(2024, 10));
+        budget.addAmount(Category.OTHERS,100);
+        budget.deductAmount(Category.OTHERS,30.0);
+        assertEquals(70.0, budget.getTotalMonthlyBudget());
     }
 
     @Test
-    public void testDeductAmount_budgetBecomesZeroWhenFullyDeducted() {
-        // Arrange: Set up a budget with an initial amount
-        Budget budget = new Budget(100.0, YearMonth.of(2024, 10));
+    public void testAddAmount_inputIsInt_increasesBudgetTotalMonthlyBudget() {
+        Budget budget = new Budget(YearMonth.of(2024, 2));
+        budget.addAmount(Category.ENTERTAINMENT,150);
+        assertEquals(150.0, budget.getTotalMonthlyBudget());
+    }
 
-        // Act: Deduct the full amount
-        budget.deductAmount(100.0);
-
-        // Assert: Check if the amount becomes zero
-        assertEquals(0.0, budget.getAmount());
+    @Test
+    public void testDeductAmount_inputIsInt_decreasesBudgetTotalMonthlyBudget() {
+        Budget budget = new Budget(YearMonth.of(2024, 2));
+        budget.addAmount(Category.TRANSPORT, 100);
+        budget.deductAmount(Category.TRANSPORT,70);
+        assertEquals(30.0, budget.getTotalMonthlyBudget());
     }
 
     @Test
     public void testToString_returnsCorrectString() {
-        // Arrange: Create a budget object
-        Budget budget = new Budget(200.0, YearMonth.of(2024, 10));
-
-        // Act: Get the string representation
+        Budget budget = new Budget(YearMonth.of(2024, 10));
+        budget.addAmount(Category.FOOD, 100);
         String result = budget.toString();
-
-        // Assert: Check if the string is formatted correctly
-        assertEquals("Amount: 200.0  Date: 2024-10", result);
+        assertEquals("Total Monthly Budget: 100.0  Date: 2024-10  Category: {FOOD=100.0}", result);
     }
 
     @Test
-    public void testGetAmount_returnsCorrectAmount() {
-        // Arrange: Create a budget object
-        Budget budget = new Budget(250.0, YearMonth.of(2024, 9));
-
-        // Act & Assert: Verify the budget amount
-        assertEquals(250.0, budget.getAmount());
+    public void testGetAmount_returnsCorrectTotalMonthlyBudget() {
+        Budget budget = new Budget(YearMonth.of(2024, 9));
+        budget.addAmount(Category.FOOD, 250);
+        assertEquals(250.0, budget.getTotalMonthlyBudget());
     }
 
     @Test
     public void testGetDate_returnsCorrectDate() {
-        // Arrange: Create a budget object
-        Budget budget = new Budget(250.0, YearMonth.of(2024, 9));
-
-        // Act & Assert: Verify the budget date
+        Budget budget = new Budget(YearMonth.of(2024, 9));
         assertEquals(YearMonth.of(2024, 9), budget.getDate());
     }
 }

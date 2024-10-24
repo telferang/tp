@@ -1,34 +1,43 @@
 package seedu.budgetbuddy;
 
-import seedu.budgetbuddy.commands.AddExpenseCommand;
-import seedu.budgetbuddy.commands.AddIncomeCommand;
-import seedu.budgetbuddy.commands.AddBudgetCommand;
+import seedu.budgetbuddy.commands.budget.ListRemainingBudgetCommand;
+import seedu.budgetbuddy.commands.expense.DeleteExpenseCommand;
+import seedu.budgetbuddy.commands.expense.AddExpenseCommand;
+import seedu.budgetbuddy.commands.expense.EditExpenseCommand;
+import seedu.budgetbuddy.commands.expense.SearchExpenseCommand;
+import seedu.budgetbuddy.commands.expense.ListExpenseCommand;
+import seedu.budgetbuddy.commands.expense.DisplayExpenseCommand;
+import seedu.budgetbuddy.commands.expense.DisplayTotalExpensesCommand;
+import seedu.budgetbuddy.commands.income.AddIncomeCommand;
+import seedu.budgetbuddy.commands.budget.AddBudgetCommand;
 import seedu.budgetbuddy.commands.Command;
-import seedu.budgetbuddy.commands.DeductBudgetCommand;
-import seedu.budgetbuddy.commands.DeleteExpenseCommand;
-import seedu.budgetbuddy.commands.DeleteIncomeCommand;
+import seedu.budgetbuddy.commands.budget.DeductBudgetCommand;
+import seedu.budgetbuddy.commands.income.DeleteIncomeCommand;
+import seedu.budgetbuddy.commands.income.DisplayIncomeCommand;
 import seedu.budgetbuddy.commands.ExitCommand;
 import seedu.budgetbuddy.commands.HelpCommand;
 import seedu.budgetbuddy.commands.IncorrectCommand;
-import seedu.budgetbuddy.commands.ListBudgetCommand;
-import seedu.budgetbuddy.commands.ListExpenseCommand;
-import seedu.budgetbuddy.commands.ListIncomeCommand;
-import seedu.budgetbuddy.commands.DisplayExpenseCommand;
+import seedu.budgetbuddy.commands.budget.ListBudgetCommand;
+import seedu.budgetbuddy.commands.income.ListIncomeCommand;
+import seedu.budgetbuddy.exceptions.BudgetBuddyException;
 import seedu.budgetbuddy.transaction.budget.Budget;
 import seedu.budgetbuddy.transaction.budget.BudgetManager;
-import seedu.budgetbuddy.transaction.expense.Category;
+import seedu.budgetbuddy.transaction.Category;
 import seedu.budgetbuddy.transaction.expense.Expense;
 import seedu.budgetbuddy.transaction.expense.ExpenseManager;
 import seedu.budgetbuddy.transaction.income.Income;
 import seedu.budgetbuddy.transaction.income.IncomeManager;
-import seedu.budgetbuddy.validators.AddExpenseValidator;
-import seedu.budgetbuddy.validators.AddIncomeValidator;
-import seedu.budgetbuddy.validators.AddBudgetValidator;
-import seedu.budgetbuddy.validators.DeductBudgetValidator;
-import seedu.budgetbuddy.validators.DeleteExpenseValidator;
-import seedu.budgetbuddy.validators.DeleteIncomeValidator;
-import seedu.budgetbuddy.validators.ListBudgetValidator;
-import seedu.budgetbuddy.validators.DisplayExpenseValidator;
+import seedu.budgetbuddy.validators.income.AddIncomeValidator;
+import seedu.budgetbuddy.validators.budget.AddBudgetValidator;
+import seedu.budgetbuddy.validators.budget.DeductBudgetValidator;
+import seedu.budgetbuddy.validators.income.DeleteIncomeValidator;
+import seedu.budgetbuddy.validators.income.DisplayIncomeValidator;
+import seedu.budgetbuddy.validators.budget.ListBudgetValidator;
+import seedu.budgetbuddy.validators.expense.AddExpenseValidator;
+import seedu.budgetbuddy.validators.expense.DeleteExpenseValidator;
+import seedu.budgetbuddy.validators.expense.DisplayExpenseValidator;
+import seedu.budgetbuddy.validators.expense.DisplayTotalExpensesValidator;
+import seedu.budgetbuddy.validators.expense.SearchExpenseValidator;
 
 import java.time.LocalDate;
 import java.time.YearMonth;
@@ -59,7 +68,7 @@ public class Parser {
      * @return The corresponding {@code Command} to execute, or an {@code IncorrectCommand}
      *         if the input is invalid.
      */
-    public Command parseCommand(String userCommandText) {
+    public Command parseCommand(String userCommandText) throws BudgetBuddyException {
         if (AddExpenseCommand.isCommand(userCommandText)) {
             return AddExpenseValidator.processCommand(userCommandText);
         }
@@ -95,6 +104,21 @@ public class Parser {
         }
         if (DisplayExpenseCommand.isCommand(userCommandText)) {
             return DisplayExpenseValidator.processCommand(userCommandText);
+        }
+        if (DisplayIncomeCommand.isCommand(userCommandText)) {
+            return DisplayIncomeValidator.processCommand(userCommandText);
+        }
+        if (SearchExpenseCommand.isCommand(userCommandText)){
+            return SearchExpenseValidator.processCommand(userCommandText);
+        }
+        if (DisplayTotalExpensesCommand.isCommand(userCommandText)){
+            return DisplayTotalExpensesValidator.processCommand(userCommandText);
+        }
+        if(EditExpenseCommand.isCommand(userCommandText)){
+            return new EditExpenseCommand(userCommandText);
+        }
+        if (ListRemainingBudgetCommand.isCommand(userCommandText)) {
+            return new ListRemainingBudgetCommand();
         }
         return new IncorrectCommand("Invalid input");
     }
@@ -134,11 +158,20 @@ public class Parser {
             break;
         }
         case "budget": {
-            double amount = Double.parseDouble(parts[1]); // For budget, only amount is relevant
             YearMonth budgetDate = YearMonth.parse(parts[2], DateTimeFormatter.ofPattern("yyyy-MM"));
             // Adjust date format for YearMonth
+            String categoryPart = parts[3].trim();
+            categoryPart = categoryPart.substring(1, categoryPart.length() - 1);
+            Budget budget = new Budget(budgetDate);
 
-            budgets.add(new Budget(amount, budgetDate)); // Only 2 parameters required for budget
+            String[] categories = categoryPart.split(", ");
+            for (String categoryEntry : categories) {
+                String[] categorySplit = categoryEntry.split("=");
+                Category category = Category.valueOf(categorySplit[0].toUpperCase());
+                double categoryAmount = Double.parseDouble(categorySplit[1]);
+                budget.addAmount(category, categoryAmount);
+            }
+            budgets.add(budget);
             break;
         }
         default:
