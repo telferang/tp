@@ -162,7 +162,7 @@ public class Parser {
             // Adjust date format for YearMonth
             String categoryPart = parts[3].trim();
             categoryPart = categoryPart.substring(1, categoryPart.length() - 1);
-            Budget budget = new Budget(0, budgetDate);
+            Budget budget = new Budget(budgetDate);
 
             String[] categories = categoryPart.split(", ");
             for (String categoryEntry : categories) {
