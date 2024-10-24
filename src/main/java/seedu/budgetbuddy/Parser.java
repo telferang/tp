@@ -6,7 +6,6 @@ import seedu.budgetbuddy.commands.expense.AddExpenseCommand;
 import seedu.budgetbuddy.commands.expense.EditExpenseCommand;
 import seedu.budgetbuddy.commands.expense.SearchExpenseCommand;
 import seedu.budgetbuddy.commands.expense.ListExpenseCommand;
-import seedu.budgetbuddy.commands.expense.DisplayExpenseCommand;
 import seedu.budgetbuddy.commands.expense.DisplayTotalExpensesCommand;
 import seedu.budgetbuddy.commands.income.AddIncomeCommand;
 import seedu.budgetbuddy.commands.budget.AddBudgetCommand;
@@ -27,6 +26,7 @@ import seedu.budgetbuddy.transaction.expense.Expense;
 import seedu.budgetbuddy.transaction.expense.ExpenseManager;
 import seedu.budgetbuddy.transaction.income.Income;
 import seedu.budgetbuddy.transaction.income.IncomeManager;
+import seedu.budgetbuddy.validators.expense.ListExpenseValidator;
 import seedu.budgetbuddy.validators.income.AddIncomeValidator;
 import seedu.budgetbuddy.validators.budget.AddBudgetValidator;
 import seedu.budgetbuddy.validators.budget.DeductBudgetValidator;
@@ -35,7 +35,6 @@ import seedu.budgetbuddy.validators.income.DisplayIncomeValidator;
 import seedu.budgetbuddy.validators.budget.ListBudgetValidator;
 import seedu.budgetbuddy.validators.expense.AddExpenseValidator;
 import seedu.budgetbuddy.validators.expense.DeleteExpenseValidator;
-import seedu.budgetbuddy.validators.expense.DisplayExpenseValidator;
 import seedu.budgetbuddy.validators.expense.DisplayTotalExpensesValidator;
 import seedu.budgetbuddy.validators.expense.SearchExpenseValidator;
 
@@ -76,7 +75,7 @@ public class Parser {
             return DeleteExpenseValidator.processCommand(userCommandText);
         }
         if (ListExpenseCommand.isCommand(userCommandText)) {
-            return new ListExpenseCommand();
+            return ListExpenseValidator.processCommand(userCommandText);
         }
         if (AddIncomeCommand.isCommand(userCommandText)) {
             return AddIncomeValidator.processCommand(userCommandText);
@@ -101,9 +100,6 @@ public class Parser {
         }
         if (HelpCommand.isCommand(userCommandText)){
             return new HelpCommand();
-        }
-        if (DisplayExpenseCommand.isCommand(userCommandText)) {
-            return DisplayExpenseValidator.processCommand(userCommandText);
         }
         if (DisplayIncomeCommand.isCommand(userCommandText)) {
             return DisplayIncomeValidator.processCommand(userCommandText);

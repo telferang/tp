@@ -42,7 +42,7 @@ class ExpenseManagerTest {
         Category category = Category.FOOD;
         YearMonth yearMonth = YearMonth.of(2024, 2);
         assertEquals(getExpectedString(),
-                ExpenseManager.displayExpensesWithCategoryAndDate(category, yearMonth));
+                ExpenseManager.listExpensesWithCategoryAndDate(category, yearMonth));
     }
 
     @Test
@@ -50,7 +50,7 @@ class ExpenseManagerTest {
         Category category = Category.TRANSPORT;
         YearMonth yearMonth = YearMonth.of(2024, 2);
         assertEquals(EMPTY_DISPLAY_STRING,
-                ExpenseManager.displayExpensesWithCategoryAndDate(category, yearMonth));
+                ExpenseManager.listExpensesWithCategoryAndDate(category, yearMonth));
     }
 
     @Test
@@ -58,7 +58,7 @@ class ExpenseManagerTest {
         Category category = Category.FOOD;
         YearMonth yearMonth = YearMonth.of(2024, 1);
         assertEquals(EMPTY_DISPLAY_STRING,
-                ExpenseManager.displayExpensesWithCategoryAndDate(category, yearMonth));
+                ExpenseManager.listExpensesWithCategoryAndDate(category, yearMonth));
     }
 
     @Test

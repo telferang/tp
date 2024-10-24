@@ -1,9 +1,9 @@
 package seedu.budgetbuddy.validators;
 
 import org.junit.jupiter.api.Test;
-import seedu.budgetbuddy.commands.expense.DisplayExpenseCommand;
+import seedu.budgetbuddy.commands.expense.ListExpenseCommand;
 import seedu.budgetbuddy.transaction.Category;
-import seedu.budgetbuddy.validators.expense.DisplayExpenseValidator;
+import seedu.budgetbuddy.validators.expense.ListExpenseValidator;
 
 import java.time.YearMonth;
 
@@ -13,31 +13,31 @@ import static seedu.budgetbuddy.validators.DateValidator.validateYearMonth;
 class DisplayExpenseValidatorTest {
 
     @Test
-    void checkDisplayType_categoryIsEmpty_expectNullCategory(){
-        DisplayExpenseValidator expenseValidator = new DisplayExpenseValidator();
+    void checkListType_categoryIsEmpty_expectNullCategory(){
+        ListExpenseValidator expenseValidator = new ListExpenseValidator();
         Category category = null;
         YearMonth yearMonth = validateYearMonth("02/2024");
-        DisplayExpenseCommand command = (DisplayExpenseCommand) expenseValidator.checkDisplayType(category, yearMonth);
+        ListExpenseCommand command = (ListExpenseCommand) expenseValidator.checkListType(category, yearMonth);
         assertEquals(null, command.getCategory());
         assertEquals(yearMonth,command.getMonth());
     }
 
     @Test
-    void checkDisplayType_monthIsEmpty_expectNullMonth(){
-        DisplayExpenseValidator expenseValidator = new DisplayExpenseValidator();
+    void checkListType_monthIsEmpty_expectNullMonth(){
+        ListExpenseValidator expenseValidator = new ListExpenseValidator();
         Category category = Category.FOOD;
         YearMonth yearMonth = null;
-        DisplayExpenseCommand command = (DisplayExpenseCommand) expenseValidator.checkDisplayType(category, yearMonth);
+        ListExpenseCommand command = (ListExpenseCommand) expenseValidator.checkListType(category, yearMonth);
         assertEquals(category, command.getCategory());
         assertEquals(yearMonth,command.getMonth());
     }
 
     @Test
-    void checkDisplayType_categoryMonthSpecified_expectSameValues(){
-        DisplayExpenseValidator expenseValidator = new DisplayExpenseValidator();
+    void checkListType_categoryMonthSpecified_expectSameValues(){
+        ListExpenseValidator expenseValidator = new ListExpenseValidator();
         Category category = Category.FOOD;
         YearMonth yearMonth = validateYearMonth("02/2024");
-        DisplayExpenseCommand command = (DisplayExpenseCommand) expenseValidator.checkDisplayType(category, yearMonth);
+        ListExpenseCommand command = (ListExpenseCommand) expenseValidator.checkListType(category, yearMonth);
         assertEquals(category, command.getCategory());
         assertEquals(yearMonth,command.getMonth());
     }
