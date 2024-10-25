@@ -225,6 +225,54 @@ public class ExpenseManager {
                 ExpensesOverMonthGraph.expensesForMonth(monthlyExpensesMap, yearMonth));
     }
 
+    /**
+     * Breaks down all expenses of the user by category.
+     * @return String that displays total expenses of the user and the amount and percentage of
+     * total expenses spent per category.
+     */
+    public static String breakdownExpensesByCategory(){
+        String result = "";
+        double totalExpensesFood = 0;
+        double totalExpensesOthers = 0;
+        double totalExpensesTransport = 0;
+        double  totalExpensesEntertainment = 0;
+        double totalExpensesUtilities = 0;
+        double totalExpensesEducation = 0;
+        for (Expense expense : expenses) {
+            switch (expense.getCategory()) {
+            case FOOD -> totalExpensesFood += expense.getAmount();
+            case EDUCATION -> totalExpensesEducation += expense.getAmount();
+            case TRANSPORT -> totalExpensesTransport += expense.getAmount();
+            case UTILITIES -> totalExpensesUtilities += expense.getAmount();
+            case ENTERTAINMENT -> totalExpensesEntertainment += expense.getAmount();
+            case OTHERS -> totalExpensesOthers += expense.getAmount();
+            default -> LOGGER.warning("Invalid category type detected.");
+            }
+        }
+        assert totalExpensesFood >= 0: "Total expense for food cannot be negative";
+        assert totalExpensesOthers >= 0: "Total expense for others cannot be negative";
+        assert totalExpensesTransport >= 0: "Total expense for transport cannot be negative";
+        assert totalExpensesEntertainment >= 0: "Total expense for entertainment cannot be negative";
+        assert totalExpensesUtilities >= 0: "Total expense for utilities cannot be negative";
+        assert totalExpensesEducation >= 0: "Total expense for education cannot be negative";
+        double totalExpenses = totalExpensesEducation + totalExpensesFood + totalExpensesEntertainment +
+                totalExpensesTransport + totalExpensesUtilities + totalExpensesOthers;
+        if (totalExpenses == 0){
+            result += "Total expenses: 0. You have not indicated any expense yet.";
+        }else{
+            result = "Total expenses: " + totalExpenses + "\n" + "Food: " + totalExpensesFood + "(" +
+                    String.format("%.2f", totalExpensesFood/totalExpenses * 100) + "%)\n" + "Transport: " +
+                    totalExpensesTransport + "(" + String.format("%.2f", totalExpensesTransport/totalExpenses * 100) +
+                    "%)\n" + "Utilities: " + totalExpensesUtilities + "(" +
+                    String.format("%.2f", totalExpensesUtilities/totalExpenses * 100) + "%)\n" + "Entertainment: " +
+                    totalExpensesEntertainment + "(" +
+                    String.format("%.2f", totalExpensesEntertainment/totalExpenses * 100) + "%)\n" + "Education: " +
+                    totalExpensesEducation + "(" +
+                    String.format("%.2f", totalExpensesEducation/totalExpenses * 100) + "%)\n" + "Others: " +
+                    totalExpensesOthers + "(" + String.format("%.2f", totalExpensesOthers/totalExpenses * 100) + "%)\n";
+        }
+        return result;
+    }
 
     /**
      * Extract YearMonth value from date
