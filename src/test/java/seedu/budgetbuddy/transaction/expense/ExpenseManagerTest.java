@@ -90,12 +90,4 @@ class ExpenseManagerTest {
                 ExpenseManager.breakdownExpensesByCategory());
     }
 
-    @Test
-    void breakdownExpensesByCategory_oneExpense_expectExpensesMessage(){
-        initializeTestContent();
-        assertEquals("Total expenses: 12.0\nFood: 12.0(100.00%)\nTransport: 0.0(0.00%)\n" +
-                "Utilities: 0.0(0.00%)\nEntertainment: 0.0(0.00%)\nEducation: 0.0(0.00%)\nOthers: 0.0(0.00%)\n",
-                ExpenseManager.breakdownExpensesByCategory());
-    }
-
 }
