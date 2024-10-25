@@ -41,8 +41,8 @@ public class DisplayTotalExpensesCommand extends Command {
      */
     @Override
     public void execute() {
-            LOGGER.log(Level.INFO, "Displaying expense graph");
-            Ui.displayToUser("Displaying expense graph for " + year);
-            ExpenseManager.displayExpensesOverMonthGraph(year);
+        LOGGER.log(Level.INFO, "Displaying expense graph");
+        Ui.displayToUser("Displaying expense graph for " + year);
+        ExpenseManager.displayExpensesOverMonthGraph(year);
     }
 }

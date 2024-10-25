@@ -27,7 +27,7 @@ public class ListMonthlyExpensesValidator {
      *
      * @param command The raw command string entered by the user.
      * @return A {@link Command} object, either a {@link ListMonthlyExpensesCommand}
-     * or an {@link IncorrectCommand} if validation fails.
+     *     or an {@link IncorrectCommand} if validation fails.
      */
     public static Command processCommand(String command) {
         YearMonth yearMonth = null;
