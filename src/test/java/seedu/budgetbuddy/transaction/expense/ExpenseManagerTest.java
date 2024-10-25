@@ -26,6 +26,14 @@ class ExpenseManagerTest {
         expenseManager.addExpense(newExpense);
     }
 
+    void initializeTestContent(boolean noExpense){
+        if (noExpense){
+            expenseManager = new ExpenseManager(expenses, numberOfExpenses);
+        }else{
+            initializeTestContent();
+        }
+    }
+
     String getExpectedString(){
         String result = "";
         int counter = 1;
@@ -79,4 +87,20 @@ class ExpenseManagerTest {
         assertEquals("1. Description: New Food  Amount: 12.0  Date: 2024-02-12  Category: FOOD\n",
                 ExpenseManager.searchExpenses("New"));
     }
+
+    @Test
+    void breakdownExpensesByCategory_noExpenses_expectNoExpensesMessage(){
+        initializeTestContent(true);
+        assertEquals("Total expenses: 0. You have not indicated any expense yet.",
+                ExpenseManager.breakdownExpensesByCategory());
+    }
+
+    @Test
+    void breakdownExpensesByCategory_oneExpense_expectExpensesMessage(){
+        initializeTestContent(false);
+        assertEquals("Total expenses: 12.0\nFood: 12.0(100.00%)\nTransport: 0.0(0.00%)\n" +
+                "Utilities: 0.0(0.00%)\nEntertainment: 0.0(0.00%)\nEducation: 0.0(0.00%)\nOthers: 0.0(0.00%)\n",
+                ExpenseManager.breakdownExpensesByCategory());
+    }
+
 }
