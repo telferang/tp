@@ -21,6 +21,7 @@ import seedu.budgetbuddy.commands.budget.ListBudgetCommand;
 import seedu.budgetbuddy.commands.income.DisplayIncomeSpentCommand;
 import seedu.budgetbuddy.commands.income.ListIncomeCommand;
 import seedu.budgetbuddy.commands.saving.DisplaySavingsCommand;
+import seedu.budgetbuddy.commands.expense.ListMonthlyExpensesCommand;
 import seedu.budgetbuddy.exceptions.BudgetBuddyException;
 import seedu.budgetbuddy.transaction.budget.Budget;
 import seedu.budgetbuddy.transaction.budget.BudgetManager;
@@ -42,6 +43,7 @@ import seedu.budgetbuddy.validators.expense.DeleteExpenseValidator;
 import seedu.budgetbuddy.validators.expense.DisplayTotalExpensesValidator;
 import seedu.budgetbuddy.validators.expense.SearchExpenseValidator;
 import seedu.budgetbuddy.validators.saving.DisplaySavingsValidator;
+import seedu.budgetbuddy.validators.expense.ListMonthlyExpensesValidator;
 
 import java.time.LocalDate;
 import java.time.YearMonth;
@@ -114,6 +116,9 @@ public class Parser {
         }
         if (DisplayTotalExpensesCommand.isCommand(userCommandText)){
             return DisplayTotalExpensesValidator.processCommand(userCommandText);
+        }
+        if (ListMonthlyExpensesCommand.isCommand(userCommandText)) {
+            return ListMonthlyExpensesValidator.processCommand(userCommandText);
         }
         if (DisplayIncomeSpentCommand.isCommand(userCommandText)) {
             return DisplayIncomeSpentValidator.processCommand(userCommandText);

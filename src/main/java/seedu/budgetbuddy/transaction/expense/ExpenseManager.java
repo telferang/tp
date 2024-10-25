@@ -218,7 +218,7 @@ public class ExpenseManager {
      *
      * @param yearMonth The YearMonth object representing the month for which the total expenses are to be displayed.
      */
-    public static void displayTotalExpensesForMonth(YearMonth yearMonth) {
+    public static void listTotalExpensesForMonth(YearMonth yearMonth) {
         ArrayList<Expense> expensesOverMonthArray = getExpenses();
         Map<YearMonth, Double> monthlyExpensesMap = ExpensesOverMonthGraph.monthMapBuilder(expensesOverMonthArray);
         Ui.displayToUser("Your expenses for " + yearMonth.toString() + " is " +
@@ -230,12 +230,12 @@ public class ExpenseManager {
      * @return String that displays total expenses of the user and the amount and percentage of
      * total expenses spent per category.
      */
-    public static String breakdownExpensesByCategory(){
+    public static String breakdownExpensesByCategory() {
         String result = "";
         double totalExpensesFood = 0;
         double totalExpensesOthers = 0;
         double totalExpensesTransport = 0;
-        double  totalExpensesEntertainment = 0;
+        double totalExpensesEntertainment = 0;
         double totalExpensesUtilities = 0;
         double totalExpensesEducation = 0;
         for (Expense expense : expenses) {
@@ -249,29 +249,50 @@ public class ExpenseManager {
             default -> LOGGER.warning("Invalid category type detected.");
             }
         }
-        assert totalExpensesFood >= 0: "Total expense for food cannot be negative";
-        assert totalExpensesOthers >= 0: "Total expense for others cannot be negative";
-        assert totalExpensesTransport >= 0: "Total expense for transport cannot be negative";
-        assert totalExpensesEntertainment >= 0: "Total expense for entertainment cannot be negative";
-        assert totalExpensesUtilities >= 0: "Total expense for utilities cannot be negative";
-        assert totalExpensesEducation >= 0: "Total expense for education cannot be negative";
+        assert totalExpensesFood >= 0 : "Total expense for food cannot be negative";
+        assert totalExpensesOthers >= 0 : "Total expense for others cannot be negative";
+        assert totalExpensesTransport >= 0 : "Total expense for transport cannot be negative";
+        assert totalExpensesEntertainment >= 0 : "Total expense for entertainment cannot be negative";
+        assert totalExpensesUtilities >= 0 : "Total expense for utilities cannot be negative";
+        assert totalExpensesEducation >= 0 : "Total expense for education cannot be negative";
         double totalExpenses = totalExpensesEducation + totalExpensesFood + totalExpensesEntertainment +
                 totalExpensesTransport + totalExpensesUtilities + totalExpensesOthers;
-        if (totalExpenses == 0){
+        if (totalExpenses == 0) {
             result += "Total expenses: 0. You have not indicated any expense yet.";
-        }else{
+        } else {
             result = "Total expenses: " + totalExpenses + "\n" + "Food: " + totalExpensesFood + "(" +
-                    String.format("%.2f", totalExpensesFood/totalExpenses * 100) + "%)\n" + "Transport: " +
-                    totalExpensesTransport + "(" + String.format("%.2f", totalExpensesTransport/totalExpenses * 100) +
+                    String.format("%.2f", totalExpensesFood / totalExpenses * 100) + "%)\n" + "Transport: " +
+                    totalExpensesTransport + "(" + String.format("%.2f", totalExpensesTransport / totalExpenses * 100) +
                     "%)\n" + "Utilities: " + totalExpensesUtilities + "(" +
-                    String.format("%.2f", totalExpensesUtilities/totalExpenses * 100) + "%)\n" + "Entertainment: " +
+                    String.format("%.2f", totalExpensesUtilities / totalExpenses * 100) + "%)\n" + "Entertainment: " +
                     totalExpensesEntertainment + "(" +
-                    String.format("%.2f", totalExpensesEntertainment/totalExpenses * 100) + "%)\n" + "Education: " +
+                    String.format("%.2f", totalExpensesEntertainment / totalExpenses * 100) + "%)\n" + "Education: " +
                     totalExpensesEducation + "(" +
-                    String.format("%.2f", totalExpensesEducation/totalExpenses * 100) + "%)\n" + "Others: " +
-                    totalExpensesOthers + "(" + String.format("%.2f", totalExpensesOthers/totalExpenses * 100) + "%)\n";
+                    String.format("%.2f", totalExpensesEducation / totalExpenses * 100) + "%)\n" + "Others: " +
+                    totalExpensesOthers + "(" + String.format("%.2f", totalExpensesOthers / totalExpenses * 100) + "%)\n";
         }
         return result;
+    }
+    
+    /**
+     * Displays the total expenses for a specific month on a specific category
+     *
+     * @param yearMonth The YearMonth object representing the month for which the total expenses are to be displayed.
+     * @param category The Category object representing the category of the total expenses to be displayed.
+     */
+    public static void listTotalExpensesForMonthWithCategories(YearMonth yearMonth, Category category) {
+        ArrayList<Expense> expensesOverMonthArray = getExpenses();
+        double totalAmount = 0.0;
+
+        Ui.displayToUser("The Expenses for " + yearMonth + " under category: " + category);
+        for (Expense expense : expensesOverMonthArray) {
+            YearMonth expenseYearMonth = getYearMonthFromDate(expense.getDate());
+
+            if(expenseYearMonth.equals(yearMonth) && category.equals(expense.getCategory())) {
+                totalAmount += expense.getAmount();
+            }
+        }
+        System.out.println(totalAmount);
     }
 
     /**
