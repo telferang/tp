@@ -1,12 +1,7 @@
 package seedu.budgetbuddy;
 
 import seedu.budgetbuddy.commands.budget.ListRemainingBudgetCommand;
-import seedu.budgetbuddy.commands.expense.DeleteExpenseCommand;
-import seedu.budgetbuddy.commands.expense.AddExpenseCommand;
-import seedu.budgetbuddy.commands.expense.EditExpenseCommand;
-import seedu.budgetbuddy.commands.expense.SearchExpenseCommand;
-import seedu.budgetbuddy.commands.expense.ListExpenseCommand;
-import seedu.budgetbuddy.commands.expense.DisplayTotalExpensesCommand;
+import seedu.budgetbuddy.commands.expense.*;
 import seedu.budgetbuddy.commands.income.AddIncomeCommand;
 import seedu.budgetbuddy.commands.budget.AddBudgetCommand;
 import seedu.budgetbuddy.commands.Command;
@@ -28,7 +23,7 @@ import seedu.budgetbuddy.transaction.expense.Expense;
 import seedu.budgetbuddy.transaction.expense.ExpenseManager;
 import seedu.budgetbuddy.transaction.income.Income;
 import seedu.budgetbuddy.transaction.income.IncomeManager;
-import seedu.budgetbuddy.validators.expense.ListExpenseValidator;
+import seedu.budgetbuddy.validators.expense.*;
 import seedu.budgetbuddy.validators.income.AddIncomeValidator;
 import seedu.budgetbuddy.validators.budget.AddBudgetValidator;
 import seedu.budgetbuddy.validators.budget.DeductBudgetValidator;
@@ -36,10 +31,6 @@ import seedu.budgetbuddy.validators.income.DeleteIncomeValidator;
 import seedu.budgetbuddy.validators.income.DisplayIncomeSpentValidator;
 import seedu.budgetbuddy.validators.income.DisplayIncomeValidator;
 import seedu.budgetbuddy.validators.budget.ListBudgetValidator;
-import seedu.budgetbuddy.validators.expense.AddExpenseValidator;
-import seedu.budgetbuddy.validators.expense.DeleteExpenseValidator;
-import seedu.budgetbuddy.validators.expense.DisplayTotalExpensesValidator;
-import seedu.budgetbuddy.validators.expense.SearchExpenseValidator;
 import seedu.budgetbuddy.validators.saving.DisplaySavingsValidator;
 
 import java.time.LocalDate;
@@ -113,6 +104,9 @@ public class Parser {
         }
         if (DisplayTotalExpensesCommand.isCommand(userCommandText)){
             return DisplayTotalExpensesValidator.processCommand(userCommandText);
+        }
+        if (ListMonthlyExpensesCommand.isCommand(userCommandText)) {
+            return ListMonthlyExpensesValidator.processCommand(userCommandText);
         }
         if (DisplayIncomeSpentCommand.isCommand(userCommandText)) {
             return DisplayIncomeSpentValidator.processCommand(userCommandText);

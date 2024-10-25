@@ -1,5 +1,6 @@
 package seedu.budgetbuddy.commands.expense;
 
+import seedu.budgetbuddy.Ui;
 import seedu.budgetbuddy.commands.Command;
 import seedu.budgetbuddy.transaction.expense.ExpenseManager;
 import seedu.budgetbuddy.util.LoggerSetup;
@@ -26,17 +27,6 @@ public class DisplayTotalExpensesCommand extends Command {
     }
 
     /**
-     * Constructs a command to display expenses for the specified year and month.
-     *
-     * @param year  The year for which total expenses are to be displayed.
-     * @param month The YearMonth object representing the month for which total expenses are to be displayed.
-     */
-    public DisplayTotalExpensesCommand(int year, YearMonth month) {
-        this.year = year;
-        this.month = month;
-    }
-
-    /**
      * Checks if the given command matches the expected format for displaying monthly expenses.
      *
      * @param command The command string to check.
@@ -47,17 +37,12 @@ public class DisplayTotalExpensesCommand extends Command {
     }
 
     /**
-     * Executes the command to display either a graph of total expenses for the year
-     * or the total expenses for the specified month.
+     * Executes the command to display a graph of total expenses for the year
      */
     @Override
     public void execute() {
-        if (month == null) {
             LOGGER.log(Level.INFO, "Displaying expense graph");
+            Ui.displayToUser("Displaying expense graph for " + year);
             ExpenseManager.displayExpensesOverMonthGraph(year);
-        } else {
-            LOGGER.log(Level.INFO, "Displaying monthly expense");
-            ExpenseManager.displayTotalExpensesForMonth(month);
-        }
     }
 }

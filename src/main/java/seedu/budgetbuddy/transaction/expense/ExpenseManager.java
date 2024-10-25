@@ -218,13 +218,33 @@ public class ExpenseManager {
      *
      * @param yearMonth The YearMonth object representing the month for which the total expenses are to be displayed.
      */
-    public static void displayTotalExpensesForMonth(YearMonth yearMonth) {
+    public static void listTotalExpensesForMonth(YearMonth yearMonth) {
         ArrayList<Expense> expensesOverMonthArray = getExpenses();
         Map<YearMonth, Double> monthlyExpensesMap = ExpensesOverMonthGraph.monthMapBuilder(expensesOverMonthArray);
         Ui.displayToUser("Your expenses for " + yearMonth.toString() + " is " +
                 ExpensesOverMonthGraph.expensesForMonth(monthlyExpensesMap, yearMonth));
     }
 
+    /**
+     * Displays the total expenses for a specific month on a specific category
+     *
+     * @param yearMonth The YearMonth object representing the month for which the total expenses are to be displayed.
+     * @param category The Category object representing the category of the total expenses to be displayed.
+     */
+    public static void listTotalExpensesForMonthWithCategories(YearMonth yearMonth, Category category) {
+        ArrayList<Expense> expensesOverMonthArray = getExpenses();
+        double totalAmount = 0.0;
+
+        Ui.displayToUser("The Expenses for " + yearMonth + " under category: " + category);
+        for (Expense expense : expensesOverMonthArray) {
+            YearMonth expenseYearMonth = getYearMonthFromDate(expense.getDate());
+
+            if(expenseYearMonth.equals(yearMonth) && category.equals(expense.getCategory())) {
+                totalAmount += expense.getAmount();
+            }
+        }
+        System.out.println(totalAmount);
+    }
 
     /**
      * Extract YearMonth value from date
