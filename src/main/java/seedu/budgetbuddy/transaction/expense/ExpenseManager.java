@@ -227,8 +227,8 @@ public class ExpenseManager {
 
     /**
      * Breaks down all expenses of the user by category.
-     * @return String that displays total expenses of the user and the amount and percentage of
-     * total expenses spent per category.
+     * @return String that displays total expenses of the user and the amount and percentage of total expenses spent
+     *     per category.
      */
     public static String breakdownExpensesByCategory() {
         String result = "";
@@ -269,11 +269,12 @@ public class ExpenseManager {
                     String.format("%.2f", totalExpensesEntertainment / totalExpenses * 100) + "%)\n" + "Education: " +
                     totalExpensesEducation + "(" +
                     String.format("%.2f", totalExpensesEducation / totalExpenses * 100) + "%)\n" + "Others: " +
-                    totalExpensesOthers + "(" + String.format("%.2f", totalExpensesOthers / totalExpenses * 100) + "%)\n";
+                    totalExpensesOthers + "(" + String.format("%.2f", totalExpensesOthers / totalExpenses * 100) +
+                    "%)\n";
         }
         return result;
     }
-    
+
     /**
      * Displays the total expenses for a specific month on a specific category
      *
