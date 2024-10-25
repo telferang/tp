@@ -34,20 +34,25 @@ This section describes how to setup the coding environment, along with the tools
 
 ## User Stories
 
-|Version| As a ... | I want to ...                         | So that I can ...                                           |
-|--------|----------|---------------------------------------|-------------------------------------------------------------|
-|v1.0| new user | see usage instructions                | refer to them when I forget how to use the application      |
-|v1.0| user     | view a history of my past income      | see how my income changed over time                         |
-|v1.0| user     | view a history of my past expenses    | see how my expenses changed over time                       |
-|v1.0| user     | categorise my expenses                | understand where my money is going                          | 
-|v1.0| user     | search for specific expense entries   | quickly find past transactions                              |
-|v1.0| user     | view a history of my past budgets     | see how my spending has changed over time                   |
-|v2.0| user     | view my monthly savings               | plan for future expenses                                    |
-|v2.0| user     | see where I am spending my money      | better manage my expenses                                   |
-|v2.0| user     | find a to-do item by name             | locate a to-do without having to go through the entire list |
-|v2.0| user     | edit an exisiting expense entry       | correct any mistakes made to an expense entry               |
-|v2.0| user     | edit an exisiting income entry        | correct any mistakes made to an income entry                |
-|v2.0| user     | track expenses in multiple currencies | manage international transactions                           |
+| Version | As a ... | I want to ...                         | So that I can ...                                           |
+|---------|----------|---------------------------------------|-------------------------------------------------------------|
+| v1.0    | new user | see usage instructions                | refer to them when I forget how to use the application      |
+| v1.0    | user     | add and delete income                 | track my incomes                                            |
+| v1.0    | user     | add and delete expenses               | track my expenses                                           |
+| v1.0    | user     | view a history of my past income      | see how my income changed over time                         |
+| v1.0    | user     | view a history of my past expenses    | see how my expenses changed over time                       |
+| v1.0    | user     | categorise my expenses                | understand where my money is going                          | 
+| v1.0    | user     | search for specific expense entries   | quickly find past transactions                              |
+| v1.0    | user     | view a history of my past budgets     | see how my spending has changed over time                   |
+| v1.0    | user     | save and load my data automatically   | view my past entries                                        |
+| v2.0    | user     | view the trends of my monthly expense | analyse my expense pattern                                  |
+| v2.0    | user     | view the total expenses for one month | see a summary of my expenses for the month                  |
+| v2.0    | user     | view my monthly savings               | plan for future expenses                                    |
+| v2.0    | user     | see where I am spending my money      | better manage my expenses                                   |
+| v2.0    | user     | find a to-do item by name             | locate a to-do without having to go through the entire list |
+| v2.0    | user     | edit an exisiting expense entry       | correct any mistakes made to an expense entry               |
+| v2.0    | user     | edit an exisiting income entry        | correct any mistakes made to an income entry                |
+| v2.0    | user     | track expenses in multiple currencies | manage international transactions                           |
 
 ## Non-Functional Requirements
 
