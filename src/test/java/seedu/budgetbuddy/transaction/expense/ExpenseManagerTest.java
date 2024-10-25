@@ -25,13 +25,8 @@ class ExpenseManagerTest {
                 Category.FOOD);
         expenseManager.addExpense(newExpense);
     }
-
-    void initializeTestContent(boolean noExpense){
-        if (noExpense){
-            expenseManager = new ExpenseManager(expenses, numberOfExpenses);
-        }else{
-            initializeTestContent();
-        }
+    void initializeEmptyTestContent(){
+        expenseManager = new ExpenseManager(new ArrayList<>(), numberOfExpenses);
     }
 
     String getExpectedString(){
@@ -90,14 +85,14 @@ class ExpenseManagerTest {
 
     @Test
     void breakdownExpensesByCategory_noExpenses_expectNoExpensesMessage(){
-        initializeTestContent(true);
+        initializeEmptyTestContent();
         assertEquals("Total expenses: 0. You have not indicated any expense yet.",
                 ExpenseManager.breakdownExpensesByCategory());
     }
 
     @Test
     void breakdownExpensesByCategory_oneExpense_expectExpensesMessage(){
-        initializeTestContent(false);
+        initializeTestContent();
         assertEquals("Total expenses: 12.0\nFood: 12.0(100.00%)\nTransport: 0.0(0.00%)\n" +
                 "Utilities: 0.0(0.00%)\nEntertainment: 0.0(0.00%)\nEducation: 0.0(0.00%)\nOthers: 0.0(0.00%)\n",
                 ExpenseManager.breakdownExpensesByCategory());
