@@ -47,9 +47,9 @@ public class Storage {
      * It parses the file contents and converts it into the respective Expense, Income,
      * and Budget objects, storing them in lists.
      *
+     * @author Alfred-Goh02
      * @return An ArrayList containing three ArrayLists for expenses, incomes, and budgets.
      * @throws FileNotFoundException If the file at the specified path does not exist.
-     * @author Alfred-Goh02
      */
     public ArrayList<ArrayList<?>> load() throws FileNotFoundException {
         File file = new File(filePath);
@@ -81,11 +81,11 @@ public class Storage {
      * Saves the current state of the Expense, Income, and Budget data to the file.
      * The file is overwritten with the latest data.
      *
+     * @author Alfred-Goh02
      * @param expenseList The ExpenseManager containing the current list of expenses.
      * @param incomeList The IncomeManager containing the current list of incomes.
      * @param budgetList The BudgetManager containing the current list of budgets.
      * @throws IOException If an I/O error occurs while writing to the file.
-     * @author Alfred-Goh02
      */
     public void save(ExpenseManager expenseList, IncomeManager incomeList, BudgetManager budgetList)
             throws IOException {
