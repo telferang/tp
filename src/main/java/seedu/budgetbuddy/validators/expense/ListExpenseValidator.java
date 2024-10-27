@@ -12,6 +12,9 @@ import java.util.logging.Logger;
 import static seedu.budgetbuddy.validators.CategoryValidator.validateCategory;
 import static seedu.budgetbuddy.validators.DateValidator.validateYearMonth;
 
+/**
+ * @author Kenneth
+ */
 public class ListExpenseValidator{
 
     private static final Logger LOGGER = LoggerSetup.getLogger();
