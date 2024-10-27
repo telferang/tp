@@ -26,6 +26,7 @@ import java.util.logging.Logger;
  * The Storage class is responsible for handling the reading and writing of data from
  * and to the disk. It manages the creation of files, loading data into the program,
  * and saving the state of the Expense, Income, and Budget transactions.
+ * @author Alfred-Goh02
  */
 public class Storage {
     private static final Logger LOGGER = LoggerSetup.getLogger();
@@ -48,6 +49,7 @@ public class Storage {
      *
      * @return An ArrayList containing three ArrayLists for expenses, incomes, and budgets.
      * @throws FileNotFoundException If the file at the specified path does not exist.
+     * @author Alfred-Goh02
      */
     public ArrayList<ArrayList<?>> load() throws FileNotFoundException {
         File file = new File(filePath);
@@ -83,6 +85,7 @@ public class Storage {
      * @param incomeList The IncomeManager containing the current list of incomes.
      * @param budgetList The BudgetManager containing the current list of budgets.
      * @throws IOException If an I/O error occurs while writing to the file.
+     * @author Alfred-Goh02
      */
     public void save(ExpenseManager expenseList, IncomeManager incomeList, BudgetManager budgetList)
             throws IOException {
