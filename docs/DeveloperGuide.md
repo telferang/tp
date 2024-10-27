@@ -73,6 +73,31 @@ restart. This will be covered more under the storage class.
 The UI Class is to print out elements of the app in the CLI. It contains many methods used to print general, often-used
 messages such as displayWelcomeMessage() and displayExitMessage().
 
+#### 3.4 Command Class
+
+The `Command` class is a parent class which is responsible for checking for input keywords. It has multiple subclasses,
+which corresponds to a specific function of the application. Each of its subclass checks for specific keywords in the
+user input. If the input is valid as checked by the `isCommand()` method, it will call its corresponding validator.
+
+#### 3.5 Validator Classes
+
+The Validator classes are a group of classes which is responsible for further checks on input, such as whether it has
+the right formatting and contains all necessary details. It will return different subclasses of the command object
+depending on whether the input is valid or not. Once the object is instantiated and returned, the `main` class will call
+`execute` to execute the feature.
+
+##### 3.4.1 and 3.5.1 XML Sequence Diagram
+
+The following sequence diagram shows the process of what happens when a user input is passed through the application,
+until it gets executed.
+
+**Note**: 
+1. Validator class is not a parent class, but we have grouped it under validators to prevent cluttering of 
+the diagrams. 
+2. Validator also returns different type of Command Classes depending on the validity of input, which has been omitted
+for the same reason as above.
+
+![CommandClass.drawio.png](/docs/diagrams/CommandClass.drawio.png)
 
 ### 4. Implementation
 
