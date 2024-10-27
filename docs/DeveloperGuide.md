@@ -1,27 +1,127 @@
 # Developer Guide
 
+---
+
+## Table of Contents
+
+---
+
+
+
 ## Acknowledgements
+
+---
 
 {list here sources of all reused/adapted ideas, code, documentation, and third-party libraries -- include links to the original source as well}
 
 ## Design & implementation
 
+---
+
 {Describe the design and implementation of the product. Use UML diagrams and short code snippets where applicable.}
 
 ### 1. Introduction
 
+---
+
 BudgetBuddy is a CLI-based expense, income and budget tracking application. BudgetBuddy is designed to help users manage and monitor their daily and monthly expenses. The system tracks various categories of expenses and allows users to receive insights on their budget and spending patterns.
 
 ### 2. Setup Guide
+
+---
+
 This section describes how to setup the coding environment, along with the tools needed to work on BudgetBuddy
 
 #### 2.1 Prerequisites
 1. JDK 17
 2. Any working IDE that supports Java (Intellij IDEA preferred)
+3. XChart
 
 ### 3. Design
 
+---
+
 #### 3.1 Architecture
+The following diagram shows the rough overview of BudgetBuddy
+
+![OverallDiagram.drawio.png](/docs/diagrams/OverallDiagram.drawio.png)
+
+`BudgetBuddy` is the main class of application which the user can interact with directly.  The input from the user is 
+processed by the main class and passed to the `Parser`. `Parser` will check for any valid keywords in the input using 
+the `isCommand` method of all the `Command` object. Once the keywords are present, it will pass the input to a 
+`Validator` object which validates the command on its formatting and details. Depending on the result of the `Validator`
+, the command will be executed in `BudgetBuddy`. The `Validator` and `Object` genre classes utilizes methods and classes
+present in the [transaction](/src/main/java/seedu/budgetbuddy/transaction) folder.
+
+#### 3.2 Parser Class
+The `Parser` class is to mainly determine whether the user input is valid, and proceed to process the command after.
+It uses Boolean Methods to determine the presence of keywords, and then creates a Validator class to process the command
+should the keywords be present.
+
+The following are some examples:
+
+| Boolean Methods                        | Check if input starts with | Feature Requires | Creates                                            |
+|----------------------------------------|----------------------------|------------------|----------------------------------------------------|
+| ListMonthlyExpensesCommand.isCommand() | list monthly expenses      | input            | ListMonthlyExpensesValidator.processCommand(input) |
+| AddExpenseCommand.isCommand()          | add expense                | input            | AddExpenseValidator.processCommand(input)          | 
+
+The Parser class is also used to parse lines from the `Storage` .txt file and loads it into the main application upon
+restart. This will be covered more under the storage class.
+
+#### 3.3 UI Class
+
+The UI Class is to print out elements of the app in the CLI. It contains many methods used to print general, often-used
+messages such as displayWelcomeMessage() and displayExitMessage().
+
+#### 3.4 Command Class
+
+The `Command` class is a parent class which is responsible for checking for input keywords. It has multiple subclasses,
+which corresponds to a specific function of the application. Each of its subclass checks for specific keywords in the
+user input. If the input is valid as checked by the `isCommand()` method, it will call its corresponding validator.
+
+#### 3.5 Validator Classes
+
+The Validator classes are a group of classes which is responsible for further checks on input, such as whether it has
+the right formatting and contains all necessary details. It will return different subclasses of the command object
+depending on whether the input is valid or not. Once the object is instantiated and returned, the `main` class will call
+`execute` to execute the feature.
+
+##### 3.4.1 and 3.5.1 XML Sequence Diagram
+
+The following sequence diagram shows the process of what happens when a user input is passed through the application,
+until it gets executed.
+
+**Note**: 
+1. Validator class is not a parent class, but we have grouped it under validators to prevent cluttering of 
+the diagrams. 
+2. Validator also returns different type of Command Classes depending on the validity of input, which has been omitted
+for the same reason as above.
+
+![CommandClass.drawio.png](/docs/diagrams/CommandClass.drawio.png)
+
+### 4. Implementation
+
+#### 4.1 Add Budget Feature
+The Add Budget Feature allows users to add budgets for different categories. This is handled by the AddBudgetCommand 
+class, initialized by the Parser class.
+
+- The Parser processes user input and creates an AddBudgetCommand object with parameters such as amount, category, 
+and date.
+- The AddBudgetValidator ensures that inputs are valid, checking for correct amounts, valid categories, 
+and proper date format.
+- If validation passes, the budget is added; otherwise, an error is raised.
+
+#### 4.2 Deduct Budget Feature
+The Deduct Budget Feature allows users to deduct an amount from an existing budget. This is managed by the 
+DeductBudgetCommand class, initialized by the Parser class.
+
+- The Parser processes user input and creates a DeductBudgetCommand object with the amount, category, 
+and date of the deduction.
+- The DeductBudgetValidator checks if the deduction is valid, ensuring the budget exists, the date is correct, 
+and there are sufficient funds.
+- If validation passes, the specified amount is deducted from the budget; otherwise, an error is raised.
+
+# Appendix
 
 ## Product scope
 ### Target user profile
@@ -65,25 +165,3 @@ This section describes how to setup the coding environment, along with the tools
 ## Instructions for manual testing
 
 {Give instructions on how to do a manual product testing e.g., how to load sample data to be used for testing}
-
-### 4. Implementation
-
-#### 4.1 Add Budget Feature
-The Add Budget Feature allows users to add budgets for different categories. This is handled by the AddBudgetCommand 
-class, initialized by the Parser class.
-
-- The Parser processes user input and creates an AddBudgetCommand object with parameters such as amount, category, 
-and date.
-- The AddBudgetValidator ensures that inputs are valid, checking for correct amounts, valid categories, 
-and proper date format.
-- If validation passes, the budget is added; otherwise, an error is raised.
-
-#### 4.2 Deduct Budget Feature
-The Deduct Budget Feature allows users to deduct an amount from an existing budget. This is managed by the 
-DeductBudgetCommand class, initialized by the Parser class.
-
-- The Parser processes user input and creates a DeductBudgetCommand object with the amount, category, 
-and date of the deduction.
-- The DeductBudgetValidator checks if the deduction is valid, ensuring the budget exists, the date is correct, 
-and there are sufficient funds.
-- If validation passes, the specified amount is deducted from the budget; otherwise, an error is raised.
