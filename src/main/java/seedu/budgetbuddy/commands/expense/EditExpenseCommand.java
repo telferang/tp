@@ -34,7 +34,9 @@ public class EditExpenseCommand extends Command {
      *
      * @param expense Created expense object to be tested
      */
-    public EditExpenseCommand(Expense expense) { this.expense = expense; }
+    public EditExpenseCommand(Expense expense) {
+        this.expense = expense;
+    }
 
     /**
      * Checks if the provided command matches the command to list expenses.

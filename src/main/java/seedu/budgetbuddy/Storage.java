@@ -26,6 +26,7 @@ import java.util.logging.Logger;
  * The Storage class is responsible for handling the reading and writing of data from
  * and to the disk. It manages the creation of files, loading data into the program,
  * and saving the state of the Expense, Income, and Budget transactions.
+ * @author Alfred-Goh02
  */
 public class Storage {
     private static final Logger LOGGER = LoggerSetup.getLogger();
@@ -46,10 +47,10 @@ public class Storage {
      * It parses the file contents and converts it into the respective Expense, Income,
      * and Budget objects, storing them in lists.
      *
-     * @return An ArrayList containing three ArrayLists for expenses, incomes, and budgets.
+     * @author Alfred-Goh02
      * @throws FileNotFoundException If the file at the specified path does not exist.
      */
-    public ArrayList<ArrayList<?>> load() throws FileNotFoundException {
+    public void load() throws FileNotFoundException {
         File file = new File(filePath);
         if (!file.exists()) {
             LOGGER.warning("File does not exist: " + file.getAbsolutePath());
@@ -63,22 +64,18 @@ public class Storage {
         while (sc.hasNextLine()) {
             String input = sc.nextLine();
             LOGGER.fine("Parsing line: " + input);  // Log each line being parsed
-            Parser.parseFile(input, expenses, incomes, budgets);
+            Parser.parseFile(input);
         }
         sc.close();
-        ArrayList<ArrayList<?>> list = new ArrayList<>();
-        list.add(expenses);
-        list.add(incomes);
-        list.add(budgets);
         LOGGER.info("Data loaded successfully. Expenses: " + expenses.size() + ", Incomes: " + incomes.size()
                 + ", Budgets: " + budgets.size());
-        return list;
     }
 
     /**
      * Saves the current state of the Expense, Income, and Budget data to the file.
      * The file is overwritten with the latest data.
      *
+     * @author Alfred-Goh02
      * @param expenseList The ExpenseManager containing the current list of expenses.
      * @param incomeList The IncomeManager containing the current list of incomes.
      * @param budgetList The BudgetManager containing the current list of budgets.

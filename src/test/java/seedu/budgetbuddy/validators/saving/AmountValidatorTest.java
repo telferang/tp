@@ -1,6 +1,7 @@
-package seedu.budgetbuddy.validators;
+package seedu.budgetbuddy.validators.saving;
 
 import org.junit.jupiter.api.Test;
+import seedu.budgetbuddy.validators.AmountValidator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

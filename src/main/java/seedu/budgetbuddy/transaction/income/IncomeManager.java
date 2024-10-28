@@ -30,6 +30,13 @@ public class IncomeManager {
     }
 
     /**
+     * Construct a IncomeManager of array content incomes
+     */
+    public IncomeManager() {
+
+    }
+
+    /**
      * Adds a new income to the manager.
      *
      * @param income The income to be added.
@@ -41,6 +48,15 @@ public class IncomeManager {
                 + income + '\n'
                 + "You have " + numberOfIncomes + " income transaction(s) in total.";
         Ui.displayToUser(result);
+    }
+
+    /**
+     * Load a new income from storage to the manager.
+     *
+     * @param income The income to be added.
+     */
+    public static void loadIncome(Income income) {
+        incomes.add(income);
     }
 
     /**
@@ -67,17 +83,34 @@ public class IncomeManager {
     }
 
     /**
+     * Calculates the total income for a specified month.
+     *
+     * @param month The month to calculate income for.
+     * @return The total income for the month; returns 0.0 if no income is found.
+     */
+    public static double getMonthlyIncome(YearMonth month) {
+        double sum = 0;
+        for (Income income : incomes) {
+            if(month.equals(getYearMonthFromDate(income.getDate()))) {
+                sum += income.getAmount();
+            }
+        }
+        return sum;
+    }
+
+    /**
      * Lists all the incomes managed by the manager.
      * Displays each income with its corresponding number.
      */
     public static void listIncomes() {
         String result = "";
-        int counter = 1;
+        int counter = 0;
         for (Income income : incomes) {
-            result += counter + ". " + income.toString() + "\n";
             counter++;
+            result += counter + ". " + income.toString() + "\n";
         }
-        LOGGER.log(Level.INFO, "Listing {0} expenses", numberOfIncomes);
+        result += "There are " + counter + " income(s) in total";
+        LOGGER.log(Level.INFO, "Listing {0} incomes", numberOfIncomes);
         Ui.displayToUser(result);
     }
 

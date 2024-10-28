@@ -66,7 +66,7 @@ public class ListExpenseCommand extends Command {
      * @return True if the command matches "list expenses", false otherwise.
      */
     public static boolean isCommand(String command) {
-        return command.startsWith("list expenses");
+        return command.startsWith("list expense");
     }
 
     public Category getCategory() {
