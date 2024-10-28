@@ -130,6 +130,40 @@ such as date. This feature is managed by the ListBudgetCommand class, which is i
 * If validation passes, the ListBudgetCommand retrieves and displays the budgets that match the criteria through the UI; 
 otherwise, an error message is shown.
 
+#### 4.4 Search Expense Feature
+The Search Expense Feature enables users to search for specific expenses based on a description provided by the 
+user. This feature is managed by the `SearchExpensesCommand` class, initialized by the `Parser` class, with the help
+of a helper class `SearchExpenseValidator` to validate and extract the user description. 
+The `SearchExpensesCommand` object is then created with the keyword as an attribute. The class attributes and their
+relevance is as follows: 
+
+|Variable Name| Variable Type | Relevance |
+|-------------|---------------|-----------|
+|keyword| String | Description to find in expenses|
+
+The BudgetBuddy class then calls the `execute()` method of the `SearchExpenseCommand` object which uses the 
+`searchExpenses()` method in the `ExpenseManager` class, displaying the result to the user using the `Ui` class
+`displayToUser()` method.
+
+Below is a sequence diagram representing the execution of the Search Expense interaction: 
+![SearchExpenseSequenceDiagram.drawio.png](diagrams/SearchExpenseSequenceDiagram.drawio.png)
+Process Overview: 
+1. The user issues a command to search for a specific expense i.e. `search expense Japan`. BudgetBuddy parses this
+input with the help of the `Parser` class.
+2. The `Parser` calls the `isCommand()` method of the `SearchExpenseCommand` class, to check if the user input 
+starts with "search expense". 
+3. If the user input starts with "search expense", the `Parser` then calls the `processCommand()` method of 
+a helper class, `SearchExpenseValidator` to extract the description to be filtered on.
+4. The `processCommand()` method above returns a new `SearchExpenseCommand` object initialized with the description
+extracted as the `keyword` attribute.
+5. BudgetBuddy then calls the `execute()` method of the `SearchExpenseCommand` object. 
+6. If the keyword attribute is an empty string, the `SearchExpenseCommand` object calls the `searchEmptyMessage()`
+method of the `Ui` class, displaying an error message to the user that no descriptor was provided.
+7. Else, the `SearchExpenseCommand` object calls the `searchExpenses()` method of the `ExpenseManager` class,
+filtering the `expenses` ArrayList and returning a String containing all expenses with the given descriptor
+in the description of the expenses. The `SearchExpenseCommand` object then calls the `displayToUser()` method in `Ui`,
+displaying this String to the user.
+
 # Appendix
 
 ## Product scope
