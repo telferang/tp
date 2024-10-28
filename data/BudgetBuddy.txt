@@ -15,7 +15,7 @@ expense | char | 2567.0 | 3/10/2023 | OTHERS
 expense | game | 200.0 | 29/2/2024 | OTHERS
 income | tuition fees | 1000.0 | 15/9/2024
 income | tuition | 2.0E8 | 15/9/2024
-income | tuition fee | 1000.0 | 15/9/2024
+income | tuition fee | 4000.0 | 15/10/2024
 income | Starbucks crew | 1000.0 | 1/10/2024
 income | Mcdonald crew | 1000.0 | 15/10/2024
 income | fries crew | 2000.0 | 15/10/2023

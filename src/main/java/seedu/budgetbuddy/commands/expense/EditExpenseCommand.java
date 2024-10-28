@@ -39,10 +39,10 @@ public class EditExpenseCommand extends Command {
     }
 
     /**
-     * Checks if the provided command matches the command to list expenses.
+     * Checks if the provided command matches the command to edit expenses.
      *
      * @param command The command to be checked.
-     * @return True if the command matches "list expenses", false otherwise.
+     * @return True if the command matches "edit expenses", false otherwise.
      */
     public static boolean isCommand(String command) {
         return command.startsWith("edit expenses");
@@ -123,8 +123,8 @@ public class EditExpenseCommand extends Command {
         try {
             String trimmedCommand = command.substring("edit expenses ".length());
             String[] parts = trimmedCommand.split(" ");
-            int editIndex = Integer.parseInt(parts[0]) + 1;
-            if (editIndex <= 0) {
+            int editIndex = Integer.parseInt(parts[0]) - 1;
+            if (editIndex < 0) {
                 throw new BudgetBuddyException("Edit index must be greater than 0.");
             }
             this.expense = ExpenseManager.getExpenseByIndex(editIndex);

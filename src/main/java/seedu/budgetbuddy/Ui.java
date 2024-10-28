@@ -120,8 +120,8 @@ public class Ui {
                 "3. Tag new category to expense. \n" + "Example:\n tag expense 2 /c food \n" +
                 "4. List expenses based on category and month. Note(optional): category - c/, month - m/MM/yyyy\n" +
                 "Example:\nlist expenses c/food m/10/2024\n" +
-                "5. Display income based on month. Note: month (optional) - m/MM/yyyy\n" +
-                "Example:\ndisplay incomes m/10/2024\n" +
+                "5. List income based on month. Note: month (optional) - m/MM/yyyy\n" +
+                "Example:\nlist incomes m/10/2024\n" +
                 "6. Add budget for current month. Note: month - m/MM/yyyy \n" +
                 "Example:\nadd budget a/1000 m/09/2024\n" +
                 "7. Deduct budget for current month. Note: month - m/MM/yyyy \n" +
@@ -130,8 +130,14 @@ public class Ui {
                 "Example:\nlist budget m/05/2024\n" +
                 "9. list budget for the 12 most recent entries. \n" +
                 "Example:\nlist budget\n" +
-                "10. Exit app. \n" +
-                "Example:\nbye\n";
+                "10. edit expense fields (with Category, Amount or Date).\n" +
+                "Example:\nedit expenses 3\n" +
+                "a/1000 d/12/10/2024 c/food\n" +
+                "11. edit income fields (with Amount or Date).\n" +
+                "Example:\nedit incomes 3\n" +
+                "a/1000 d/12/10/2024\n" +
+                "12. Exit app. \n" +
+                "Example:\nbye";
         displayToUser(message);
     }
 
