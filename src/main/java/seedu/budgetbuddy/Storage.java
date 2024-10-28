@@ -47,7 +47,7 @@ public class Storage {
      * It parses the file contents and converts it into the respective Expense, Income,
      * and Budget objects, storing them in lists.
      *
-     * @author Alfred-Goh02
+     * @@author Alfred-Goh02
      * @throws FileNotFoundException If the file at the specified path does not exist.
      */
     public void load() throws FileNotFoundException {
@@ -75,7 +75,7 @@ public class Storage {
      * Saves the current state of the Expense, Income, and Budget data to the file.
      * The file is overwritten with the latest data.
      *
-     * @author Alfred-Goh02
+     * @@author Alfred-Goh02
      * @param expenseList The ExpenseManager containing the current list of expenses.
      * @param incomeList The IncomeManager containing the current list of incomes.
      * @param budgetList The BudgetManager containing the current list of budgets.

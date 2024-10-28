@@ -106,7 +106,10 @@ public class BudgetManager {
             int entriesToDisplay = Math.min(budgets.size(), 12);
             for (int counter = 1; counter <= entriesToDisplay; counter++) {
                 Budget budget = budgets.get(counter - 1);
-                result += counter + ". " + budget.toString() + "\n";
+                result += counter + ". " + budget.toString();
+                if (counter < entriesToDisplay) {
+                    result += "\n";
+                }
             }
         } else {
             // Assume validator guarantees date is valid
