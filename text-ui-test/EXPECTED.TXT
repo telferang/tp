@@ -153,7 +153,7 @@ Here are the 12 latest budgets:
 Enter commands: ========================================================
 1. Description: Tuition  Amount: 100.0  Date: 2024-12-15
 2. Description: Internship  Amount: 123.0  Date: 2024-10-13
-There are 2 income(s) in total
+There are 2 income(s) in total, with a sum of $223.0.
 ========================================================
 Enter commands: ========================================================
 Invalid input
@@ -164,7 +164,7 @@ Invalid input
 Enter commands: ========================================================
 1. Description: Tuition  Amount: 100.0  Date: 2024-12-15
 2. Description: Internship  Amount: 123.0  Date: 2024-10-13
-There are 2 income(s) in total
+There are 2 income(s) in total, with a sum of $223.0.
 ========================================================
 Enter commands: ========================================================
 The following income transaction has been deleted:
@@ -173,7 +173,7 @@ You have 1 income transaction(s) in total.
 ========================================================
 Enter commands: ========================================================
 1. Description: Internship  Amount: 123.0  Date: 2024-10-13
-There are 1 income(s) in total
+There are 1 income(s) in total, with a sum of $123.0.
 ========================================================
 Enter commands: ========================================================
 The following expense transaction has been added:
@@ -228,12 +228,12 @@ Enter commands: ========================================================
 1. Description: Internship  Amount: 123.0  Date: 2024-10-13
 2. Description: Tuition  Amount: 100.0  Date: 2024-12-15
 3. Description: Internship  Amount: 123.0  Date: 2024-10-13
-There are 3 income(s) in total
+There are 3 income(s) in total, with a sum of $346.0.
 ========================================================
 Enter commands: ========================================================
 1. Description: Internship  Amount: 123.0  Date: 2024-10-13
 2. Description: Internship  Amount: 123.0  Date: 2024-10-13
-
+There are 2 income(s) in total for October 2024, with a sum of $246.0.
 ========================================================
 Enter commands: ========================================================
 No income entry with given month found, try again with a different month.
@@ -256,12 +256,19 @@ Caution! You have exceeded your budget!
 Enter commands: ========================================================
 Percentage of income spent for 2023-10: 36.7%
 ========================================================
+Enter commands: ========================================================
+1. Description: Buy Tesla Stock  Amount: 100.1  Date: 2024-10-02  Category: OTHERS
+2. Description: Japan Flight  Amount: 123.45  Date: 2024-10-30  Category: TRANSPORT
+3. Description: Ipad  Amount: 123.45  Date: 2024-08-30  Category: EDUCATION
+4. Description: food  Amount: 550.0  Date: 2023-10-30  Category: OTHERS
+There are 4 expense(s) in total
+========================================================
 Enter commands: Edit the following fields as follows: Amount: a/, Category: c/, Date: d/
 Currently Editing Entry:
-Description: Ipad  Amount: 123.45  Date: 2024-08-30  Category: EDUCATION
+Description: Buy Tesla Stock  Amount: 100.1  Date: 2024-10-02  Category: OTHERS
 Enter edit Field: ========================================================
 Edited Expense:
-Description: Ipad  Amount: 50.0  Date: 2024-08-30  Category: EDUCATION
+Description: Buy Tesla Stock  Amount: 50.0  Date: 2024-10-02  Category: OTHERS
 ========================================================
 Enter commands: ========================================================
 The following expense transaction has been added:
@@ -279,8 +286,8 @@ Enter commands: ========================================================
 All budgets after deductions:
 Total Monthly Budget: 3000.0  Date: 2024-07  Category: {OTHERS=3000.0}
 Total Monthly Budget: 500.0  Date: 2024-02  Category: {OTHERS=500.0}
-Total Monthly Budget: -223.55  Date: 2024-10  Category: {TRANSPORT=-123.45, OTHERS=-100.1}
-Total Monthly Budget: -50.0  Date: 2024-08  Category: {EDUCATION=-50.0}
+Total Monthly Budget: -173.45  Date: 2024-10  Category: {TRANSPORT=-123.45, OTHERS=-50.0}
+Total Monthly Budget: -123.45  Date: 2024-08  Category: {EDUCATION=-123.45}
 Total Monthly Budget: -550.0  Date: 2023-10  Category: {OTHERS=-550.0}
 
 ========================================================
