@@ -59,4 +59,12 @@ public class ListMonthlyExpensesCommand extends Command {
             ExpenseManager.listTotalExpensesForMonth(yearMonth);
         }
     }
+
+    public YearMonth getYearMonth() {
+        return this.yearMonth;
+    }
+
+    public Category getCategory() {
+        return this.category;
+    }
 }

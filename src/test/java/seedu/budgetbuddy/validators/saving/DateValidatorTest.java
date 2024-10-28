@@ -1,6 +1,7 @@
-package seedu.budgetbuddy.validators;
+package seedu.budgetbuddy.validators.saving;
 
 import org.junit.jupiter.api.Test;
+import seedu.budgetbuddy.validators.DateValidator;
 
 import java.time.LocalDate;
 
