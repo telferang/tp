@@ -191,19 +191,19 @@ Caution! You have exceeded your budget!
 ========================================================
 Enter commands: ========================================================
 1. Description: Japan Flight  Amount: 123.45  Date: 2024-10-30  Category: TRANSPORT
-
+There are 1 expense(s) for TRANSPORT
 ========================================================
 Enter commands: ========================================================
 1. Description: Ipad  Amount: 123.45  Date: 2024-08-30  Category: EDUCATION
-
+There are 1 expense(s) in 2024-08
 ========================================================
 Enter commands: ========================================================
 1. Description: Japan Flight  Amount: 123.45  Date: 2024-10-30  Category: TRANSPORT
-
+There are 1 expense(s) in 2024-10 for TRANSPORT
 ========================================================
 Enter commands: ========================================================
 1. Description: Buy Tesla Stock  Amount: 100.1  Date: 2024-10-02  Category: OTHERS
-
+There are 1 expense(s) for OTHERS
 ========================================================
 Enter commands: ========================================================
 Invalid month format. Use m/MM/yyyy.

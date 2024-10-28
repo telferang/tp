@@ -146,8 +146,9 @@ public class ExpenseManager {
         }
         if(result.equals("")) {
             result = getEmptyDisplayMessage();
+        } else {
+            result += "There are " + counter + " expense(s) in " + month + " for " + category;
         }
-        result += "There are " + counter + " expense(s) in " + month + " for " + category;
         return result;
     }
 
@@ -169,8 +170,9 @@ public class ExpenseManager {
         }
         if(result.equals("")) {
             result = getEmptyDisplayMessage();
+        } else {
+            result += "There are " + counter + " expense(s) for " + category;
         }
-        result += "There are " + counter + " expense(s) for " + category;
         return result;
     }
 
@@ -192,8 +194,9 @@ public class ExpenseManager {
         }
         if(result.equals("")) {
             result = getEmptyDisplayMessage();
+        } else {
+            result += "There are " + counter + " expense(s) in " + month;
         }
-        result += "There are " + counter + " expense(s) in " + month;
         return result;
     }
 
