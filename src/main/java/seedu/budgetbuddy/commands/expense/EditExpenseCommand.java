@@ -123,8 +123,8 @@ public class EditExpenseCommand extends Command {
         try {
             String trimmedCommand = command.substring("edit expenses ".length());
             String[] parts = trimmedCommand.split(" ");
-            int editIndex = Integer.parseInt(parts[0]) + 1;
-            if (editIndex <= 0) {
+            int editIndex = Integer.parseInt(parts[0]) - 1;
+            if (editIndex < 0) {
                 throw new BudgetBuddyException("Edit index must be greater than 0.");
             }
             this.expense = ExpenseManager.getExpenseByIndex(editIndex);

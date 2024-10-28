@@ -58,6 +58,7 @@ public class IncomeManager {
      */
     public static void loadIncome(Income income) {
         incomes.add(income);
+        numberOfIncomes++;
     }
 
     /**
