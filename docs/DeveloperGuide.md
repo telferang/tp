@@ -105,21 +105,30 @@ for the same reason as above.
 The Add Budget Feature allows users to add budgets for different categories. This is handled by the AddBudgetCommand
 class, initialised by the Parser class.
 
-- The Parser processes user input and creates an AddBudgetCommand object with parameters such as amount, category,
-  and date.
-- The AddBudgetValidator ensures that inputs are valid, checking for correct amounts, valid categories,
-  and proper date format.
-- If validation passes, the budget is added; otherwise, an error is raised.
+* The Parser processes user input and creates an AddBudgetCommand object with parameters such as amount, category, and 
+date.
+* The AddBudgetValidator ensures that inputs are valid, checking for correct amounts, valid categories, and 
+proper date format.
+* If validation passes, the budget is added; otherwise, an error is raised.
 
 #### 4.2 Deduct Budget Feature
 The Deduct Budget Feature allows users to deduct an amount from an existing budget. This is managed by the
 DeductBudgetCommand class, initialised by the Parser class.
 
-- The Parser processes user input and creates a DeductBudgetCommand object with the amount, category,
-  and date of the deduction.
-- The DeductBudgetValidator checks if the deduction is valid, ensuring the budget exists, the date is correct,
-  and there are sufficient funds.
-- If validation passes, the specified amount is deducted from the budget; otherwise, an error is raised.
+* The Parser processes user input and creates a DeductBudgetCommand object with the amount, category, and 
+date of the deduction.
+* The DeductBudgetValidator checks if the deduction is valid, ensuring the budget exists, the date is correct, and 
+there are sufficient funds.
+* If validation passes, the specified amount is deducted from the budget; otherwise, an error is raised.
+
+#### 4.3 List Budget Feature
+The List Budget Feature enables users to view all existing budgets or filter them based on specific criteria, 
+such as date. This feature is managed by the ListBudgetCommand class, which is initialised by the Parser class.
+
+* The Parser processes user input and creates a ListBudgetCommand object with parameters such as the date for filtering.
+* The ListBudgetValidator checks if the list request is valid, verifying the format of input parameters.
+* If validation passes, the ListBudgetCommand retrieves and displays the budgets that match the criteria through the UI; 
+otherwise, an error message is shown.
 
 # Appendix
 
