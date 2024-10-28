@@ -16,7 +16,7 @@ public class ListIncomeCommand extends Command {
      * @return True if the command matches "list incomes", false otherwise.
      */
     public static boolean isCommand(String command) {
-        return command.equals("list incomes");
+        return command.startsWith("list income");
     }
 
     /**

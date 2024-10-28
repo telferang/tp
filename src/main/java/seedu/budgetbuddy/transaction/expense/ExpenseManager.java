@@ -25,14 +25,21 @@ public class ExpenseManager {
     private static ArrayList<Expense> expenses = new ArrayList<>();
 
     /**
-     * Construct a ExpenseManager of array content incomes
+     * Construct a ExpenseManager of array content expenses
      *
      * @param expenses is the content to be instantiated
      */
     public ExpenseManager(ArrayList<Expense> expenses, int numberOfExpenses) {
-        assert numberOfExpenses >= 0: "numberOfExpenses should be greater than 0";
+        assert numberOfExpenses >= 0 : "numberOfExpenses should be greater than 0";
         ExpenseManager.expenses = expenses;
         ExpenseManager.numberOfExpenses = numberOfExpenses;
+    }
+
+    /**
+     * Construct a ExpenseManager of array content expenses
+     */
+    public ExpenseManager() {
+
     }
 
     /**
@@ -49,6 +56,15 @@ public class ExpenseManager {
                 + expense + '\n'
                 + "You have " + numberOfExpenses + " expense transaction(s) in total.\n" + budgetRemaining;
         Ui.displayToUser(result);
+    }
+
+    /**
+     * Load a new expense from storage to the manager.
+     *
+     * @param expense The expense to be added.
+     */
+    public static void loadExpense(Expense expense) {
+        expenses.add(expense);
     }
 
     /**
@@ -79,16 +95,33 @@ public class ExpenseManager {
     }
 
     /**
+     * Calculates the total expenses for a specified month.
+     *
+     * @param month The month to calculate expenses for.
+     * @return The total expenses for the month; returns 0.0 if no expense is found.
+     */
+    public static double getMonthlyExpense(YearMonth month) {
+        double sum = 0;
+        for (Expense expense : expenses) {
+            if(month.equals(getYearMonthFromDate(expense.getDate()))) {
+                sum += expense.getAmount();
+            }
+        }
+        return sum;
+    }
+
+    /**
      * Lists all the expenses managed by the manager.
      * Displays each expense with its corresponding number.
      */
     public static void listExpenses() {
         String result = "";
-        int counter = 1;
+        int counter = 0;
         for (Expense expense : expenses) {
-            result += counter + ". " + expense.toString() + "\n";
             counter++;
+            result += counter + ". " + expense.toString() + "\n";
         }
+        result += "There are " + counter + " expense(s) in total";
         LOGGER.log(Level.INFO, "Listing {0} expenses", numberOfExpenses);
         Ui.displayToUser(result);
     }
@@ -104,15 +137,17 @@ public class ExpenseManager {
         assert category != null : "category cannot be null";
         assert month != null : "month cannot be null";
         String result = "";
-        int counter = 1;
+        int counter = 0;
         for (Expense expense : expenses) {
             if(category.equals(expense.getCategory()) && month.equals(getYearMonthFromDate(expense.getDate()))) {
-                result += counter + ". " + expense.toString() + "\n";
                 counter++;
+                result += counter + ". " + expense.toString() + "\n";
             }
         }
         if(result.equals("")) {
             result = getEmptyDisplayMessage();
+        } else {
+            result += "There are " + counter + " expense(s) in " + month + " for " + category;
         }
         return result;
     }
@@ -126,15 +161,17 @@ public class ExpenseManager {
     public static String listExpensesWithCategory(Category category) {
         assert category != null : "category cannot be null";
         String result = "";
-        int counter = 1;
+        int counter = 0;
         for (Expense expense : expenses) {
             if(category.equals(expense.getCategory())) {
-                result += counter + ". " + expense.toString() + "\n";
                 counter++;
+                result += counter + ". " + expense.toString() + "\n";
             }
         }
         if(result.equals("")) {
             result = getEmptyDisplayMessage();
+        } else {
+            result += "There are " + counter + " expense(s) for " + category;
         }
         return result;
     }
@@ -148,15 +185,17 @@ public class ExpenseManager {
     public static String listExpensesWithDate(YearMonth month) {
         assert month != null : "month cannot be null";
         String result = "";
-        int counter = 1;
+        int counter = 0;
         for (Expense expense : expenses) {
             if(month.equals(getYearMonthFromDate(expense.getDate()))) {
-                result += counter + ". " + expense.toString() + "\n";
                 counter++;
+                result += counter + ". " + expense.toString() + "\n";
             }
         }
         if(result.equals("")) {
             result = getEmptyDisplayMessage();
+        } else {
+            result += "There are " + counter + " expense(s) in " + month;
         }
         return result;
     }
@@ -202,13 +241,83 @@ public class ExpenseManager {
      *
      * @param yearMonth The YearMonth object representing the month for which the total expenses are to be displayed.
      */
-    public static void displayTotalExpensesForMonth(YearMonth yearMonth) {
+    public static void listTotalExpensesForMonth(YearMonth yearMonth) {
         ArrayList<Expense> expensesOverMonthArray = getExpenses();
         Map<YearMonth, Double> monthlyExpensesMap = ExpensesOverMonthGraph.monthMapBuilder(expensesOverMonthArray);
         Ui.displayToUser("Your expenses for " + yearMonth.toString() + " is " +
                 ExpensesOverMonthGraph.expensesForMonth(monthlyExpensesMap, yearMonth));
     }
 
+    /**
+     * Breaks down all expenses of the user by category.
+     * @return String that displays total expenses of the user and the amount and percentage of total expenses spent
+     *     per category.
+     */
+    public static String breakdownExpensesByCategory() {
+        String result = "";
+        double totalExpensesFood = 0;
+        double totalExpensesOthers = 0;
+        double totalExpensesTransport = 0;
+        double totalExpensesEntertainment = 0;
+        double totalExpensesUtilities = 0;
+        double totalExpensesEducation = 0;
+        for (Expense expense : expenses) {
+            switch (expense.getCategory()) {
+            case FOOD -> totalExpensesFood += expense.getAmount();
+            case EDUCATION -> totalExpensesEducation += expense.getAmount();
+            case TRANSPORT -> totalExpensesTransport += expense.getAmount();
+            case UTILITIES -> totalExpensesUtilities += expense.getAmount();
+            case ENTERTAINMENT -> totalExpensesEntertainment += expense.getAmount();
+            case OTHERS -> totalExpensesOthers += expense.getAmount();
+            default -> LOGGER.warning("Invalid category type detected.");
+            }
+        }
+        assert totalExpensesFood >= 0 : "Total expense for food cannot be negative";
+        assert totalExpensesOthers >= 0 : "Total expense for others cannot be negative";
+        assert totalExpensesTransport >= 0 : "Total expense for transport cannot be negative";
+        assert totalExpensesEntertainment >= 0 : "Total expense for entertainment cannot be negative";
+        assert totalExpensesUtilities >= 0 : "Total expense for utilities cannot be negative";
+        assert totalExpensesEducation >= 0 : "Total expense for education cannot be negative";
+        double totalExpenses = totalExpensesEducation + totalExpensesFood + totalExpensesEntertainment +
+                totalExpensesTransport + totalExpensesUtilities + totalExpensesOthers;
+        if (totalExpenses == 0) {
+            result += "Total expenses: 0. You have not indicated any expense yet.";
+        } else {
+            result = "Total expenses: " + totalExpenses + "\n" + "Food: " + totalExpensesFood + "(" +
+                    String.format("%.2f", totalExpensesFood / totalExpenses * 100) + "%)\n" + "Transport: " +
+                    totalExpensesTransport + "(" + String.format("%.2f", totalExpensesTransport / totalExpenses * 100) +
+                    "%)\n" + "Utilities: " + totalExpensesUtilities + "(" +
+                    String.format("%.2f", totalExpensesUtilities / totalExpenses * 100) + "%)\n" + "Entertainment: " +
+                    totalExpensesEntertainment + "(" +
+                    String.format("%.2f", totalExpensesEntertainment / totalExpenses * 100) + "%)\n" + "Education: " +
+                    totalExpensesEducation + "(" +
+                    String.format("%.2f", totalExpensesEducation / totalExpenses * 100) + "%)\n" + "Others: " +
+                    totalExpensesOthers + "(" + String.format("%.2f", totalExpensesOthers / totalExpenses * 100) +
+                    "%)\n";
+        }
+        return result;
+    }
+
+    /**
+     * Displays the total expenses for a specific month on a specific category
+     *
+     * @param yearMonth The YearMonth object representing the month for which the total expenses are to be displayed.
+     * @param category The Category object representing the category of the total expenses to be displayed.
+     */
+    public static void listTotalExpensesForMonthWithCategories(YearMonth yearMonth, Category category) {
+        ArrayList<Expense> expensesOverMonthArray = getExpenses();
+        double totalAmount = 0.0;
+
+        Ui.displayToUser("The Expenses for " + yearMonth + " under category: " + category);
+        for (Expense expense : expensesOverMonthArray) {
+            YearMonth expenseYearMonth = getYearMonthFromDate(expense.getDate());
+
+            if(expenseYearMonth.equals(yearMonth) && category.equals(expense.getCategory())) {
+                totalAmount += expense.getAmount();
+            }
+        }
+        System.out.println(totalAmount);
+    }
 
     /**
      * Extract YearMonth value from date

@@ -18,6 +18,13 @@ public class BudgetManager {
 
     /**
      * Construct a BudgetManager of array content incomes
+     */
+    public BudgetManager(){
+
+    }
+
+    /**
+     * Construct a BudgetManager of array content incomes
      *
      * @param budgets The content to be instantiated
      * @param numberOfBudgets The initial count of budgets managed by BudgetManager.

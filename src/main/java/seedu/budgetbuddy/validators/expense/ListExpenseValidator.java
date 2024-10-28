@@ -12,6 +12,9 @@ import java.util.logging.Logger;
 import static seedu.budgetbuddy.validators.CategoryValidator.validateCategory;
 import static seedu.budgetbuddy.validators.DateValidator.validateYearMonth;
 
+/**
+ * @author Kenneth
+ */
 public class ListExpenseValidator{
 
     private static final Logger LOGGER = LoggerSetup.getLogger();
@@ -24,11 +27,11 @@ public class ListExpenseValidator{
      * @return
      */
     public static Command processCommand(String command) {
-        if (command.equals("list expenses")){
+        if (command.equals("list expense")){
             return new ListExpenseCommand();
         }
 
-        String trimmedCommand = command.substring("list expenses ".length());
+        String trimmedCommand = command.substring("list expense ".length());
         String[] parts = trimmedCommand.split(" ");
 
         //Process Initial Value
