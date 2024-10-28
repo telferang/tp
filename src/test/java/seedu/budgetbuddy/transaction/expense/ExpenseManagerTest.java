@@ -36,6 +36,7 @@ class ExpenseManagerTest {
             result += counter + ". " + expense.toString() + "\n";
             counter++;
         }
+        result += "There are 1 expense(s) in 2024-02 for FOOD";
         return result;
     }
 
