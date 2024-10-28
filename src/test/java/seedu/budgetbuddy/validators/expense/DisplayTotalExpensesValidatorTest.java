@@ -53,6 +53,7 @@ class DisplayTotalExpensesValidatorTest {
     void testInvalidCommandFormat() {
         Command command = DisplayTotalExpensesValidator.processCommand(baseCommand + " y2023");
         assertTrue(command instanceof IncorrectCommand);
-        assertEquals("Unknown command 'y2023'. Expected format: 'y/<year>'", ((IncorrectCommand) command).getFeedbackToUser());
+        assertEquals("Unknown command 'y2023'. Expected format: 'y/<year>'", ((IncorrectCommand) command).
+                getFeedbackToUser());
     }
 }
