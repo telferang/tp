@@ -292,5 +292,38 @@ Total Monthly Budget: -550.0  Date: 2023-10  Category: {OTHERS=-550.0}
 
 ========================================================
 Enter commands: ========================================================
+1. Description: Internship  Amount: 123.0  Date: 2024-10-13
+2. Description: Tuition  Amount: 100.0  Date: 2024-12-15
+3. Description: Internship  Amount: 123.0  Date: 2024-10-13
+4. Description: tutor  Amount: 1500.0  Date: 2023-10-20
+There are 4 income(s) in total, with a sum of $1846.0.
+========================================================
+Enter commands: Edit the following fields as follows: Amount: a/, Date: d/
+Currently Editing Entry:
+Description: Internship  Amount: 123.0  Date: 2024-10-13
+Enter edit Field: ========================================================
+Edited Income:
+Description: Internship  Amount: 10000.0  Date: 2024-12-10
+========================================================
+Enter commands: ========================================================
+Edit index must be greater than 0.
+========================================================
+Enter commands: ========================================================
+Input index is larger than the number of incomes. Try with a smaller index
+========================================================
+Enter commands: Edit the following fields as follows: Amount: a/, Date: d/
+Currently Editing Entry:
+Description: Internship  Amount: 123.0  Date: 2024-10-13
+Enter edit Field: ========================================================
+No valid fields detected, Exiting change menu.
+========================================================
+Enter commands: ========================================================
+1. Description: Internship  Amount: 10000.0  Date: 2024-12-10
+2. Description: Tuition  Amount: 100.0  Date: 2024-12-15
+3. Description: Internship  Amount: 123.0  Date: 2024-10-13
+4. Description: tutor  Amount: 1500.0  Date: 2023-10-20
+There are 4 income(s) in total, with a sum of $11723.0.
+========================================================
+Enter commands: ========================================================
 Bye!
 ========================================================

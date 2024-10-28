@@ -1,6 +1,7 @@
 package seedu.budgetbuddy.transaction.income;
 
 import seedu.budgetbuddy.Ui;
+import seedu.budgetbuddy.exceptions.BudgetBuddyException;
 import seedu.budgetbuddy.util.LoggerSetup;
 
 import java.time.LocalDate;
@@ -147,6 +148,22 @@ public class IncomeManager {
                 ", with a sum of $" + filteredIncomeSum + ".";
         LOGGER.log(Level.INFO, "Listing {0} incomes", numberOfIncomes);
         Ui.displayToUser(result);
+    }
+
+    /**
+     * Gets an Income object based on user input index.
+     * Searches IncomeList for Income object with desired index and returns reference to object.
+     *
+     * @param index user input index to be extracted from IncomeList
+     * @return an income object for future reference
+     * @throws BudgetBuddyException if input index is larger than size of Income List
+     */
+    public static Income getIncomeByIndex(int index) throws BudgetBuddyException {
+        if(index > numberOfIncomes) {
+            throw new BudgetBuddyException("Input index is larger than the number of incomes. " +
+                    "Try with a smaller index");
+        }
+        return incomes.get(index);
     }
 
     /**

@@ -64,4 +64,12 @@ a/50
 add expense Fridge a/5000 d/1/2/2024 c/others
 add budget a/2000 m/02/2024
 list remaining budget
+list incomes
+edit incomes 1
+a/10000 d/10/12/2024
+edit incomes -10
+edit incomes 50
+edit incomes 3
+c/food
+list incomes
 bye
