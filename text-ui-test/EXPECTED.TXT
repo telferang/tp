@@ -30,7 +30,7 @@ Caution! You have exceeded your budget!
 Enter commands: ========================================================
 1. Description: Japan Flight  Amount: 123.45  Date: 2024-12-30  Category: TRANSPORT
 2. Description: Buy Tesla Stock  Amount: 100.1  Date: 2024-10-02  Category: OTHERS
-There are 2 expense(s) in total
+There are 2 expense(s) in total, with a sum of $223.55.
 ========================================================
 Enter commands: ========================================================
 The following expense transaction has been deleted:
@@ -40,11 +40,11 @@ No budget found for 2024-12.
 ========================================================
 Enter commands: ========================================================
 1. Description: Buy Tesla Stock  Amount: 100.1  Date: 2024-10-02  Category: OTHERS
-There are 1 expense(s) in total
+There are 1 expense(s) in total, with a sum of $100.1.
 ========================================================
 Enter commands: ========================================================
 1. Description: Buy Tesla Stock  Amount: 100.1  Date: 2024-10-02  Category: OTHERS
-There are 1 expense(s) in total
+There are 1 expense(s) in total, with a sum of $100.1.
 ========================================================
 Enter commands: ========================================================
 No description provided.
@@ -191,19 +191,19 @@ Caution! You have exceeded your budget!
 ========================================================
 Enter commands: ========================================================
 1. Description: Japan Flight  Amount: 123.45  Date: 2024-10-30  Category: TRANSPORT
-There are 1 expense(s) for TRANSPORT
+Your expenses for TRANSPORT is $123.45
 ========================================================
 Enter commands: ========================================================
 1. Description: Ipad  Amount: 123.45  Date: 2024-08-30  Category: EDUCATION
-There are 1 expense(s) in 2024-08
+Your expenses for August 2024 is $123.45
 ========================================================
 Enter commands: ========================================================
 1. Description: Japan Flight  Amount: 123.45  Date: 2024-10-30  Category: TRANSPORT
-There are 1 expense(s) in 2024-10 for TRANSPORT
+Your total expenses for TRANSPORT in October 2024 is $123.45
 ========================================================
 Enter commands: ========================================================
 1. Description: Buy Tesla Stock  Amount: 100.1  Date: 2024-10-02  Category: OTHERS
-There are 1 expense(s) for OTHERS
+Your expenses for OTHERS is $100.1
 ========================================================
 Enter commands: ========================================================
 Invalid month format. Use m/MM/yyyy.
@@ -261,7 +261,7 @@ Enter commands: ========================================================
 2. Description: Japan Flight  Amount: 123.45  Date: 2024-10-30  Category: TRANSPORT
 3. Description: Ipad  Amount: 123.45  Date: 2024-08-30  Category: EDUCATION
 4. Description: food  Amount: 550.0  Date: 2023-10-30  Category: OTHERS
-There are 4 expense(s) in total
+There are 4 expense(s) in total, with a sum of $897.0.
 ========================================================
 Enter commands: Edit the following fields as follows: Amount: a/, Category: c/, Date: d/
 Currently Editing Entry:
