@@ -19,6 +19,7 @@ class ExpenseManagerTest {
 
     void initializeTestContent(){
         expenseManager = new ExpenseManager(expenses, numberOfExpenses);
+        expenseManager.reset();
         Expense newExpense = new Expense("New Food",
                 12,
                 LocalDate.parse("2024-02-12"),
