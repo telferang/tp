@@ -51,13 +51,14 @@ list expenses c/food
 list expenses c/education m/02/2024
 add income Tuition a/100.00 d/15/12/2024
 add income Internship a/123 d/13/10/2024
-display incomes
-display incomes m/10/2024
-display incomes m/08/2024
-display incomes m/20/2024
+list incomes
+list incomes m/10/2024
+list incomes m/08/2024
+list incomes m/20/2024
 add income tutor a/1500 d/20/10/2023
 add expense food a/550 d/30/10/2023
 display income spent m/10/2023
+list expenses
 edit expenses 1
 a/50
 add expense Fridge a/5000 d/1/2/2024 c/others

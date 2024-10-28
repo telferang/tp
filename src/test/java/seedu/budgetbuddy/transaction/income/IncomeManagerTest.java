@@ -57,9 +57,9 @@ class IncomeManagerTest {
     }
 
     @Test
-    void displayIncomeWithMonth_emptyMonth_displaysNoIncomeMessage() {
+    void listIncomeWithMonth_emptyMonth_displaysNoIncomeMessage() {
         YearMonth month = YearMonth.of(2024, 9);
-        incomeManager.displayIncomeWithMonth(month);
+        incomeManager.listIncomeWithMonth(month);
 
         // assert the UI displays the empty message
     }
