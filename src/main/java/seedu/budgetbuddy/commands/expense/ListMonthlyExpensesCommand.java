@@ -59,4 +59,22 @@ public class ListMonthlyExpensesCommand extends Command {
             ExpenseManager.listTotalExpensesForMonth(yearMonth);
         }
     }
+
+    /**
+     * Get function to return the YearMonth object for an instance.
+     *
+     * @return Returns the YearMonth attribute.
+     */
+    public YearMonth getYearMonth() {
+        return this.yearMonth;
+    }
+
+    /**
+     * Get function to return the Category Object for an instance.
+     *
+     * @return Returns the Category attribute.
+     */
+    public Category getCategory() {
+        return this.category;
+    }
 }

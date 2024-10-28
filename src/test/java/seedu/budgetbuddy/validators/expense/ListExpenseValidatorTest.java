@@ -1,9 +1,8 @@
-package seedu.budgetbuddy.validators;
+package seedu.budgetbuddy.validators.expense;
 
 import org.junit.jupiter.api.Test;
 import seedu.budgetbuddy.commands.expense.ListExpenseCommand;
 import seedu.budgetbuddy.transaction.Category;
-import seedu.budgetbuddy.validators.expense.ListExpenseValidator;
 
 import java.time.YearMonth;
 
