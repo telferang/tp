@@ -48,10 +48,9 @@ public class Storage {
      * and Budget objects, storing them in lists.
      *
      * @author Alfred-Goh02
-     * @return An ArrayList containing three ArrayLists for expenses, incomes, and budgets.
      * @throws FileNotFoundException If the file at the specified path does not exist.
      */
-    public ArrayList<ArrayList<?>> load() throws FileNotFoundException {
+    public void load() throws FileNotFoundException {
         File file = new File(filePath);
         if (!file.exists()) {
             LOGGER.warning("File does not exist: " + file.getAbsolutePath());
@@ -65,16 +64,11 @@ public class Storage {
         while (sc.hasNextLine()) {
             String input = sc.nextLine();
             LOGGER.fine("Parsing line: " + input);  // Log each line being parsed
-            Parser.parseFile(input, expenses, incomes, budgets);
+            Parser.parseFile(input);
         }
         sc.close();
-        ArrayList<ArrayList<?>> list = new ArrayList<>();
-        list.add(expenses);
-        list.add(incomes);
-        list.add(budgets);
         LOGGER.info("Data loaded successfully. Expenses: " + expenses.size() + ", Incomes: " + incomes.size()
                 + ", Budgets: " + budgets.size());
-        return list;
     }
 
     /**
