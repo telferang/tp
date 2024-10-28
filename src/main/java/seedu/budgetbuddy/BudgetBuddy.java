@@ -59,11 +59,17 @@ public class BudgetBuddy {
                 command.execute();
             } catch (BudgetBuddyException e) {
                 System.out.println(e.getMessage());
+            } catch (Exception e) {
+                // Prevent the code from crashing
+                System.out.println("An error has occurred");
             }
             try {
                 storage.save(expenseManager, incomeManager, budgetManager);
             } catch (IOException e) {
                 Ui.showMessage("Error updating File");
+            } catch (Exception e) {
+                // Prevent the code from crashing
+                System.out.println("An error has occurred");
             }
         } while (!(command instanceof ExitCommand));
         System.exit(0);
