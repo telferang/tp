@@ -13,7 +13,6 @@ import seedu.budgetbuddy.commands.budget.AddBudgetCommand;
 import seedu.budgetbuddy.commands.Command;
 import seedu.budgetbuddy.commands.budget.DeductBudgetCommand;
 import seedu.budgetbuddy.commands.income.DeleteIncomeCommand;
-import seedu.budgetbuddy.commands.income.DisplayIncomeCommand;
 import seedu.budgetbuddy.commands.ExitCommand;
 import seedu.budgetbuddy.commands.HelpCommand;
 import seedu.budgetbuddy.commands.IncorrectCommand;
@@ -36,7 +35,7 @@ import seedu.budgetbuddy.validators.budget.AddBudgetValidator;
 import seedu.budgetbuddy.validators.budget.DeductBudgetValidator;
 import seedu.budgetbuddy.validators.income.DeleteIncomeValidator;
 import seedu.budgetbuddy.validators.income.DisplayIncomeSpentValidator;
-import seedu.budgetbuddy.validators.income.DisplayIncomeValidator;
+import seedu.budgetbuddy.validators.income.ListIncomeValidator;
 import seedu.budgetbuddy.validators.budget.ListBudgetValidator;
 import seedu.budgetbuddy.validators.expense.AddExpenseValidator;
 import seedu.budgetbuddy.validators.expense.DeleteExpenseValidator;
@@ -88,9 +87,6 @@ public class Parser {
         if (DeleteIncomeCommand.isCommand(userCommandText)) {
             return DeleteIncomeValidator.processCommand(userCommandText);
         }
-        if (ListIncomeCommand.isCommand(userCommandText)) {
-            return new ListIncomeCommand();
-        }
         if (AddBudgetCommand.isCommand(userCommandText)) {
             return AddBudgetValidator.processCommand(userCommandText);
         }
@@ -106,8 +102,8 @@ public class Parser {
         if (HelpCommand.isCommand(userCommandText)){
             return new HelpCommand();
         }
-        if (DisplayIncomeCommand.isCommand(userCommandText)) {
-            return DisplayIncomeValidator.processCommand(userCommandText);
+        if (ListIncomeCommand.isCommand(userCommandText)) {
+            return ListIncomeValidator.processCommand(userCommandText);
         }
         if (SearchExpenseCommand.isCommand(userCommandText)){
             return SearchExpenseValidator.processCommand(userCommandText);
