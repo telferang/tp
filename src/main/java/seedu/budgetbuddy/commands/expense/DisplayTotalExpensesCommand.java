@@ -46,6 +46,11 @@ public class DisplayTotalExpensesCommand extends Command {
         ExpenseManager.displayExpensesOverMonthGraph(year);
     }
 
+    /**
+     * Get function to get the message to user.
+     *
+     * @return Message to User
+     */
     public String getFeedbackToUser() {
         return "Displaying expense graph for " + year;
     }
