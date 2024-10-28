@@ -65,6 +65,7 @@ public class ExpenseManager {
      */
     public static void loadExpense(Expense expense) {
         expenses.add(expense);
+        numberOfExpenses++;
     }
 
     /**

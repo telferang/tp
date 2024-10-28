@@ -58,6 +58,7 @@ list incomes m/20/2024
 add income tutor a/1500 d/20/10/2023
 add expense food a/550 d/30/10/2023
 display income spent m/10/2023
+list expenses
 edit expenses 1
 a/50
 add expense Fridge a/5000 d/1/2/2024 c/others
