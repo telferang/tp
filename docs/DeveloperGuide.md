@@ -123,6 +123,10 @@ method in the `BudgetManager` class to create a new budget if it does not exist:
 Then, `addAmount(category, amount)` method in the `Budget` class is also called to add the amount to the budget. 
 Finally, the result is displayed to the user using the `Ui` class `displayToUser()` method.
 
+The following UML Sequence diagram shows how the Parser works to obtain the relevant inputs 
+for the Add Budget Feature:
+![AddBudgetSequenceDiagram.drawio.png](diagrams/AddBudgetSequenceDiagram.drawio.png)
+
 #### 4.2 Deduct Budget Feature
 The Deduct Budget feature enables users to deduct an amount from an existing budget. This functionality is controlled 
 by the DeductBudgetCommand class, which is produced by the Parser class based on user input. 
