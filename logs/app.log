@@ -1222,3 +1222,21 @@ Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.budget.RemainingBudgetMan
 INFO: Retrieved remaining budget for 2024-02 in category FOOD: -48.0
 Oct 23, 2024 10:06:35 AM seedu.budgetbuddy.transaction.income.IncomeManager listIncomes
 INFO: Listing 2 expenses
+Oct 28, 2024 11:51:36 PM seedu.budgetbuddy.Storage <init>
+INFO: Storing ./data/BudgetBuddy.txt
+Oct 28, 2024 11:51:36 PM seedu.budgetbuddy.Storage load
+INFO: Data loaded successfully. Expenses: 11, Incomes: 3, Budgets: 7
+Oct 28, 2024 11:51:46 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Oct 28, 2024 11:52:08 PM seedu.budgetbuddy.commands.expense.EditExpenseCommand execute
+INFO: Successfully retrieve edit fields
+Oct 28, 2024 11:52:08 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Oct 28, 2024 11:52:16 PM seedu.budgetbuddy.transaction.expense.ExpenseManager listExpenses
+INFO: Listing 11 expenses
+Oct 28, 2024 11:52:16 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Oct 28, 2024 11:55:06 PM seedu.budgetbuddy.transaction.expense.ExpenseManager listExpenses
+INFO: Listing 11 expenses
+Oct 28, 2024 11:55:06 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
