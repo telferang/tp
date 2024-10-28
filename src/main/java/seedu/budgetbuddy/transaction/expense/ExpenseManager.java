@@ -30,9 +30,16 @@ public class ExpenseManager {
      * @param expenses is the content to be instantiated
      */
     public ExpenseManager(ArrayList<Expense> expenses, int numberOfExpenses) {
-        assert numberOfExpenses >= 0: "numberOfExpenses should be greater than 0";
+        assert numberOfExpenses >= 0 : "numberOfExpenses should be greater than 0";
         ExpenseManager.expenses = expenses;
         ExpenseManager.numberOfExpenses = numberOfExpenses;
+    }
+
+    /**
+     * Construct a ExpenseManager of array content expenses
+     */
+    public ExpenseManager() {
+
     }
 
     /**
@@ -49,6 +56,15 @@ public class ExpenseManager {
                 + expense + '\n'
                 + "You have " + numberOfExpenses + " expense transaction(s) in total.\n" + budgetRemaining;
         Ui.displayToUser(result);
+    }
+
+    /**
+     * Load a new expense from storage to the manager.
+     *
+     * @param expense The expense to be added.
+     */
+    public static void loadExpense(Expense expense) {
+        expenses.add(expense);
     }
 
     /**
@@ -100,11 +116,12 @@ public class ExpenseManager {
      */
     public static void listExpenses() {
         String result = "";
-        int counter = 1;
+        int counter = 0;
         for (Expense expense : expenses) {
-            result += counter + ". " + expense.toString() + "\n";
             counter++;
+            result += counter + ". " + expense.toString() + "\n";
         }
+        result += "There are " + counter + " expense(s) in total";
         LOGGER.log(Level.INFO, "Listing {0} expenses", numberOfExpenses);
         Ui.displayToUser(result);
     }
@@ -120,16 +137,17 @@ public class ExpenseManager {
         assert category != null : "category cannot be null";
         assert month != null : "month cannot be null";
         String result = "";
-        int counter = 1;
+        int counter = 0;
         for (Expense expense : expenses) {
             if(category.equals(expense.getCategory()) && month.equals(getYearMonthFromDate(expense.getDate()))) {
-                result += counter + ". " + expense.toString() + "\n";
                 counter++;
+                result += counter + ". " + expense.toString() + "\n";
             }
         }
         if(result.equals("")) {
             result = getEmptyDisplayMessage();
         }
+        result += "There are " + counter + " expense(s) in " + month + " for " + category;
         return result;
     }
 
@@ -142,16 +160,17 @@ public class ExpenseManager {
     public static String listExpensesWithCategory(Category category) {
         assert category != null : "category cannot be null";
         String result = "";
-        int counter = 1;
+        int counter = 0;
         for (Expense expense : expenses) {
             if(category.equals(expense.getCategory())) {
-                result += counter + ". " + expense.toString() + "\n";
                 counter++;
+                result += counter + ". " + expense.toString() + "\n";
             }
         }
         if(result.equals("")) {
             result = getEmptyDisplayMessage();
         }
+        result += "There are " + counter + " expense(s) for " + category;
         return result;
     }
 
@@ -164,16 +183,17 @@ public class ExpenseManager {
     public static String listExpensesWithDate(YearMonth month) {
         assert month != null : "month cannot be null";
         String result = "";
-        int counter = 1;
+        int counter = 0;
         for (Expense expense : expenses) {
             if(month.equals(getYearMonthFromDate(expense.getDate()))) {
-                result += counter + ". " + expense.toString() + "\n";
                 counter++;
+                result += counter + ". " + expense.toString() + "\n";
             }
         }
         if(result.equals("")) {
             result = getEmptyDisplayMessage();
         }
+        result += "There are " + counter + " expense(s) in " + month;
         return result;
     }
 
