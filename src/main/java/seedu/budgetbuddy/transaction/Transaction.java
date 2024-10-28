@@ -36,4 +36,12 @@ public class Transaction {
         output += "  Date: " + date;
         return output;
     }
+
+    public void editAmount(double amount) {
+        this.amount = amount;
+    }
+
+    public void editDate(LocalDate date) {
+        this.date = date;
+    }
 }

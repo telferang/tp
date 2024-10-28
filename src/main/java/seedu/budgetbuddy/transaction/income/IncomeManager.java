@@ -1,16 +1,20 @@
 package seedu.budgetbuddy.transaction.income;
 
 import seedu.budgetbuddy.Ui;
+import seedu.budgetbuddy.util.LoggerSetup;
 
 import java.time.LocalDate;
 import java.time.YearMonth;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Manages a collection of income transactions.
  * Provides functionality to add, delete, and list incomes.
  */
 public class IncomeManager {
+    private static final Logger LOGGER = LoggerSetup.getLogger();
     private static int numberOfIncomes = 0;
     private static ArrayList<Income> incomes = new ArrayList<>();
 
@@ -20,8 +24,16 @@ public class IncomeManager {
      * @param incomes is the content to be instantiated
      */
     public IncomeManager(ArrayList<Income> incomes, int numberOfIncomes) {
+        assert numberOfIncomes >= 0 : "numberOfIncomes should be greater than 0";
         IncomeManager.incomes = incomes;
         IncomeManager.numberOfIncomes = numberOfIncomes;
+    }
+
+    /**
+     * Construct a IncomeManager of array content incomes
+     */
+    public IncomeManager() {
+
     }
 
     /**
@@ -32,7 +44,19 @@ public class IncomeManager {
     public static void addIncome(Income income) {
         incomes.add(income);
         numberOfIncomes++;
-        Ui.displayAcknowledgmentMessage(income.toString(), "added", "income", numberOfIncomes);
+        String result = "The following income transaction has been added:\n"
+                + income + '\n'
+                + "You have " + numberOfIncomes + " income transaction(s) in total.";
+        Ui.displayToUser(result);
+    }
+
+    /**
+     * Load a new income from storage to the manager.
+     *
+     * @param income The income to be added.
+     */
+    public static void loadIncome(Income income) {
+        incomes.add(income);
     }
 
     /**
@@ -42,8 +66,11 @@ public class IncomeManager {
      */
     public static void deleteIncome(int index) {
         numberOfIncomes--;
-        Ui.displayAcknowledgmentMessage(incomes.get(index).toString(), "deleted", "income", numberOfIncomes);
+        String result = "The following income transaction has been deleted:\n"
+                + incomes.get(index) + '\n'
+                + "You have " + numberOfIncomes + " income transaction(s) in total.";
         incomes.remove(index);
+        Ui.displayToUser(result);
     }
 
     /**
@@ -56,16 +83,34 @@ public class IncomeManager {
     }
 
     /**
+     * Calculates the total income for a specified month.
+     *
+     * @param month The month to calculate income for.
+     * @return The total income for the month; returns 0.0 if no income is found.
+     */
+    public static double getMonthlyIncome(YearMonth month) {
+        double sum = 0;
+        for (Income income : incomes) {
+            if(month.equals(getYearMonthFromDate(income.getDate()))) {
+                sum += income.getAmount();
+            }
+        }
+        return sum;
+    }
+
+    /**
      * Lists all the incomes managed by the manager.
      * Displays each income with its corresponding number.
      */
     public static void listIncomes() {
         String result = "";
-        int counter = 1;
+        int counter = 0;
         for (Income income : incomes) {
-            result += counter + ". " + income.toString() + "\n";
             counter++;
+            result += counter + ". " + income.toString() + "\n";
         }
+        result += "There are " + counter + " income(s) in total";
+        LOGGER.log(Level.INFO, "Listing {0} incomes", numberOfIncomes);
         Ui.displayToUser(result);
     }
 

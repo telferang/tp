@@ -2,18 +2,15 @@ package seedu.budgetbuddy;
 
 import seedu.budgetbuddy.commands.Command;
 import seedu.budgetbuddy.commands.ExitCommand;
-import seedu.budgetbuddy.transaction.budget.Budget;
+import seedu.budgetbuddy.exceptions.BudgetBuddyException;
 import seedu.budgetbuddy.transaction.budget.BudgetManager;
-import seedu.budgetbuddy.transaction.expense.Expense;
 import seedu.budgetbuddy.transaction.expense.ExpenseManager;
-import seedu.budgetbuddy.transaction.income.Income;
 import seedu.budgetbuddy.transaction.income.IncomeManager;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 /**
- * The main class for the BudgetBuddy application.
+ * Runs the main class for the BudgetBuddy application.
  *
  * This class initiates the BudgetBuddy application by managing the overall lifecycle
  * of the application, including loading saved data, handling user commands, and saving
@@ -33,22 +30,14 @@ public class BudgetBuddy {
      */
     public BudgetBuddy(String filepath) {
         storage = new Storage(filepath);
+
+        expenseManager = new ExpenseManager();
+        incomeManager = new IncomeManager();
+        budgetManager = new BudgetManager();
         try {
             storage.createFileIfNotExists();
-            ArrayList<ArrayList<?>> data = storage.load();
+            storage.load();
 
-            // Calculate the number of expenses, incomes, and budgets
-            ArrayList<Expense> expenses = (ArrayList<Expense>) data.get(0);
-            ArrayList<Income> incomes = (ArrayList<Income>) data.get(1);
-            ArrayList<Budget> budgets = (ArrayList<Budget>) data.get(2);
-
-            int numberOfExpenses = expenses.size();
-            int numberOfIncomes = incomes.size();
-            int numberOfBudgets = budgets.size();
-
-            expenseManager = new ExpenseManager(expenses, numberOfExpenses);
-            incomeManager = new IncomeManager(incomes, numberOfIncomes);
-            budgetManager = new BudgetManager(budgets);
         } catch (IOException e) {
             Ui.showMessage("Error updating File");
         }
@@ -61,16 +50,26 @@ public class BudgetBuddy {
      */
     public void run() {
         Ui.displayWelcomeMessage();
-        Command command;
+        Command command = null;
         Parser parser = new Parser(expenseManager, incomeManager, budgetManager);
         do {
             String userCommandText = Ui.getUserCommand();
-            command = parser.parseCommand(userCommandText);
-            command.execute();
+            try {
+                command = parser.parseCommand(userCommandText);
+                command.execute();
+            } catch (BudgetBuddyException e) {
+                System.out.println(e.getMessage());
+            } catch (Exception e) {
+                // Prevent the code from crashing
+                System.out.println("An error has occurred");
+            }
             try {
                 storage.save(expenseManager, incomeManager, budgetManager);
             } catch (IOException e) {
                 Ui.showMessage("Error updating File");
+            } catch (Exception e) {
+                // Prevent the code from crashing
+                System.out.println("An error has occurred");
             }
         } while (!(command instanceof ExitCommand));
         System.exit(0);

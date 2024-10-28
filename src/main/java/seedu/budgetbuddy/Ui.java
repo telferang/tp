@@ -8,7 +8,7 @@ import java.util.Scanner;
  */
 public class Ui {
 
-    public static final String SEPARATOR = "========================================================\n";
+    public static final String SEPARATOR = "========================================================";
     public static final String WELCOME_MESSAGE = "Welcome to Budget Buddy!";
     public static final String EXIT_MESSAGE = "Bye!";
     private static final Scanner scanner = new Scanner(System.in);
@@ -34,14 +34,36 @@ public class Ui {
     }
 
     /**
+     * Retrieves the user's command input.
+     * If an empty command is received, it will end the command and give an
+     * acknowledgment message.
+     *
+     * @return The user’s command as a trimmed {@code String}.
+     */
+    public static String getUserEditFields(){
+        String inputCommand;
+
+        do {
+            System.out.print("Enter edit Field: ");
+            inputCommand = scanner.nextLine().trim();
+
+            if (inputCommand.isEmpty()) {
+                displayToUser("Empty Input Detected, Exiting change menu.");
+                return "";
+            }
+        } while (inputCommand.isEmpty());
+        return inputCommand;
+    }
+
+    /**
      * Displays a given message to the user, surrounded by separators for readability.
      *
      * @param message The message to display to the user.
      */
     public static void displayToUser(String message) {
-        System.out.print(SEPARATOR);
+        System.out.println(SEPARATOR);
         System.out.println(message);
-        System.out.print(SEPARATOR);
+        System.out.println(SEPARATOR);
     }
 
     /**
@@ -56,23 +78,6 @@ public class Ui {
      */
     public static void displayExitMessage() {
         displayToUser(EXIT_MESSAGE);
-    }
-
-    /**
-     * Displays an acknowledgment message after an expense or income transaction is
-     * added or deleted, along with the total count of transactions.
-     *
-     * @param transaction The details of the transaction.
-     * @param addOrDelete Indicates whether the transaction was added or deleted.
-     * @param expenseOrIncome Specifies whether the transaction is an expense or income.
-     * @param count The total number of transactions of the specified type.
-     */
-    public static void displayAcknowledgmentMessage(String transaction, String addOrDelete, String expenseOrIncome,
-                                                    int count) {
-        String result = "The following " + expenseOrIncome + " transaction has been " + addOrDelete + ":\n"
-                + transaction + '\n'
-                + "You have " + count + " " + expenseOrIncome + " transaction(s) in total.";
-        displayToUser(result);
     }
 
     /**
@@ -113,22 +118,29 @@ public class Ui {
                 "2. Delete expense/income entry as shown in the income and expense lists." +
                 "Examples:\ndel expense 1 \n"  + "del income 2 \n" +
                 "3. Tag new category to expense. \n" + "Example:\n tag expense 2 /c food \n" +
-                "4. List all expenses/income. \n" + "Examples:\nlist expenses \n" + "list income\n" +
-                "5. Display expenses based on category and month. Note: category - c/, month (optional) - m/MM/yyyy\n" +
-                "Example:\ndisplay expenses c/food m/10/2024\n" +
-                "6. Display income based on month. Note: month (optional) - m/MM/yyyy\n" +
+                "4. List expenses based on category and month. Note(optional): category - c/, month - m/MM/yyyy\n" +
+                "Example:\nlist expenses c/food m/10/2024\n" +
+                "5. Display income based on month. Note: month (optional) - m/MM/yyyy\n" +
                 "Example:\ndisplay incomes m/10/2024\n" +
-                "7. Add budget for current month. Note: month - m/MM/yyyy \n" +
+                "6. Add budget for current month. Note: month - m/MM/yyyy \n" +
                 "Example:\nadd budget a/1000 m/09/2024\n" +
-                "8. Deduct budget for current month. Note: month - m/MM/yyyy \n" +
+                "7. Deduct budget for current month. Note: month - m/MM/yyyy \n" +
                 "Example:\ndeduct budget a/500 m/10/2024\n" +
-                "9. list budget for specific month. Note: month - m/MM/yyyy \n" +
+                "8. list budget for specific month. Note: month - m/MM/yyyy \n" +
                 "Example:\nlist budget m/05/2024\n" +
-                "10. list budget for the 12 most recent entries. \n" +
+                "9. list budget for the 12 most recent entries. \n" +
                 "Example:\nlist budget\n" +
-                "11. Exit app. \n" +
+                "10. Exit app. \n" +
                 "Example:\nbye\n";
         displayToUser(message);
+    }
+
+    /**
+     * Prints message to user if there is no description provided in search.
+     */
+    public static void searchEmptyMessage(){
+        String result = "Please key in a valid descriptor to search.";
+        displayToUser(result);
     }
 
     public static void showMessage(String message) {

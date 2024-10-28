@@ -1,20 +1,37 @@
 package seedu.budgetbuddy.transaction.budget;
 
 import seedu.budgetbuddy.Ui;
+import seedu.budgetbuddy.util.LoggerSetup;
 
 import java.time.YearMonth;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 /**
  * Manages the budgets for different months and years.
  * Provides methods to add, retrieve, and manage multiple budgets.
  */
 public class BudgetManager {
+    private static final Logger LOGGER = LoggerSetup.getLogger();
     private static int numberOfBudgets = 0;
     private static ArrayList<Budget> budgets = new ArrayList<>();
 
-    public BudgetManager(ArrayList<Budget> budgets){
+    /**
+     * Construct a BudgetManager of array content incomes
+     */
+    public BudgetManager(){
+
+    }
+
+    /**
+     * Construct a BudgetManager of array content incomes
+     *
+     * @param budgets The content to be instantiated
+     * @param numberOfBudgets The initial count of budgets managed by BudgetManager.
+     */
+    public BudgetManager(ArrayList<Budget> budgets, int numberOfBudgets){
         BudgetManager.budgets = budgets;
+        BudgetManager.numberOfBudgets = numberOfBudgets;
     }
 
     /**
@@ -24,9 +41,10 @@ public class BudgetManager {
      * @param budget The Budget object to be added.
      */
     public static void addBudget(Budget budget) {
+        assert budget != null : "Budget to be added cannot be null";
         budgets.add(budget);
         numberOfBudgets++;
-        Ui.displayBudgetTransactionMessage(budget.toString(), numberOfBudgets);
+        LOGGER.info("Added budget: " + budget);
     }
 
     /**
@@ -36,8 +54,10 @@ public class BudgetManager {
      * @param budget The Budget object to be added.
      */
     public static void deleteBudget(Budget budget) {
+        assert budget != null : "Budget to be deleted cannot be null";
         budgets.remove(budget);
         numberOfBudgets--;
+        LOGGER.info("Deleted budget: " + budget);
         Ui.displayBudgetDeletedMessage(budget.toString(), numberOfBudgets);
     }
 
@@ -57,12 +77,14 @@ public class BudgetManager {
      * @return The existing Budget for the specified date, or null if no budget exists.
      */
     public static Budget getBudget(YearMonth date) {
+        assert date != null : "Date cannot be null";
         for (Budget budget : budgets) {
-            // Check if the budget's date matches the specified date
             if (budget.getDate().equals(date)) {
-                return budget; // Return the existing budget
+                LOGGER.info("Retrieved budget for date: " + date);
+                return budget;
             }
         }
+        LOGGER.info("No budget found for date: " + date);
         return null; // No budget found for the specified date
     }
 
@@ -72,20 +94,31 @@ public class BudgetManager {
      */
     public static void listBudgets(YearMonth date) {
         String result = "";
+
+        // Sort the budgets by YearMonth in descending order
+        budgets.sort((b1, b2) -> b2.getDate().compareTo(b1.getDate()));
+
         if (date == null) {
-            result += "Here are the budgets for the 12 most recent entries:\n";
+            LOGGER.info("No date specified for listing budget.");
+
+            result += "Here are the 12 latest budgets:\n";
 
             int entriesToDisplay = Math.min(budgets.size(), 12);
             for (int counter = 1; counter <= entriesToDisplay; counter++) {
-                Budget budget = budgets.get(budgets.size() - counter);
+                Budget budget = budgets.get(counter - 1);
                 result += counter + ". " + budget.toString() + "\n";
             }
         } else {
             // Assume validator guarantees date is valid
+            LOGGER.info("Listing budgets for date: " + date);
+
             Budget budget = getBudget(date);
+
             if (budget != null) {
                 result += "Here is the budget for the specified month:\n";
                 result += budget.toString();
+            } else {
+                result += "No budget found for date: " + date;
             }
         }
         Ui.displayToUser(result);
