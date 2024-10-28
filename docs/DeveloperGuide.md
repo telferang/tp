@@ -164,6 +164,46 @@ filtering the `expenses` ArrayList and returning a String containing all expense
 in the description of the expenses. The `SearchExpenseCommand` object then calls the `displayToUser()` method in `Ui`,
 displaying this String to the user.
 
+#### 4.5 Display Savings Feature
+The Display Savings Feature enables users to check how much they have saved, through their inputs into the application.
+We assume that the user has accurately reflected all expenses and incomes, and we calculate their savings by 
+taking Savings = Total Income - Total Expense. The user has the option to either
+display their total savings, or their savings per month since using the app. This feature is managed by the 
+`DisplaySavingsCommand` class, initialized by the `Parser` class using the `DisplaySavingsValidator` class to display
+the correct savings, according to the user input. 
+The `DisplaySavingsCommand` object is then created with a boolean as an attribute. The class attributes and their
+relevance is as follows: 
+
+|Variable Name| Variable Type | Relevance                                                                   | 
+|-------------|---------------|-----------------------------------------------------------------------------|
+|byMonth| boolean | Indicates whether the user wants to display by month or just total savings. |
+
+The BudgetBuddy class then calls the `execute` method of the `DisplaySavingsCommand` object which uses the 
+`displaySavings()` or `displaySavingsByMonth()` method in the `SavingsManager` class, displaying the result to the 
+user using the `Ui` class `displayToUser()` method. 
+
+Below is a sequence diagram representing the execution of the Display Expense interaction:
+![DisplaySavingsSequenceDiagram.drawio.png](diagrams/DisplaySavingsSequenceDiagram.drawio.png)
+Process Overview: 
+1. The user issues a command to display savings i.e. `display savings m/`. BudgetBuddy parses this input with the help
+of the `Parser` class. 
+2. The `Parser` class calls the `isCommand()` method of the `DisplaySavingsCommand` class, to check if the user input 
+starts with "display savings".
+3. If the user input starts with "display savings", the `Parser` then calls the `processCommand()` method of 
+`DisplaySavingsValidator` to determine if the user wants a monthly breakdown of savings or simply their total savings. 
+4. The `processCommand()` method above returns a new `DisplaySavingsCommand` object initialized with a `byMonth` 
+attribute, set to true if the user wants a monthly breakdown of savings. Otherwise if the user just wants their total
+savings, this attribute will be set to false.
+5. BudgetBuddy then calls the execute() method of the `DisplaySavingsCommand` object.
+6. Depending on the `byMonth` attribute, either `displayTotalSavingsByMonth()` or `displayTotalSavings()` will be 
+executed from the `SavingsManager` class.
+7. The respective methods then save the results in a String, and returns this String to the `DisplaySavingsCommand`,
+which then calls the `displayToUser()` method in `Ui`, displaying this String to the user.
+
+The class diagram below indicates the structure of the DisplaySavings Feature, involving `SavingsManager`, `Saving`, 
+`IncomeManager` and `ExpenseManager`.
+![SavingsManagerClassDiagram.drawio.png](diagrams/SavingsManagerClassDiagram.drawio.png)
+
 # Appendix
 
 ## Product scope
