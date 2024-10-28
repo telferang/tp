@@ -8,6 +8,7 @@ import seedu.budgetbuddy.util.LoggerSetup;
 import seedu.budgetbuddy.graphs.ExpensesOverMonthGraph;
 
 import java.time.YearMonth;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import java.time.LocalDate;
@@ -118,11 +119,14 @@ public class ExpenseManager {
     public static void listExpenses() {
         String result = "";
         int counter = 0;
+        double sumOfExpenses = 0;
         for (Expense expense : expenses) {
             counter++;
             result += counter + ". " + expense.toString() + "\n";
+            sumOfExpenses += expense.getAmount();
         }
-        result += "There are " + counter + " expense(s) in total";
+        result += "There are " + counter + " expense(s) in total" +
+                ", with a sum of $" + sumOfExpenses + ".";
         LOGGER.log(Level.INFO, "Listing {0} expenses", numberOfExpenses);
         Ui.displayToUser(result);
     }
@@ -139,16 +143,20 @@ public class ExpenseManager {
         assert month != null : "month cannot be null";
         String result = "";
         int counter = 0;
+        double amount = 0;
+        String monthInString = month.format(DateTimeFormatter.ofPattern("MMMM yyyy"));
         for (Expense expense : expenses) {
             if(category.equals(expense.getCategory()) && month.equals(getYearMonthFromDate(expense.getDate()))) {
                 counter++;
                 result += counter + ". " + expense.toString() + "\n";
+                amount += expense.getAmount();
             }
         }
         if(result.equals("")) {
             result = getEmptyDisplayMessage();
         } else {
-            result += "There are " + counter + " expense(s) in " + month + " for " + category;
+            result += "Your total expenses for " + category + " in "
+                    + monthInString + " is $" + amount;
         }
         return result;
     }
@@ -163,16 +171,18 @@ public class ExpenseManager {
         assert category != null : "category cannot be null";
         String result = "";
         int counter = 0;
+        double amount = 0;
         for (Expense expense : expenses) {
             if(category.equals(expense.getCategory())) {
                 counter++;
                 result += counter + ". " + expense.toString() + "\n";
+                amount += expense.getAmount();
             }
         }
         if(result.equals("")) {
             result = getEmptyDisplayMessage();
         } else {
-            result += "There are " + counter + " expense(s) for " + category;
+            result += "Your expenses for " + category + " is $" + amount;
         }
         return result;
     }
@@ -187,16 +197,19 @@ public class ExpenseManager {
         assert month != null : "month cannot be null";
         String result = "";
         int counter = 0;
+        double amountInMonth = 0;
+        String monthInString = month.format(DateTimeFormatter.ofPattern("MMMM yyyy"));
         for (Expense expense : expenses) {
             if(month.equals(getYearMonthFromDate(expense.getDate()))) {
                 counter++;
                 result += counter + ". " + expense.toString() + "\n";
+                amountInMonth += expense.getAmount();
             }
         }
         if(result.equals("")) {
             result = getEmptyDisplayMessage();
         } else {
-            result += "There are " + counter + " expense(s) in " + month;
+            result += "Your expenses for " + monthInString + " is $" + amountInMonth;
         }
         return result;
     }
