@@ -16,14 +16,18 @@ public class ListIncomeCommand extends Command {
     /**
      * Constructs a ListIncomeCommand with no specified date or category
      */
-    public ListIncomeCommand() { this.month = null; }
+    public ListIncomeCommand() {
+        this.month = null;
+    }
 
     /**
      * Constructs a ListIncomeCommand with valid month field
      *
      * @param month
      */
-    public ListIncomeCommand(YearMonth month) { this.month = month; }
+    public ListIncomeCommand(YearMonth month) {
+        this.month = month;
+    }
 
     /**
      * Checks if the provided command matches the command to list incomes.
@@ -42,7 +46,7 @@ public class ListIncomeCommand extends Command {
     public void execute() {
         if (month == null) {
             IncomeManager.listIncomes();
-        } else{
+        } else {
             IncomeManager.listIncomeWithMonth(month);
         }
     }
