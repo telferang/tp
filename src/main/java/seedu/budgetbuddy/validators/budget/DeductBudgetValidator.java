@@ -24,8 +24,8 @@ public class DeductBudgetValidator {
         assert command != null : "Command cannot be null";
 
         if (command.equals("deduct budget")) {
-            LOGGER.warning("Attempted to deduct budget without description.");
-            throw new BudgetBuddyException("No description provided.");
+            LOGGER.warning("Attempted to deduct budget without amount.");
+            throw new BudgetBuddyException("No amount provided.");
         }
 
         String trimmedCommand = command.substring("deduct budget ".length());
@@ -33,7 +33,7 @@ public class DeductBudgetValidator {
 
         // Initialize default values
         double amount = 0; // invalid amount initially
-        YearMonth date = null; // invalid date initially
+        YearMonth date = YearMonth.now();
         Category category = Category.OTHERS;
 
         // Process parts to extract details
