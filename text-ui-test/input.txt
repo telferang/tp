@@ -31,8 +31,9 @@ deduct budget a/1234 m/11/2024
 deduct budget a/800 m/03/2024
 deduct budget a/2300 m/11/2024
 deduct budget a/1500 m/02/2024
-list budget m/02/2024
-list budget m/07/2022
+list budgets m/02/2024
+list budgets m/07/2022
+list budgets
 list budget
 list incomes
 remove income 1

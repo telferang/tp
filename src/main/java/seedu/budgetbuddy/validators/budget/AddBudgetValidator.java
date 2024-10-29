@@ -22,6 +22,11 @@ public class AddBudgetValidator {
     public static Command processCommand(String command) throws BudgetBuddyException {
         assert command != null : "Command cannot be null";
 
+        if (command.equals("add budget")) {
+            LOGGER.warning("Attempted to add budget without amount.");
+            throw new BudgetBuddyException("No amount provided.");
+        }
+
         String trimmedCommand = command.substring("add budget ".length());
         String[] parts = trimmedCommand.split(" ");
 

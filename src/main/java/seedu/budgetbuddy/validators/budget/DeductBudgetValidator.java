@@ -23,6 +23,11 @@ public class DeductBudgetValidator {
     public static Command processCommand(String command) throws BudgetBuddyException {
         assert command != null : "Command cannot be null";
 
+        if (command.equals("deduct budget")) {
+            LOGGER.warning("Attempted to deduct budget without amount.");
+            throw new BudgetBuddyException("No amount provided.");
+        }
+
         String trimmedCommand = command.substring("deduct budget ".length());
         String[] parts = trimmedCommand.split(" ");
 
