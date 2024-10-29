@@ -6,7 +6,7 @@ import org.knowm.xchart.SwingWrapper;
 import seedu.budgetbuddy.transaction.Category;
 import seedu.budgetbuddy.transaction.expense.Expense;
 
-import javax.swing.*;
+import javax.swing.JFrame;
 import java.time.YearMonth;
 import java.util.ArrayList;
 import java.util.HashMap;
