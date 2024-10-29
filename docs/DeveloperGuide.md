@@ -238,6 +238,35 @@ The class diagram below indicates the structure of the DisplaySavings Feature, i
 `IncomeManager` and `ExpenseManager`.
 ![SavingsManagerClassDiagram.drawio.png](diagrams/SavingsManagerClassDiagram.drawio.png)
 
+#### 4.6 List Expenses Feature
+The List Expense feature enables users to view saved expenses in the application. Additionally, user may add additional
+filters to display only desired categories and months. The total expense amount based on the displayed expenses will be
+summed and displayed to the user. This feature is controlled by the `ListExpenseCommand` class, where it is initialized
+by the `Parser` class. The `Parser` class uses ListExpenseValidator to check and extract the filter field that the user
+input. The `ListExpenseCommand` object is then created with a Category and YearMonth Attribute.
+
+| Class Attribute | Variable Type | Relevance                                            |
+|-----------------|---------------|------------------------------------------------------|
+| category        | Category      | The category of expenses to be listed                |
+| month           | YearMonth     | The specific month and year of expenses to be listed |
+
+The `BudgetBuddy` class then calls the `execute()` method of `ListExpenseCommand` object which uses the following
+methods in `ExpenseManager` class to list expenses based on user input category and month. If user does not specify a 
+specific month or category, it will show every valid expense instead.
+
+| Method                                 | Return Type | Relevance                                                    |
+|----------------------------------------|-------------|--------------------------------------------------------------|
+| listExpenses()                         | void        | Lists out all expenses saved                                 |
+| listExpensesWithCategory(category)     | String      | Lists out all expenses saved with the specified category     |
+| listExpensesWithDate(month)            | String      | Lists out all expenses saved in specified month              |
+| listExpensesWithCategoryAndDate(month) | String      | Lists out all expenses saved in specified month and category |
+
+Then, with the variations of `listExpenses()` commands in `ExpenseManager`, the list of expenses will be displayed to 
+the user using the `Ui` class `displayToUser()` method.
+
+The following UML Sequence diagram shows how the Parser works to obtain the relevant inputs for the List Expense Feature
+![ListExpenseSequenceDiagram.drawio.png](...)
+
 # Appendix
 
 ## Product scope
@@ -269,7 +298,6 @@ The class diagram below indicates the structure of the DisplaySavings Feature, i
 | v2.0    | user     | find a to-do item by name             | locate a to-do without having to go through the entire list |
 | v2.0    | user     | edit an exisiting expense entry       | correct any mistakes made to an expense entry               |
 | v2.0    | user     | edit an exisiting income entry        | correct any mistakes made to an income entry                |
-| v2.0    | user     | track expenses in multiple currencies | manage international transactions                           |
 
 ## Non-Functional Requirements
 
