@@ -21,7 +21,7 @@ public class ListBudgetValidator {
      * @return A ListBudgetCommand if valid; otherwise, an IncorrectCommand.
      */
     public static Command processCommand(String command) {
-        if (command.equals("list budget")) {
+        if (command.equals("list budgets")) {
             return new ListBudgetCommand(null); // No date provided, list all budgets
         }
 

@@ -22,17 +22,12 @@ public class AddBudgetValidator {
     public static Command processCommand(String command) throws BudgetBuddyException {
         assert command != null : "Command cannot be null";
 
-        if (command.equals("add budget")) {
-            LOGGER.warning("Attempted to add budget without description.");
-            throw new BudgetBuddyException("No description provided.");
-        }
-
         String trimmedCommand = command.substring("add budget ".length());
         String[] parts = trimmedCommand.split(" ");
 
         // Initialize default values
         double amount = 0; // invalid amount initially
-        YearMonth date = null; // invalid date initially
+        YearMonth date = YearMonth.now();
         Category category = Category.OTHERS;
 
         // Process parts to extract details
