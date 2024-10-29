@@ -4,6 +4,7 @@ import seedu.budgetbuddy.commands.budget.ListRemainingBudgetCommand;
 import seedu.budgetbuddy.commands.expense.BreakdownExpensesCommand;
 import seedu.budgetbuddy.commands.expense.DeleteExpenseCommand;
 import seedu.budgetbuddy.commands.expense.AddExpenseCommand;
+import seedu.budgetbuddy.commands.expense.DisplayExpensesForMonthWithCategoriesGraphCommand;
 import seedu.budgetbuddy.commands.expense.EditExpenseCommand;
 import seedu.budgetbuddy.commands.expense.SearchExpenseCommand;
 import seedu.budgetbuddy.commands.expense.ListExpenseCommand;
@@ -30,6 +31,7 @@ import seedu.budgetbuddy.transaction.expense.Expense;
 import seedu.budgetbuddy.transaction.expense.ExpenseManager;
 import seedu.budgetbuddy.transaction.income.Income;
 import seedu.budgetbuddy.transaction.income.IncomeManager;
+import seedu.budgetbuddy.validators.expense.DisplayExpensesForMonthWithCategoriesValidator;
 import seedu.budgetbuddy.validators.expense.ListExpenseValidator;
 import seedu.budgetbuddy.validators.income.AddIncomeValidator;
 import seedu.budgetbuddy.validators.budget.AddBudgetValidator;
@@ -59,9 +61,9 @@ public class Parser {
     private static BudgetManager budgetManager;
 
     public Parser(ExpenseManager expenseManager, IncomeManager incomeManager, BudgetManager budgetManager) {
-        this.expenseManager = expenseManager;
-        this.incomeManager = incomeManager;
-        this.budgetManager = budgetManager;
+        Parser.expenseManager = expenseManager;
+        Parser.incomeManager = incomeManager;
+        Parser.budgetManager = budgetManager;
     }
 
     /**
@@ -132,6 +134,9 @@ public class Parser {
         }
         if (BreakdownExpensesCommand.isCommand(userCommandText)){
             return new BreakdownExpensesCommand();
+        }
+        if (DisplayExpensesForMonthWithCategoriesGraphCommand.isCommand(userCommandText)){
+            return DisplayExpensesForMonthWithCategoriesValidator.processCommand(userCommandText);
         }
         return new IncorrectCommand("Invalid input");
     }
