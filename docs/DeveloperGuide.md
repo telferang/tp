@@ -319,14 +319,43 @@ saved, will the other values will be initialized during subsequent function call
 | amount          | double        | User input amount value to replace current amount value in expense     |
 | expense         | Expense       | User specified Expense based on index                                  |
 
-
 The `BudgetBuddy` class then calls the `execute()` method of `EditExpenseCommand` object which the `EditExpenseCommand` 
 class then uses the `Ui` class to call function `getUserEditFields()` for editing the expense parameters. The 
 `EditExpenseCommand` then uses `EditExpenseValidator` to check and extract for any valid fields. If valid, a 
-`processEdit()` function will be called to update values in the expense list.
+`processEdit()` function will be called to update values in the expense object.
 
 The following UML Sequence diagram shows how the Parser works to obtain the relevant inputs for the Edit Expense Feature
-![EditIncomeSequenceDiagram.drawio.png](diagrams/EditExpenseSequenceDiagram.drawio.png)
+![EditExpenseSequenceDiagram.drawio.png](diagrams/EditExpenseSequenceDiagram.drawio.png)
+
+#### 4.9 Edit Income Feature
+The Edit Income Feature enable users to edit pre-existing entries of incomes in the application. Users are only
+allowed to change the date and amount fields of the income field. Currently, the description of each task
+cannot be edited, however it may be implemented for future versions. There are 2 sets of instruction that the user
+has to input. The first set is to identify which income to edit, while the second is the fields to be edited. This
+feature is controlled by the `EditIncomeCommand` class, where it is initialized by the `Parser` class. The following
+function is then called during the first set of user input.
+
+| Method             | Return Type | Relevance                                                        |
+|--------------------|-------------|------------------------------------------------------------------|
+| getIncome(command) | void        | Extracts the Income from IncomeList based on Index given by user |
+
+`EditIncomeCommand` class contains the following attributes, which will be used to store the values that will replace
+the existing value in the Income object. During the creation of `EditIncomeCommand`, only `Income` object will be
+saved, will the other values will be initialized during subsequent function calls.
+
+| Class Attribute | Variable Type | Relevance                                                              |
+|-----------------|---------------|------------------------------------------------------------------------| 
+| date            | LocalDate     | User input date value to replace current date value in expense         |
+| amount          | double        | User input amount value to replace current amount value in expense     |
+| income          | Income        | User specified Income based on index                                   |
+
+The `BudgetBuddy` class then calls the `execute()` method of `EditIncomeCommand` object which the `EditIncomeCommand`
+class then uses the `Ui` class to call function `getUserEditFields()` for editing the expense parameters. The
+`EditIncomeCommand` then uses `EditIncomeValidator` to check and extract for any valid fields. If valid, a
+`processEdit()` function will be called to update values in the Income object.
+
+The following UML Sequence diagram shows how the Parser works to obtain the relevant inputs for the Edit Income Feature
+![EditIncomeSequenceDiagram.drawio.png](diagrams/EditIncomeSequenceDiagram.drawio.png)
 
 # Appendix
 
