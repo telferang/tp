@@ -39,10 +39,10 @@ public class EditExpenseCommand extends Command {
     }
 
     /**
-     * Checks if the provided command matches the command to list expenses.
+     * Checks if the provided command matches the command to edit expenses.
      *
      * @param command The command to be checked.
-     * @return True if the command matches "list expenses", false otherwise.
+     * @return True if the command matches "edit expenses", false otherwise.
      */
     public static boolean isCommand(String command) {
         return command.startsWith("edit expenses");

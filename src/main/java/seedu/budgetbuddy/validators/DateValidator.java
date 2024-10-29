@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.time.format.ResolverStyle;
 
 /**
  * Validates and converts the date given.
@@ -17,7 +18,8 @@ public class DateValidator {
      */
     public static LocalDate validateDate(String part) {
         try {
-            return LocalDate.parse(part.substring(2), DateTimeFormatter.ofPattern("d/M/yyyy"));
+            return LocalDate.parse(part.substring(2),
+                    DateTimeFormatter.ofPattern("d/M/uuuu").withResolverStyle(ResolverStyle.STRICT));
         } catch (DateTimeParseException e) {
             return null;  // Indicates invalid date
         }

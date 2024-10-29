@@ -102,33 +102,67 @@ for the same reason as above.
 ### 4. Implementation
 
 #### 4.1 Add Budget Feature
-The Add Budget Feature allows users to add budgets for different categories. This is handled by the AddBudgetCommand
-class, initialised by the Parser class.
+The Add Budget feature enables users to add budgets for different categories. This functionality is controlled by the 
+AddBudgetCommand class, which is produced by the Parser class based on user input. The AddBudgetCommand class uses an 
+AddBudgetValidator object to validate the provided amount, category, and date, and then performs the budget addition 
+if valid. Below is the relevance of these attributes:
 
-* The Parser processes user input and creates an AddBudgetCommand object with parameters such as amount, category, and 
-date.
-* The AddBudgetValidator ensures that inputs are valid, checking for correct amounts, valid categories, and 
-proper date format.
-* If validation passes, the budget is added; otherwise, an error is raised.
+| Class Attribute | Variable Type | Relevance                                   |
+|-----------------|---------------|---------------------------------------------|
+| amount          | double        | The budget amount to be added               |
+| category        | Category      | The category of budget to be added          |
+| date            | YearMonth     | The specific month and year of budget added |
+
+The BudgetBuddy class then calls the `execute()` method of the `AddBudgetCommand` object which uses the following 
+method in the `BudgetManager` class to add a new budget created by the `Budget` class to the `budgets` list 
+if it does not exist:
+
+| Method            | Return Type | Relevance                               |
+|-------------------|-------------|-----------------------------------------|
+| addBudget(budget) | void        | Add new budget to the list of `budgets` |                                 
+
+Then, `addAmount(category, amount)` method in the `Budget` class is also called to add the amount to the budget. 
+Finally, the result is displayed to the user using the `Ui` class `displayToUser()` method.
+
+The following UML Sequence diagram shows how the Parser works to obtain the relevant inputs 
+for the Add Budget Feature:
+![AddBudgetSequenceDiagram.drawio.png](diagrams/AddBudgetSequenceDiagram.drawio.png)
 
 #### 4.2 Deduct Budget Feature
-The Deduct Budget Feature allows users to deduct an amount from an existing budget. This is managed by the
-DeductBudgetCommand class, initialised by the Parser class.
+The Deduct Budget feature enables users to deduct an amount from an existing budget. This functionality is controlled 
+by the DeductBudgetCommand class, which is produced by the Parser class based on user input. 
+The DeductBudgetCommand class uses a DeductBudgetValidator object to validate the provided amount, category, and date, 
+checks if the specified budget exists, and then performs the deduction if valid. 
+Below is the relevance of these attributes:
 
-* The Parser processes user input and creates a DeductBudgetCommand object with the amount, category, and 
-date of the deduction.
-* The DeductBudgetValidator checks if the deduction is valid, ensuring the budget exists, the date is correct, and 
-there are sufficient funds.
-* If validation passes, the specified amount is deducted from the budget; otherwise, an error is raised.
+| Class Attribute | Variable Type | Relevance                                      |
+|-----------------|---------------|------------------------------------------------|
+| amount          | double        | The budget amount to be deducted               |
+| category        | Category      | The category of budget to be deducted          |
+| date            | YearMonth     | The specific month and year of budget deducted |
+
+The BudgetBuddy class then calls the `execute()` method of the `DeductBudgetCommand` object which uses the 
+`deductAmount(category, amount)` method in the `Budget` class to deduct amount from the budget.
+
+The following method in the `BudgetManager` class called by `deductAmount(category, amount)` to delete a budget from 
+the `budgets` list if the total amount of the budget reaches zero:
+
+| Method               | Return Type | Relevance                                |
+|----------------------|-------------|------------------------------------------|
+| deleteBudget(amount) | void        | Delete budget from the list of `budgets` |      
+
+Finally, the result is displayed to the user using the `Ui` class `displayToUser()` method.
+
+The following UML Sequence diagram shows how the Parser works to obtain the relevant inputs
+for the Add Budget Feature:
+![DeductBudgetSequenceDiagram.drawio.png](diagrams/DeductBudgetSequenceDiagram.drawio.png)
 
 #### 4.3 List Budget Feature
-The List Budget Feature enables users to view all existing budgets or filter them based on specific criteria, 
-such as date. This feature is managed by the ListBudgetCommand class, which is initialised by the Parser class.
-
-* The Parser processes user input and creates a ListBudgetCommand object with parameters such as the date for filtering.
-* The ListBudgetValidator checks if the list request is valid, verifying the format of input parameters.
-* If validation passes, the ListBudgetCommand retrieves and displays the budgets that match the criteria through the UI; 
-otherwise, an error message is shown.
+The List Budget feature enables users to view all existing budgets or filter them based on the date. This functionality 
+is controlled by the ListBudgetCommand class, which is produced by the Parser class based on user input. 
+The ListBudgetCommand class uses a ListBudgetValidator object to validate the provided date, checks if the list request 
+is valid, and, if valid, retrieves and displays the matching budgets through the UI. If the validation fails, 
+an error message is shown.
 
 #### 4.4 Search Expense Feature
 The Search Expense Feature enables users to search for specific expenses based on a description provided by the 

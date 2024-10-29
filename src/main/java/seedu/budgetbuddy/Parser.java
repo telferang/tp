@@ -18,6 +18,7 @@ import seedu.budgetbuddy.commands.HelpCommand;
 import seedu.budgetbuddy.commands.IncorrectCommand;
 import seedu.budgetbuddy.commands.budget.ListBudgetCommand;
 import seedu.budgetbuddy.commands.income.DisplayIncomeSpentCommand;
+import seedu.budgetbuddy.commands.income.EditIncomeCommand;
 import seedu.budgetbuddy.commands.income.ListIncomeCommand;
 import seedu.budgetbuddy.commands.saving.DisplaySavingsCommand;
 import seedu.budgetbuddy.commands.expense.ListMonthlyExpensesCommand;
@@ -119,6 +120,9 @@ public class Parser {
         }
         if(EditExpenseCommand.isCommand(userCommandText)){
             return new EditExpenseCommand(userCommandText);
+        }
+        if(EditIncomeCommand.isCommand(userCommandText)){
+            return new EditIncomeCommand(userCommandText);
         }
         if (ListRemainingBudgetCommand.isCommand(userCommandText)) {
             return new ListRemainingBudgetCommand();
