@@ -9,7 +9,7 @@ expense | wingstop | 20.0 | 15/10/2024 | OTHERS
 expense | plane ticket to japan | 1000.0 | 10/10/2024 | TRANSPORT
 expense | food | 5.5 | 10/10/2024 | FOOD
 expense | test | 10.0 | 10/10/2024 | OTHERS
-expense | popmart | 300.0 | 20/10/2023 | OTHERS
+expense | popmart | 300.0 | 20/10/2023 | ENTERTAINMENT
 expense | table | 123.0 | 1/10/2023 | OTHERS
 expense | char | 2567.0 | 3/10/2023 | OTHERS
 income | tuition fees | 1000.0 | 15/9/2024

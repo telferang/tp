@@ -99,9 +99,50 @@ for the same reason as above.
 
 ![CommandClass.drawio.png](/docs/diagrams/CommandClass.drawio.png)
 
+#### 3.6 Expense and Income Class
+The `Expense` and `Income` class inherits from the Transaction class.
+
+`Expense` class stores one expense record given by the user.
+
+`Income` class stores one income record given by the user.
+
+The methods for `Expense` and `Income` are not shown.
+
+
+![ExpenseAndIncomeClassDiagram.drawio.png](/docs/diagrams/ExpenseAndIncomeClassDiagram.drawio.png)
+
 ### 4. Implementation
 
-#### 4.1 Add Budget Feature
+#### 4.1 Add Expense Feature
+The Add Expense feature enables users to add budgets for different categories. This functionality is controlled by the
+AddExpenseCommand class, which is produced by the Parser class based on user input. The AddExpenseCommand class uses an
+AddExpenseValidator class to validate the provided description, amount, category, and date, and then create and add the
+given information to `AddExpenseCommand` if valid. Below is the relevance of these attributes:
+
+| Class Attribute | Variable Type | Relevance                            |
+|-----------------|---------------|--------------------------------------|
+| description     | String        | The short description of the expense |
+| amount          | double        | The expense amount to be added       |
+| category        | Category      | The category of expense to be added  |
+| date            | LocalDate     | The date of the expense              |
+
+The BudgetBuddy class then calls the `execute()` method of the `AddExpenseCommand` object which uses the following
+method in the `ExpenseManager` class to add the expense:
+
+| Method              | Return Type | Relevance                                 |
+|---------------------|-------------|-------------------------------------------|
+| addExpense(expense) | void        | Add new expense to the list of `expenses` |                                 
+
+A `RemainingBudgetManager` object will be created to find the budget remaining for the given month and category. 
+Finally, the acknowledgement message along with the budget remaining is displayed to the user using the `Ui` class 
+`displayToUser()` method.
+
+The following UML Sequence diagram shows how the Parser works to obtain the relevant inputs for the Add Expense Feature:
+The scenario of invalid input and sequence within `RemainingBudgetManager` are omitted to reduce complexity.
+![AddExpenseSequenceDiagram.drawio.png](diagrams/AddExpenseSequenceDiagram.drawio.png)
+
+
+#### 4.2 Add Budget Feature
 The Add Budget feature enables users to add budgets for different categories. This functionality is controlled by the 
 AddBudgetCommand class, which is produced by the Parser class based on user input. The AddBudgetCommand class uses an 
 AddBudgetValidator object to validate the provided amount, category, and date, and then performs the budget addition 
@@ -128,7 +169,7 @@ The following UML Sequence diagram shows how the Parser works to obtain the rele
 for the Add Budget Feature:
 ![AddBudgetSequenceDiagram.drawio.png](diagrams/AddBudgetSequenceDiagram.drawio.png)
 
-#### 4.2 Deduct Budget Feature
+#### 4.3 Deduct Budget Feature
 The Deduct Budget feature enables users to deduct an amount from an existing budget. This functionality is controlled 
 by the DeductBudgetCommand class, which is produced by the Parser class based on user input. 
 The DeductBudgetCommand class uses a DeductBudgetValidator object to validate the provided amount, category, and date, 
@@ -157,14 +198,14 @@ The following UML Sequence diagram shows how the Parser works to obtain the rele
 for the Add Budget Feature:
 ![DeductBudgetSequenceDiagram.drawio.png](diagrams/DeductBudgetSequenceDiagram.drawio.png)
 
-#### 4.3 List Budget Feature
+#### 4.4 List Budget Feature
 The List Budget feature enables users to view all existing budgets or filter them based on the date. This functionality 
 is controlled by the ListBudgetCommand class, which is produced by the Parser class based on user input. 
 The ListBudgetCommand class uses a ListBudgetValidator object to validate the provided date, checks if the list request 
 is valid, and, if valid, retrieves and displays the matching budgets through the UI. If the validation fails, 
 an error message is shown.
 
-#### 4.4 Search Expense Feature
+#### 4.5 Search Expense Feature
 The Search Expense Feature enables users to search for specific expenses based on a description provided by the 
 user. This feature is managed by the `SearchExpensesCommand` class, initialized by the `Parser` class, with the help
 of a helper class `SearchExpenseValidator` to validate and extract the user description. 
@@ -198,7 +239,7 @@ filtering the `expenses` ArrayList and returning a String containing all expense
 in the description of the expenses. The `SearchExpenseCommand` object then calls the `displayToUser()` method in `Ui`,
 displaying this String to the user.
 
-#### 4.5 Display Savings Feature
+#### 4.6 Display Savings Feature
 The Display Savings Feature enables users to check how much they have saved, through their inputs into the application.
 We assume that the user has accurately reflected all expenses and incomes, and we calculate their savings by 
 taking Savings = Total Income - Total Expense. The user has the option to either
@@ -238,7 +279,16 @@ The class diagram below indicates the structure of the DisplaySavings Feature, i
 `IncomeManager` and `ExpenseManager`.
 ![SavingsManagerClassDiagram.drawio.png](diagrams/SavingsManagerClassDiagram.drawio.png)
 
-#### 4.6 List Expenses Feature
+#### 4.7 List Remaining Feature
+The `ListRemainingBudgetManager` will get the `Expenses` from `ExpenseManager` and `Budgets` from `BudgetManager`. All
+the `Expense` amount will be deducted from the budget according to the date and category.
+
+The following UML Sequence diagram shows how the Parser works to obtain the relevant inputs for the List Remaining 
+Budgets Feature:
+The loop to copy all the budget and the loop to match a expense to a budget are omitted to reduce complexity.
+![ListRemainingBudgetSequenceDiagram.drawio.png](diagrams/ListRemainingBudgetSequenceDiagram.drawio.png)
+
+#### 4.8 List Expenses Feature
 The List Expense feature enables users to view saved expenses in the application. Additionally, user may add additional
 filters to display only desired categories and months. The total expense amount based on the displayed expenses will be
 summed and displayed to the user. This feature is controlled by the `ListExpenseCommand` class, where it is initialized
@@ -267,7 +317,7 @@ the user using the `Ui` class `displayToUser()` method.
 The following UML Sequence diagram shows how the Parser works to obtain the relevant inputs for the List Expense Feature
 ![ListExpenseSequenceDiagram.drawio.png](diagrams/ListExpenseSequenceDiagram.drawio.png)
 
-#### 4.7 List Income Feature
+#### 4.9 List Income Feature
 The List Income feature enables users to view saved income in the application. Additionally, user may add additional
 filters to display only desired months. The total income amount based on the displayed income will be summed and 
 displayed to the user. This feature is controlled by the `ListIncomeCommand` class, where it is initialized by the 
@@ -296,7 +346,7 @@ The following UML Sequence diagram shows how the Parser works to obtain the rele
 The following UML Sequence diagram shows how the Parser works to obtain the relevant inputs for the List Income Feature
 ![ListIncomeSequenceDiagram.drawio.png](diagrams/ListIncomeSequenceDiagram.drawio.png)
 
-#### 4.8 Edit Expense Feature
+#### 4.10 Edit Expense Feature
 The Edit Expense Feature enable users to edit pre-existing entries of expenses in the application. Users are only 
 allowed to change the date, category and amount fields of the expense field. Currently, the description of each task 
 cannot be edited, however it may be implemented for future versions. There are 2 sets of instruction that the user
@@ -327,7 +377,7 @@ class then uses the `Ui` class to call function `getUserEditFields()` for editin
 The following UML Sequence diagram shows how the Parser works to obtain the relevant inputs for the Edit Expense Feature
 ![EditExpenseSequenceDiagram.drawio.png](diagrams/EditExpenseSequenceDiagram.drawio.png)
 
-#### 4.9 Edit Income Feature
+#### 4.11 Edit Income Feature
 The Edit Income Feature enable users to edit pre-existing entries of incomes in the application. Users are only
 allowed to change the date and amount fields of the income field. Currently, the description of each task
 cannot be edited, however it may be implemented for future versions. There are 2 sets of instruction that the user
@@ -386,8 +436,8 @@ The following UML Sequence diagram shows how the Parser works to obtain the rele
 | v2.0    | user     | view my monthly savings               | plan for future expenses                                    |
 | v2.0    | user     | see where I am spending my money      | better manage my expenses                                   |
 | v2.0    | user     | find a to-do item by name             | locate a to-do without having to go through the entire list |
-| v2.0    | user     | edit an exisiting expense entry       | correct any mistakes made to an expense entry               |
-| v2.0    | user     | edit an exisiting income entry        | correct any mistakes made to an income entry                |
+| v2.0    | user     | edit an existing expense entry       | correct any mistakes made to an expense entry               |
+| v2.0    | user     | edit an existing income entry        | correct any mistakes made to an income entry                |
 
 ## Non-Functional Requirements
 

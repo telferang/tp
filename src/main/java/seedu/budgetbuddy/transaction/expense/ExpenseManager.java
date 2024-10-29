@@ -2,6 +2,7 @@ package seedu.budgetbuddy.transaction.expense;
 
 import seedu.budgetbuddy.Ui;
 import seedu.budgetbuddy.exceptions.BudgetBuddyException;
+import seedu.budgetbuddy.graphs.ExpensesCategoryPieChart;
 import seedu.budgetbuddy.transaction.Category;
 import seedu.budgetbuddy.transaction.budget.RemainingBudgetManager;
 import seedu.budgetbuddy.util.LoggerSetup;
@@ -15,6 +16,7 @@ import java.time.LocalDate;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 
 /**
  * Manages a list of expenses, providing functionalities to add, delete,
@@ -331,6 +333,16 @@ public class ExpenseManager {
             }
         }
         System.out.println(totalAmount);
+    }
+
+    /**
+     * Displays the expenses for a specific month on a PieChart divided by different categories
+     *
+     * @param yearMonth The YearMonth object representing the month for which the total expenses are to be displayed.
+     */
+    public static void displayExpensesForMonthWithCategoriesGraph(YearMonth yearMonth) {
+        Map <Category, Double> expensesByCategoryMap = ExpensesCategoryPieChart.expensesByCategoryMapBuilder(yearMonth);
+        ExpensesCategoryPieChart.displayExpenseByCategoryPieChart(yearMonth, expensesByCategoryMap);
     }
 
     /**
