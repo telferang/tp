@@ -153,6 +153,10 @@ the `budgets` list if the total amount of the budget reaches zero:
 
 Finally, the result is displayed to the user using the `Ui` class `displayToUser()` method.
 
+The following UML Sequence diagram shows how the Parser works to obtain the relevant inputs
+for the Add Budget Feature:
+![DeductBudgetSequenceDiagram.drawio.png](diagrams/DeductBudgetSequenceDiagram.drawio.png)
+
 #### 4.3 List Budget Feature
 The List Budget feature enables users to view all existing budgets or filter them based on the date. This functionality 
 is controlled by the ListBudgetCommand class, which is produced by the Parser class based on user input. 
