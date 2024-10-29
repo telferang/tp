@@ -99,7 +99,48 @@ for the same reason as above.
 
 ![CommandClass.drawio.png](/docs/diagrams/CommandClass.drawio.png)
 
+#### 3.6 Expense and Income Class
+The `Expense` and `Income` class inherits from the Transaction class.
+
+`Expense` class stores one expense record given by the user.
+
+`Income` class stores one income record given by the user.
+
+The methods for `Expense` and `Income` are not shown.
+
+
+![ExpenseAndIncomeClassDiagram.drawio.png](/docs/diagrams/ExpenseAndIncomeClassDiagram.drawio.png)
+
 ### 4. Implementation
+
+#### 4.1 Add Expense Feature
+The Add Expense feature enables users to add budgets for different categories. This functionality is controlled by the
+AddExpenseCommand class, which is produced by the Parser class based on user input. The AddExpenseCommand class uses an
+AddExpenseValidator class to validate the provided description, amount, category, and date, and then create and add the
+given information to `AddExpenseCommand` if valid. Below is the relevance of these attributes:
+
+| Class Attribute | Variable Type | Relevance                            |
+|-----------------|---------------|--------------------------------------|
+| description     | String        | The short description of the expense |
+| amount          | double        | The expense amount to be added       |
+| category        | Category      | The category of expense to be added  |
+| date            | LocalDate     | The date of the expense              |
+
+The BudgetBuddy class then calls the `execute()` method of the `AddExpenseCommand` object which uses the following
+method in the `ExpenseManager` class to add the expense:
+
+| Method              | Return Type | Relevance                                 |
+|---------------------|-------------|-------------------------------------------|
+| addExpense(expense) | void        | Add new expense to the list of `expenses` |                                 
+
+A `RemainingBudgetManager` object will be created to find the budget remaining for the given month and category. 
+Finally, the acknowledgement message along with the budget remaining is displayed to the user using the `Ui` class 
+`displayToUser()` method.
+
+The following UML Sequence diagram shows how the Parser works to obtain the relevant inputs for the Add Expense Feature:
+The scenario of invalid input and sequence within `RemainingBudgetManager` are omitted to reduce complexity.
+![AddExpenseSequenceDiagram.drawio.png](diagrams/AddExpenseSequenceDiagram.drawio.png)
+
 
 #### 4.1 Add Budget Feature
 The Add Budget feature enables users to add budgets for different categories. This functionality is controlled by the 
@@ -237,6 +278,15 @@ which then calls the `displayToUser()` method in `Ui`, displaying this String to
 The class diagram below indicates the structure of the DisplaySavings Feature, involving `SavingsManager`, `Saving`, 
 `IncomeManager` and `ExpenseManager`.
 ![SavingsManagerClassDiagram.drawio.png](diagrams/SavingsManagerClassDiagram.drawio.png)
+
+#### 4.1 List Remaining Feature
+The `ListRemainingBudgetManager` will get the `Expenses` from `ExpenseManager` and `Budgets` from `BudgetManager`. All
+the `Expense` amount will be deducted from the budget according to the date and category.
+
+The following UML Sequence diagram shows how the Parser works to obtain the relevant inputs for the List Remaining 
+Budgets Feature:
+The loop to copy all the budget and the loop to match a expense to a budget are omitted to reduce complexity.
+![ListRemainingBudgetSequenceDiagram.drawio.png](diagrams/ListRemainingBudgetSequenceDiagram.drawio.png)
 
 # Appendix
 
