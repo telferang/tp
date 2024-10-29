@@ -265,7 +265,7 @@ Then, with the variations of `listExpenses()` commands in `ExpenseManager`, the 
 the user using the `Ui` class `displayToUser()` method.
 
 The following UML Sequence diagram shows how the Parser works to obtain the relevant inputs for the List Expense Feature
-![ListExpenseSequenceDiagram.drawio.png](...)
+![ListExpenseSequenceDiagram.drawio.png](diagrams/ListExpenseSequenceDiagram.drawio.png)
 
 # Appendix
 
