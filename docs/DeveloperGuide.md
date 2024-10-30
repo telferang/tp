@@ -44,7 +44,7 @@ This section describes how to setup the coding environment, along with the tools
 #### 3.1 Architecture
 The following diagram shows the rough overview of BudgetBuddy
 
-![OverallDiagram.drawio.png](/docs/diagrams/OverallDiagram.drawio.png)
+![OverallDiagram.drawio.png](diagrams/OverallDiagram.drawio.png)
 
 `BudgetBuddy` is the main class of application which the user can interact with directly.  The input from the user is 
 processed by the main class and passed to the `Parser`. `Parser` will check for any valid keywords in the input using 
@@ -97,7 +97,7 @@ the diagrams.
 2. Validator also returns different type of Command Classes depending on the validity of input, which has been omitted
 for the same reason as above.
 
-![CommandClass.drawio.png](/docs/diagrams/CommandClass.drawio.png)
+![CommandClass.drawio.png](diagrams/CommandClass.drawio.png)
 
 #### 3.6 Expense and Income Class
 The `Expense` and `Income` class inherits from the Transaction class.
@@ -109,7 +109,7 @@ The `Expense` and `Income` class inherits from the Transaction class.
 The methods for `Expense` and `Income` are not shown.
 
 
-![ExpenseAndIncomeClassDiagram.drawio.png](/docs/diagrams/ExpenseAndIncomeClassDiagram.drawio.png)
+![ExpenseAndIncomeClassDiagram.drawio.png](diagrams/ExpenseAndIncomeClassDiagram.drawio.png)
 
 ### 4. Implementation
 
