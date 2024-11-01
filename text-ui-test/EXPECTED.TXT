@@ -82,12 +82,7 @@ Invalid amount: -1000.0. Amount must be a positive value.
 ========================================================
 Enter commands: ========================================================
 The following budget amount has been updated:
-Total Monthly Budget: 123.0  Date: 2024-11  Category: {OTHERS=123.0}
-You have 1 budget(s) in total.
-========================================================
-Enter commands: ========================================================
-The following budget amount has been updated:
-Total Monthly Budget: 1357.0  Date: 2024-11  Category: {OTHERS=1357.0}
+Total Monthly Budget: 1234.0  Date: 2024-11  Category: {OTHERS=1234.0}
 You have 1 budget(s) in total.
 ========================================================
 Enter commands: ========================================================
@@ -97,7 +92,7 @@ You have 2 budget(s) in total.
 ========================================================
 Enter commands: ========================================================
 The following budget amount has been updated:
-Total Monthly Budget: 3657.0  Date: 2024-11  Category: {OTHERS=3657.0}
+Total Monthly Budget: 3534.0  Date: 2024-11  Category: {OTHERS=3534.0}
 You have 2 budget(s) in total.
 ========================================================
 Enter commands: ========================================================
@@ -115,11 +110,6 @@ No amount provided.
 ========================================================
 Enter commands: ========================================================
 Invalid amount: -1000.0. Must be a positive value.
-========================================================
-Enter commands: ========================================================
-The following budget amount has been updated:
-Total Monthly Budget: 3534.0  Date: 2024-11  Category: {OTHERS=3534.0}
-You have 4 budget(s) in total.
 ========================================================
 Enter commands: ========================================================
 The following budget amount has been updated:
