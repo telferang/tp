@@ -18,7 +18,6 @@ add income Tuition a/100.00 d/15/12/2024
 add income Internship a/123 d/13/10/2024
 add budget
 add budget a/-1000
-add budget a/123
 add budget a/1234 m/11/2024
 add budget a/800 m/03/2024
 add budget a/2300 m/11/2024
@@ -26,7 +25,6 @@ add budget a/3000 m/07/2024
 add budget a/5000 m/02/2024
 deduct budget
 deduct budget a/-1000
-deduct budget a/123
 deduct budget a/1234 m/11/2024
 deduct budget a/800 m/03/2024
 deduct budget a/2300 m/11/2024
