@@ -181,6 +181,17 @@ Example of usage:
 1. `edit income 3`
 2. `a/100 d/15/10/2024`
 
+### Display Monthly Expenses Chart: `display monthly expenses`
+Display a XY-Chart of your monthly expenses. The X-Axis will be the months of the year while the Y-Axis
+is the total expenses for that particular month.
+
+Format:
+`display monthly expenses y/YEAR`
+
+* The `YEAR` is the year of the expenses to be displayed
+* The format of `YEAR` should be `YYYY`
+* The command only accepts year between >=1900 and <=2100 to account for erroneous inputs.
+
 ## FAQ
 
 **Q**: How do I transfer my data to another computer? 

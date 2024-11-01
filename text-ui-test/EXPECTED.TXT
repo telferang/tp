@@ -82,33 +82,33 @@ Invalid amount: -1000.0. Amount must be a positive value.
 ========================================================
 Enter commands: ========================================================
 The following budget amount has been updated:
-Total Monthly Budget: 123.0  Date: 2024-10  Category: {OTHERS=123.0}
+Total Monthly Budget: 123.0  Date: 2024-11  Category: {OTHERS=123.0}
 You have 1 budget(s) in total.
 ========================================================
 Enter commands: ========================================================
 The following budget amount has been updated:
-Total Monthly Budget: 1234.0  Date: 2024-11  Category: {OTHERS=1234.0}
-You have 2 budget(s) in total.
+Total Monthly Budget: 1357.0  Date: 2024-11  Category: {OTHERS=1357.0}
+You have 1 budget(s) in total.
 ========================================================
 Enter commands: ========================================================
 The following budget amount has been updated:
 Total Monthly Budget: 800.0  Date: 2024-03  Category: {OTHERS=800.0}
-You have 3 budget(s) in total.
+You have 2 budget(s) in total.
 ========================================================
 Enter commands: ========================================================
 The following budget amount has been updated:
-Total Monthly Budget: 3534.0  Date: 2024-11  Category: {OTHERS=3534.0}
-You have 3 budget(s) in total.
+Total Monthly Budget: 3657.0  Date: 2024-11  Category: {OTHERS=3657.0}
+You have 2 budget(s) in total.
 ========================================================
 Enter commands: ========================================================
 The following budget amount has been updated:
 Total Monthly Budget: 3000.0  Date: 2024-07  Category: {OTHERS=3000.0}
-You have 4 budget(s) in total.
+You have 3 budget(s) in total.
 ========================================================
 Enter commands: ========================================================
 The following budget amount has been updated:
 Total Monthly Budget: 5000.0  Date: 2024-02  Category: {OTHERS=5000.0}
-You have 5 budget(s) in total.
+You have 4 budget(s) in total.
 ========================================================
 Enter commands: ========================================================
 No amount provided.
@@ -117,8 +117,8 @@ Enter commands: ========================================================
 Invalid amount: -1000.0. Must be a positive value.
 ========================================================
 Enter commands: ========================================================
-The following budget has been deleted as its amount reached zero:
-Total Monthly Budget: 123.0  Date: 2024-10  Category: {}
+The following budget amount has been updated:
+Total Monthly Budget: 3534.0  Date: 2024-11  Category: {OTHERS=3534.0}
 You have 4 budget(s) in total.
 ========================================================
 Enter commands: ========================================================
