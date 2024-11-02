@@ -428,7 +428,7 @@ The `BudgetBuddy` class then calls the `execute()` method of the `HelpCommand` o
 `displayHelpMessage()` method of the `Ui` class. 
 
 Below is the sequence diagram for the execution of the Display Help Feature: 
-![DisplayHelpSequenceDiagram.drawio.png](diagrams/DisplayHelpSequenceDiagram.drawio.png)
+![DisplayHelpSequenceDiagram.drawio.png](diagrams/DisplaySavingsSequenceDiagram.drawio.png)
 
 # Appendix
 
