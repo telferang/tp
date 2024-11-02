@@ -65,35 +65,35 @@ public class SavingsManager {
         String result = "";
         ArrayList<YearMonth> listYearMonths = new ArrayList<>();
         ArrayList<Saving> savings = new ArrayList<>();
-        if (IncomeManager.getIncomes().size() > 0){
-            for (Income income: IncomeManager.getIncomes()){
-                YearMonth incomeYearMonth = IncomeManager.getYearMonthFromDate(income.getDate());
-                int indexOfSaving = findYearMonthFromArray(listYearMonths, incomeYearMonth);
-                if (indexOfSaving == -1){
-                    listYearMonths.add(incomeYearMonth);
-                    savings.add(new Saving(incomeYearMonth, income.getAmount()));
-                } else{
-                    savings.get(indexOfSaving).addIncome(income.getAmount());
-                }
-            }
-        }
-
-        if (ExpenseManager.getExpenses().size() > 0) {
-            for (Expense expense : ExpenseManager.getExpenses()) {
-                YearMonth expenseYearMonth = ExpenseManager.getYearMonthFromDate(expense.getDate());
-                int indexOfSaving = findYearMonthFromArray(listYearMonths, expenseYearMonth);
-                if (indexOfSaving == -1) {
-                    listYearMonths.add(expenseYearMonth);
-                    savings.add(new Saving(expenseYearMonth, -expense.getAmount()));
-                } else {
-                    savings.get(indexOfSaving).deductExpense(expense.getAmount());
-                }
-            }
-        }
-        if (savings.size() == 0){
+        if (IncomeManager.getIncomes().size() <= 0 && ExpenseManager.getExpenses().size() <= 0){
             result = "Total savings: 0\n";
             return result;
         }
+
+        for (Income income: IncomeManager.getIncomes()){
+            YearMonth incomeYearMonth = IncomeManager.getYearMonthFromDate(income.getDate());
+            int indexOfSaving = findYearMonthFromArray(listYearMonths, incomeYearMonth);
+            if (indexOfSaving == -1){
+                listYearMonths.add(incomeYearMonth);
+                savings.add(new Saving(incomeYearMonth, income.getAmount()));
+            } else{
+                savings.get(indexOfSaving).addIncome(income.getAmount());
+            }
+        }
+
+
+        for (Expense expense : ExpenseManager.getExpenses()) {
+            YearMonth expenseYearMonth = ExpenseManager.getYearMonthFromDate(expense.getDate());
+            int indexOfSaving = findYearMonthFromArray(listYearMonths, expenseYearMonth);
+            if (indexOfSaving == -1) {
+                listYearMonths.add(expenseYearMonth);
+                savings.add(new Saving(expenseYearMonth, -expense.getAmount()));
+            } else {
+                savings.get(indexOfSaving).deductExpense(expense.getAmount());
+            }
+        }
+
+
         savings.sort(Comparator.comparing(Saving::getYearMonth));
         for (Saving saving: savings){
             result += "Savings in " + saving.getYearMonth() +": " + saving.getSavings() + "\n";
