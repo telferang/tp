@@ -66,8 +66,8 @@ public class SavingsManager {
         ArrayList<YearMonth> listYearMonths = new ArrayList<>();
         ArrayList<Saving> savings = new ArrayList<>();
         if (IncomeManager.getIncomes().size() <= 0 && ExpenseManager.getExpenses().size() <= 0){
-                result = "Total savings: 0\n";
-                return result;
+            result = "Total savings: 0\n";
+            return result;
         }
 
         for (Income income: IncomeManager.getIncomes()){
