@@ -12,7 +12,7 @@ public class HelpCommand extends Command{
      * @return true if command matches "help". else, false.
      */
     public static boolean isCommand(String command){
-        return command.equals("help");
+        return command.startsWith("help");
     }
 
     /**

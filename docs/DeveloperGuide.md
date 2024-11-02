@@ -253,7 +253,7 @@ relevance is as follows:
 |-------------|---------------|-----------------------------------------------------------------------------|
 |byMonth| boolean | Indicates whether the user wants to display by month or just total savings. |
 
-The BudgetBuddy class then calls the `execute` method of the `DisplaySavingsCommand` object which uses the 
+The BudgetBuddy class then calls the `execute()` method of the `DisplaySavingsCommand` object which uses the 
 `displaySavings()` or `displaySavingsByMonth()` method in the `SavingsManager` class, displaying the result to the 
 user using the `Ui` class `displayToUser()` method. 
 
@@ -406,6 +406,29 @@ class then uses the `Ui` class to call function `getUserEditFields()` for editin
 
 The following UML Sequence diagram shows how the Parser works to obtain the relevant inputs for the Edit Income Feature
 ![EditIncomeSequenceDiagram.drawio.png](diagrams/EditIncomeSequenceDiagram.drawio.png)
+
+#### 4.12 Breakdown Expense Feature 
+The Breakdown Expense Feature allows users to gain greater insights into their expense history. The feature 
+makes use of the user's expense history, breaking down their total expense into the different categories, displaying
+this result to the user. This allows the user to know where they are spending their money. This feature differs from
+the List Expense Feature in that this feature gives a quick overview of a user's expenditure, in terms of categories.
+
+This feature is managed by the `BreakdownExpensesCommand` class, initialized by the `Parser` class upon user input. The 
+`BudgetBuddy` class then calls the `execute()` method of the `BreakdownExpensesCommand` object, which uses the 
+`breakdownExpensesByCategory()` method in the `ExpenseManager` class to execute the functionality, displaying 
+the result via the `displayToUser()` method in the `Ui` class.
+
+Below is the sequence diagram for the execution of the Breakdown Expense Feature interaction: 
+![BreakdownExpenseSequenceDiagram.drawio.png](diagrams/BreakdownExpenseSequenceDiagram.drawio.png)
+
+#### 4.13 Display Help Feature
+The Display Help Feature serves as a guide for new users, displaying a list of features and an example command
+for each feature. The feature is managed by the `HelpComand` class, initialized by the `Parser` class upon user input. 
+The `BudgetBuddy` class then calls the `execute()` method of the `HelpCommand` object, which uses the 
+`displayHelpMessage()` method of the `Ui` class. 
+
+Below is the sequence diagram for the execution of the Display Help Feature: 
+![DisplayHelpSequenceDiagram.drawio.png](diagrams/DisplayHelpSequenceDiagram.drawio.png)
 
 # Appendix
 
