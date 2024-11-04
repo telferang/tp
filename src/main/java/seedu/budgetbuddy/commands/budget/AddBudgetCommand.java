@@ -35,6 +35,33 @@ public class AddBudgetCommand extends Command {
     }
 
     /**
+     * Returns the amount associated with the budget. Useful for unit testing.
+     *
+     * @return The amount as a double value.
+     */
+    public double getAmount() {
+        return amount;
+    }
+
+    /**
+     * Returns the date associated with the budget. Useful for unit testing.
+     *
+     * @return The date as a YearMonth object.
+     */
+    public YearMonth getDate() {
+        return date;
+    }
+
+    /**
+     * Returns the category associated with the budget. Useful for unit testing.
+     *
+     * @return The category as a Category object.
+     */
+    public Category getCategory() {
+        return category;
+    }
+
+    /**
      * Checks if the given command string starts with "add budget".
      *
      * @param command The command string entered by the user.
