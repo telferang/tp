@@ -20,6 +20,16 @@ public class ListBudgetCommand extends Command {
     public ListBudgetCommand(YearMonth date) {
         this.date = date;
     }
+
+    /**
+     * Retrieves the date associated with this command. Useful for unit testing.
+     *
+     * @return The specified date, or null if no specific date is set.
+     */
+    public YearMonth getDate() {
+        return date;
+    }
+
     /**
      * Checks if the provided command matches the command to list budget.
      *
