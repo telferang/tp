@@ -6,6 +6,24 @@
 
 ---
 
+[1. Introduction](#1-introduction) <br>
+[2. Setup Guide](#2-setup-guide) <br>
+&nbsp;&nbsp;[2.1 Prerequisites](#21-prerequisites) <br>
+[3. Design](#3-design) <br>
+&nbsp;&nbsp;[3.1 Architecture](#31-architecture) <br>
+&nbsp;&nbsp;[3.2 Parser Class](#32-parser-class) <br>
+&nbsp;&nbsp;[3.3 UI Class](#33-ui-class) <br>
+&nbsp;&nbsp;[3.4 Command Class](#34-command-class) <br>
+&nbsp;&nbsp;[3.5 Validator Classes](#35-validator-classes) <br>
+&nbsp;&nbsp;[3.6 Expense and Income Class](#36-expense-and-income-class) <br>
+[4. Implementation](#4-implementation) <br>
+&nbsp;&nbsp;[4.1 Expense Features](#41-expense-features) <br>
+&nbsp;&nbsp;&nbsp;[4.1.5 Display Monthly Expenses](#415-display-monthly-expenses) <br>
+&nbsp;&nbsp;&nbsp;[4.1.6 Display Expenses for Month with Categories](#416-display-expenses-for-month-with-categories) <br>
+&nbsp;&nbsp;[4.2 Income Features](#42-income-features) <br>
+&nbsp;&nbsp;[4.3 Budget Features](#43-budget-features) <br>
+&nbsp;&nbsp;[4.4 Savings Features](#44-savings-features) <br>
+&nbsp;&nbsp;[4.5 Miscellaneous Features](#45-miscellaneous-features) <br>
 
 
 ## Acknowledgements
@@ -14,34 +32,29 @@
 
 {list here sources of all reused/adapted ideas, code, documentation, and third-party libraries -- include links to the original source as well}
 
-## Design & implementation
 
----
 
-{Describe the design and implementation of the product. Use UML diagrams and short code snippets where applicable.}
-
-### 1. Introduction
+## 1. Introduction
 
 ---
 
 BudgetBuddy is a CLI-based expense, income and budget tracking application. BudgetBuddy is designed to help users manage and monitor their daily and monthly expenses. The system tracks various categories of expenses and allows users to receive insights on their budget and spending patterns.
 
-### 2. Setup Guide
+## 2. Setup Guide
 
 ---
 
 This section describes how to setup the coding environment, along with the tools needed to work on BudgetBuddy
 
-#### 2.1 Prerequisites
+### 2.1 Prerequisites
 1. JDK 17
 2. Any working IDE that supports Java (Intellij IDEA preferred)
-3. XChart
 
-### 3. Design
+## 3. Design
 
 ---
 
-#### 3.1 Architecture
+### 3.1 Architecture
 The following diagram shows the rough overview of BudgetBuddy
 
 ![OverallDiagram.drawio.png](diagrams/OverallDiagram.drawio.png)
@@ -53,40 +66,38 @@ the `isCommand` method of all the `Command` object. Once the keywords are presen
 , the command will be executed in `BudgetBuddy`. The `Validator` and `Object` genre classes utilizes methods and classes
 present in the [transaction](/src/main/java/seedu/budgetbuddy/transaction) folder.
 
-#### 3.2 Parser Class
+### 3.2 Parser Class
 The `Parser` class is to mainly determine whether the user input is valid, and proceed to process the command after.
 It uses Boolean Methods to determine the presence of keywords, and then creates a Validator class to process the command
 should the keywords be present.
 
 The following are some examples:
 
-| Boolean Methods                        | Check if input starts with | Feature Requires | Creates                                            |
-|----------------------------------------|----------------------------|------------------|----------------------------------------------------|
-| ListMonthlyExpensesCommand.isCommand() | list monthly expenses      | input            | ListMonthlyExpensesValidator.processCommand(input) |
-| AddExpenseCommand.isCommand()          | add expense                | input            | AddExpenseValidator.processCommand(input)          | 
+| Boolean Methods                          | Check if input starts with | Feature Requires | Creates                                            |
+|------------------------------------------|----------------------------|------------------|----------------------------------------------------|
+| `ListMonthlyExpensesCommand.isCommand()` | list monthly expenses      | input            | ListMonthlyExpensesValidator.processCommand(input) |
+| `AddExpenseCommand.isCommand()`          | add expense                | input            | AddExpenseValidator.processCommand(input)          | 
 
 The Parser class is also used to parse lines from the `Storage` .txt file and loads it into the main application upon
 restart. This will be covered more under the storage class.
 
-#### 3.3 UI Class
+### 3.3 UI Class
 
 The UI Class is to print out elements of the app in the CLI. It contains many methods used to print general, often-used
 messages such as displayWelcomeMessage() and displayExitMessage().
 
-#### 3.4 Command Class
+### 3.4 Command Class
 
 The `Command` class is a parent class which is responsible for checking for input keywords. It has multiple subclasses,
 which corresponds to a specific function of the application. Each of its subclass checks for specific keywords in the
 user input. If the input is valid as checked by the `isCommand()` method, it will call its corresponding validator.
 
-#### 3.5 Validator Classes
+### 3.5 Validator Classes
 
 The Validator classes are a group of classes which is responsible for further checks on input, such as whether it has
 the right formatting and contains all necessary details. It will return different subclasses of the command object
 depending on whether the input is valid or not. Once the object is instantiated and returned, the `main` class will call
 `execute` to execute the feature.
-
-##### 3.4.1 and 3.5.1 XML Sequence Diagram
 
 The following sequence diagram shows the process of what happens when a user input is passed through the application,
 until it gets executed.
@@ -99,7 +110,7 @@ for the same reason as above.
 
 ![CommandClass.drawio.png](diagrams/CommandClass.drawio.png)
 
-#### 3.6 Expense and Income Class
+### 3.6 Expense and Income Class
 The `Expense` and `Income` class inherits from the Transaction class.
 
 `Expense` class stores one expense record given by the user.
@@ -111,9 +122,88 @@ The methods for `Expense` and `Income` are not shown.
 
 ![ExpenseAndIncomeClassDiagram.drawio.png](diagrams/ExpenseAndIncomeClassDiagram.drawio.png)
 
-### 4. Implementation
+## 4. Implementation
 
-#### 4.1 Add Expense Feature
+---
+### 4.1 Expense Features
+
+---
+#### 4.1.5 Display Monthly Expenses
+The Display Monthly Expenses feature displays an XY-Chart which helps shows user's monthly expenses across the specified
+year. This functionality is controlled by the `DisplayTotalExpensesCommand` class which uses
+`DisplayTotalExpensesValidator` class to validate the command string and year, and performs the deduction if valid.
+Below shows the relevance of the attribute:
+
+| Class Attribute | Variable Type | Relevance                                        |
+|-----------------|---------------|--------------------------------------------------|
+| year            | int           | The specified year of the chart to be displayed  |
+
+The `BudgetBuddy` class then calls `execute()` method of `DisplayTotalExpensesCommand` object which uses the
+`displayExpensesOverMonthGraph(int year)` method in `ExpenseManager` class to display the chart.
+
+The following methods in `ExpenseOverMonthGraph` class is called by `displayExpensesOverMonth(int year)` method to
+display the chart from XChart.
+
+| Method                                                             | Return Type              | Relevance                                                                                                         |
+|--------------------------------------------------------------------|--------------------------|-------------------------------------------------------------------------------------------------------------------| 
+| `monthMapBuilder(ArrayList<Expense> expense)`                      | `Map<YearMonth, Double>` | Builds a Hashmap of with each key being months and each value being the total expenses of the corresponding month |
+| `chartPrinter(Map<YearMonth, Double> monthlyExpenseMap, int year)` | `void`                   | Prints the XY-Chart of the specified year                                                                         |
+
+Finally, the XChart library will be called to build the chart and display it with SwingWrapper.
+
+The following UML Sequence diagram shows how Parser works to obtain all relevant inputs for this feature.
+
+![DisplayMonthlyExpenses.drawio.png](diagrams/DisplayMonthlyExpenses.drawio.png)
+
+
+#### 4.1.6 Display Expenses for Month with Categories
+The Display Expenses for Month with Categories displays a pie chart which helps shows user's expenses weightage for each
+category for the specified month. This functionality is controlled by
+`DisplayExpensesForMonthWithCategoriesGraphCommand` class which uses the
+`DisplayExpensesForMonthWithCategoriesGraphValidator` class to validate the command string and date in YearMonth format,
+and performs the deduction if valid. Below shows the relevance of the attribute.
+
+| Class Attribute | Variable Type | Relevance                                                 |
+|-----------------|---------------|-----------------------------------------------------------|
+| yearMonth       | YearMonth     | The specified year and month of the chart to be displayed |
+
+
+The `BudgetBuddy` class then calls `execute()` method of `DisplayExpensesForMonthWithCategoriesGraphCommand` object
+which uses the `displayExpensesForMonthWithCategoriesGraph(YearMonth yearMonth)` method in `ExpenseManager` class to
+display the chart.
+
+The following methods in `ExpensesCategoryPieChart` class is called by
+`displayExpensesForMonthWithCategoriesGraph(YearMonth yearMonth)` method to display the chart from XChart.
+
+| Method                                                                                                | Return Type             | Relevance                                                                                  |
+|-------------------------------------------------------------------------------------------------------|-------------------------|--------------------------------------------------------------------------------------------|
+| `expensesByCategoryMapBuilder(YearMonth yearMonth)`                                                   | `Map<Category, Double>` | Builds a Hashmap with key being category and value is the total expenses for each category |
+| `getTotalExpensesForMonthWithCategories(YearMonth yearMonth, Category category)`                      | `double`                | Helps to calculate the total expenses for the specified month given a category             |
+| `displayExpenseByCategoryPieChart(YearMonth yearMonth, Map<Category, Double> expensesByCategoryMap)`  | `void`                  | Prints the Pie Chart of the specified month and year                                       |
+
+Finally, the XChart library will be called to build the chart and display it with SwingWrapper.
+
+The following UML Sequence diagram shows how Parser works to obtain all relevant inputs for this feature.
+
+![DisplayExpensesWithCategories.drawio.png](diagrams/DisplayExpensesWithCategories.drawio.png)
+
+### 4.2 Income Features
+
+---
+
+### 4.3 Budget Features
+
+---
+
+### 4.4 Savings Features
+
+---
+
+### 4.5 Miscellaneous Features
+
+---
+
+#### 4.1.1 Add Expense Feature
 The Add Expense feature enables users to add budgets for different categories. This functionality is controlled by the
 AddExpenseCommand class, which is produced by the Parser class based on user input. The AddExpenseCommand class uses an
 AddExpenseValidator class to validate the provided description, amount, category, and date, and then create and add the
@@ -142,7 +232,7 @@ The scenario of invalid input and sequence within `RemainingBudgetManager` are o
 ![AddExpenseSequenceDiagram.drawio.png](diagrams/AddExpenseSequenceDiagram.drawio.png)
 
 
-#### 4.2 Add Budget Feature
+#### 4.3.1 Add Budget Feature
 The Add Budget feature enables users to add budgets for different categories. This functionality is controlled by the 
 AddBudgetCommand class, which is produced by the Parser class based on user input. The AddBudgetCommand class uses an 
 AddBudgetValidator object to validate the provided amount, category, and date, and then performs the budget addition 
@@ -169,7 +259,7 @@ The following UML Sequence diagram shows how the Parser works to obtain the rele
 for the Add Budget Feature:
 ![AddBudgetSequenceDiagram.drawio.png](diagrams/AddBudgetSequenceDiagram.drawio.png)
 
-#### 4.3 Deduct Budget Feature
+#### 4.3.2 Deduct Budget Feature
 The Deduct Budget feature enables users to deduct an amount from an existing budget. This functionality is controlled 
 by the DeductBudgetCommand class, which is produced by the Parser class based on user input. 
 The DeductBudgetCommand class uses a DeductBudgetValidator object to validate the provided amount, category, and date, 
@@ -198,14 +288,14 @@ The following UML Sequence diagram shows how the Parser works to obtain the rele
 for the Add Budget Feature:
 ![DeductBudgetSequenceDiagram.drawio.png](diagrams/DeductBudgetSequenceDiagram.drawio.png)
 
-#### 4.4 List Budget Feature
+#### 4.3.3 List Budget Feature
 The List Budget feature enables users to view all existing budgets or filter them based on the date. This functionality 
 is controlled by the ListBudgetCommand class, which is produced by the Parser class based on user input. 
 The ListBudgetCommand class uses a ListBudgetValidator object to validate the provided date, checks if the list request 
 is valid, and, if valid, retrieves and displays the matching budgets through the UI. If the validation fails, 
 an error message is shown.
 
-#### 4.5 Search Expense Feature
+#### 4.1.2 Search Expense Feature
 The Search Expense Feature enables users to search for specific expenses based on a description provided by the 
 user. This feature is managed by the `SearchExpensesCommand` class, initialized by the `Parser` class, with the help
 of a helper class `SearchExpenseValidator` to validate and extract the user description. 
@@ -239,7 +329,7 @@ filtering the `expenses` ArrayList and returning a String containing all expense
 in the description of the expenses. The `SearchExpenseCommand` object then calls the `displayToUser()` method in `Ui`,
 displaying this String to the user.
 
-#### 4.6 Display Savings Feature
+#### 4.4.1 Display Savings Feature
 The Display Savings Feature enables users to check how much they have saved, through their inputs into the application.
 We assume that the user has accurately reflected all expenses and incomes, and we calculate their savings by 
 taking Savings = Total Income - Total Expense. The user has the option to either
@@ -279,7 +369,7 @@ The class diagram below indicates the structure of the DisplaySavings Feature, i
 `IncomeManager` and `ExpenseManager`.
 ![SavingsManagerClassDiagram.drawio.png](diagrams/SavingsManagerClassDiagram.drawio.png)
 
-#### 4.7 List Remaining Feature
+#### 4.3.4 List Remaining Feature
 The `ListRemainingBudgetManager` will get the `Expenses` from `ExpenseManager` and `Budgets` from `BudgetManager`. All
 the `Expense` amount will be deducted from the budget according to the date and category.
 
@@ -288,7 +378,7 @@ Budgets Feature:
 The loop to copy all the budget and the loop to match a expense to a budget are omitted to reduce complexity.
 ![ListRemainingBudgetSequenceDiagram.drawio.png](diagrams/ListRemainingBudgetSequenceDiagram.drawio.png)
 
-#### 4.8 List Expenses Feature
+#### 4.1.3 List Expenses Feature
 The List Expense feature enables users to view saved expenses in the application. Additionally, user may add additional
 filters to display only desired categories and months. The total expense amount based on the displayed expenses will be
 summed and displayed to the user. This feature is controlled by the `ListExpenseCommand` class, where it is initialized
@@ -317,7 +407,7 @@ the user using the `Ui` class `displayToUser()` method.
 The following UML Sequence diagram shows how the Parser works to obtain the relevant inputs for the List Expense Feature
 ![ListExpenseSequenceDiagram.drawio.png](diagrams/ListExpenseSequenceDiagram.drawio.png)
 
-#### 4.9 List Income Feature
+#### 4.2.1 List Income Feature
 The List Income feature enables users to view saved income in the application. Additionally, user may add additional
 filters to display only desired months. The total income amount based on the displayed income will be summed and 
 displayed to the user. This feature is controlled by the `ListIncomeCommand` class, where it is initialized by the 
@@ -346,7 +436,7 @@ The following UML Sequence diagram shows how the Parser works to obtain the rele
 The following UML Sequence diagram shows how the Parser works to obtain the relevant inputs for the List Income Feature
 ![ListIncomeSequenceDiagram.drawio.png](diagrams/ListIncomeSequenceDiagram.drawio.png)
 
-#### 4.10 Edit Expense Feature
+#### 4.1.3 Edit Expense Feature
 The Edit Expense Feature enable users to edit pre-existing entries of expenses in the application. Users are only 
 allowed to change the date, category and amount fields of the expense field. Currently, the description of each task 
 cannot be edited, however it may be implemented for future versions. There are 2 sets of instruction that the user
@@ -377,7 +467,7 @@ class then uses the `Ui` class to call function `getUserEditFields()` for editin
 The following UML Sequence diagram shows how the Parser works to obtain the relevant inputs for the Edit Expense Feature
 ![EditExpenseSequenceDiagram.drawio.png](diagrams/EditExpenseSequenceDiagram.drawio.png)
 
-#### 4.11 Edit Income Feature
+#### 4.2.2 Edit Income Feature
 The Edit Income Feature enable users to edit pre-existing entries of incomes in the application. Users are only
 allowed to change the date and amount fields of the income field. Currently, the description of each task
 cannot be edited, however it may be implemented for future versions. There are 2 sets of instruction that the user
@@ -407,7 +497,7 @@ class then uses the `Ui` class to call function `getUserEditFields()` for editin
 The following UML Sequence diagram shows how the Parser works to obtain the relevant inputs for the Edit Income Feature
 ![EditIncomeSequenceDiagram.drawio.png](diagrams/EditIncomeSequenceDiagram.drawio.png)
 
-#### 4.12 Breakdown Expense Feature 
+#### 4.1.4 Breakdown Expense Feature 
 The Breakdown Expense Feature allows users to gain greater insights into their expense history. The feature 
 makes use of the user's expense history, breaking down their total expense into the different categories, displaying
 this result to the user. This allows the user to know where they are spending their money. This feature differs from
@@ -421,7 +511,7 @@ the result via the `displayToUser()` method in the `Ui` class.
 Below is the sequence diagram for the execution of the Breakdown Expense Feature interaction: 
 ![BreakdownExpenseSequenceDiagram.drawio.png](diagrams/BreakdownExpenseSequenceDiagram.drawio.png)
 
-#### 4.13 Display Help Feature
+#### 4.5.1 Display Help Feature
 The Display Help Feature serves as a guide for new users, displaying a list of features and an example command
 for each feature. The feature is managed by the `HelpComand` class, initialized by the `Parser` class upon user input. 
 The `BudgetBuddy` class then calls the `execute()` method of the `HelpCommand` object, which uses the 
@@ -429,6 +519,7 @@ The `BudgetBuddy` class then calls the `execute()` method of the `HelpCommand` o
 
 Below is the sequence diagram for the execution of the Display Help Feature: 
 ![DisplayHelpSequenceDiagram.drawio.png](diagrams/DisplaySavingsSequenceDiagram.drawio.png)
+
 
 # Appendix
 
