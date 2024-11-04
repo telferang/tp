@@ -259,8 +259,7 @@ if it does not exist:
 Then, `addAmount(category, amount)` method in the `Budget` class is also called to add the amount to the budget. 
 Finally, the result is displayed to the user using the `Ui` class `displayToUser()` method.
 
-The following UML Sequence diagram shows how the Parser works to obtain the relevant inputs 
-for the Add Budget Feature:
+The following UML Sequence diagram shows how to obtain the relevant inputs for the Add Budget Feature:
 ![AddBudgetSequenceDiagram.drawio.png](diagrams/AddBudgetSequenceDiagram.drawio.png)
 
 #### 4.3.2 Deduct Budget Feature
@@ -288,16 +287,18 @@ the `budgets` list if the total amount of the budget reaches zero:
 
 Finally, the result is displayed to the user using the `Ui` class `displayToUser()` method.
 
-The following UML Sequence diagram shows how the Parser works to obtain the relevant inputs
-for the Add Budget Feature:
+The following UML Sequence diagram shows how to obtain the relevant inputs for the Deduct Budget Feature:
 ![DeductBudgetSequenceDiagram.drawio.png](diagrams/DeductBudgetSequenceDiagram.drawio.png)
 
 #### 4.3.3 List Budget Feature
 The List Budget feature enables users to view all existing budgets or filter them based on the date. This functionality 
 is controlled by the ListBudgetCommand class, which is produced by the Parser class based on user input. 
 The ListBudgetCommand class uses a ListBudgetValidator object to validate the provided date, checks if the list request 
-is valid, and, if valid, retrieves and displays the matching budgets through the UI. If the validation fails, 
+is valid, and, if valid, retrieves and displays the matching budget through the UI. If the validation fails, 
 an error message is shown.
+
+The following UML Sequence diagram shows how to obtain the relevant inputs for the List Budget Feature:
+![ListBudgetSequenceDiagram.drawio.png](diagrams/ListBudgetSequenceDiagram.drawio.png)
 
 #### 4.1.2 Search Expense Feature
 The Search Expense Feature enables users to search for specific expenses based on a description provided by the 
@@ -514,6 +515,16 @@ the result via the `displayToUser()` method in the `Ui` class.
 
 Below is the sequence diagram for the execution of the Breakdown Expense Feature interaction: 
 ![BreakdownExpenseSequenceDiagram.drawio.png](diagrams/BreakdownExpenseSequenceDiagram.drawio.png)
+
+#### 4.4.2 Display Income Spent Feature
+The Display Income Spent Feature shows users the percentage of income spent for a specific month. When the command is 
+received, BudgetBuddy creates a DisplayIncomeSpentCommand object and executes it. The command then calls 
+displaySpentPercentage(month) on IncomeSpent, which calculates the percentage for the specified month. The result is 
+formatted with toString(month: YearMonth) and passed to the Ui component via displayToUser(result: String) for display 
+to the user.
+
+The following UML Sequence diagram shows how to obtain the relevant inputs for the Display Income Spent Feature:
+![DisplayIncomeSpentSequenceDiagram.drawio.png](diagrams/DisplayIncomeSpentSequenceDiagram.drawio.png)
 
 #### 4.5.1 Display Help Feature
 The Display Help Feature serves as a guide for new users, displaying a list of features and an example command
