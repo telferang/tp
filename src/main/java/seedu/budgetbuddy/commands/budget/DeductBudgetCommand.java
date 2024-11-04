@@ -50,8 +50,8 @@ public class DeductBudgetCommand extends Command {
      */
     @Override
     public void execute() {
-        // Assume validation has guaranteed that existingBudget is not null
         Budget existingBudget = BudgetManager.getBudget(date);
+        assert existingBudget != null;
         existingBudget.deductAmount(category, amount);
         LOGGER.info("Deducted " + amount + " from budget for date: " + date);
     }
