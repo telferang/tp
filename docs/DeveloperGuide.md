@@ -64,7 +64,7 @@ processed by the main class and passed to the `Parser`. `Parser` will check for 
 the `isCommand` method of all the `Command` object. Once the keywords are present, it will pass the input to a 
 `Validator` object which validates the command on its formatting and details. Depending on the result of the `Validator`
 , the command will be executed in `BudgetBuddy`. The `Validator` and `Object` genre classes utilizes methods and classes
-present in the [transaction](/src/main/java/seedu/budgetbuddy/transaction) folder.
+present in the transaction folder.
 
 ### 3.2 Parser Class
 The `Parser` class is to mainly determine whether the user input is valid, and proceed to process the command after.
@@ -108,7 +108,7 @@ the diagrams.
 2. Validator also returns different type of Command Classes depending on the validity of input, which has been omitted
 for the same reason as above.
 
-![CommandClass.drawio.png](diagrams/CommandClass.drawio.png)
+![CommandCreation.drawio.png](diagrams/CommandCreation.drawio.png)
 
 ### 3.6 Expense and Income Class
 The `Expense` and `Income` class inherits from the Transaction class.
@@ -152,6 +152,8 @@ display the chart from XChart.
 Finally, the XChart library will be called to build the chart and display it with SwingWrapper.
 
 The following UML Sequence diagram shows how Parser works to obtain all relevant inputs for this feature.
+We assume that the command for this feature has already been created and returned to `BudgetBuddy`.
+The starting arrow indicates return of the command based on the sequence diagram at [3.5 Validator Classes](#35-validator-classes)
 
 ![DisplayMonthlyExpenses.drawio.png](diagrams/DisplayMonthlyExpenses.drawio.png)
 
@@ -184,6 +186,8 @@ The following methods in `ExpensesCategoryPieChart` class is called by
 Finally, the XChart library will be called to build the chart and display it with SwingWrapper.
 
 The following UML Sequence diagram shows how Parser works to obtain all relevant inputs for this feature.
+We assume that the command for this feature has already been created and returned to `BudgetBuddy`.
+The starting arrow indicates return of the command based on the sequence diagram at [3.5 Validator Classes](#35-validator-classes)
 
 ![DisplayExpensesWithCategories.drawio.png](diagrams/DisplayExpensesWithCategories.drawio.png)
 
