@@ -107,7 +107,7 @@ public class ExpenseManager {
     public static double getMonthlyExpense(YearMonth month) {
         double sum = 0;
         for (Expense expense : expenses) {
-            if(month.equals(getYearMonthFromDate(expense.getDate()))) {
+            if (month.equals(getYearMonthFromDate(expense.getDate()))) {
                 sum += expense.getAmount();
             }
         }
@@ -148,13 +148,13 @@ public class ExpenseManager {
         double amount = 0;
         String monthInString = month.format(DateTimeFormatter.ofPattern("MMMM yyyy"));
         for (Expense expense : expenses) {
-            if(category.equals(expense.getCategory()) && month.equals(getYearMonthFromDate(expense.getDate()))) {
+            if (category.equals(expense.getCategory()) && month.equals(getYearMonthFromDate(expense.getDate()))) {
                 counter++;
                 result += counter + ". " + expense.toString() + "\n";
                 amount += expense.getAmount();
             }
         }
-        if(result.equals("")) {
+        if (result.equals("")) {
             result = getEmptyDisplayMessage();
         } else {
             result += "Your total expenses for " + category + " in "
@@ -175,13 +175,13 @@ public class ExpenseManager {
         int counter = 0;
         double amount = 0;
         for (Expense expense : expenses) {
-            if(category.equals(expense.getCategory())) {
+            if (category.equals(expense.getCategory())) {
                 counter++;
                 result += counter + ". " + expense.toString() + "\n";
                 amount += expense.getAmount();
             }
         }
-        if(result.equals("")) {
+        if (result.equals("")) {
             result = getEmptyDisplayMessage();
         } else {
             result += "Your expenses for " + category + " is $" + amount;
@@ -202,13 +202,13 @@ public class ExpenseManager {
         double amountInMonth = 0;
         String monthInString = month.format(DateTimeFormatter.ofPattern("MMMM yyyy"));
         for (Expense expense : expenses) {
-            if(month.equals(getYearMonthFromDate(expense.getDate()))) {
+            if (month.equals(getYearMonthFromDate(expense.getDate()))) {
                 counter++;
                 result += counter + ". " + expense.toString() + "\n";
                 amountInMonth += expense.getAmount();
             }
         }
-        if(result.equals("")) {
+        if (result.equals("")) {
             result = getEmptyDisplayMessage();
         } else {
             result += "Your expenses for " + monthInString + " is $" + amountInMonth;
@@ -328,7 +328,7 @@ public class ExpenseManager {
         for (Expense expense : expensesOverMonthArray) {
             YearMonth expenseYearMonth = getYearMonthFromDate(expense.getDate());
 
-            if(expenseYearMonth.equals(yearMonth) && category.equals(expense.getCategory())) {
+            if (expenseYearMonth.equals(yearMonth) && category.equals(expense.getCategory())) {
                 totalAmount += expense.getAmount();
             }
         }
@@ -373,7 +373,7 @@ public class ExpenseManager {
     }
 
     public static Expense getExpenseByIndex(int index) throws BudgetBuddyException {
-        if(index > numberOfExpenses) {
+        if (index > numberOfExpenses) {
             throw new BudgetBuddyException("Input index is larger than the number of expenses. " +
                     "Try with a smaller index");
         }
