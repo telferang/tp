@@ -84,12 +84,12 @@ public class Storage {
     public void save(ExpenseManager expenseList, IncomeManager incomeList, BudgetManager budgetList)
             throws IOException {
 
-        assert expenseList != null : "Expense list cannot be null";  // Assert that the expense list is not null
-        assert incomeList != null : "Income list cannot be null";      // Assert that the income list is not null
-        assert budgetList != null : "Budget list cannot be null";      // Assert that the budget list is not null
+        assert expenseList != null : "Expense list cannot be null";
+        assert incomeList != null : "Income list cannot be null";
+        assert budgetList != null : "Budget list cannot be null";
         LOGGER.info("Saving data to file: " + filePath);
 
-        FileWriter fw = new FileWriter(filePath, false); // Overwrites the file
+        FileWriter fw = new FileWriter(filePath, false);
 
         // Save expenses
         for (Expense expense : ExpenseManager.getExpenses()) {
