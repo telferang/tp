@@ -686,6 +686,7 @@ application.
   * Expected: Command Line Interface should appear with a welcome message to users, prompting the user for a command.
 
 ### 2. Test Cases
+
 #### 2.1 Displaying command/help list. 
 1. Test Case: `help` <br/>
     Expected: Prints the functionalities of BudgetBuddy, along with the appropriate commands for each feature.
@@ -741,5 +742,95 @@ application.
     * Test Case: `display savings m/` or `display savings`
     * Expected: Message showing that the user has 0 savings. 
 
+### 2.5 Adding an Expense
+* **2.5.1 Adding expense without optional fields (date and category)**
+   * **Prerequisites**: None
+   * **Test Case**: `add expense coffee a/5.00`
+   * **Expected**: Adds an expense with default values and displays success message.
 
-{Give instructions on how to do a manual product testing e.g., how to load sample data to be used for testing}
+* **2.5.2 Adding expense with all fields (description, amount, date, category)**
+   * **Prerequisites**: None
+   * **Test Case**: `add expense air ticket a/300.00 d/01/11/2024 c/TRAVEL`
+   * **Expected**: Success message for added expense.
+
+* **2.5.3 Adding expense with invalid date format**
+   * **Prerequisites**: None
+   * **Test Case**: `add expense movie ticket a/15.00 d/2024-11-01`
+   * **Expected**: Error message indicating incorrect date format.
+
+* **2.5.4 Adding expense with negative amount**
+   * **Prerequisites**: None
+   * **Test Case**: `add expense lunch a/-5.00`
+   * **Expected**: Error message indicating amount must be positive.
+
+### 2.6 Deleting an Expense
+* **2.6.1 Deleting an expense by valid index**
+   * **Prerequisites**: At least one expense entry in the app.
+   * **Test Case**: `delete expense 1`
+   * **Expected**: Deletes the expense and displays confirmation.
+
+* **2.6.2 Deleting an expense by invalid index**
+   * **Prerequisites**: At least one expense entry in the app.
+   * **Test Case**: `delete expense 999`
+   * **Expected**: Error message indicating index out of range.
+
+* **2.6.3 Deleting an expense from an empty list**
+   * **Prerequisites**: No expense entries in the app.
+   * **Test Case**: `delete expense 1`
+   * **Expected**: Error message indicating no expenses to delete.
+
+### 2.7 Displaying Monthly Expenses Chart
+* **2.7.1 Valid year provided for chart display**
+   * **Prerequisites**: At least one expense entry in the specified year.
+   * **Test Case**: `display monthly expenses y/2024`
+   * **Expected**: XY-Chart displaying total expenses for each month.
+
+* **2.7.2 Invalid year provided for chart display**
+   * **Prerequisites**: None
+   * **Test Case**: `display monthly expenses y/1899`
+   * **Expected**: Error message for incorrect year.
+
+* **2.7.3 No expenses tracked in the specified year**
+   * **Prerequisites**: No expense entries for 2024.
+   * **Test Case**: `display monthly expenses y/2024`
+   * **Expected**: Message indicating no expenses found.
+
+### 2.8 Listing Incomes
+* **2.8.1 Listing all incomes**
+   * **Prerequisites**: At least one income entry tracked.
+   * **Test Case**: `list incomes`
+   * **Expected**: Lists incomes and total.
+
+* **2.8.2 Listing incomes for a specific month**
+   * **Prerequisites**: At least one income entry in October 2024.
+   * **Test Case**: `list incomes m/10/2024`
+   * **Expected**: Lists income entries for October 2024, with total.
+
+* **2.8.3 No incomes tracked in the app**
+   * **Prerequisites**: No income entries.
+   * **Test Case**: `list incomes`
+   * **Expected**: Message indicating no income entries.
+
+### 2.9 Editing a Budget
+* **2.9.1 Adding to a monthly budget without specifying month or category**
+   * **Prerequisites**: None
+   * **Test Case**: `add budget a/500`
+   * **Expected**: Adds 500 to current month’s budget. Confirmation message.
+
+* **2.9.2 Deducting an amount that does not go below zero**
+   * **Prerequisites**: Positive budget for the current month.
+   * **Test Case**: `deduct budget a/200`
+   * **Expected**: Deducts 200 and shows success message.
+
+* **2.9.3 Deducting an amount that causes budget to go below zero**
+   * **Prerequisites**: Budget less than 200 in current month.
+   * **Test Case**: `deduct budget a/200`
+   * **Expected**: Error message for negative budget.
+
+### 2.10 Exiting BudgetBuddy
+* **2.10.1 Exit command**
+   * **Prerequisites**: None
+   * **Test Case**: `bye`
+   * **Expected**: Program exits and saves data automatically, showing exit message.
+
+   
