@@ -192,6 +192,41 @@ Format:
 * The format of `YEAR` should be `YYYY`
 * The command only accepts year between >=1900 and <=2100 to account for erroneous inputs.
 
+### Search Expense: `search expense`
+Displays the expense entries based on a certain keyword provided by the user. The relevant expense entries are then 
+filtered based on their description.
+
+Format: `search expense KEYWORD(S)`
+
+* Displays expense entries with descriptions containing the keyword(s) provided by the user.
+* If no keyword is provided by the user, an error message will show up, prompting the user to key in a valid keyword.
+* If no expenses are found based on the keyword provided, a message indicating that no expense entries are found will 
+show up.
+* Filtering on the provided keyword(s) is case insensitive.
+
+Example of usage: 
+1. `search expense Japan`
+
+### Breakdown Expenses: `breakdown expenses`
+Displays a breakdown of the user’s expenses, by category. The feature displays the total expenditure per category, 
+along with a percentage indicating the percentage of total expense spent per category.
+
+Format: `breakdown expenses`
+
+Example of usage: 
+1. `breakdown expenses`
+
+### Display Savings: `display savings [m/]`
+Displays the total savings of the user, calculated based on Total Income - Total Expense. User can choose to display 
+total savings, or a more detailed savings by month based on their input.
+
+Format: `display savings [m/]`
+* If m/ is not provided, total savings of the user is displayed.
+
+Examples of usages: 
+1. `display savings m/`
+2. `display savings`
+
 ## FAQ
 
 **Q**: How do I transfer my data to another computer? 
