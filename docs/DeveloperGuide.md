@@ -110,6 +110,18 @@ for the same reason as above.
 
 ![CommandCreation.drawio.png](diagrams/CommandCreation.drawio.png)
 
+#### 3.5.1 Edit Validator Classes
+
+The Edit Validator classes are specialised for EditIncome and EditExpense commands as they take in 2 sets of input from 
+the user. This first set of input command follows validators classes at [3.5 Validator Classes](#35-validator-classes). 
+Upon calling of execution of command, a second set of input will be retrieved from the user, where it checks if the second 
+set of inputs are valid, and it returns a `boolean` object based on the input validity. 
+
+The following sequence diagram shows the process of what happens from the function call of `execute()` from main until 
+the return of `boolean` object from validator class.
+
+![EditCommandCreation.drawio.png]()
+
 ### 3.6 Expense, ExpenseManager, Income and IncomeManager Class
 The `Expense` and `Income` class inherits from the Transaction class.
 
@@ -122,6 +134,7 @@ The `Expense` and `Income` class inherits from the Transaction class.
 `IncomeManager` class stores a list of `Income`.
 
 The methods are not shown.
+
 ![ExpenseAndIncomeClassDiagram.drawio.png](diagrams/ExpenseAndIncomeClassDiagram.drawio.png)
 
 ## 4. Implementation
@@ -296,6 +309,69 @@ The starting arrow indicates return of the command based on the sequence diagram
 
 ![DisplayExpensesWithCategories.drawio.png](diagrams/DisplayExpensesWithCategories.drawio.png)
 
+#### 4.1.7 List Expenses Feature
+The List Expense feature enables users to view saved expenses in the application. Additionally, user may add additional
+filters to display only desired categories and months. The total expense amount based on the displayed expenses will be
+summed and displayed to the user. This feature is controlled by the `ListExpenseCommand` class, where it is initialized
+by the `Parser` class. The `Parser` class uses `ListExpenseValidator` to check and extract the filter field that
+the user input. The `ListExpenseCommand` object is then created with a Category and YearMonth Attribute.
+
+| Class Attribute | Variable Type | Relevance                                            |
+|-----------------|---------------|------------------------------------------------------|
+| category        | Category      | The category of expenses to be listed                |
+| month           | YearMonth     | The specific month and year of expenses to be listed |
+
+The `BudgetBuddy` class then calls the `execute()` method of `ListExpenseCommand` object which uses the following
+methods in `ExpenseManager` class to list expenses based on user input category and month. If user does not specify a
+specific month or category, it will show every valid expense instead.
+
+| Method                                 | Return Type | Relevance                                                    |
+|----------------------------------------|-------------|--------------------------------------------------------------|
+| listExpenses()                         | void        | Lists out all expenses saved                                 |
+| listExpensesWithCategory(category)     | String      | Lists out all expenses saved with the specified category     |
+| listExpensesWithDate(month)            | String      | Lists out all expenses saved in specified month              |
+| listExpensesWithCategoryAndDate(month) | String      | Lists out all expenses saved in specified month and category |
+
+Then, with the variations of `listExpenses()` commands in `ExpenseManager`, the list of expenses will be displayed to
+the user using the `Ui` class `displayToUser()` method.
+
+We assume that the command for this feature has already been created and returned to `BudgetBuddy`.
+The starting arrow indicates return of the command based on the sequence diagram at [3.5 Validator Classes](#35-validator-classes)
+
+The following UML Sequence diagram shows how the List Expense Feature undergo its execute function.
+![ListExpenseSequenceDiagram.drawio.png](diagrams/ListExpenseSequenceDiagram.drawio.png)
+
+#### 4.1.8 Edit Expense Feature
+The Edit Expense Feature enable users to edit pre-existing entries of expenses in the application. Users are only
+allowed to change the date, category and amount fields of the expense field. Currently, the description of each task
+cannot be edited, however it may be implemented for future versions. There are 2 sets of instruction that the user
+has to input. The first set is to identify which expense to edit, while the second is the fields to be edited. This
+feature is controlled by the `EditExpenseCommand` class, where it is initialized by the `Parser` class. The following
+function is then called during the first set of user input.
+
+| Method                      | Return Type | Relevance                                                          |
+|-----------------------------|-------------|--------------------------------------------------------------------|
+| getExpense(command)         | void        | Extracts the Expense from ExpenseList based on Index given by user |
+
+`EditExpenseCommand` class contains the following attributes, which will be used to store the values that will replace
+the existing value in the Expense object. During the creation of `EditExpenseCommand`, only `expense` object will be
+saved, will the other values will be initialized during subsequent function calls.
+
+| Class Attribute | Variable Type | Relevance                                                              |
+|-----------------|---------------|------------------------------------------------------------------------|
+| category        | Category      | User input category value to replace current category value in expense |
+| date            | LocalDate     | User input date value to replace current date value in expense         |
+| amount          | double        | User input amount value to replace current amount value in expense     |
+| expense         | Expense       | User specified Expense based on index                                  |
+
+The `BudgetBuddy` class then calls the `execute()` method of `EditExpenseCommand` object which the `EditExpenseCommand`
+class then uses the `Ui` class to call function `getUserEditFields()` for editing the expense parameters. The
+`EditExpenseCommand` then uses `EditExpenseValidator` to check and extract for any valid fields. If valid, a
+`processEdit()` function will be called to update values in the expense object.
+
+The following UML Sequence diagram shows how the Parser works to obtain the relevant inputs for the Edit Expense Feature
+![EditExpenseSequenceDiagram.drawio.png](diagrams/EditExpenseSequenceDiagram.drawio.png)
+
 ### 4.2 Income Features
 
 #### 4.2.1 Add Income Feature
@@ -322,7 +398,7 @@ The acknowledgement message is displayed to the user using the `Ui` class `displ
 The UML Sequence diagram is not shown because it is very similar to the [Add Expense Feature](#411-add-expense-feature).
 
 
-#### 4.1.2 Delete Income Feature
+#### 4.2.2 Delete Income Feature
 The Delete Income feature enables users to delete income in the list of incomes. This functionality is controlled by
 the DeleteIncomeCommand class, which is produced by the Parser class based on user input. The DeleteIncomeCommand
 class uses DeleteIncomeValidator validate the provided index is valid and within the number of incomes. Next, the
@@ -342,6 +418,66 @@ method in the `IncomeManager` class to add the expense:
 The acknowledgement message is displayed to the user using the `Ui` class `displayToUser()` method.
 
 The UML Sequence diagram is not shown because it is very similar to the [Add Income Feature](#412-delete-expense-feature).
+
+#### 4.2.3 List Income Feature
+The List Income feature enables users to view saved income in the application. Additionally, user may add additional
+filters to display only desired months. The total income amount based on the displayed income will be summed and
+displayed to the user. This feature is controlled by the `ListIncomeCommand` class, where it is initialized by the
+`Parser` class. The `Parser` class uses `ListIncomeValidator` to check and extract the filter field that the user
+input. The `ListIncomeCommand` object is then created with a Category and YearMonth Attribute.
+
+| Class Attribute | Variable Type | Relevance                                            |
+|-----------------|---------------|------------------------------------------------------|
+| month           | YearMonth     | The specific month and year of expenses to be listed |
+
+The `BudgetBuddy` class then calls the `execute()` method of `ListIncomeCommand` object which uses the following
+methods in `IncomeManager` class to list expenses based on user input category and month. If user does not specify a
+specific month, it will show every valid expense instead.
+
+| Method                      | Return Type | Relevance                                                    |
+|-----------------------------|-------------|--------------------------------------------------------------|
+| listIncomes()               | void        | Lists out all expenses saved                                 |
+| listIncomesWithMonth(month) | String      | Lists out all expenses saved in specified month              |
+
+
+Then, with the variations of `listIncomes()` commands in `IncomeManager`, the list of incomes will be displayed to
+the user using the `Ui` class `displayToUser()` method.
+
+We assume that the command for this feature has already been created and returned to `BudgetBuddy`.
+The starting arrow indicates return of the command based on the sequence diagram at [3.5 Validator Classes](#35-validator-classes)
+
+The following UML Sequence diagram shows how the List Income Feature undergo its execute function.
+![ListIncomeSequenceDiagram.drawio.png](diagrams/ListIncomeSequenceDiagram.drawio.png)
+
+#### 4.2.4 Edit Income Feature
+The Edit Income Feature enable users to edit pre-existing entries of incomes in the application. Users are only
+allowed to change the date and amount fields of the income field. Currently, the description of each task
+cannot be edited, however it may be implemented for future versions. There are 2 sets of instruction that the user
+has to input. The first set is to identify which income to edit, while the second is the fields to be edited. This
+feature is controlled by the `EditIncomeCommand` class, where it is initialized by the `Parser` class. The following
+function is then called during the first set of user input.
+
+| Method             | Return Type | Relevance                                                        |
+|--------------------|-------------|------------------------------------------------------------------|
+| getIncome(command) | void        | Extracts the Income from IncomeList based on Index given by user |
+
+`EditIncomeCommand` class contains the following attributes, which will be used to store the values that will replace
+the existing value in the Income object. During the creation of `EditIncomeCommand`, only `Income` object will be
+saved, will the other values will be initialized during subsequent function calls.
+
+| Class Attribute | Variable Type | Relevance                                                              |
+|-----------------|---------------|------------------------------------------------------------------------| 
+| date            | LocalDate     | User input date value to replace current date value in expense         |
+| amount          | double        | User input amount value to replace current amount value in expense     |
+| income          | Income        | User specified Income based on index                                   |
+
+The `BudgetBuddy` class then calls the `execute()` method of `EditIncomeCommand` object which the `EditIncomeCommand`
+class then uses the `Ui` class to call function `getUserEditFields()` for editing the expense parameters. The
+`EditIncomeCommand` then uses `EditIncomeValidator` to check and extract for any valid fields. If valid, a
+`processEdit()` function will be called to update values in the Income object.
+
+The following UML Sequence diagram shows how the Parser works to obtain the relevant inputs for the Edit Income Feature
+![EditIncomeSequenceDiagram.drawio.png](diagrams/EditIncomeSequenceDiagram.drawio.png)
 
 ### 4.3 Budget Features
 
@@ -476,124 +612,6 @@ an error message is shown.
 The following UML Sequence diagram shows how to obtain the relevant inputs for the List Budget Feature:
 ![ListBudgetSequenceDiagram.drawio.png](diagrams/ListBudgetSequenceDiagram.drawio.png)
 
-#### 4.1.3 List Expenses Feature
-The List Expense feature enables users to view saved expenses in the application. Additionally, user may add additional
-filters to display only desired categories and months. The total expense amount based on the displayed expenses will be
-summed and displayed to the user. This feature is controlled by the `ListExpenseCommand` class, where it is initialized
-by the `Parser` class. The `Parser` class uses `ListExpenseValidator` to check and extract the filter field that 
-the user input. The `ListExpenseCommand` object is then created with a Category and YearMonth Attribute.
-
-| Class Attribute | Variable Type | Relevance                                            |
-|-----------------|---------------|------------------------------------------------------|
-| category        | Category      | The category of expenses to be listed                |
-| month           | YearMonth     | The specific month and year of expenses to be listed |
-
-The `BudgetBuddy` class then calls the `execute()` method of `ListExpenseCommand` object which uses the following
-methods in `ExpenseManager` class to list expenses based on user input category and month. If user does not specify a 
-specific month or category, it will show every valid expense instead.
-
-| Method                                 | Return Type | Relevance                                                    |
-|----------------------------------------|-------------|--------------------------------------------------------------|
-| listExpenses()                         | void        | Lists out all expenses saved                                 |
-| listExpensesWithCategory(category)     | String      | Lists out all expenses saved with the specified category     |
-| listExpensesWithDate(month)            | String      | Lists out all expenses saved in specified month              |
-| listExpensesWithCategoryAndDate(month) | String      | Lists out all expenses saved in specified month and category |
-
-Then, with the variations of `listExpenses()` commands in `ExpenseManager`, the list of expenses will be displayed to 
-the user using the `Ui` class `displayToUser()` method.
-
-The following UML Sequence diagram shows how the Parser works to obtain the relevant inputs for the List Expense Feature
-![ListExpenseSequenceDiagram.drawio.png](diagrams/ListExpenseSequenceDiagram.drawio.png)
-
-#### 4.2.1 List Income Feature
-The List Income feature enables users to view saved income in the application. Additionally, user may add additional
-filters to display only desired months. The total income amount based on the displayed income will be summed and 
-displayed to the user. This feature is controlled by the `ListIncomeCommand` class, where it is initialized by the 
-`Parser` class. The `Parser` class uses `ListIncomeValidator` to check and extract the filter field that the user
-input. The `ListIncomeCommand` object is then created with a Category and YearMonth Attribute.
-
-| Class Attribute | Variable Type | Relevance                                            |
-|-----------------|---------------|------------------------------------------------------|
-| month           | YearMonth     | The specific month and year of expenses to be listed |
-
-The `BudgetBuddy` class then calls the `execute()` method of `ListIncomeCommand` object which uses the following
-methods in `IncomeManager` class to list expenses based on user input category and month. If user does not specify a
-specific month, it will show every valid expense instead.
-
-| Method                      | Return Type | Relevance                                                    |
-|-----------------------------|-------------|--------------------------------------------------------------|
-| listIncomes()               | void        | Lists out all expenses saved                                 |
-| listIncomesWithMonth(month) | String      | Lists out all expenses saved in specified month              |
-
-
-Then, with the variations of `listIncomes()` commands in `IncomeManager`, the list of incomes will be displayed to
-the user using the `Ui` class `displayToUser()` method.
-
-The following UML Sequence diagram shows how the Parser works to obtain the relevant inputs for the List Income Feature
-
-The following UML Sequence diagram shows how the Parser works to obtain the relevant inputs for the List Income Feature
-![ListIncomeSequenceDiagram.drawio.png](diagrams/ListIncomeSequenceDiagram.drawio.png)
-
-#### 4.1.3 Edit Expense Feature
-The Edit Expense Feature enable users to edit pre-existing entries of expenses in the application. Users are only 
-allowed to change the date, category and amount fields of the expense field. Currently, the description of each task 
-cannot be edited, however it may be implemented for future versions. There are 2 sets of instruction that the user
-has to input. The first set is to identify which expense to edit, while the second is the fields to be edited. This 
-feature is controlled by the `EditExpenseCommand` class, where it is initialized by the `Parser` class. The following 
-function is then called during the first set of user input.
-
-| Method                      | Return Type | Relevance                                                          |
-|-----------------------------|-------------|--------------------------------------------------------------------|
-| getExpense(command)         | void        | Extracts the Expense from ExpenseList based on Index given by user |
-
-`EditExpenseCommand` class contains the following attributes, which will be used to store the values that will replace
-the existing value in the Expense object. During the creation of `EditExpenseCommand`, only `expense` object will be 
-saved, will the other values will be initialized during subsequent function calls.
-
-| Class Attribute | Variable Type | Relevance                                                              |
-|-----------------|---------------|------------------------------------------------------------------------|
-| category        | Category      | User input category value to replace current category value in expense |
-| date            | LocalDate     | User input date value to replace current date value in expense         |
-| amount          | double        | User input amount value to replace current amount value in expense     |
-| expense         | Expense       | User specified Expense based on index                                  |
-
-The `BudgetBuddy` class then calls the `execute()` method of `EditExpenseCommand` object which the `EditExpenseCommand` 
-class then uses the `Ui` class to call function `getUserEditFields()` for editing the expense parameters. The 
-`EditExpenseCommand` then uses `EditExpenseValidator` to check and extract for any valid fields. If valid, a 
-`processEdit()` function will be called to update values in the expense object.
-
-The following UML Sequence diagram shows how the Parser works to obtain the relevant inputs for the Edit Expense Feature
-![EditExpenseSequenceDiagram.drawio.png](diagrams/EditExpenseSequenceDiagram.drawio.png)
-
-#### 4.2.2 Edit Income Feature
-The Edit Income Feature enable users to edit pre-existing entries of incomes in the application. Users are only
-allowed to change the date and amount fields of the income field. Currently, the description of each task
-cannot be edited, however it may be implemented for future versions. There are 2 sets of instruction that the user
-has to input. The first set is to identify which income to edit, while the second is the fields to be edited. This
-feature is controlled by the `EditIncomeCommand` class, where it is initialized by the `Parser` class. The following
-function is then called during the first set of user input.
-
-| Method             | Return Type | Relevance                                                        |
-|--------------------|-------------|------------------------------------------------------------------|
-| getIncome(command) | void        | Extracts the Income from IncomeList based on Index given by user |
-
-`EditIncomeCommand` class contains the following attributes, which will be used to store the values that will replace
-the existing value in the Income object. During the creation of `EditIncomeCommand`, only `Income` object will be
-saved, will the other values will be initialized during subsequent function calls.
-
-| Class Attribute | Variable Type | Relevance                                                              |
-|-----------------|---------------|------------------------------------------------------------------------| 
-| date            | LocalDate     | User input date value to replace current date value in expense         |
-| amount          | double        | User input amount value to replace current amount value in expense     |
-| income          | Income        | User specified Income based on index                                   |
-
-The `BudgetBuddy` class then calls the `execute()` method of `EditIncomeCommand` object which the `EditIncomeCommand`
-class then uses the `Ui` class to call function `getUserEditFields()` for editing the expense parameters. The
-`EditIncomeCommand` then uses `EditIncomeValidator` to check and extract for any valid fields. If valid, a
-`processEdit()` function will be called to update values in the Income object.
-
-The following UML Sequence diagram shows how the Parser works to obtain the relevant inputs for the Edit Income Feature
-![EditIncomeSequenceDiagram.drawio.png](diagrams/EditIncomeSequenceDiagram.drawio.png)
 
 #### 4.4.2 Display Income Spent Feature
 The Display Income Spent Feature shows users the percentage of income spent for a specific month. When the command is 
