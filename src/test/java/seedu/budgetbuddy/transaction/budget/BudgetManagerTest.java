@@ -7,6 +7,7 @@ import java.time.YearMonth;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class BudgetManagerTest {
@@ -59,5 +60,40 @@ public class BudgetManagerTest {
     public void testGetBudget_returnsNullForNonExistentBudget() {
         Budget result = BudgetManager.getBudget(YearMonth.of(2024, 12));
         assertNull(result);
+    }
+
+    @Test
+    public void addBudget_inputIsNullBudget_assertionErrorThrown() {
+        AssertionError exception = assertThrows(AssertionError.class, () -> {
+            BudgetManager.addBudget(null);
+        });
+        assertEquals("Budget to be added cannot be null", exception.getMessage());
+    }
+
+    @Test
+    public void deleteBudget_inputIsNullBudget_assertionErrorThrown() {
+        AssertionError exception = assertThrows(AssertionError.class, () -> {
+            BudgetManager.deleteBudget(null);
+        });
+        assertEquals("Budget to be deleted cannot be null", exception.getMessage());
+    }
+
+    @Test
+    public void getBudget_multipleBudgets_returnsCorrectBudget() {
+        Budget budget1 = new Budget(YearMonth.of(2024, 9));
+        Budget budget2 = new Budget(YearMonth.of(2024, 8));
+        BudgetManager.addBudget(budget1);
+        BudgetManager.addBudget(budget2);
+        Budget result = BudgetManager.getBudget(YearMonth.of(2024, 9));
+        assertEquals(budget1, result);
+    }
+
+    @Test
+    public void reset_clearsBudgets() {
+        Budget budget = new Budget(YearMonth.of(2024, 10));
+        BudgetManager.addBudget(budget);
+        BudgetManager.reset();
+        assertEquals(0, BudgetManager.getNumberOfBudgets());
+        assertTrue(BudgetManager.getBudgets().isEmpty());
     }
 }

@@ -17,7 +17,12 @@ public class DeleteExpenseValidator {
      * @return A Command object representing the delete expense action or an IncorrectCommand if the index is invalid.
      */
     public static Command processCommand(String command) {
-        String trimmedCommand = command.substring("delete expense ".length());
+        String trimmedCommand;
+        try {
+            trimmedCommand = command.substring("delete expense ".length());
+        } catch (IndexOutOfBoundsException e) {
+            return new IncorrectCommand("Index not given");
+        }
         int index = IndexValidator.validateExpenseIndex(trimmedCommand);
         if (index == -1) {
             return new IncorrectCommand("Invalid Index");

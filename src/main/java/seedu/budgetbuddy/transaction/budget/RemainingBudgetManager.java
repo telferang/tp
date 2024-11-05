@@ -105,9 +105,14 @@ public class RemainingBudgetManager {
      * Displays the result to the user through the UI.
      */
     public void listRemainingBudgets() {
-        String result = "All budgets after deductions:\n";
+        if (remainingBudgets.size() == 0) {
+            Ui.displayToUser("No budgets found");
+            LOGGER.info("No budgets found");
+            return;
+        }
+        String result = "All budgets after deductions:";
         for (Budget budget : remainingBudgets) {
-            result += budget + "\n";
+            result += "\n" + budget;
         }
         Ui.displayToUser(result);
         LOGGER.info("Displayed all remaining budgets to user.");

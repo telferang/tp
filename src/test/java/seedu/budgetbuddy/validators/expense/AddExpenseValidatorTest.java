@@ -1,11 +1,10 @@
-package seedu.budgetbuddy.validators;
+package seedu.budgetbuddy.validators.expense;
 
 import org.junit.jupiter.api.Test;
 import seedu.budgetbuddy.commands.expense.AddExpenseCommand;
 import seedu.budgetbuddy.commands.Command;
 import seedu.budgetbuddy.commands.IncorrectCommand;
 import seedu.budgetbuddy.transaction.Category;
-import seedu.budgetbuddy.validators.expense.AddExpenseValidator;
 
 import java.time.LocalDate;
 

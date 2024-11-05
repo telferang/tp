@@ -118,21 +118,32 @@ public class Ui {
                 "2. Delete expense/income entry as shown in the income and expense lists." +
                 "Examples:\ndel expense 1 \n"  + "del income 2 \n" +
                 "3. Tag new category to expense. \n" + "Example:\n tag expense 2 /c food \n" +
-                "4. List all expenses/income. \n" + "Examples:\nlist expenses \n" + "list income\n" +
-                "5. Display expenses based on category and month. Note: category - c/, month (optional) - m/MM/yyyy\n" +
-                "Example:\ndisplay expenses c/food m/10/2024\n" +
-                "6. Display income based on month. Note: month (optional) - m/MM/yyyy\n" +
-                "Example:\ndisplay incomes m/10/2024\n" +
-                "7. Add budget for current month. Note: month - m/MM/yyyy \n" +
+                "4. List expenses based on category and month. Note(optional): category - c/, month - m/MM/yyyy\n" +
+                "Example:\nlist expenses c/food m/10/2024\n" +
+                "5. List income based on month. Note: month (optional) - m/MM/yyyy\n" +
+                "Example:\nlist incomes m/10/2024\n" +
+                "6. Add budget for current month. Note: month - m/MM/yyyy \n" +
                 "Example:\nadd budget a/1000 m/09/2024\n" +
-                "8. Deduct budget for current month. Note: month - m/MM/yyyy \n" +
+                "7. Deduct budget for current month. Note: month - m/MM/yyyy \n" +
                 "Example:\ndeduct budget a/500 m/10/2024\n" +
-                "9. list budget for specific month. Note: month - m/MM/yyyy \n" +
+                "8. list budget for specific month. Note: month - m/MM/yyyy \n" +
                 "Example:\nlist budget m/05/2024\n" +
-                "10. list budget for the 12 most recent entries. \n" +
+                "9. list budget for the 12 most recent entries. \n" +
                 "Example:\nlist budget\n" +
-                "11. Exit app. \n" +
-                "Example:\nbye\n";
+                "10. edit expense fields (with Category, Amount or Date).\n" +
+                "Example:\nedit expenses 3\n" +
+                "a/1000 d/12/10/2024 c/food\n" +
+                "11. edit income fields (with Amount or Date).\n" +
+                "Example:\nedit incomes 3\n" +
+                "a/1000 d/12/10/2024\n" +
+                "12. search expense (with provided keyword)\n" +
+                "Example:\nsearch expense japan\n" +
+                "13. display savings (by month or in total)\n" +
+                "Example:\ndisplay savings m/\ndisplay savings\n" +
+                "14. breakdown expenses (by category)\n" +
+                "Example:\nbreakdown expenses\n" +
+                "15. Exit app. \n" +
+                "Example:\nbye";
         displayToUser(message);
     }
 

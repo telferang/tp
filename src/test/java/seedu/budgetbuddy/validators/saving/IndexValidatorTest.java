@@ -1,4 +1,4 @@
-package seedu.budgetbuddy.validators;
+package seedu.budgetbuddy.validators.saving;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -7,6 +7,7 @@ import seedu.budgetbuddy.transaction.expense.ExpenseManager;
 import seedu.budgetbuddy.transaction.income.Income;
 import seedu.budgetbuddy.transaction.income.IncomeManager;
 import seedu.budgetbuddy.transaction.Category;
+import seedu.budgetbuddy.validators.IndexValidator;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

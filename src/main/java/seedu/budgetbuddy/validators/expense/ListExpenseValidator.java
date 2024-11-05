@@ -1,8 +1,8 @@
 package seedu.budgetbuddy.validators.expense;
 
 import seedu.budgetbuddy.commands.Command;
-import seedu.budgetbuddy.commands.expense.DisplayExpenseCommand;
 import seedu.budgetbuddy.commands.IncorrectCommand;
+import seedu.budgetbuddy.commands.expense.ListExpenseCommand;
 import seedu.budgetbuddy.transaction.Category;
 import seedu.budgetbuddy.util.LoggerSetup;
 
@@ -12,7 +12,10 @@ import java.util.logging.Logger;
 import static seedu.budgetbuddy.validators.CategoryValidator.validateCategory;
 import static seedu.budgetbuddy.validators.DateValidator.validateYearMonth;
 
-public class DisplayExpenseValidator{
+/**
+ * @author Kenneth
+ */
+public class ListExpenseValidator{
 
     private static final Logger LOGGER = LoggerSetup.getLogger();
 
@@ -24,11 +27,11 @@ public class DisplayExpenseValidator{
      * @return
      */
     public static Command processCommand(String command) {
-        if (command.equals("display expenses")){
-            return new DisplayExpenseCommand();
+        if (command.equals("list expense")){
+            return new ListExpenseCommand();
         }
 
-        String trimmedCommand = command.substring("display expenses ".length());
+        String trimmedCommand = command.substring("list expense ".length());
         String[] parts = trimmedCommand.split(" ");
 
         //Process Initial Value
@@ -53,7 +56,7 @@ public class DisplayExpenseValidator{
         }
 
         //Check of Display Type
-        return checkDisplayType(category, month);
+        return checkListType(category, month);
     }
 
     /**
@@ -63,13 +66,13 @@ public class DisplayExpenseValidator{
      * @param date
      * @return
      */
-    public static Command checkDisplayType(Category category, YearMonth date) {
+    public static Command checkListType(Category category, YearMonth date) {
         if (category != null && date == null) {
-            return new DisplayExpenseCommand(category);
+            return new ListExpenseCommand(category);
         } else if (category == null && date != null) {
-            return new DisplayExpenseCommand(date);
+            return new ListExpenseCommand(date);
         } else{
-            return new DisplayExpenseCommand(category, date);
+            return new ListExpenseCommand(category, date);
         }
     }
 }

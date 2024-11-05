@@ -60,7 +60,6 @@ public class ExpensesOverMonthGraph {
         List<Double> xAxis = new ArrayList<>();
         List<Double> yAxis = new ArrayList<>();
 
-        // Loop through each month of the year
         for (int month = 1; month <= 12; month++) {
             YearMonth yearMonth = YearMonth.of(year, month); // Use a fixed year for the chart
             double amount = monthlyExpenseMap.getOrDefault(yearMonth, 0.0); // Get the amount or zero if no expenses

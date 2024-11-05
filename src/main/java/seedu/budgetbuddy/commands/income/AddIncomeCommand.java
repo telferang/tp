@@ -46,4 +46,16 @@ public class AddIncomeCommand extends Command {
     public void execute() {
         IncomeManager.addIncome(new Income(description, amount, date));
     }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public double getAmount() {
+        return this.amount;
+    }
+
+    public LocalDate getDate() {
+        return this.date;
+    }
 }

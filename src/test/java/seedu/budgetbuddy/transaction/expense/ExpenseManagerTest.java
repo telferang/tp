@@ -19,11 +19,15 @@ class ExpenseManagerTest {
 
     void initializeTestContent(){
         expenseManager = new ExpenseManager(expenses, numberOfExpenses);
+        expenseManager.reset();
         Expense newExpense = new Expense("New Food",
                 12,
                 LocalDate.parse("2024-02-12"),
                 Category.FOOD);
         expenseManager.addExpense(newExpense);
+    }
+    void initializeEmptyTestContent(){
+        expenseManager = new ExpenseManager(new ArrayList<>(), numberOfExpenses);
     }
 
     String getExpectedString(){
@@ -33,6 +37,7 @@ class ExpenseManagerTest {
             result += counter + ". " + expense.toString() + "\n";
             counter++;
         }
+        result += "Your total expenses for FOOD in February 2024 is $12.0";
         return result;
     }
 
@@ -42,7 +47,7 @@ class ExpenseManagerTest {
         Category category = Category.FOOD;
         YearMonth yearMonth = YearMonth.of(2024, 2);
         assertEquals(getExpectedString(),
-                ExpenseManager.displayExpensesWithCategoryAndDate(category, yearMonth));
+                ExpenseManager.listExpensesWithCategoryAndDate(category, yearMonth));
     }
 
     @Test
@@ -50,7 +55,7 @@ class ExpenseManagerTest {
         Category category = Category.TRANSPORT;
         YearMonth yearMonth = YearMonth.of(2024, 2);
         assertEquals(EMPTY_DISPLAY_STRING,
-                ExpenseManager.displayExpensesWithCategoryAndDate(category, yearMonth));
+                ExpenseManager.listExpensesWithCategoryAndDate(category, yearMonth));
     }
 
     @Test
@@ -58,7 +63,7 @@ class ExpenseManagerTest {
         Category category = Category.FOOD;
         YearMonth yearMonth = YearMonth.of(2024, 1);
         assertEquals(EMPTY_DISPLAY_STRING,
-                ExpenseManager.displayExpensesWithCategoryAndDate(category, yearMonth));
+                ExpenseManager.listExpensesWithCategoryAndDate(category, yearMonth));
     }
 
     @Test
@@ -78,5 +83,20 @@ class ExpenseManagerTest {
         initializeTestContent();
         assertEquals("1. Description: New Food  Amount: 12.0  Date: 2024-02-12  Category: FOOD\n",
                 ExpenseManager.searchExpenses("New"));
+    }
+
+    @Test
+    void breakdownExpensesByCategory_noExpenses_expectNoExpensesMessage(){
+        initializeEmptyTestContent();
+        assertEquals("Total expenses: 0. You have not indicated any expense yet.",
+                ExpenseManager.breakdownExpensesByCategory());
+    }
+
+    @Test
+    void breakdownExpensesByCategory_oneExpense_expectExpenseMessage(){
+        initializeTestContent();
+        assertEquals("Total expenses: 12.0\nFood: 12.0(100.00%)\nTransport: 0.0(0.00%)\nUtilities:" +
+                " 0.0(0.00%)\nEntertainment: 0.0(0.00%)\nEducation: 0.0(0.00%)\nOthers: 0.0(0.00%)\n",
+                ExpenseManager.breakdownExpensesByCategory());
     }
 }

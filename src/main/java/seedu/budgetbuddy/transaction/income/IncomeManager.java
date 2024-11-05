@@ -1,10 +1,12 @@
 package seedu.budgetbuddy.transaction.income;
 
 import seedu.budgetbuddy.Ui;
+import seedu.budgetbuddy.exceptions.BudgetBuddyException;
 import seedu.budgetbuddy.util.LoggerSetup;
 
 import java.time.LocalDate;
 import java.time.YearMonth;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,6 +32,13 @@ public class IncomeManager {
     }
 
     /**
+     * Construct a IncomeManager of array content incomes
+     */
+    public IncomeManager() {
+
+    }
+
+    /**
      * Adds a new income to the manager.
      *
      * @param income The income to be added.
@@ -41,6 +50,16 @@ public class IncomeManager {
                 + income + '\n'
                 + "You have " + numberOfIncomes + " income transaction(s) in total.";
         Ui.displayToUser(result);
+    }
+
+    /**
+     * Load a new income from storage to the manager.
+     *
+     * @param income The income to be added.
+     */
+    public static void loadIncome(Income income) {
+        incomes.add(income);
+        numberOfIncomes++;
     }
 
     /**
@@ -67,38 +86,84 @@ public class IncomeManager {
     }
 
     /**
+     * Calculates the total income for a specified month.
+     *
+     * @param month The month to calculate income for.
+     * @return The total income for the month; returns 0.0 if no income is found.
+     */
+    public static double getMonthlyIncome(YearMonth month) {
+        double sum = 0;
+        for (Income income : incomes) {
+            if(month.equals(getYearMonthFromDate(income.getDate()))) {
+                sum += income.getAmount();
+            }
+        }
+        return sum;
+    }
+
+    /**
      * Lists all the incomes managed by the manager.
      * Displays each income with its corresponding number.
      */
     public static void listIncomes() {
         String result = "";
-        int counter = 1;
+        int counter = 0;
+        double sumOfIncome = 0;
         for (Income income : incomes) {
-            result += counter + ". " + income.toString() + "\n";
             counter++;
+            result += counter + ". " + income.toString() + "\n";
+            sumOfIncome += income.getAmount();
         }
-        LOGGER.log(Level.INFO, "Listing {0} expenses", numberOfIncomes);
+        result += "There are " + counter + " income(s) in total" +
+                ", with a sum of $" + sumOfIncome + ".";
+        LOGGER.log(Level.INFO, "Listing {0} incomes", numberOfIncomes);
         Ui.displayToUser(result);
     }
 
     /**
-     * Display all income that matches with month field that are managed by the manager.
+     * List all income that matches with month field that are managed by the manager.
      * Displays each income with its corresponding number.
      * @param month
      */
-    public static void displayIncomeWithMonth(YearMonth month) {
+    public static void listIncomeWithMonth(YearMonth month) {
         String result = "";
-        int counter = 1;
+        int counter = 0;
+        double filteredIncomeSum = 0;
+        String monthInString;
+
         for (Income income : incomes) {
             if(month.equals(getYearMonthFromDate(income.getDate()))) {
-                result += counter + ". " + income.toString() + "\n";
                 counter++;
+                result += counter + ". " + income.toString() + "\n";
+                filteredIncomeSum += income.getAmount();
             }
         }
         if(result.equals("")) {
             result = getEmptyDisplayMessage();
+            Ui.displayToUser(result);
+            return;
         }
+        monthInString = month.format(DateTimeFormatter.ofPattern("MMMM yyyy"));
+        result += "There are " + counter + " income(s) in total for " + monthInString +
+                ", with a sum of $" + filteredIncomeSum + ".";
+        LOGGER.log(Level.INFO, "Listing {0} incomes", numberOfIncomes);
         Ui.displayToUser(result);
+    }
+
+    /**
+     * Gets an Income object based on user input index.
+     * Searches IncomeList for Income object with desired index and returns reference to object.
+     *
+     * @param index user input index to be extracted from IncomeList
+     * @return an income object for future reference
+     * @throws BudgetBuddyException if input index is larger than size of Income List
+     */
+    public static Income getIncomeByIndex(int index) throws BudgetBuddyException {
+        if(index > numberOfIncomes) {
+            throw new BudgetBuddyException("Input index is larger than the number of incomes. " +
+                    "Try with a smaller index");
+        }
+        return incomes.get(index);
     }
 
     /**

@@ -1,24 +1,28 @@
 package seedu.budgetbuddy;
 
 import seedu.budgetbuddy.commands.budget.ListRemainingBudgetCommand;
+import seedu.budgetbuddy.commands.expense.BreakdownExpensesCommand;
 import seedu.budgetbuddy.commands.expense.DeleteExpenseCommand;
 import seedu.budgetbuddy.commands.expense.AddExpenseCommand;
+import seedu.budgetbuddy.commands.expense.DisplayExpensesForMonthWithCategoriesGraphCommand;
 import seedu.budgetbuddy.commands.expense.EditExpenseCommand;
 import seedu.budgetbuddy.commands.expense.SearchExpenseCommand;
 import seedu.budgetbuddy.commands.expense.ListExpenseCommand;
-import seedu.budgetbuddy.commands.expense.DisplayExpenseCommand;
 import seedu.budgetbuddy.commands.expense.DisplayTotalExpensesCommand;
 import seedu.budgetbuddy.commands.income.AddIncomeCommand;
 import seedu.budgetbuddy.commands.budget.AddBudgetCommand;
 import seedu.budgetbuddy.commands.Command;
 import seedu.budgetbuddy.commands.budget.DeductBudgetCommand;
 import seedu.budgetbuddy.commands.income.DeleteIncomeCommand;
-import seedu.budgetbuddy.commands.income.DisplayIncomeCommand;
 import seedu.budgetbuddy.commands.ExitCommand;
 import seedu.budgetbuddy.commands.HelpCommand;
 import seedu.budgetbuddy.commands.IncorrectCommand;
 import seedu.budgetbuddy.commands.budget.ListBudgetCommand;
+import seedu.budgetbuddy.commands.income.DisplayIncomeSpentCommand;
+import seedu.budgetbuddy.commands.income.EditIncomeCommand;
 import seedu.budgetbuddy.commands.income.ListIncomeCommand;
+import seedu.budgetbuddy.commands.saving.DisplaySavingsCommand;
+import seedu.budgetbuddy.commands.expense.ListMonthlyExpensesCommand;
 import seedu.budgetbuddy.exceptions.BudgetBuddyException;
 import seedu.budgetbuddy.transaction.budget.Budget;
 import seedu.budgetbuddy.transaction.budget.BudgetManager;
@@ -27,37 +31,39 @@ import seedu.budgetbuddy.transaction.expense.Expense;
 import seedu.budgetbuddy.transaction.expense.ExpenseManager;
 import seedu.budgetbuddy.transaction.income.Income;
 import seedu.budgetbuddy.transaction.income.IncomeManager;
+import seedu.budgetbuddy.validators.expense.DisplayExpensesForMonthWithCategoriesValidator;
+import seedu.budgetbuddy.validators.expense.ListExpenseValidator;
 import seedu.budgetbuddy.validators.income.AddIncomeValidator;
 import seedu.budgetbuddy.validators.budget.AddBudgetValidator;
 import seedu.budgetbuddy.validators.budget.DeductBudgetValidator;
 import seedu.budgetbuddy.validators.income.DeleteIncomeValidator;
-import seedu.budgetbuddy.validators.income.DisplayIncomeValidator;
+import seedu.budgetbuddy.validators.income.DisplayIncomeSpentValidator;
+import seedu.budgetbuddy.validators.income.ListIncomeValidator;
 import seedu.budgetbuddy.validators.budget.ListBudgetValidator;
 import seedu.budgetbuddy.validators.expense.AddExpenseValidator;
 import seedu.budgetbuddy.validators.expense.DeleteExpenseValidator;
-import seedu.budgetbuddy.validators.expense.DisplayExpenseValidator;
 import seedu.budgetbuddy.validators.expense.DisplayTotalExpensesValidator;
 import seedu.budgetbuddy.validators.expense.SearchExpenseValidator;
+import seedu.budgetbuddy.validators.saving.DisplaySavingsValidator;
+import seedu.budgetbuddy.validators.expense.ListMonthlyExpensesValidator;
 
 import java.time.LocalDate;
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-
 /**
  * The Parser class is responsible for interpreting user commands.
  * It analyzes the user input, identifies the corresponding command,
  * and returns the appropriate Command object for execution.
  */
 public class Parser {
-    private ExpenseManager expenseManager;
-    private IncomeManager incomeManager;
-    private BudgetManager budgetManager;
+    private static ExpenseManager expenseManager;
+    private static IncomeManager incomeManager;
+    private static BudgetManager budgetManager;
 
     public Parser(ExpenseManager expenseManager, IncomeManager incomeManager, BudgetManager budgetManager) {
-        this.expenseManager = expenseManager;
-        this.incomeManager = incomeManager;
-        this.budgetManager = budgetManager;
+        Parser.expenseManager = expenseManager;
+        Parser.incomeManager = incomeManager;
+        Parser.budgetManager = budgetManager;
     }
 
     /**
@@ -76,16 +82,13 @@ public class Parser {
             return DeleteExpenseValidator.processCommand(userCommandText);
         }
         if (ListExpenseCommand.isCommand(userCommandText)) {
-            return new ListExpenseCommand();
+            return ListExpenseValidator.processCommand(userCommandText);
         }
         if (AddIncomeCommand.isCommand(userCommandText)) {
             return AddIncomeValidator.processCommand(userCommandText);
         }
         if (DeleteIncomeCommand.isCommand(userCommandText)) {
             return DeleteIncomeValidator.processCommand(userCommandText);
-        }
-        if (ListIncomeCommand.isCommand(userCommandText)) {
-            return new ListIncomeCommand();
         }
         if (AddBudgetCommand.isCommand(userCommandText)) {
             return AddBudgetValidator.processCommand(userCommandText);
@@ -102,11 +105,8 @@ public class Parser {
         if (HelpCommand.isCommand(userCommandText)){
             return new HelpCommand();
         }
-        if (DisplayExpenseCommand.isCommand(userCommandText)) {
-            return DisplayExpenseValidator.processCommand(userCommandText);
-        }
-        if (DisplayIncomeCommand.isCommand(userCommandText)) {
-            return DisplayIncomeValidator.processCommand(userCommandText);
+        if (ListIncomeCommand.isCommand(userCommandText)) {
+            return ListIncomeValidator.processCommand(userCommandText);
         }
         if (SearchExpenseCommand.isCommand(userCommandText)){
             return SearchExpenseValidator.processCommand(userCommandText);
@@ -114,11 +114,29 @@ public class Parser {
         if (DisplayTotalExpensesCommand.isCommand(userCommandText)){
             return DisplayTotalExpensesValidator.processCommand(userCommandText);
         }
+        if (ListMonthlyExpensesCommand.isCommand(userCommandText)) {
+            return ListMonthlyExpensesValidator.processCommand(userCommandText);
+        }
+        if (DisplayIncomeSpentCommand.isCommand(userCommandText)) {
+            return DisplayIncomeSpentValidator.processCommand(userCommandText);
+        }
         if(EditExpenseCommand.isCommand(userCommandText)){
             return new EditExpenseCommand(userCommandText);
         }
+        if(EditIncomeCommand.isCommand(userCommandText)){
+            return new EditIncomeCommand(userCommandText);
+        }
         if (ListRemainingBudgetCommand.isCommand(userCommandText)) {
             return new ListRemainingBudgetCommand();
+        }
+        if (DisplaySavingsCommand.isCommand(userCommandText)){
+            return DisplaySavingsValidator.processCommand(userCommandText);
+        }
+        if (BreakdownExpensesCommand.isCommand(userCommandText)){
+            return new BreakdownExpensesCommand();
+        }
+        if (DisplayExpensesForMonthWithCategoriesGraphCommand.isCommand(userCommandText)){
+            return DisplayExpensesForMonthWithCategoriesValidator.processCommand(userCommandText);
         }
         return new IncorrectCommand("Invalid input");
     }
@@ -129,49 +147,60 @@ public class Parser {
      * the appropriate object (Expense, Income, or Budget).
      *
      * @param input The line of text from the file to be parsed.
-     * @param expenses The list of expenses to which new Expense objects will be added.
-     * @param incomes The list of incomes to which new Income objects will be added.
-     * @param budgets The list of budgets to which new Budget objects will be added.
      */
-    public static void parseFile(String input, ArrayList<Expense> expenses, ArrayList<Income> incomes,
-            ArrayList<Budget> budgets) {
+    public static void parseFile(String input) {
 
         String[] parts = input.split(" \\| ");
         String type = parts[0]; // Determines if it's expense, income, or budget
 
         switch (type.toLowerCase()) {
         case "expense": {
-            String description = parts[1];
-            double amount = Double.parseDouble(parts[2]);
-            LocalDate date = LocalDate.parse(parts[3], DateTimeFormatter.ofPattern("d/M/yyyy"));
-            Category category = Category.valueOf(parts[4].toUpperCase()); // Ensure category exists for expense
+            try {
+                String description = parts[1];
+                double amount = Double.parseDouble(parts[2]);
+                LocalDate date = LocalDate.parse(parts[3], DateTimeFormatter.ofPattern("d/M/yyyy"));
+                Category category = Category.valueOf(parts[4].toUpperCase()); // Ensure category exists for expense
 
-            expenses.add(new Expense(description, amount, date, category));
+                expenseManager.loadExpense(new Expense(description, amount, date, category));
+            } catch (Exception e) {
+                Ui.showMessage("Invalid Storage Format: " + input);
+            }
+
             break;
         }
         case "income": {
-            String description = parts[1];
-            double amount = Double.parseDouble(parts[2]);
-            LocalDate date = LocalDate.parse(parts[3], DateTimeFormatter.ofPattern("d/M/yyyy"));
+            try {
+                String description = parts[1];
+                double amount = Double.parseDouble(parts[2]);
+                LocalDate date = LocalDate.parse(parts[3], DateTimeFormatter.ofPattern("d/M/yyyy"));
 
-            incomes.add(new Income(description, amount, date)); // No category needed for income
+                incomeManager.loadIncome(new Income(description, amount, date)); // No category needed for income
+            } catch (Exception e) {
+                Ui.showMessage("Invalid Input Format: " + input);
+            }
+
             break;
         }
         case "budget": {
-            YearMonth budgetDate = YearMonth.parse(parts[2], DateTimeFormatter.ofPattern("yyyy-MM"));
-            // Adjust date format for YearMonth
-            String categoryPart = parts[3].trim();
-            categoryPart = categoryPart.substring(1, categoryPart.length() - 1);
-            Budget budget = new Budget(budgetDate);
+            try {
+                YearMonth budgetDate = YearMonth.parse(parts[2], DateTimeFormatter.ofPattern("yyyy-MM"));
+                // Adjust date format for YearMonth
+                String categoryPart = parts[3].trim();
+                categoryPart = categoryPart.substring(1, categoryPart.length() - 1);
+                Budget budget = new Budget(budgetDate);
 
-            String[] categories = categoryPart.split(", ");
-            for (String categoryEntry : categories) {
-                String[] categorySplit = categoryEntry.split("=");
-                Category category = Category.valueOf(categorySplit[0].toUpperCase());
-                double categoryAmount = Double.parseDouble(categorySplit[1]);
-                budget.addAmount(category, categoryAmount);
+                String[] categories = categoryPart.split(", ");
+                for (String categoryEntry : categories) {
+                    String[] categorySplit = categoryEntry.split("=");
+                    Category category = Category.valueOf(categorySplit[0].toUpperCase());
+                    double categoryAmount = Double.parseDouble(categorySplit[1]);
+                    budget.addAmount(category, categoryAmount);
+                }
+                budgetManager.addBudget(budget);
+            } catch (Exception e) {
+                Ui.showMessage("Invalid Input Format: " + input);
             }
-            budgets.add(budget);
+
             break;
         }
         default:

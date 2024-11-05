@@ -15,7 +15,7 @@ public class ListRemainingBudgetCommand extends Command {
      * @return True if the command matches "list budget", false otherwise.
      */
     public static boolean isCommand(String command) {
-        return command.startsWith("list remaining budget");
+        return command.equals("list remaining budget");
     }
 
     /**

@@ -1,14 +1,14 @@
 package seedu.budgetbuddy.validators.income;
 
 import seedu.budgetbuddy.commands.Command;
-import seedu.budgetbuddy.commands.income.DisplayIncomeCommand;
 import seedu.budgetbuddy.commands.IncorrectCommand;
+import seedu.budgetbuddy.commands.income.ListIncomeCommand;
 
 import java.time.YearMonth;
 
 import static seedu.budgetbuddy.validators.DateValidator.validateYearMonth;
 
-public class DisplayIncomeValidator {
+public class ListIncomeValidator {
 
     /**
      * Processes the command string to determine if it is valid for displaying income.
@@ -18,11 +18,11 @@ public class DisplayIncomeValidator {
      * @return
      */
     public static Command processCommand(String command) {
-        if (command.equals("display income")){
-            return new DisplayIncomeCommand();
+        if (command.equals("list income")){
+            return new ListIncomeCommand();
         }
 
-        String trimmedCommand = command.substring("display income ".length());
+        String trimmedCommand = command.substring("list income ".length());
         String[] parts = trimmedCommand.split(" ");
 
         //Process Initial Value
@@ -38,7 +38,7 @@ public class DisplayIncomeValidator {
             }
         }
 
-        return new DisplayIncomeCommand(month);
+        return new ListIncomeCommand(month);
     }
 
 }
