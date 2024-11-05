@@ -611,12 +611,14 @@ The following UML Sequence diagram shows how to obtain the relevant inputs for t
 
 ## Product scope
 ### Target user profile
-
-{Describe the target user profile}
+For people who have troubles keeping track of their finances and allow them to make more informed financial
+decisions.
 
 ### Value proposition
-
-{Describe the value proposition: what problem does it solve?}
+For students who have difficulties keeping track of expenses and making informed financial choices, BudgetBuddy
+acts as a simple-to-use expense and income tracker, as well as a budgeting tool that provides insights into 
+the user's finances. BudgetBuddy simplifies your financial management, helping you stay organised in a single 
+application.
 
 ## User Stories
 
@@ -648,5 +650,68 @@ The following UML Sequence diagram shows how to obtain the relevant inputs for t
 * *glossary item* - Definition
 
 ## Instructions for manual testing
+### 1. Launching BudgetBuddy
+#### 1.1 Launch
+  * Download the jar file and copy it to an empty folder.
+  * Navigate to the jar file via a Terminal window. 
+  * Start the jar file with the command `java -jar BudgetBuddy.jar`
+  * Expected: Command Line Interface should appear with a welcome message to users, prompting the user for a command.
+
+### 2. Test Cases
+#### 2.1 Displaying command/help list. 
+1. Test Case: `help` <br/>
+    Expected: Prints the functionalities of BudgetBuddy, along with the appropriate commands for each feature.
+2. Test Case: `help 123` <br/>
+    Expected: Prints the functionalities of BudgetBuddy, along with the appropriate commands for each feature.
+
+#### 2.2 Search Expense
+* 2.2.1 No descriptor provided to search for. 
+  * Prerequisites: None
+  * Test Case: `search expense` <br/> 
+  * Expected: Error messsage appears informing the user to key in a valid description to search for. 
+
+* 2.2.2 No expense entry contains given descriptor.
+    * Prerequisites: At least one expense entry, such that no entry contains the given 
+  descriptor "notInAnyExpense" in its description.
+    * Test Case: `search expense notInAnyExpense` <br/>
+    * Expected: Message telling user that no expense entry has been found with the given 
+    descriptor ("notInAnyExpense").
+  
+* 2.2.3 Expense found with given descriptor.
+    * Prerequisites: At least one expense entry with description containing the given
+  descriptor "Japan".
+    * Test Case: `search expense Japan` 
+    * Expected: Message showing users the expense entries with descriptions that include the word 
+    "Japan". Filtering is case insensitive.
+
+#### 2.3 Breakdown Expenses 
+* 2.3.1 No expense added into the app. 
+    * Prerequisites: No expense tracked in the app. 
+    * Test Case: `breakdown expenses`
+    * Expected: Error message prompting user that there are no expense entries. 
+
+* 2.3.2 Expenses added into the app. 
+    * Prerequisites: At least one expense entry tracked by the app.
+    * Test Case: `breakdown expenses`
+    * Expected: Message showing the breakdown of total expenses by category.
+
+#### 2.4 Display Savings
+* 2.4.1 Display Savings in total
+    * Prerequisites: At least one expense/income entry tracked by the app. 
+    * Test Case: `display savings`
+    * Expected: Message showing the total savings of the user based on the incomes and expenses tracked by 
+    the app, as well as first expense and income entry dates.
+
+* 2.4.2 Display Savings by month
+    * Prerequisites: At least one expense/income entry tracked by the app.
+    * Test Case: `display savings m/`
+    * Expected: Message showing the monthly breakdown of savings of the user, based on the incomes and expenses
+    tracked by the app. 
+
+* 2.4.3 No expense and income entries tracked by the app. 
+    * Prerequisites: App is not tracking any expense or income entries. 
+    * Test Case: `display savings m/` or `display savings`
+    * Expected: Message showing that the user has 0 savings. 
+
 
 {Give instructions on how to do a manual product testing e.g., how to load sample data to be used for testing}
