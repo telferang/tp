@@ -9,7 +9,7 @@ import seedu.budgetbuddy.util.LoggerSetup;
 import java.time.YearMonth;
 import java.util.logging.Logger;
 
-import static seedu.budgetbuddy.validators.CategoryValidator.validateCategory;
+import static seedu.budgetbuddy.validators.CategoryValidator.validateSearchCategory;
 import static seedu.budgetbuddy.validators.DateValidator.validateYearMonth;
 
 /**
@@ -27,7 +27,7 @@ public class ListExpenseValidator{
      * @return
      */
     public static Command processCommand(String command) {
-        if (command.equals("list expense")){
+        if (command.equals("list expense")) {
             return new ListExpenseCommand();
         }
 
@@ -47,10 +47,10 @@ public class ListExpenseValidator{
                     return new IncorrectCommand("Invalid month format. Use m/MM/yyyy.");
                 }
             } else if (part.startsWith("c/")) {
-                category = validateCategory(part);
+                category = validateSearchCategory(part);
                 if (category == null) {
                     LOGGER.warning("Invalid Category. Category found: " + part);
-                    return new IncorrectCommand("Unknown category. Use a valid category");
+                    return new IncorrectCommand("Unknown category. Use a valid category.");
                 }
             }
         }
@@ -71,7 +71,7 @@ public class ListExpenseValidator{
             return new ListExpenseCommand(category);
         } else if (category == null && date != null) {
             return new ListExpenseCommand(date);
-        } else{
+        } else {
             return new ListExpenseCommand(category, date);
         }
     }
