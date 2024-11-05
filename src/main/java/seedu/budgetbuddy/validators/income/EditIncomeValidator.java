@@ -1,7 +1,15 @@
 package seedu.budgetbuddy.validators.income;
 
 import seedu.budgetbuddy.Ui;
+import seedu.budgetbuddy.commands.Command;
+import seedu.budgetbuddy.commands.IncorrectCommand;
+import seedu.budgetbuddy.commands.expense.EditExpenseCommand;
 import seedu.budgetbuddy.commands.income.EditIncomeCommand;
+import seedu.budgetbuddy.exceptions.BudgetBuddyException;
+import seedu.budgetbuddy.transaction.expense.Expense;
+import seedu.budgetbuddy.transaction.expense.ExpenseManager;
+import seedu.budgetbuddy.transaction.income.Income;
+import seedu.budgetbuddy.transaction.income.IncomeManager;
 import seedu.budgetbuddy.util.LoggerSetup;
 
 import java.time.LocalDate;
@@ -15,6 +23,38 @@ public class EditIncomeValidator {
     private static final Logger LOGGER = LoggerSetup.getLogger();
 
     /**
+     * Processes the command string to determine if it is valid income index.
+     * If valid, it creates an EditIncomeCommand object which will be used for subsequent execution.
+     * otherwise, it returns an IncorrectCommand object with the error.
+     *
+     * @param command first input given by user
+     * @return command object
+     */
+    public static Command processFirstCommand(String command) {
+        if (command.equals("edit incomes")) {
+            return new IncorrectCommand("No index detected, try again with an index.");
+        }
+        try {
+            String trimmedCommand = command.substring("edit incomes ".length());
+            String[] parts = trimmedCommand.split(" ");
+            int editIndex = Integer.parseInt(parts[0]) - 1;
+            if (editIndex < 0) {
+                return new IncorrectCommand("Edit index must be greater than 0.");
+            }
+            Income income = IncomeManager.getIncomeByIndex(editIndex);
+            if (income == null) {
+                return new IncorrectCommand("Input index is larger than the number of incomes. " +
+                        "Try with a smaller index");
+            } else {
+                return new EditIncomeCommand(income);
+            }
+        } catch (NumberFormatException e) {
+            return new IncorrectCommand("Index must be a valid number larger than 0.");
+        }
+
+    }
+
+    /**
      * Processes the command string to determine if it is valid for editing.
      * If valid, it updates the fields to be changed and returns a true for validity of command.
      * otherwise, it will display error message and return a false validity of command.
@@ -22,7 +62,7 @@ public class EditIncomeValidator {
      * @param command Input given by user
      * @return Validity of command {@code Boolean}
      */
-    public static boolean processCommand(String command) {
+    public static boolean processSecondCommand(String command) {
 
         String[] parts = command.split(" ");
 

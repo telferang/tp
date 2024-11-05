@@ -32,12 +32,14 @@ import seedu.budgetbuddy.transaction.expense.ExpenseManager;
 import seedu.budgetbuddy.transaction.income.Income;
 import seedu.budgetbuddy.transaction.income.IncomeManager;
 import seedu.budgetbuddy.validators.expense.DisplayExpensesForMonthWithCategoriesValidator;
+import seedu.budgetbuddy.validators.expense.EditExpenseValidator;
 import seedu.budgetbuddy.validators.expense.ListExpenseValidator;
 import seedu.budgetbuddy.validators.income.AddIncomeValidator;
 import seedu.budgetbuddy.validators.budget.AddBudgetValidator;
 import seedu.budgetbuddy.validators.budget.DeductBudgetValidator;
 import seedu.budgetbuddy.validators.income.DeleteIncomeValidator;
 import seedu.budgetbuddy.validators.income.DisplayIncomeSpentValidator;
+import seedu.budgetbuddy.validators.income.EditIncomeValidator;
 import seedu.budgetbuddy.validators.income.ListIncomeValidator;
 import seedu.budgetbuddy.validators.budget.ListBudgetValidator;
 import seedu.budgetbuddy.validators.expense.AddExpenseValidator;
@@ -121,10 +123,10 @@ public class Parser {
             return DisplayIncomeSpentValidator.processCommand(userCommandText);
         }
         if(EditExpenseCommand.isCommand(userCommandText)){
-            return new EditExpenseCommand(userCommandText);
+            return EditExpenseValidator.processFirstCommand(userCommandText);
         }
         if(EditIncomeCommand.isCommand(userCommandText)){
-            return new EditIncomeCommand(userCommandText);
+            return EditIncomeValidator.processFirstCommand(userCommandText);
         }
         if (ListRemainingBudgetCommand.isCommand(userCommandText)) {
             return new ListRemainingBudgetCommand();

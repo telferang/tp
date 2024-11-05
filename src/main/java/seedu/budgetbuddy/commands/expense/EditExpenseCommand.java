@@ -88,7 +88,7 @@ public class EditExpenseCommand extends Command {
         if(editFields.isEmpty()) {
             return;
         }
-        validInput = EditExpenseValidator.processCommand(editFields);
+        validInput = EditExpenseValidator.processSecondCommand(editFields);
         if(validInput) {
             processEdit();
         }

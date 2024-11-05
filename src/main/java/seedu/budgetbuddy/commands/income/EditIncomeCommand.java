@@ -21,8 +21,9 @@ public class EditIncomeCommand extends Command {
     private static double amount;
     private Income income;
 
-    public EditIncomeCommand(String command) throws BudgetBuddyException {
-        getIncome(command);
+
+    public EditIncomeCommand(Income income) {
+        this.income = income;
     }
 
     /**
@@ -66,7 +67,7 @@ public class EditIncomeCommand extends Command {
         if(editFields.isEmpty()) {
             return;
         }
-        validInput = EditIncomeValidator.processCommand(editFields);
+        validInput = EditIncomeValidator.processSecondCommand(editFields);
         if(validInput) {
             processEdit();
         }
@@ -111,7 +112,6 @@ public class EditIncomeCommand extends Command {
         }
 
     }
-
 
     /**
      * Process which fields to edit based on values stored
