@@ -2,10 +2,8 @@ package seedu.budgetbuddy.commands.expense;
 
 import seedu.budgetbuddy.Ui;
 import seedu.budgetbuddy.commands.Command;
-import seedu.budgetbuddy.exceptions.BudgetBuddyException;
 import seedu.budgetbuddy.transaction.Category;
 import seedu.budgetbuddy.transaction.expense.Expense;
-import seedu.budgetbuddy.transaction.expense.ExpenseManager;
 import seedu.budgetbuddy.util.LoggerSetup;
 import seedu.budgetbuddy.validators.expense.EditExpenseValidator;
 
@@ -24,16 +22,6 @@ public class EditExpenseCommand extends Command {
     private static double amount;
     private Expense expense;
 
-
-    public EditExpenseCommand(String command) throws BudgetBuddyException {
-        getExpense(command);
-    }
-
-    /**
-     * Used for Unit Testing
-     *
-     * @param expense Created expense object to be tested
-     */
     public EditExpenseCommand(Expense expense) {
         this.expense = expense;
     }
@@ -85,11 +73,11 @@ public class EditExpenseCommand extends Command {
         String editFields = getEditFields();
         LOGGER.log(Level.INFO, "Successfully retrieve edit fields");
         Boolean validInput;
-        if(editFields.isEmpty()) {
+        if (editFields.isEmpty()) {
             return;
         }
         validInput = EditExpenseValidator.processSecondCommand(editFields);
-        if(validInput) {
+        if (validInput) {
             processEdit();
         }
         LOGGER.log(Level.INFO, "Successfully edit expense");
@@ -101,7 +89,7 @@ public class EditExpenseCommand extends Command {
      *
      * @return User input EditFields that will be used for editing Expenses {@code String}
      */
-    public String getEditFields(){
+    public String getEditFields() {
         Ui.showMessage("Edit the following fields as follows: Amount: a/, Category: c/, Date: d/\n" +
                 "Currently Editing Entry:\n" +
                 expense.toString());
@@ -110,41 +98,17 @@ public class EditExpenseCommand extends Command {
     }
 
     /**
-     * Finds the desired expense from the list of expenses that will be updated
-     * Saves Expense for future reference on successful find
-     *
-     * @param command User Input
-     * @throws BudgetBuddyException
-     */
-    private void getExpense(String command) throws BudgetBuddyException {
-        if (command.equals("edit expenses")) {
-            throw new BudgetBuddyException("No index detected, try again with an index.");
-        }
-        try {
-            String trimmedCommand = command.substring("edit expenses ".length());
-            String[] parts = trimmedCommand.split(" ");
-            int editIndex = Integer.parseInt(parts[0]) - 1;
-            if (editIndex < 0) {
-                throw new BudgetBuddyException("Edit index must be greater than 0.");
-            }
-            this.expense = ExpenseManager.getExpenseByIndex(editIndex);
-        } catch (NumberFormatException e) {
-            throw new BudgetBuddyException("Index must be a valid number larger than 0.");
-        }
-    }
-
-    /**
      * Process which fields to edit based on values stored
      * For any field that is not left empty by user, it will update the Expense object.
      */
-    public void processEdit(){
-        if(category != EMPTY_CATEGORY) {
+    public void processEdit() {
+        if (category != EMPTY_CATEGORY) {
             expense.editCategory(category);
         }
-        if(date != EMPTY_DATE) {
+        if (date != EMPTY_DATE) {
             expense.editDate(date);
         }
-        if(amount != EMPTY_AMOUNT) {
+        if (amount != EMPTY_AMOUNT) {
             expense.editAmount(amount);
         }
         Ui.displayToUser("Edited Expense:\n" + expense.toString());

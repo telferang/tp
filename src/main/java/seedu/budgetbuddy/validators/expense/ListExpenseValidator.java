@@ -27,7 +27,7 @@ public class ListExpenseValidator{
      * @return
      */
     public static Command processCommand(String command) {
-        if (command.equals("list expense")){
+        if (command.equals("list expense")) {
             return new ListExpenseCommand();
         }
 
@@ -71,7 +71,7 @@ public class ListExpenseValidator{
             return new ListExpenseCommand(category);
         } else if (category == null && date != null) {
             return new ListExpenseCommand(date);
-        } else{
+        } else {
             return new ListExpenseCommand(category, date);
         }
     }
