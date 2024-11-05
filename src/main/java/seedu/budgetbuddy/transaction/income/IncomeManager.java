@@ -158,10 +158,9 @@ public class IncomeManager {
      * @return an income object for future reference
      * @throws BudgetBuddyException if input index is larger than size of Income List
      */
-    public static Income getIncomeByIndex(int index) throws BudgetBuddyException {
+    public static Income getIncomeByIndex(int index)  {
         if(index > numberOfIncomes) {
-            throw new BudgetBuddyException("Input index is larger than the number of incomes. " +
-                    "Try with a smaller index");
+            return null;
         }
         return incomes.get(index);
     }

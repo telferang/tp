@@ -21,4 +21,20 @@ public class CategoryValidator {
             return Category.OTHERS;  // Default category if invalid
         }
     }
+
+    /**
+     * Parses the category from user inputs. Used for any interaction with data extraction from existing list
+     * (example: edit operations)
+     *
+     * @param part The command part containing the category.
+     * @return The parsed category or OTHERS if invalid.
+     */
+    public static Category validateSearchCategory(String part) {
+        String categoryStr = part.substring(2).toUpperCase();
+        try {
+            return Category.valueOf(categoryStr);
+        } catch (IllegalArgumentException e) {
+            return null;  // Default category if invalid
+        }
+    }
 }
