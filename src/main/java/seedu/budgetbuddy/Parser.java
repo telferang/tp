@@ -158,6 +158,10 @@ public class Parser {
         switch (type.toLowerCase()) {
         case "expense": {
             try {
+                if (parts.length != 5) {
+                    Ui.showMessage("Invalid Storage Format: " + input);
+                    return;
+                }
                 String description = parts[1];
                 double amount = Double.parseDouble(parts[2]);
                 LocalDate date = LocalDate.parse(parts[3], DateTimeFormatter.ofPattern("d/M/yyyy"));
@@ -172,6 +176,10 @@ public class Parser {
         }
         case "income": {
             try {
+                if (parts.length != 4) {
+                    Ui.showMessage("Invalid Storage Format: " + input);
+                    return;
+                }
                 String description = parts[1];
                 double amount = Double.parseDouble(parts[2]);
                 LocalDate date = LocalDate.parse(parts[3], DateTimeFormatter.ofPattern("d/M/yyyy"));
@@ -185,6 +193,10 @@ public class Parser {
         }
         case "budget": {
             try {
+                if (parts.length != 4) {
+                    Ui.showMessage("Invalid Storage Format: " + input);
+                    return;
+                }
                 YearMonth budgetDate = YearMonth.parse(parts[2], DateTimeFormatter.ofPattern("yyyy-MM"));
                 // Adjust date format for YearMonth
                 String categoryPart = parts[3].trim();
