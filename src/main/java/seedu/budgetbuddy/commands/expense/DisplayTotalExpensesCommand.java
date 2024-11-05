@@ -5,7 +5,6 @@ import seedu.budgetbuddy.commands.Command;
 import seedu.budgetbuddy.transaction.expense.ExpenseManager;
 import seedu.budgetbuddy.util.LoggerSetup;
 
-import java.time.YearMonth;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -15,7 +14,6 @@ import java.util.logging.Logger;
 public class DisplayTotalExpensesCommand extends Command {
     private static final Logger LOGGER = LoggerSetup.getLogger();
     private int year;
-    private YearMonth month;
 
     /**
      * Constructs a command to display expenses for the specified year.

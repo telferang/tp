@@ -85,7 +85,7 @@ public class ListExpenseCommand extends Command {
         if (category == null && month == null) {
             LOGGER.log(Level.INFO, "Displaying expenses listed with no Filter");
             ExpenseManager.listExpenses();
-        } else if (category == null){
+        } else if (category == null) {
             LOGGER.info("Displaying expenses listed in the Month: " + month);
             Ui.displayToUser(ExpenseManager.listExpensesWithDate(month));
         } else if (month == null) {

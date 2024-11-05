@@ -75,6 +75,42 @@ Example of usage:
 
 `delete income 1`
 
+### Adding a budget: `add budget`
+Adds an amount to the month’s current budget. Budget is cumulative for the current month.
+
+Format: `add budget a/AMOUNT [m/DATE]`
+
+* The `AMOUNT` is the amount of the budget to be added.
+* The `DATE` (Optional) is the date of the budget in MM/YYYY format. If date is not given, current date will be used.
+
+Example of usage:  
+`add budget a/800`  
+`add budget a/700 m/11/2024`
+
+### Deducting a budget: `deduct budget`
+Deducts an amount to the month’s current budget. Budget cannot go below 0.
+
+Format: `deduct budget a/AMOUNT [m/DATE]`
+
+* The `AMOUNT` is the amount of the budget to be deducted.
+* The `DATE` (Optional) is the date of the budget in MM/YYYY format. If date is not given, current date will be used.
+
+Example of usage:  
+`deduct budget a/1500`  
+`deduct budget a/400 m/09/2024`
+
+### listing budgets: `list budgets`
+View all budgets, up to the latest 12 budgets. Able to view the budget for a specific month as well.
+
+Format: `list budgets [m/DATE]`
+
+* The `DATE` (Optional) is the date of the budget in MM/YYYY format. If date is not given, 
+up to 12 latest budgets will be listed.
+
+Example of usage:  
+`list budgets`  
+`list budgets m/09/2024`
+
 ### List remaining budgets: `list remaining budget`
 Show the budget remaining after deducting the expenses seperated by month and category.
 
@@ -144,6 +180,17 @@ Format:
 Example of usage:
 1. `edit income 3`
 2. `a/100 d/15/10/2024`
+
+### Display Monthly Expenses Chart: `display monthly expenses`
+Display a XY-Chart of your monthly expenses. The X-Axis will be the months of the year while the Y-Axis
+is the total expenses for that particular month.
+
+Format:
+`display monthly expenses y/YEAR`
+
+* The `YEAR` is the year of the expenses to be displayed
+* The format of `YEAR` should be `YYYY`
+* The command only accepts year between >=1900 and <=2100 to account for erroneous inputs.
 
 ## FAQ
 

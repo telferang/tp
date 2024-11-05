@@ -136,7 +136,13 @@ public class Ui {
                 "11. edit income fields (with Amount or Date).\n" +
                 "Example:\nedit incomes 3\n" +
                 "a/1000 d/12/10/2024\n" +
-                "12. Exit app. \n" +
+                "12. search expense (with provided keyword)\n" +
+                "Example:\nsearch expense japan\n" +
+                "13. display savings (by month or in total)\n" +
+                "Example:\ndisplay savings m/\ndisplay savings\n" +
+                "14. breakdown expenses (by category)\n" +
+                "Example:\nbreakdown expenses\n" +
+                "15. Exit app. \n" +
                 "Example:\nbye";
         displayToUser(message);
     }

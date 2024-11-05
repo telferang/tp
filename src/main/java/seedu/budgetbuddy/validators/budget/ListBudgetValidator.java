@@ -1,8 +1,8 @@
 package seedu.budgetbuddy.validators.budget;
 
 import seedu.budgetbuddy.commands.Command;
-import seedu.budgetbuddy.commands.IncorrectCommand;
 import seedu.budgetbuddy.commands.budget.ListBudgetCommand;
+import seedu.budgetbuddy.exceptions.BudgetBuddyException;
 
 import java.time.YearMonth;
 
@@ -20,19 +20,19 @@ public class ListBudgetValidator {
      * @param command The command string entered by the user.
      * @return A ListBudgetCommand if valid; otherwise, an IncorrectCommand.
      */
-    public static Command processCommand(String command) {
-        if (command.equals("list budget")) {
+    public static Command processCommand(String command) throws BudgetBuddyException {
+        if (command.equals("list budgets")) {
             return new ListBudgetCommand(null); // No date provided, list all budgets
         }
 
         // Check for date in the command
-        String trimmedCommand = command.substring("list budget ".length()).trim();
+        String trimmedCommand = command.substring("list budgets ".length()).trim();
         YearMonth date = null;
 
         if (!trimmedCommand.isEmpty()) {
             date = validateYearMonth(trimmedCommand);
             if (date == null) {
-                return new IncorrectCommand("Invalid format. Use 'list budget [m/MM/yyyy]'.");
+                throw new BudgetBuddyException("Invalid format. Use 'list budget [m/MM/yyyy]'.");
             }
         }
 
