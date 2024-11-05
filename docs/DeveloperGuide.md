@@ -15,7 +15,7 @@
 &nbsp;&nbsp;[3.3 UI Class](#33-ui-class) <br>
 &nbsp;&nbsp;[3.4 Command Class](#34-command-class) <br>
 &nbsp;&nbsp;[3.5 Validator Classes](#35-validator-classes) <br>
-&nbsp;&nbsp;[3.6 Expense and Income Class](#36-expense-and-income-class) <br>
+&nbsp;&nbsp;[3.6 Expense and Income Class](#36-expense-expensemanager-income-and-incomemanager-class) <br>
 [4. Implementation](#4-implementation) <br>
 &nbsp;&nbsp;[4.1 Expense Features](#41-expense-features) <br>
 &nbsp;&nbsp;&nbsp;[4.1.5 Display Monthly Expenses](#415-display-monthly-expenses) <br>
@@ -110,16 +110,18 @@ for the same reason as above.
 
 ![CommandCreation.drawio.png](diagrams/CommandCreation.drawio.png)
 
-### 3.6 Expense and Income Class
+### 3.6 Expense, ExpenseManager, Income and IncomeManager Class
 The `Expense` and `Income` class inherits from the Transaction class.
 
 `Expense` class stores one expense record given by the user.
 
+`ExpenseManager` class stores a list of `Expense`.
+
 `Income` class stores one income record given by the user.
 
-The methods for `Expense` and `Income` are not shown.
+`IncomeManager` class stores a list of `Income`.
 
-
+The methods are not shown.
 ![ExpenseAndIncomeClassDiagram.drawio.png](diagrams/ExpenseAndIncomeClassDiagram.drawio.png)
 
 ## 4. Implementation
@@ -127,8 +129,62 @@ The methods for `Expense` and `Income` are not shown.
 ---
 ### 4.1 Expense Features
 
----
-#### 4.1.2 Search Expense Feature
+#### 4.1.1 Add Expense Feature
+The Add Expense feature enables users to add expenses for different categories. This functionality is controlled by the
+AddExpenseCommand class, which is produced by the Parser class based on user input. The AddExpenseCommand class uses an
+AddExpenseValidator class to validate the provided description, amount, category, and date, and then create and add the
+given information to `AddExpenseCommand` if valid. Below is the relevance of these attributes:
+
+| Class Attribute | Variable Type | Relevance                            |
+|-----------------|---------------|--------------------------------------|
+| description     | String        | The short description of the expense |
+| amount          | double        | The expense amount to be added       |
+| category        | Category      | The category of expense to be added  |
+| date            | LocalDate     | The date of the expense              |
+
+The BudgetBuddy class then calls the `execute()` method of the `AddExpenseCommand` object which uses the following
+method in the `ExpenseManager` class to add the expense:
+
+| Method              | Return Type | Relevance                                 |
+|---------------------|-------------|-------------------------------------------|
+| addExpense(expense) | void        | Add new expense to the list of `expenses` |                                 
+
+A `RemainingBudgetManager` object will be created to find the budget remaining for the given month and category.
+Finally, the acknowledgement message along with the budget remaining is displayed to the user using the `Ui` class
+`displayToUser()` method.
+
+The following UML Sequence diagram shows the Add Expense Feature.
+We assume that the `AddExpenseCommand` has already been created and returned to `BudgetBuddy`.
+The starting arrow indicates return of the command based on the sequence diagram at [3.5 Validator Classes](#35-validator-classes)
+![AddExpenseSequenceDiagram.drawio.png](diagrams/AddExpenseSequenceDiagram.drawio.png)
+
+#### 4.1.2 Delete Expense Feature
+The Delete Expense feature enables users to delete expense in the list of expenses. This functionality is controlled by 
+the DeleteExpenseCommand class, which is produced by the Parser class based on user input. The DeleteExpenseCommand 
+class uses DeleteExpenseValidator validate the provided index is valid and within the number of expenses. Next, the 
+index will be stored in the newly created `DeleteExpenseCommand`. Below is the relevance of these attributes:
+
+| Class Attribute | Variable Type | Relevance                      |
+|-----------------|---------------|--------------------------------|
+| index           | int           | index of the expense to delete |
+
+The BudgetBuddy class then calls the `execute()` method of the `DeleteExpenseCommand` object which uses the following
+method in the `ExpenseManager` class to add the expense:
+
+| Method               | Return Type | Relevance                                        |
+|----------------------|-------------|--------------------------------------------------|
+| deleteExpense(index) | void        | Delete given expense from the list of `expenses` |                                 
+
+A `RemainingBudgetManager` object will be created to find the budget remaining for the given month and category.
+Finally, the acknowledgement message along with the budget remaining is displayed to the user using the `Ui` class
+`displayToUser()` method.
+
+The following UML Sequence diagram shows the Delete Expense Feature.
+We assume that the `DeleteExpenseCommand` has already been created and returned to `BudgetBuddy`.
+The starting arrow indicates return of the command based on the sequence diagram at [3.5 Validator Classes](#35-validator-classes)
+![DeleteExpenseSequenceDiagram.drawio.png](diagrams/DeleteExpenseSequenceDiagram.drawio.png)
+
+#### 4.1.3 Search Expense Feature
 The Search Expense Feature enables users to search for specific expenses based on a description provided by the
 user. This feature is managed by the `SearchExpensesCommand` class, initialized by the `Parser` class, with the help
 of a helper class `SearchExpenseValidator` to validate and extract the user description.
@@ -242,11 +298,63 @@ The starting arrow indicates return of the command based on the sequence diagram
 
 ### 4.2 Income Features
 
----
+#### 4.2.1 Add Income Feature
+The Add Income feature enables users to add incomes. This functionality is controlled by the
+AddIncomeCommand class, which is produced by the Parser class based on user input. The AddIncomeCommand class uses an
+AddIncomeValidator class to validate the provided description, amount, and date, and then create and add the
+given information to `AddIncomeCommand` if valid. Below is the relevance of these attributes:
+
+| Class Attribute | Variable Type | Relevance                            |
+|-----------------|---------------|--------------------------------------|
+| description     | String        | The short description of the expense |
+| amount          | double        | The expense amount to be added       |
+| date            | LocalDate     | The date of the expense              |
+
+The BudgetBuddy class then calls the `execute()` method of the `AddIncomeCommand` object which uses the following
+method in the `IncomeManager` class to add the income:
+
+| Method            | Return Type | Relevance                               |
+|-------------------|-------------|-----------------------------------------|
+| addIncome(income) | void        | Add new income to the list of `incomes` |                                 
+
+The acknowledgement message is displayed to the user using the `Ui` class `displayToUser()` method.
+
+The UML Sequence diagram is not shown because it is very similar to the [Add Expense Feature](#411-add-expense-feature).
+
+
+#### 4.1.2 Delete Income Feature
+The Delete Income feature enables users to delete income in the list of incomes. This functionality is controlled by
+the DeleteIncomeCommand class, which is produced by the Parser class based on user input. The DeleteIncomeCommand
+class uses DeleteIncomeValidator validate the provided index is valid and within the number of incomes. Next, the
+index will be stored in the newly created `DeleteIncomeCommand`. Below is the relevance of these attributes:
+
+| Class Attribute | Variable Type | Relevance                     |
+|-----------------|---------------|-------------------------------|
+| index           | int           | index of the income to delete |
+
+The BudgetBuddy class then calls the `execute()` method of the `DeleteIncomeCommand` object which uses the following
+method in the `IncomeManager` class to add the expense:
+
+| Method              | Return Type | Relevance                                      |
+|---------------------|-------------|------------------------------------------------|
+| deleteIncome(index) | void        | Delete given income from the list of `incomes` |                                 
+
+The acknowledgement message is displayed to the user using the `Ui` class `displayToUser()` method.
+
+The UML Sequence diagram is not shown because it is very similar to the [Add Income Feature](#412-delete-expense-feature).
 
 ### 4.3 Budget Features
 
----
+#### 4.3.4 List Remaining Budget Feature
+The `ListRemainingBudgetManager` will get the `Expenses` from `ExpenseManager` and `Budgets` from `BudgetManager`. All
+the `Expense` amount will be deducted from the budget according to the date and category.
+
+The following UML Sequence diagram shows the List Remaining Budgets Feature.
+We assume that the command for this feature has already been created and returned to `BudgetBuddy`.
+The starting arrow indicates return of the command based on the sequence diagram at [3.5 Validator Classes](#35-validator-classes)
+The loop to copy all the budget and the loop to match a expense to a budget are omitted to reduce complexity.
+
+![ListRemainingBudgetSequenceDiagram.drawio.png](diagrams/ListRemainingBudgetSequenceDiagram.drawio.png)
 
 ### 4.4 Savings Features
 
@@ -303,35 +411,6 @@ The `BudgetBuddy` class then calls the `execute()` method of the `HelpCommand` o
 
 Below is the sequence diagram for the execution of the Display Help Feature:
 ![DisplayHelpSequenceDiagram.drawio.png](diagrams/DisplaySavingsSequenceDiagram.drawio.png)
-
-#### 4.1.1 Add Expense Feature
-The Add Expense feature enables users to add budgets for different categories. This functionality is controlled by the
-AddExpenseCommand class, which is produced by the Parser class based on user input. The AddExpenseCommand class uses an
-AddExpenseValidator class to validate the provided description, amount, category, and date, and then create and add the
-given information to `AddExpenseCommand` if valid. Below is the relevance of these attributes:
-
-| Class Attribute | Variable Type | Relevance                            |
-|-----------------|---------------|--------------------------------------|
-| description     | String        | The short description of the expense |
-| amount          | double        | The expense amount to be added       |
-| category        | Category      | The category of expense to be added  |
-| date            | LocalDate     | The date of the expense              |
-
-The BudgetBuddy class then calls the `execute()` method of the `AddExpenseCommand` object which uses the following
-method in the `ExpenseManager` class to add the expense:
-
-| Method              | Return Type | Relevance                                 |
-|---------------------|-------------|-------------------------------------------|
-| addExpense(expense) | void        | Add new expense to the list of `expenses` |                                 
-
-A `RemainingBudgetManager` object will be created to find the budget remaining for the given month and category. 
-Finally, the acknowledgement message along with the budget remaining is displayed to the user using the `Ui` class 
-`displayToUser()` method.
-
-The following UML Sequence diagram shows how the Parser works to obtain the relevant inputs for the Add Expense Feature:
-The scenario of invalid input and sequence within `RemainingBudgetManager` are omitted to reduce complexity.
-![AddExpenseSequenceDiagram.drawio.png](diagrams/AddExpenseSequenceDiagram.drawio.png)
-
 
 #### 4.3.1 Add Budget Feature
 The Add Budget feature enables users to add budgets for different categories. This functionality is controlled by the 
@@ -396,15 +475,6 @@ an error message is shown.
 
 The following UML Sequence diagram shows how to obtain the relevant inputs for the List Budget Feature:
 ![ListBudgetSequenceDiagram.drawio.png](diagrams/ListBudgetSequenceDiagram.drawio.png)
-
-#### 4.3.4 List Remaining Feature
-The `ListRemainingBudgetManager` will get the `Expenses` from `ExpenseManager` and `Budgets` from `BudgetManager`. All
-the `Expense` amount will be deducted from the budget according to the date and category.
-
-The following UML Sequence diagram shows how the Parser works to obtain the relevant inputs for the List Remaining 
-Budgets Feature:
-The loop to copy all the budget and the loop to match a expense to a budget are omitted to reduce complexity.
-![ListRemainingBudgetSequenceDiagram.drawio.png](diagrams/ListRemainingBudgetSequenceDiagram.drawio.png)
 
 #### 4.1.3 List Expenses Feature
 The List Expense feature enables users to view saved expenses in the application. Additionally, user may add additional
