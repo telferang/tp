@@ -184,6 +184,55 @@ We assume that the `DeleteExpenseCommand` has already been created and returned 
 The starting arrow indicates return of the command based on the sequence diagram at [3.5 Validator Classes](#35-validator-classes)
 ![DeleteExpenseSequenceDiagram.drawio.png](diagrams/DeleteExpenseSequenceDiagram.drawio.png)
 
+#### 4.1.3 Search Expense Feature
+The Search Expense Feature enables users to search for specific expenses based on a description provided by the
+user. This feature is managed by the `SearchExpensesCommand` class, initialized by the `Parser` class, with the help
+of a helper class `SearchExpenseValidator` to validate and extract the user description.
+The `SearchExpensesCommand` object is then created with the keyword as an attribute. The class attributes and their
+relevance is as follows:
+
+|Variable Name| Variable Type | Relevance |
+|-------------|---------------|-----------|
+|keyword| String | Description to find in expenses|
+
+The BudgetBuddy class then calls the `execute()` method of the `SearchExpenseCommand` object which uses the
+`searchExpenses()` method in the `ExpenseManager` class, displaying the result to the user using the `Ui` class
+`displayToUser()` method.
+
+Below is a sequence diagram representing the execution of the Search Expense interaction:
+![SearchExpenseSequenceDiagram.drawio.png](diagrams/SearchExpenseSequenceDiagram.drawio.png)
+Process Overview:
+1. The user issues a command to search for a specific expense i.e. `search expense Japan`. BudgetBuddy parses this
+   input with the help of the `Parser` class.
+2. The `Parser` calls the `isCommand()` method of the `SearchExpenseCommand` class, to check if the user input
+   starts with "search expense".
+3. If the user input starts with "search expense", the `Parser` then calls the `processCommand()` method of
+   a helper class, `SearchExpenseValidator` to extract the description to be filtered on.
+4. The `processCommand()` method above returns a new `SearchExpenseCommand` object initialized with the description
+   extracted as the `keyword` attribute.
+5. BudgetBuddy then calls the `execute()` method of the `SearchExpenseCommand` object.
+6. If the keyword attribute is an empty string, the `SearchExpenseCommand` object calls the `searchEmptyMessage()`
+   method of the `Ui` class, displaying an error message to the user that no descriptor was provided.
+7. Else, the `SearchExpenseCommand` object calls the `searchExpenses()` method of the `ExpenseManager` class,
+   filtering the `expenses` ArrayList and returning a String containing all expenses with the given descriptor
+   in the description of the expenses. The `SearchExpenseCommand` object then calls the `displayToUser()` method in `Ui`,
+   displaying this String to the user.
+
+#### 4.1.4 Breakdown Expense Feature
+The Breakdown Expense Feature allows users to gain greater insights into their expense history. The feature
+makes use of the user's expense history, breaking down their total expense into the different categories, displaying
+this result to the user. This allows the user to know where they are spending their money. This feature differs from
+the List Expense Feature in that this feature gives a quick overview of a user's expenditure, in terms of categories.
+
+This feature is managed by the `BreakdownExpensesCommand` class, initialized by the `Parser` class upon user input. The
+`BudgetBuddy` class then calls the `execute()` method of the `BreakdownExpensesCommand` object, which uses the
+`breakdownExpensesByCategory()` method in the `ExpenseManager` class to execute the functionality, displaying
+the result via the `displayToUser()` method in the `Ui` class.
+
+Below is the sequence diagram for the execution of the Breakdown Expense Feature interaction:
+![BreakdownExpenseSequenceDiagram.drawio.png](diagrams/BreakdownExpenseSequenceDiagram.drawio.png)
+
+
 #### 4.1.5 Display Monthly Expenses
 The Display Monthly Expenses feature displays an XY-Chart which helps shows user's monthly expenses across the specified
 year. This functionality is controlled by the `DisplayTotalExpensesCommand` class which uses
@@ -310,10 +359,58 @@ The loop to copy all the budget and the loop to match a expense to a budget are 
 ### 4.4 Savings Features
 
 ---
+#### 4.4.1 Display Savings Feature
+The Display Savings Feature enables users to check how much they have saved, through their inputs into the application.
+We assume that the user has accurately reflected all expenses and incomes, and we calculate their savings by
+taking Savings = Total Income - Total Expense. The user has the option to either
+display their total savings, or their savings per month since using the app. This feature is managed by the
+`DisplaySavingsCommand` class, initialized by the `Parser` class using the `DisplaySavingsValidator` class to display
+the correct savings, according to the user input.
+The `DisplaySavingsCommand` object is then created with a boolean as an attribute. The class attributes and their
+relevance is as follows:
+
+|Variable Name| Variable Type | Relevance                                                                   | 
+|-------------|---------------|-----------------------------------------------------------------------------|
+|byMonth| boolean | Indicates whether the user wants to display by month or just total savings. |
+
+The BudgetBuddy class then calls the `execute()` method of the `DisplaySavingsCommand` object which uses the
+`displaySavings()` or `displaySavingsByMonth()` method in the `SavingsManager` class, displaying the result to the
+user using the `Ui` class `displayToUser()` method.
+
+Below is a sequence diagram representing the execution of the Display Expense interaction:
+![DisplaySavingsSequenceDiagram.drawio.png](diagrams/DisplaySavingsSequenceDiagram.drawio.png)
+Process Overview:
+1. The user issues a command to display savings i.e. `display savings m/`. BudgetBuddy parses this input with the help
+   of the `Parser` class.
+2. The `Parser` class calls the `isCommand()` method of the `DisplaySavingsCommand` class, to check if the user input
+   starts with "display savings".
+3. If the user input starts with "display savings", the `Parser` then calls the `processCommand()` method of
+   `DisplaySavingsValidator` to determine if the user wants a monthly breakdown of savings or simply their total savings.
+4. The `processCommand()` method above returns a new `DisplaySavingsCommand` object initialized with a `byMonth`
+   attribute, set to true if the user wants a monthly breakdown of savings. Otherwise if the user just wants their total
+   savings, this attribute will be set to false.
+5. BudgetBuddy then calls the execute() method of the `DisplaySavingsCommand` object.
+6. Depending on the `byMonth` attribute, either `displayTotalSavingsByMonth()` or `displayTotalSavings()` will be
+   executed from the `SavingsManager` class.
+7. The respective methods then save the results in a String, and returns this String to the `DisplaySavingsCommand`,
+   which then calls the `displayToUser()` method in `Ui`, displaying this String to the user.
+
+The class diagram below indicates the structure of the DisplaySavings Feature, involving `SavingsManager`, `Saving`,
+`IncomeManager` and `ExpenseManager`.
+![SavingsManagerClassDiagram.drawio.png](diagrams/SavingsManagerClassDiagram.drawio.png)
+
 
 ### 4.5 Miscellaneous Features
 
 ---
+#### 4.5.1 Display Help Feature
+The Display Help Feature serves as a guide for new users, displaying a list of features and an example command
+for each feature. The feature is managed by the `HelpComand` class, initialized by the `Parser` class upon user input.
+The `BudgetBuddy` class then calls the `execute()` method of the `HelpCommand` object, which uses the
+`displayHelpMessage()` method of the `Ui` class.
+
+Below is the sequence diagram for the execution of the Display Help Feature:
+![DisplayHelpSequenceDiagram.drawio.png](diagrams/DisplaySavingsSequenceDiagram.drawio.png)
 
 #### 4.3.1 Add Budget Feature
 The Add Budget feature enables users to add budgets for different categories. This functionality is controlled by the 
@@ -378,80 +475,6 @@ an error message is shown.
 
 The following UML Sequence diagram shows how to obtain the relevant inputs for the List Budget Feature:
 ![ListBudgetSequenceDiagram.drawio.png](diagrams/ListBudgetSequenceDiagram.drawio.png)
-
-#### 4.1.2 Search Expense Feature
-The Search Expense Feature enables users to search for specific expenses based on a description provided by the 
-user. This feature is managed by the `SearchExpensesCommand` class, initialized by the `Parser` class, with the help
-of a helper class `SearchExpenseValidator` to validate and extract the user description. 
-The `SearchExpensesCommand` object is then created with the keyword as an attribute. The class attributes and their
-relevance is as follows: 
-
-|Variable Name| Variable Type | Relevance |
-|-------------|---------------|-----------|
-|keyword| String | Description to find in expenses|
-
-The BudgetBuddy class then calls the `execute()` method of the `SearchExpenseCommand` object which uses the 
-`searchExpenses()` method in the `ExpenseManager` class, displaying the result to the user using the `Ui` class
-`displayToUser()` method.
-
-Below is a sequence diagram representing the execution of the Search Expense interaction: 
-![SearchExpenseSequenceDiagram.drawio.png](diagrams/SearchExpenseSequenceDiagram.drawio.png)
-Process Overview: 
-1. The user issues a command to search for a specific expense i.e. `search expense Japan`. BudgetBuddy parses this
-input with the help of the `Parser` class.
-2. The `Parser` calls the `isCommand()` method of the `SearchExpenseCommand` class, to check if the user input 
-starts with "search expense". 
-3. If the user input starts with "search expense", the `Parser` then calls the `processCommand()` method of 
-a helper class, `SearchExpenseValidator` to extract the description to be filtered on.
-4. The `processCommand()` method above returns a new `SearchExpenseCommand` object initialized with the description
-extracted as the `keyword` attribute.
-5. BudgetBuddy then calls the `execute()` method of the `SearchExpenseCommand` object. 
-6. If the keyword attribute is an empty string, the `SearchExpenseCommand` object calls the `searchEmptyMessage()`
-method of the `Ui` class, displaying an error message to the user that no descriptor was provided.
-7. Else, the `SearchExpenseCommand` object calls the `searchExpenses()` method of the `ExpenseManager` class,
-filtering the `expenses` ArrayList and returning a String containing all expenses with the given descriptor
-in the description of the expenses. The `SearchExpenseCommand` object then calls the `displayToUser()` method in `Ui`,
-displaying this String to the user.
-
-#### 4.4.1 Display Savings Feature
-The Display Savings Feature enables users to check how much they have saved, through their inputs into the application.
-We assume that the user has accurately reflected all expenses and incomes, and we calculate their savings by 
-taking Savings = Total Income - Total Expense. The user has the option to either
-display their total savings, or their savings per month since using the app. This feature is managed by the 
-`DisplaySavingsCommand` class, initialized by the `Parser` class using the `DisplaySavingsValidator` class to display
-the correct savings, according to the user input. 
-The `DisplaySavingsCommand` object is then created with a boolean as an attribute. The class attributes and their
-relevance is as follows: 
-
-|Variable Name| Variable Type | Relevance                                                                   | 
-|-------------|---------------|-----------------------------------------------------------------------------|
-|byMonth| boolean | Indicates whether the user wants to display by month or just total savings. |
-
-The BudgetBuddy class then calls the `execute()` method of the `DisplaySavingsCommand` object which uses the 
-`displaySavings()` or `displaySavingsByMonth()` method in the `SavingsManager` class, displaying the result to the 
-user using the `Ui` class `displayToUser()` method. 
-
-Below is a sequence diagram representing the execution of the Display Expense interaction:
-![DisplaySavingsSequenceDiagram.drawio.png](diagrams/DisplaySavingsSequenceDiagram.drawio.png)
-Process Overview: 
-1. The user issues a command to display savings i.e. `display savings m/`. BudgetBuddy parses this input with the help
-of the `Parser` class. 
-2. The `Parser` class calls the `isCommand()` method of the `DisplaySavingsCommand` class, to check if the user input 
-starts with "display savings".
-3. If the user input starts with "display savings", the `Parser` then calls the `processCommand()` method of 
-`DisplaySavingsValidator` to determine if the user wants a monthly breakdown of savings or simply their total savings. 
-4. The `processCommand()` method above returns a new `DisplaySavingsCommand` object initialized with a `byMonth` 
-attribute, set to true if the user wants a monthly breakdown of savings. Otherwise if the user just wants their total
-savings, this attribute will be set to false.
-5. BudgetBuddy then calls the execute() method of the `DisplaySavingsCommand` object.
-6. Depending on the `byMonth` attribute, either `displayTotalSavingsByMonth()` or `displayTotalSavings()` will be 
-executed from the `SavingsManager` class.
-7. The respective methods then save the results in a String, and returns this String to the `DisplaySavingsCommand`,
-which then calls the `displayToUser()` method in `Ui`, displaying this String to the user.
-
-The class diagram below indicates the structure of the DisplaySavings Feature, involving `SavingsManager`, `Saving`, 
-`IncomeManager` and `ExpenseManager`.
-![SavingsManagerClassDiagram.drawio.png](diagrams/SavingsManagerClassDiagram.drawio.png)
 
 #### 4.1.3 List Expenses Feature
 The List Expense feature enables users to view saved expenses in the application. Additionally, user may add additional
@@ -572,20 +595,6 @@ class then uses the `Ui` class to call function `getUserEditFields()` for editin
 The following UML Sequence diagram shows how the Parser works to obtain the relevant inputs for the Edit Income Feature
 ![EditIncomeSequenceDiagram.drawio.png](diagrams/EditIncomeSequenceDiagram.drawio.png)
 
-#### 4.1.4 Breakdown Expense Feature 
-The Breakdown Expense Feature allows users to gain greater insights into their expense history. The feature 
-makes use of the user's expense history, breaking down their total expense into the different categories, displaying
-this result to the user. This allows the user to know where they are spending their money. This feature differs from
-the List Expense Feature in that this feature gives a quick overview of a user's expenditure, in terms of categories.
-
-This feature is managed by the `BreakdownExpensesCommand` class, initialized by the `Parser` class upon user input. The 
-`BudgetBuddy` class then calls the `execute()` method of the `BreakdownExpensesCommand` object, which uses the 
-`breakdownExpensesByCategory()` method in the `ExpenseManager` class to execute the functionality, displaying 
-the result via the `displayToUser()` method in the `Ui` class.
-
-Below is the sequence diagram for the execution of the Breakdown Expense Feature interaction: 
-![BreakdownExpenseSequenceDiagram.drawio.png](diagrams/BreakdownExpenseSequenceDiagram.drawio.png)
-
 #### 4.4.2 Display Income Spent Feature
 The Display Income Spent Feature shows users the percentage of income spent for a specific month. When the command is 
 received, BudgetBuddy creates a DisplayIncomeSpentCommand object and executes it. The command then calls 
@@ -596,14 +605,6 @@ to the user.
 The following UML Sequence diagram shows how to obtain the relevant inputs for the Display Income Spent Feature:
 ![DisplayIncomeSpentSequenceDiagram.drawio.png](diagrams/DisplayIncomeSpentSequenceDiagram.drawio.png)
 
-#### 4.5.1 Display Help Feature
-The Display Help Feature serves as a guide for new users, displaying a list of features and an example command
-for each feature. The feature is managed by the `HelpComand` class, initialized by the `Parser` class upon user input. 
-The `BudgetBuddy` class then calls the `execute()` method of the `HelpCommand` object, which uses the 
-`displayHelpMessage()` method of the `Ui` class. 
-
-Below is the sequence diagram for the execution of the Display Help Feature: 
-![DisplayHelpSequenceDiagram.drawio.png](diagrams/DisplaySavingsSequenceDiagram.drawio.png)
 
 
 # Appendix
