@@ -2,9 +2,7 @@ package seedu.budgetbuddy.commands.income;
 
 import seedu.budgetbuddy.Ui;
 import seedu.budgetbuddy.commands.Command;
-import seedu.budgetbuddy.exceptions.BudgetBuddyException;
 import seedu.budgetbuddy.transaction.income.Income;
-import seedu.budgetbuddy.transaction.income.IncomeManager;
 import seedu.budgetbuddy.util.LoggerSetup;
 import seedu.budgetbuddy.validators.income.EditIncomeValidator;
 
@@ -68,7 +66,7 @@ public class EditIncomeCommand extends Command {
             return;
         }
         validInput = EditIncomeValidator.processSecondCommand(editFields);
-        if(validInput) {
+        if (validInput) {
             processEdit();
         }
         LOGGER.log(Level.INFO, "Successfully edit income");
@@ -80,7 +78,7 @@ public class EditIncomeCommand extends Command {
      *
      * @return User input EditFields that will be used for editing Income {@code String}
      */
-    public String getEditFields(){
+    public String getEditFields() {
         Ui.showMessage("Edit the following fields as follows: Amount: a/, Date: d/\n" +
                 "Currently Editing Entry:\n" +
                 income.toString());
@@ -89,39 +87,14 @@ public class EditIncomeCommand extends Command {
     }
 
     /**
-     * Finds the desired income from the list of incomes that will be updated
-     * Saves Expense for future reference on successful find
-     *
-     * @param command User Input
-     * @throws BudgetBuddyException
-     */
-    private void getIncome(String command) throws BudgetBuddyException {
-        if (command.equals("edit incomes")) {
-            throw new BudgetBuddyException("No index detected, try again with an index.");
-        }
-        try {
-            String trimmedCommand = command.substring("edit incomes ".length());
-            String[] parts = trimmedCommand.split(" ");
-            int editIndex = Integer.parseInt(parts[0]) - 1;
-            if (editIndex < 0) {
-                throw new BudgetBuddyException("Edit index must be greater than 0.");
-            }
-            this.income = IncomeManager.getIncomeByIndex(editIndex);
-        } catch (NumberFormatException e) {
-            throw new BudgetBuddyException("Index must be a valid number larger than 0.");
-        }
-
-    }
-
-    /**
      * Process which fields to edit based on values stored
      * For any field that is not left empty by user, it will update the Income object.
      */
-    public void processEdit(){
-        if(date != EMPTY_DATE) {
+    public void processEdit() {
+        if (date != EMPTY_DATE) {
             income.editDate(date);
         }
-        if(amount != EMPTY_AMOUNT) {
+        if (amount != EMPTY_AMOUNT) {
             income.editAmount(amount);
         }
         Ui.displayToUser("Edited Income:\n" + income.toString());

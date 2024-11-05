@@ -115,12 +115,12 @@ for the same reason as above.
 The Edit Validator classes are specialised for EditIncome and EditExpense commands as they take in 2 sets of input from 
 the user. This first set of input command follows validators classes at [3.5 Validator Classes](#35-validator-classes). 
 Upon calling of execution of command, a second set of input will be retrieved from the user, where it checks if the second 
-set of inputs are valid, and it returns a `boolean` object based on the input validity. 
+set of inputs are valid, and it returns a `boolean` object based on the second input validity. 
 
 The following sequence diagram shows the process of what happens from the function call of `execute()` from main until 
 the return of `boolean` object from validator class.
 
-![EditCommandCreation.drawio.png]()
+![EditCommandCreation.drawio.png](diagrams/EditSequenceDiagram.drawio.png)
 
 ### 3.6 Expense, ExpenseManager, Income and IncomeManager Class
 The `Expense` and `Income` class inherits from the Transaction class.
@@ -345,17 +345,14 @@ The following UML Sequence diagram shows how the List Expense Feature undergo it
 The Edit Expense Feature enable users to edit pre-existing entries of expenses in the application. Users are only
 allowed to change the date, category and amount fields of the expense field. Currently, the description of each task
 cannot be edited, however it may be implemented for future versions. There are 2 sets of instruction that the user
-has to input. The first set is to identify which expense to edit, while the second is the fields to be edited. This
-feature is controlled by the `EditExpenseCommand` class, where it is initialized by the `Parser` class. The following
-function is then called during the first set of user input.
-
-| Method                      | Return Type | Relevance                                                          |
-|-----------------------------|-------------|--------------------------------------------------------------------|
-| getExpense(command)         | void        | Extracts the Expense from ExpenseList based on Index given by user |
+has to input. The first set is to identify which expense to edit, while the second is the fields to be edited.
+This feature is controlled by the `EditExpenseCommand` class, where it is initialized by the `Parser` class. The 
+`Parser` class uses `EditExpenseValidator` to check and extract the `Expense` object based on index that the user input. 
+`EditExpenseCommand` is then created with the extracted `Expense` object.
 
 `EditExpenseCommand` class contains the following attributes, which will be used to store the values that will replace
 the existing value in the Expense object. During the creation of `EditExpenseCommand`, only `expense` object will be
-saved, will the other values will be initialized during subsequent function calls.
+saved, while the other values will be initialized during subsequent function calls.
 
 | Class Attribute | Variable Type | Relevance                                                              |
 |-----------------|---------------|------------------------------------------------------------------------|
@@ -369,8 +366,10 @@ class then uses the `Ui` class to call function `getUserEditFields()` for editin
 `EditExpenseCommand` then uses `EditExpenseValidator` to check and extract for any valid fields. If valid, a
 `processEdit()` function will be called to update values in the expense object.
 
-The following UML Sequence diagram shows how the Parser works to obtain the relevant inputs for the Edit Expense Feature
-![EditExpenseSequenceDiagram.drawio.png](diagrams/EditExpenseSequenceDiagram.drawio.png)
+The following UML Sequence diagram extends froms [3.5.1 EditValidator Classes](#351-edit-validator-classes), where it 
+shows how the EditExpenseCommand updates the `Expenses(TransactionType)` object after validating second user input.
+
+![EditSequenceDiagram2.drawio.png](diagrams/EditSequenceDiagram2.drawio.png)
 
 ### 4.2 Income Features
 
@@ -453,17 +452,14 @@ The following UML Sequence diagram shows how the List Income Feature undergo its
 The Edit Income Feature enable users to edit pre-existing entries of incomes in the application. Users are only
 allowed to change the date and amount fields of the income field. Currently, the description of each task
 cannot be edited, however it may be implemented for future versions. There are 2 sets of instruction that the user
-has to input. The first set is to identify which income to edit, while the second is the fields to be edited. This
-feature is controlled by the `EditIncomeCommand` class, where it is initialized by the `Parser` class. The following
-function is then called during the first set of user input.
-
-| Method             | Return Type | Relevance                                                        |
-|--------------------|-------------|------------------------------------------------------------------|
-| getIncome(command) | void        | Extracts the Income from IncomeList based on Index given by user |
+has to input. The first set is to identify which expense to edit, while the second is the fields to be edited.
+This feature is controlled by the `EditIncomeCommand` class, where it is initialized by the `Parser` class. The
+`Parser` class uses `EditIncomeValidator` to check and extract the `Income` object based on index that the user input.
+`EditExpenseCommand` is then created with the extracted `Income` object.
 
 `EditIncomeCommand` class contains the following attributes, which will be used to store the values that will replace
 the existing value in the Income object. During the creation of `EditIncomeCommand`, only `Income` object will be
-saved, will the other values will be initialized during subsequent function calls.
+saved, while the other values will be initialized during subsequent function calls.
 
 | Class Attribute | Variable Type | Relevance                                                              |
 |-----------------|---------------|------------------------------------------------------------------------| 
@@ -476,8 +472,8 @@ class then uses the `Ui` class to call function `getUserEditFields()` for editin
 `EditIncomeCommand` then uses `EditIncomeValidator` to check and extract for any valid fields. If valid, a
 `processEdit()` function will be called to update values in the Income object.
 
-The following UML Sequence diagram shows how the Parser works to obtain the relevant inputs for the Edit Income Feature
-![EditIncomeSequenceDiagram.drawio.png](diagrams/EditIncomeSequenceDiagram.drawio.png)
+The UML sequence diagram follows similarly to `Edit Expenses` feature at [4.1.8 Edit Expenses Feature](#418-edit-expense-feature),
+where it has one less category field to edit compared to `Edit Expenses`. 
 
 ### 4.3 Budget Features
 
