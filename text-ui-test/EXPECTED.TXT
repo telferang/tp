@@ -198,8 +198,7 @@ Enter commands: ========================================================
 Your total expenses for TRANSPORT in October 2024 is $123.45
 ========================================================
 Enter commands: ========================================================
-1. Description: Buy Tesla Stock  Amount: 100.1  Date: 2024-10-02  Category: OTHERS
-Your expenses for OTHERS is $100.1
+Unknown category. Use a valid category.
 ========================================================
 Enter commands: ========================================================
 Invalid month format. Use m/MM/yyyy.

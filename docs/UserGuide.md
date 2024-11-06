@@ -30,7 +30,9 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&bull; [List Remaining Budget](#4-list-remaining-budgets-list-remaining-budget) <br>
 &nbsp;&nbsp;4. [Saving](#saving) <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&bull; [Display Savings](#1-display-savings-display-savings-m) <br>
-&nbsp;&nbsp;5. [Miscellaneous](#miscellaneous) <br>
+&nbsp;&nbsp;5. [Income Spent](#income-spent) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&bull; [Display Income Spent](#1-display-income-spent-display-income-spent) <br>
+&nbsp;&nbsp;6. [Miscellaneous](#miscellaneous) <br>
 [FAQ](#faq) <br>
 [Command Summary](#command-summary) <br>
 
@@ -87,7 +89,6 @@ Example of usage:
 
 `delete expense 1`
 
-
 #### 3. List all expenses: `list expenses`
 List the summary of expenses. User could additionally specify which summary type the would like to view.
 A final line of total expenses based on summary type will be shown to users.
@@ -101,8 +102,6 @@ Example of usage:
 `list expenses`
 `list expenses m/10/2024`
 `list expenses c/food m/10/2024`
-
-
 
 #### 4. Edit pre-existing expenses: `edit expenses`
 Edit a pre-existing expense entry details. User can edit category, amount and date of the expense field. 2 set of input
@@ -121,8 +120,6 @@ Format:
 Example of usage:
 1. `edit expenses 3`
 2. `a/100 c/food d/15/10/2024`
-
-
 
 #### 5. Display Monthly Expenses Chart: `display monthly expenses`
 Display a XY-Chart of your monthly expenses. The X-Axis will be the months of the year while the Y-Axis
@@ -152,7 +149,6 @@ Format:
 Example of Usage:
 
 `display expenses with categories m/09/2024`
-
 
 #### 7. Search Expense: `search expense`
 Displays the expense entries based on a certain keyword provided by the user. The relevant expense entries are then
@@ -208,7 +204,6 @@ Example of usage:
 
 `delete income 1`
 
-
 #### 3. Edit pre-existing incomes: `edit incomes`
 Edit a pre-existing income entry details. User can edit amount and date of the expense field. 2 set of input
 will be required from the user.
@@ -226,7 +221,6 @@ Example of usage:
 1. `edit income 3`
 2. `a/100 d/15/10/2024`
 
-
 #### 4. List all incomes: `list incomes`
 List the summary of incomes. User could additionally specify which summary type the would like to view.
 A final line of total income based on summary type will be shown to users.
@@ -243,42 +237,45 @@ Example of usage:
 
 ---
 
-
 #### 1. Adding a budget: `add budget`
 Adds an amount to the month’s current budget. Budget is cumulative for the current month.
 
-Format: `add budget a/AMOUNT [m/DATE]`
+Format: `add budget a/AMOUNT [m/MONTH] [c/CATEGORY]`
 
 * The `AMOUNT` is the amount of the budget to be added.
-* The `DATE` (Optional) is the date of the budget in MM/YYYY format. If date is not given, current date will be used.
+* The `MONTH` (Optional) is the month of the budget in MM/YYYY format. If month is not given, current month will be used.
+* The `CATEGORY` (Optional) is the category of the budget (FOOD, TRANSPORT, ENTERTAINMENT, EDUCATION, UTILITIES and OTHERS). 
+The default category is OTHERS.
 
-Example of usage:  
-`add budget a/800`  
-`add budget a/700 m/11/2024`
+Examples of usages:
+1. `add budget a/800`  
+2. `add budget a/700 m/11/2024 c/TRANSPORT`
 
 #### 2. Deducting a budget: `deduct budget`
 Deducts an amount to the month’s current budget. Budget cannot go below 0.
 
-Format: `deduct budget a/AMOUNT [m/DATE]`
+Format: `deduct budget a/AMOUNT [m/MONTH] [c/CATEGORY]`
 
 * The `AMOUNT` is the amount of the budget to be deducted.
-* The `DATE` (Optional) is the date of the budget in MM/YYYY format. If date is not given, current date will be used.
+* The `MONTH` (Optional) is the month of the budget in MM/YYYY format. If month is not given, current month will be used.
+* The `CATEGORY` (Optional) is the category of the budget (FOOD, TRANSPORT, ENTERTAINMENT, EDUCATION, UTILITIES and OTHERS).
+  The default category is OTHERS.
 
-Example of usage:  
-`deduct budget a/1500`  
-`deduct budget a/400 m/09/2024`
+Examples of usages:
+1. `deduct budget a/1500`  
+2. `deduct budget a/400 m/09/2024 c/FOOD`
 
 #### 3. Listing budgets: `list budgets`
 View all budgets, up to the latest 12 budgets. Able to view the budget for a specific month as well.
 
-Format: `list budgets [m/DATE]`
+Format: `list budgets [m/MONTH]`
 
-* The `DATE` (Optional) is the date of the budget in MM/YYYY format. If date is not given,
+* The `MONTH` (Optional) is the month of the budget in MM/YYYY format. If month is not given,
   up to 12 latest budgets will be listed.
 
-Example of usage:  
-`list budgets`  
-`list budgets m/09/2024`
+Examples of usages:
+1. `list budgets`  
+2. `list budgets m/09/2024`
 
 #### 4. List remaining budgets: `list remaining budget`
 Show the budget remaining after deducting the expenses seperated by month and category.
@@ -288,7 +285,6 @@ Format: `list remaining budget`
 Example of usage:
 
 `list remaining budget`
-
 
 ### Saving
 
@@ -304,6 +300,20 @@ Format: `display savings [m/]`
 Examples of usages:
 1. `display savings m/`
 2. `display savings`
+
+### Income Spent
+
+---
+
+#### 1. Display Income Spent: `display income spent`
+Displays the percentage of income spent for the specified month. Spending only includes total expenses of the month.
+
+Format: `display income spent [m/MONTH]`
+* The MONTH (Optional) is the month of the budget in MM/YYYY format. If month is not given, current month will be used.
+
+Examples of usages:
+1. `display income spent`
+2. `display income spent m/10/2024`
 
 ### Miscellaneous
 
@@ -377,9 +387,9 @@ a category will be grouped as `OTHERS` if no category is provided.o
 
 ### Budget
 
-- **Add Budget**: `add budget a/AMOUNT [m/DATE]`
-- **Deduct Budget**: `deduct budget a/AMOUNT [m/DATE]`
-- **List Budgets**: `list budgets [m/DATE]`
+- **Add Budget**: `add budget a/AMOUNT [m/MONTH] [c/CATEGORY]`
+- **Deduct Budget**: `deduct budget a/AMOUNT [m/MONTH] [c/CATEGORY]`
+- **List Budgets**: `list budgets [m/MONTH]`
 - **List Remaining Budget**: `list remaining budget`
 
 ### Saving
@@ -387,9 +397,7 @@ a category will be grouped as `OTHERS` if no category is provided.o
 - **Display Savings**: `display savings [m/]`
 
 
+### Income Spent
 
-* Add todo `todo n/TODO_NAME d/DEADLINE`
-* List expenses `list expenses [m/MONTH c/CATEGORY]`
-* List incomes `list incomes [m/MONTH]`
-* Edit expenses `edit expenses INDEX` + `[a/AMOUNT c/CATEGORY d/DATE]`
-* Edit incomes `edit incomes INDEX` + `[a/AMOUNT d/DATE]`
+- **Display Income Spent**: `display income spent [m/MONTH]`
+

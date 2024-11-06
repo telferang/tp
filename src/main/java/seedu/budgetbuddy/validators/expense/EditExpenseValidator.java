@@ -1,20 +1,56 @@
 package seedu.budgetbuddy.validators.expense;
 
 import seedu.budgetbuddy.Ui;
+import seedu.budgetbuddy.commands.Command;
+import seedu.budgetbuddy.commands.IncorrectCommand;
 import seedu.budgetbuddy.commands.expense.EditExpenseCommand;
 import seedu.budgetbuddy.transaction.Category;
+import seedu.budgetbuddy.transaction.expense.Expense;
+import seedu.budgetbuddy.transaction.expense.ExpenseManager;
 import seedu.budgetbuddy.util.LoggerSetup;
 
 import java.time.LocalDate;
 import java.util.logging.Logger;
 
 import static seedu.budgetbuddy.validators.AmountValidator.validateAmount;
-import static seedu.budgetbuddy.validators.CategoryValidator.validateCategory;
+import static seedu.budgetbuddy.validators.CategoryValidator.validateSearchCategory;
 import static seedu.budgetbuddy.validators.DateValidator.validateDate;
 
 public class EditExpenseValidator {
 
     private static final Logger LOGGER = LoggerSetup.getLogger();
+
+    /**
+     * Processes the command string to determine if it is valid expense index.
+     * If valid, it creates an EditExpenseCommand object which will be used for subsequent execution.
+     * otherwise, it returns an IncorrectCommand object with the error.
+     *
+     * @param command first input given by user
+     * @return command object
+     */
+    public static Command processFirstCommand(String command) {
+        if (command.equals("edit expenses")) {
+            return new IncorrectCommand("No index detected, try again with an index.");
+        }
+        try {
+            String trimmedCommand = command.substring("edit expenses ".length());
+            String[] parts = trimmedCommand.split(" ");
+            int editIndex = Integer.parseInt(parts[0]) - 1;
+            if (editIndex < 0) {
+                return new IncorrectCommand("Edit index must be greater than 0.");
+            }
+            Expense expense = ExpenseManager.getExpenseByIndex(editIndex);
+            if (expense == null) {
+                return new IncorrectCommand("Input index is larger than the number of expenses. " +
+                        "Try with a smaller index");
+            } else {
+                return new EditExpenseCommand(expense);
+            }
+        } catch (NumberFormatException e) {
+            return new IncorrectCommand("Index must be a valid number larger than 0.");
+        }
+
+    }
 
     /**
      * Processes the command string to determine if it is valid for editing.
@@ -25,7 +61,7 @@ public class EditExpenseValidator {
      * @param command Input given by user
      * @return Validity of command {@code Boolean}
      */
-    public static boolean processCommand(String command){
+    public static boolean processSecondCommand(String command){
 
         String[] parts = command.split(" ");
 
@@ -44,7 +80,12 @@ public class EditExpenseValidator {
                     return false;
                 }
             } else if (part.startsWith("c/")) {
-                category = validateCategory(part);
+                category = validateSearchCategory(part);
+                if (category == null) {
+                    LOGGER.warning("Invalid category format. Category found: " + part);
+                    Ui.displayToUser("Unknown category detected. Try again with a valid category.");
+                    return false;
+                }
             } else if (part.startsWith("a/")) {
                 amount = validateAmount(part);
                 if (amount < 0.0) {
