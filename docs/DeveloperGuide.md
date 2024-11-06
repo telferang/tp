@@ -286,8 +286,8 @@ display the chart from XChart.
 
 Finally, the XChart library will be called to build the chart and display it with SwingWrapper.
 
-The following UML Sequence diagram shows how Parser works to obtain all relevant inputs for this feature.
-We assume that the command for this feature has already been created and returned to `BudgetBuddy`.
+The following UML Sequence diagram shows how the command is executed for this feature. <br>
+We assume that the command for this feature has already been created and returned to `BudgetBuddy`. <br>
 The starting arrow indicates return of the command based on the sequence diagram at [3.5 Validator Classes](#35-validator-classes)
 
 ![DisplayMonthlyExpenses.drawio.png](diagrams/DisplayMonthlyExpenses.drawio.png)
@@ -320,8 +320,8 @@ The following methods in `ExpensesCategoryPieChart` class is called by
 
 Finally, the XChart library will be called to build the chart and display it with SwingWrapper.
 
-The following UML Sequence diagram shows how Parser works to obtain all relevant inputs for this feature.
-We assume that the command for this feature has already been created and returned to `BudgetBuddy`.
+The following UML Sequence diagram shows how the command is executed for this feature. <br>
+We assume that the command for this feature has already been created and returned to `BudgetBuddy`. <br>
 The starting arrow indicates return of the command based on the sequence diagram at [3.5 Validator Classes](#35-validator-classes)
 
 ![DisplayExpensesWithCategories.drawio.png](diagrams/DisplayExpensesWithCategories.drawio.png)
