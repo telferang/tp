@@ -592,3 +592,65 @@ Nov 05, 2024 10:10:49 PM seedu.budgetbuddy.validators.expense.ListMonthlyExpense
 WARNING: Trimmed command is empty
 Nov 05, 2024 10:10:49 PM seedu.budgetbuddy.validators.expense.ListMonthlyExpensesValidator processCommand
 INFO: Processing command: 
+Nov 06, 2024 3:14:52 PM seedu.budgetbuddy.Storage <init>
+INFO: Storing ./data/BudgetBuddy.txt
+Nov 06, 2024 3:14:52 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 3200.0  Date: 2024-11  Category: {FOOD=200.0, ENTERTAINMENT=3000.0}
+Nov 06, 2024 3:14:52 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 2400.0  Date: 2024-10  Category: {TRANSPORT=1200.0, ENTERTAINMENT=1200.0}
+Nov 06, 2024 3:14:52 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 2550.0  Date: 2024-08  Category: {FOOD=750.0, OTHERS=1800.0}
+Nov 06, 2024 3:14:52 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 3200.0  Date: 2024-11  Category: {FOOD=200.0, ENTERTAINMENT=3000.0}
+Nov 06, 2024 3:14:52 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 2400.0  Date: 2024-10  Category: {TRANSPORT=1200.0, ENTERTAINMENT=1200.0}
+Nov 06, 2024 3:14:52 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 2550.0  Date: 2024-08  Category: {FOOD=750.0, OTHERS=1800.0}
+Nov 06, 2024 3:14:52 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 3200.0  Date: 2024-11  Category: {FOOD=200.0, ENTERTAINMENT=3000.0}
+Nov 06, 2024 3:14:52 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 2400.0  Date: 2024-10  Category: {TRANSPORT=1200.0, ENTERTAINMENT=1200.0}
+Nov 06, 2024 3:14:52 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 2550.0  Date: 2024-08  Category: {FOOD=750.0, OTHERS=1800.0}
+Nov 06, 2024 3:14:52 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 1700.0  Date: 2024-07  Category: {OTHERS=1700.0}
+Nov 06, 2024 3:14:52 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 3900.0  Date: 2024-05  Category: {FOOD=1300.0, ENTERTAINMENT=1300.0, OTHERS=1300.0}
+Nov 06, 2024 3:14:52 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 1300.0  Date: 2023-08  Category: {UTILITIES=700.0, OTHERS=600.0}
+Nov 06, 2024 3:14:52 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 1700.0  Date: 2023-02  Category: {FOOD=1000.0, OTHERS=700.0}
+Nov 06, 2024 3:14:52 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 3900.0  Date: 2024-05  Category: {FOOD=1300.0, ENTERTAINMENT=1300.0, OTHERS=1300.0}
+Nov 06, 2024 3:14:52 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 1300.0  Date: 2023-08  Category: {UTILITIES=700.0, OTHERS=600.0}
+Nov 06, 2024 3:14:52 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 1700.0  Date: 2023-02  Category: {FOOD=1000.0, OTHERS=700.0}
+Nov 06, 2024 3:14:52 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 3900.0  Date: 2024-05  Category: {FOOD=1300.0, ENTERTAINMENT=1300.0, OTHERS=1300.0}
+Nov 06, 2024 3:14:52 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 1300.0  Date: 2023-08  Category: {UTILITIES=700.0, OTHERS=600.0}
+Nov 06, 2024 3:14:52 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 1700.0  Date: 2023-02  Category: {FOOD=1000.0, OTHERS=700.0}
+Nov 06, 2024 3:14:52 PM seedu.budgetbuddy.Storage load
+INFO: Data loaded successfully. Expenses: 0, Incomes: 0, Budgets: 0
+Nov 06, 2024 3:15:53 PM seedu.budgetbuddy.transaction.income.IncomeManager listIncomes
+INFO: Listing 7 incomes
+Nov 06, 2024 3:15:53 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Nov 06, 2024 3:16:06 PM seedu.budgetbuddy.transaction.income.IncomeManager listIncomeWithMonth
+INFO: Listing 7 incomes
+Nov 06, 2024 3:16:06 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Nov 06, 2024 3:16:25 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Nov 06, 2024 3:35:15 PM seedu.budgetbuddy.commands.income.EditIncomeCommand execute
+INFO: Successfully retrieve edit fields
+Nov 06, 2024 3:35:15 PM seedu.budgetbuddy.commands.income.EditIncomeCommand execute
+INFO: Successfully edit income
+Nov 06, 2024 3:35:15 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Nov 06, 2024 3:35:38 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Nov 06, 2024 3:35:43 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt

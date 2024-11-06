@@ -118,6 +118,10 @@ public class ExpenseManager {
      * Displays each expense with its corresponding number.
      */
     public static void listExpenses() {
+        if (numberOfExpenses == 0) {
+            Ui.displayToUser("There are currently no expense entries. Try again after adding an expense entry.");
+            return;
+        }
         String result = "";
         int counter = 0;
         double sumOfExpenses = 0;
@@ -223,7 +227,7 @@ public class ExpenseManager {
     public static String searchExpenses(String keyword){
         assert keyword != null: "Keyword should not be null";
         String result = "";
-        if (keyword.equals("")){
+        if (keyword.equals("")) {
             result = getEmptyDisplayMessage();
             return result;
         }
@@ -234,7 +238,7 @@ public class ExpenseManager {
                 counter++;
             }
         }
-        if (result.equals("")){
+        if (result.equals("")) {
             result = getEmptyDisplayMessage();
         }
         return result;
