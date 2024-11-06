@@ -45,6 +45,6 @@ public class ListBudgetCommand extends Command {
      */
     @Override
     public void execute() {
-        BudgetManager.listBudgets(date); // List all budgets
+        BudgetManager.listBudgets(date);
     }
 }
