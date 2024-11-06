@@ -117,12 +117,12 @@ You have 4 budget(s) in total.
 ========================================================
 Enter commands: ========================================================
 The following budget has been deleted as its amount reached zero:
-Total Monthly Budget: 800.0  Date: 2024-03  Category: {}
+Date: 2024-03
 You have 3 budget(s) in total.
 ========================================================
 Enter commands: ========================================================
 The following budget has been deleted as its amount reached zero:
-Total Monthly Budget: 2300.0  Date: 2024-11  Category: {}
+Date: 2024-11
 You have 2 budget(s) in total.
 ========================================================
 Enter commands: ========================================================
