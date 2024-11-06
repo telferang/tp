@@ -118,6 +118,10 @@ public class Budget {
         return categoryBudgets;
     }
 
+    public double getCategoryBudgetAmount(Category category) {
+        return categoryBudgets.getOrDefault(category, 0.0);
+    }
+
     /**
      * Gets the date of the budget.
      *

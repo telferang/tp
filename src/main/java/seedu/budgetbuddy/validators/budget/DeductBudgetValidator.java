@@ -65,6 +65,11 @@ public class DeductBudgetValidator {
             throw new BudgetBuddyException("Budget does not exist for the specified date: " + date);
         }
 
+        if (BudgetManager.getBudget(date).getCategoryBudgetAmount(category) <= 0) {
+            throw new BudgetBuddyException("Budget's category does not exist for the specified date: " + category
+                    + ", " + date + "\n" + "Try deducting from another category.");
+        }
+
         // All validations passed, return the command
         return new DeductBudgetCommand(amount, date, category);
     }
