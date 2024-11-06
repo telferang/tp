@@ -27,11 +27,11 @@ public class ListExpenseValidator{
      * @return
      */
     public static Command processCommand(String command) {
-        if (command.equals("list expense")){
+        if (command.equals("list expenses")){
             return new ListExpenseCommand();
         }
 
-        String trimmedCommand = command.substring("list expense ".length());
+        String trimmedCommand = command.substring("list expenses ".length());
         String[] parts = trimmedCommand.split(" ");
 
         //Process Initial Value
