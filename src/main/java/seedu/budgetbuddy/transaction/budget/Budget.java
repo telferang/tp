@@ -124,7 +124,7 @@ public class Budget {
      * @return The YearMonth representing the budget date.
      */
     public YearMonth getDate() {
-        return date; // Getter for the budget date
+        return date;
     }
 
     /**
