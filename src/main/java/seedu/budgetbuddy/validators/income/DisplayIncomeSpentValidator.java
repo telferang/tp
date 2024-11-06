@@ -1,7 +1,6 @@
 package seedu.budgetbuddy.validators.income;
 
 import seedu.budgetbuddy.commands.Command;
-import seedu.budgetbuddy.commands.IncorrectCommand;
 import seedu.budgetbuddy.commands.income.DisplayIncomeSpentCommand;
 import seedu.budgetbuddy.exceptions.BudgetBuddyException;
 import seedu.budgetbuddy.transaction.income.IncomeManager;
