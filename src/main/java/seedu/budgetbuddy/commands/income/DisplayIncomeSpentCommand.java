@@ -21,6 +21,15 @@ public class DisplayIncomeSpentCommand extends Command {
     }
 
     /**
+     * Retrieves the month associated with this command. Useful for unit testing.
+     *
+     * @return The specified month of the income spent.
+     */
+    public YearMonth getMonth() {
+        return month;
+    }
+
+    /**
      * Checks if the given command is a display income spent command.
      *
      * @param command The command string to check.

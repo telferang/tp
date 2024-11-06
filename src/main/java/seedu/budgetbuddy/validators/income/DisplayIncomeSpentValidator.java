@@ -37,7 +37,7 @@ public class DisplayIncomeSpentValidator {
                 if (part.startsWith("m/")) {
                     month = validateYearMonth(part);
                     if (month == null) {
-                        return new IncorrectCommand("Invalid month format. Use m/MM/yyyy.");
+                        throw new BudgetBuddyException("Invalid month format. Use m/MM/yyyy.");
                     }
                 }
             }
