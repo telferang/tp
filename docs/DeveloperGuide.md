@@ -822,7 +822,7 @@ using commands than using the mouse.
 * **2.7.3 No expenses tracked in the specified year**
    * **Prerequisites**: No expense entries for 2024.
    * **Test Case**: `display monthly expenses y/2024`
-   * **Expected**: Message indicating no expenses found.
+   * **Expected**: Flat XY-Chart showing 0 values for all months.
 
 ### 5.5.2.8 Listing Incomes
 * **2.8.1 Listing all incomes**
@@ -877,10 +877,24 @@ using commands than using the mouse.
    * **Test Case**: `deduct budget a/200`
    * **Expected**: Error message for negative budget.
 
-### 5.5.2.11 Exiting BudgetBuddy
-* **2.11.1 Exit command**
+### 5.5.2.11 Display Expenses for the Month With Categories Chart
+* **2.11.1 Valid Month provided for chart display**
+  * **Prerequisites**: At least one expenses for one of the categories in the specified month and year.
+  * **Test Case**: `display expenses with categories m/10/2024`
+  * **Expected**: PieChart displaying expenses sliced by categories.
+
+* **2.11.2 Invalid Format provided for chart display**
+  * **Prerequisites**: None
+  * **Test Case**: `display expenses with categories m/`
+  * **Expected**: Error message for formatting error.
+
+* **2.11.3 No expenses tracked in the specific month of the year**
+  * **Prerequisites**: No expense entries for that particular month of the year.
+  * **Test Case**: `display monthly expenses m/09/2024`
+  * **Expected**: Empty PieChart shown with values on legends showing all 0.
+
+### 5.5.2.12 Exiting BudgetBuddy
+* **2.12.1 Exit command**
    * **Prerequisites**: None
    * **Test Case**: `bye`
    * **Expected**: Program exits and saves data automatically, showing exit message.
-
-   
