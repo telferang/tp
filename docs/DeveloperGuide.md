@@ -861,40 +861,102 @@ using commands than using the mouse.
    * **Test Case**: `edit incomes 30`
    * **Expected**: Error message indicating invalid income index displayed.
 
-### 5.5.2.10 Editing a Budget
+### 5.5.2.10 Adding a Budget
 * **2.10.1 Adding to a monthly budget without specifying month or category**
    * **Prerequisites**: None
    * **Test Case**: `add budget a/500`
    * **Expected**: Adds 500 to current month’s budget. Confirmation message.
 
-* **2.10.2 Deducting an amount that does not go below zero**
-   * **Prerequisites**: Positive budget for the current month.
+* **2.10.2 Adding to a monthly budget with all fields (amount, date, category)**
+   * **Prerequisites**: None
+   * **Test Case**: `add budget a/500 m/09/2024 c/FOOD`
+   * **Expected**: Adds 500 to September 2024 Food's budget. Confirmation message.
+
+* **2.10.3 Adding to a monthly budget with invalid date format**
+   * **Prerequisites**: None
+   * **Test Case**: `add budget a/1500 m/2024-11`
+   * **Expected**: Error message indicating incorrect date format.
+
+* **2.10.4 Adding to a monthly budget with negative amount**
+   * **Prerequisites**: None
+   * **Test Case**: `add budget a/-500`
+   * **Expected**: Error message indicating amount must be positive.
+
+### 5.5.2.11 Deducting a Budget
+* **2.11.1 Deducting a positive amount from monthly budget**
+   * **Prerequisites**: Budget more than 200 in current month.
    * **Test Case**: `deduct budget a/200`
    * **Expected**: Deducts 200 and shows success message.
 
-* **2.10.3 Deducting an amount that causes budget to go below zero**
+* **2.11.2 Deducting an amount that causes budget to go below zero**
    * **Prerequisites**: Budget less than 200 in current month.
    * **Test Case**: `deduct budget a/200`
-   * **Expected**: Error message for negative budget.
+   * **Expected**: Deducts 200 and shows success message indicating the budget has been deleted.
 
-### 5.5.2.11 Display Expenses for the Month With Categories Chart
-* **2.11.1 Valid Month provided for chart display**
+* **2.11.3 Deducting budget with all fields (amount, date, category)**
+   * **Prerequisites**: Transport Budget more than 400 in October 2024.
+   * **Test Case**: `deduct budget a/400 m/10/2024 c/TRANSPORT`
+   * **Expected**: Deducts 400 from Transport Budget and shows success message.
+
+### 5.5.2.12 Listing Budgets
+* **2.12.1 Listing all budgets**
+   * **Prerequisites**: At least one budget entry tracked.
+   * **Test Case**: `list budgets`
+   * **Expected**: Lists up to 12 latest budgets.
+
+* **2.12.2 Listing budget for a specific month**
+   * **Prerequisites**: At least one budget entry in October 2024.
+   * **Test Case**: `list budgets m/10/2024`
+   * **Expected**: Lists budget entry for October 2024.
+
+* **2.12.3 No budget tracked in the app**
+   * **Prerequisites**: No budget entry.
+   * **Test Case**: `list budgets`
+   * **Expected**: Message indicating no budget entry.
+
+* **2.12.4 No budget tracked in the app for specified month**
+   * **Prerequisites**: No budget entry for specified month.
+   * **Test Case**: `list budgets m/08/2024`
+   * **Expected**: Message indicating no budget entry for August 2024.
+
+#### 5.5.2.13 Display Income Spent
+* **2.13.1 Display percentage of income spent without specifying month**
+   * Prerequisites: At least one expense and one income entries tracked by the app.
+   * Test Case: `display income spent`
+   * Expected: Message showing the percentage of income spent by the user based on the incomes and expenses tracked by
+     the app for the current month.
+
+* **2.13.2 Display percentage of income spent of specified month**
+   * Prerequisites: At least one expense and one income entries tracked by the app in the specified month.
+   * Test Case: `display income spent m/11/2024`
+   * Expected: Message showing the percentage of income spent by the user based on the incomes and expenses tracked by
+     the app for November 2024.
+
+* **2.13.3 No income entry recorded for specified month**
+   * Prerequisites: No income entry tracked by the app in the specified month.
+   * Test Case: `display income spent m/07/2024`
+   * Expected: Error message showing no income is recorded for July 2024.
+
+### 5.5.2.14 Display Expenses for the Month With Categories Chart
+* **2.14.1 Valid Month provided for chart display**
   * **Prerequisites**: At least one expenses for one of the categories in the specified month and year.
   * **Test Case**: `display expenses with categories m/10/2024`
   * **Expected**: PieChart displaying expenses sliced by categories.
 
-* **2.11.2 Invalid Format provided for chart display**
+* **2.14.2 Invalid Format provided for chart display**
   * **Prerequisites**: None
   * **Test Case**: `display expenses with categories m/`
   * **Expected**: Error message for formatting error.
 
-* **2.11.3 No expenses tracked in the specific month of the year**
+* **2.14.3 No expenses tracked in the specific month of the year**
   * **Prerequisites**: No expense entries for that particular month of the year.
   * **Test Case**: `display monthly expenses m/09/2024`
   * **Expected**: Empty PieChart shown with values on legends showing all 0.
 
-### 5.5.2.12 Exiting BudgetBuddy
-* **2.12.1 Exit command**
+### 5.5.2.15 Exiting BudgetBuddy
+* **2.15.1 Exit command**
    * **Prerequisites**: None
    * **Test Case**: `bye`
    * **Expected**: Program exits and saves data automatically, showing exit message.
+
+   

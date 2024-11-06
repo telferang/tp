@@ -1,5 +1,6 @@
 package seedu.budgetbuddy.validators.budget;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import seedu.budgetbuddy.commands.Command;
 import seedu.budgetbuddy.commands.budget.DeductBudgetCommand;
@@ -16,6 +17,12 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class DeductBudgetValidatorTest {
+
+    @BeforeEach
+    public void setUp() {
+        // Reset the static state of BudgetManager before each test
+        BudgetManager.reset();
+    }
 
     @Test
     public void processCommand_validCommand_returnsDeductBudgetCommand() throws BudgetBuddyException {

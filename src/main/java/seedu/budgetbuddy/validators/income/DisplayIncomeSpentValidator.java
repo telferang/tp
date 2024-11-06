@@ -1,7 +1,6 @@
 package seedu.budgetbuddy.validators.income;
 
 import seedu.budgetbuddy.commands.Command;
-import seedu.budgetbuddy.commands.IncorrectCommand;
 import seedu.budgetbuddy.commands.income.DisplayIncomeSpentCommand;
 import seedu.budgetbuddy.exceptions.BudgetBuddyException;
 import seedu.budgetbuddy.transaction.income.IncomeManager;
@@ -37,7 +36,7 @@ public class DisplayIncomeSpentValidator {
                 if (part.startsWith("m/")) {
                     month = validateYearMonth(part);
                     if (month == null) {
-                        return new IncorrectCommand("Invalid month format. Use m/MM/yyyy.");
+                        throw new BudgetBuddyException("Invalid month format. Use m/MM/yyyy.");
                     }
                 }
             }

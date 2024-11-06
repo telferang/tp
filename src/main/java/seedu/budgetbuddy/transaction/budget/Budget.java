@@ -114,8 +114,24 @@ public class Budget {
         return totalMonthlyBudget;
     }
 
+    /**
+     * Retrieves the Hashmap of category budgets.
+     *
+     * @return A Map where the keys are Category objects and the values represent the budget amounts for each category.
+     */
     public Map<Category, Double> getCategoryBudgets() {
         return categoryBudgets;
+    }
+
+    /**
+     * Retrieves the budget amount for a specific category.
+     *
+     * @param category The category for which the budget amount is to be retrieved.
+     * @return The budget amount for the given category, or 0.0 if no budget
+     *         has been set for the specified category.
+     */
+    public double getCategoryBudgetAmount(Category category) {
+        return categoryBudgets.getOrDefault(category, 0.0);
     }
 
     /**
@@ -124,7 +140,7 @@ public class Budget {
      * @return The YearMonth representing the budget date.
      */
     public YearMonth getDate() {
-        return date; // Getter for the budget date
+        return date;
     }
 
     /**

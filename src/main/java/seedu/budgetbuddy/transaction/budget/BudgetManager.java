@@ -57,8 +57,8 @@ public class BudgetManager {
         assert budget != null : "Budget to be deleted cannot be null";
         budgets.remove(budget);
         numberOfBudgets--;
-        LOGGER.info("Deleted budget: " + budget);
-        Ui.displayBudgetDeletedMessage(budget.toString(), numberOfBudgets);
+        LOGGER.info("Deleted budget: " + budget.getDate());
+        Ui.displayBudgetDeletedMessage(budget.getDate(), numberOfBudgets);
     }
 
     /**
