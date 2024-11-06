@@ -105,6 +105,10 @@ public class IncomeManager {
      * Displays each income with its corresponding number.
      */
     public static void listIncomes() {
+        if (numberOfIncomes == 0) {
+            Ui.displayToUser("There are currently no income entries. Try again after adding an income entry.");
+            return;
+        }
         String result = "";
         int counter = 0;
         double sumOfIncome = 0;
@@ -131,13 +135,13 @@ public class IncomeManager {
         String monthInString;
 
         for (Income income : incomes) {
-            if(month.equals(getYearMonthFromDate(income.getDate()))) {
+            if (month.equals(getYearMonthFromDate(income.getDate()))) {
                 counter++;
                 result += counter + ". " + income.toString() + "\n";
                 filteredIncomeSum += income.getAmount();
             }
         }
-        if(result.equals("")) {
+        if (result.equals("")) {
             result = getEmptyDisplayMessage();
             Ui.displayToUser(result);
             return;

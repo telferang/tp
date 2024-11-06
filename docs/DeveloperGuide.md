@@ -20,19 +20,29 @@
 &nbsp;&nbsp;[4.1 Expense Features](#41-expense-features) <br>
 &nbsp;&nbsp;&nbsp;[4.1.5 Display Monthly Expenses](#415-display-monthly-expenses) <br>
 &nbsp;&nbsp;&nbsp;[4.1.6 Display Expenses for Month with Categories](#416-display-expenses-for-month-with-categories) <br>
+&nbsp;&nbsp;&nbsp;[4.1.7 List Expense Feature](#417-list-expenses-feature) <br>
+&nbsp;&nbsp;&nbsp;[4.1.8 Edit Expense Feature](#418-edit-expense-feature) <br>
 &nbsp;&nbsp;[4.2 Income Features](#42-income-features) <br>
+&nbsp;&nbsp;&nbsp;[4.2.3 List Expense Feature](#423-list-income-feature) <br>
+&nbsp;&nbsp;&nbsp;[4.2.4 Edit Expense Feature](#424-edit-income-feature) <br>
 &nbsp;&nbsp;[4.3 Budget Features](#43-budget-features) <br>
 &nbsp;&nbsp;[4.4 Savings Features](#44-savings-features) <br>
 &nbsp;&nbsp;[4.5 Income Spent Features](#45-income-spent-features) <br>
 &nbsp;&nbsp;[4.6 Miscellaneous Features](#46-miscellaneous-features) <br>
+[5. Appendix](#5-appendix) <br>
+&nbsp;&nbsp;[5.1 Product Scope](#51-product-scope) <br>
+&nbsp;&nbsp;[5.2 User Stories](#52-user-stories) <br>
+&nbsp;&nbsp;[5.3 Non-Functional Requirements](#53-non-functional-requirements) <br>
+&nbsp;&nbsp;[5.4 Glossary](#54-glossary) <br>
+&nbsp;&nbsp;[5.5 Instruction for Manual Testing](#55-instructions-for-manual-testing) <br>
+
 
 
 ## Acknowledgements
 
 ---
 
-{list here sources of all reused/adapted ideas, code, documentation, and third-party libraries -- include links to the original source as well}
-
+All UML diagrams within the Developer Guide have been created on [Draw.io](https://draw.io/)
 
 
 ## 1. Introduction
@@ -635,65 +645,75 @@ The following UML Sequence diagram shows how to obtain the relevant inputs for t
 
 
 
-# Appendix
+# 5. Appendix
 
-## Product scope
-### Target user profile
+## 5.1 Product scope
+### 5.1.1 Target user profile
 For people who have troubles keeping track of their finances and allow them to make more informed financial
 decisions.
 
-### Value proposition
+### 5.1.2 Value proposition
 For students who have difficulties keeping track of expenses and making informed financial choices, BudgetBuddy
 acts as a simple-to-use expense and income tracker, as well as a budgeting tool that provides insights into 
 the user's finances. BudgetBuddy simplifies your financial management, helping you stay organised in a single 
 application.
 
-## User Stories
+## 5.2 User Stories
 
-| Version | As a ... | I want to ...                         | So that I can ...                                           |
-|---------|----------|---------------------------------------|-------------------------------------------------------------|
-| v1.0    | new user | see usage instructions                | refer to them when I forget how to use the application      |
-| v1.0    | user     | add and delete income                 | track my incomes                                            |
-| v1.0    | user     | add and delete expenses               | track my expenses                                           |
-| v1.0    | user     | view a history of my past income      | see how my income changed over time                         |
-| v1.0    | user     | view a history of my past expenses    | see how my expenses changed over time                       |
-| v1.0    | user     | categorise my expenses                | understand where my money is going                          | 
-| v1.0    | user     | search for specific expense entries   | quickly find past transactions                              |
-| v1.0    | user     | view a history of my past budgets     | see how my spending has changed over time                   |
-| v1.0    | user     | save and load my data automatically   | view my past entries                                        |
-| v2.0    | user     | view the trends of my monthly expense | analyse my expense pattern                                  |
-| v2.0    | user     | view the total expenses for one month | see a summary of my expenses for the month                  |
-| v2.0    | user     | view my monthly savings               | plan for future expenses                                    |
-| v2.0    | user     | see where I am spending my money      | better manage my expenses                                   |
-| v2.0    | user     | find a to-do item by name             | locate a to-do without having to go through the entire list |
-| v2.0    | user     | edit an existing expense entry       | correct any mistakes made to an expense entry               |
-| v2.0    | user     | edit an existing income entry        | correct any mistakes made to an income entry                |
+| Version | As a ... | I want to ...                                       | So that I can ...                                           |
+|---------|----------|-----------------------------------------------------|-------------------------------------------------------------|
+| v1.0    | new user | see usage instructions                              | refer to them when I forget how to use the application      |
+| v1.0    | user     | add and delete income                               | track my incomes                                            |
+| v1.0    | user     | add and delete expenses                             | track my expenses                                           |
+| v1.0    | user     | view a history of my past income                    | see how my income changed over time                         |
+| v1.0    | user     | view a history of my past expenses                  | see how my expenses changed over time                       |
+| v1.0    | user     | categorise my expenses                              | understand where my money is going                          | 
+| v1.0    | user     | search for specific expense entries                 | quickly find past transactions                              |
+| v1.0    | user     | add and delete Monthly Budget                       | limit my spending                                           |
+| v1.0    | user     | view a history of my past budgets                   | see how my spending has changed over time                   |
+| v1.0    | user     | save and load my data automatically                 | view my past entries                                        |
+| v2.0    | user     | view the trends of my monthly expense               | analyse my expense pattern                                  |
+| v2.0    | user     | view the total expenses for one month               | see a summary of my expenses for the month                  |
+| v2.0    | user     | view my monthly savings                             | plan for future expenses                                    |
+| v2.0    | user     | see where I am spending my money                    | better manage my expenses                                   |
+| v2.0    | user     | set a monthly budget for each category              | track and manage my spending in different areas             |
+| v2.0    | user     | view the percentage of my total income spent        | track my savings                                            |
+| v2.0    | user     | find a to-do item by name                           | locate a to-do without having to go through the entire list |
+| v2.0    | user     | see the budget left                                 | remember to keep to my budget                               |
+| v2.0    | user     | get alerts when I am nearing or exceeding my budget | better control my spending                                  |
+| v2.0    | user     | view the trends of my monthly expenses on a graph   | better visualize my spending trends                         |
+| v2.0    | user     | view my total expenses for a specific month         | better track my monthly expenditure                         |
+| v2.0    | user     | edit an existing expense entry                      | correct any mistakes made to an expense entry               |
+| v2.0    | user     | edit an existing income entry                       | correct any mistakes made to an income entry                |
 
-## Non-Functional Requirements
+## 5.3 Non-Functional Requirements
 
-{Give non-functional requirements}
+1. The Application should work on any *mainstream OS* as long as it has java`17` or above installed.
+2. A user with above average typing speed for regular English text should be able to accomplish most of the tasks faster 
+using commands than using the mouse.
 
-## Glossary
+## 5.4 Glossary
 
-* *glossary item* - Definition
+* *Transactions* - Reference to the different money types in the application [Income, Budget, Expenses]
+* *Mainstream OS* - Windows, Linux, Unix, MacOS
 
-## Instructions for manual testing
-### 1. Launching BudgetBuddy
-#### 1.1 Launch
+## 5.5 Instructions for manual testing
+### 5.5.1. Launching BudgetBuddy
+#### 5.5.1.1 Launch
   * Download the jar file and copy it to an empty folder.
   * Navigate to the jar file via a Terminal window. 
   * Start the jar file with the command `java -jar BudgetBuddy.jar`
   * Expected: Command Line Interface should appear with a welcome message to users, prompting the user for a command.
 
-### 2. Test Cases
+### 5.5.2. Test Cases
 
-#### 2.1 Displaying command/help list. 
+#### 5.5.2.1 Displaying command/help list. 
 1. Test Case: `help` <br/>
     Expected: Prints the functionalities of BudgetBuddy, along with the appropriate commands for each feature.
 2. Test Case: `help 123` <br/>
     Expected: Prints the functionalities of BudgetBuddy, along with the appropriate commands for each feature.
 
-#### 2.2 Search Expense
+#### 5.5.2.2 Search Expense
 * 2.2.1 No descriptor provided to search for. 
   * Prerequisites: None
   * Test Case: `search expense` <br/> 
@@ -713,7 +733,7 @@ application.
     * Expected: Message showing users the expense entries with descriptions that include the word 
     "Japan". Filtering is case insensitive.
 
-#### 2.3 Breakdown Expenses 
+#### 5.5.2.3 Breakdown Expenses 
 * 2.3.1 No expense added into the app. 
     * Prerequisites: No expense tracked in the app. 
     * Test Case: `breakdown expenses`
@@ -724,7 +744,7 @@ application.
     * Test Case: `breakdown expenses`
     * Expected: Message showing the breakdown of total expenses by category.
 
-#### 2.4 Display Savings
+#### 5.5.2.4 Display Savings
 * 2.4.1 Display Savings in total
     * Prerequisites: At least one expense/income entry tracked by the app. 
     * Test Case: `display savings`
@@ -742,7 +762,7 @@ application.
     * Test Case: `display savings m/` or `display savings`
     * Expected: Message showing that the user has 0 savings. 
 
-### 2.5 Adding an Expense
+### 5.5.2.5 Adding an Expense
 * **2.5.1 Adding expense without optional fields (date and category)**
    * **Prerequisites**: None
    * **Test Case**: `add expense coffee a/5.00`
@@ -763,7 +783,7 @@ application.
    * **Test Case**: `add expense lunch a/-5.00`
    * **Expected**: Error message indicating amount must be positive.
 
-### 2.6 Deleting an Expense
+### 5.5.2.6 Deleting an Expense
 * **2.6.1 Deleting an expense by valid index**
    * **Prerequisites**: At least one expense entry in the app.
    * **Test Case**: `delete expense 1`
@@ -779,7 +799,7 @@ application.
    * **Test Case**: `delete expense 1`
    * **Expected**: Error message indicating no expenses to delete.
 
-### 2.7 Displaying Monthly Expenses Chart
+### 5.5.2.7 Displaying Monthly Expenses Chart
 * **2.7.1 Valid year provided for chart display**
    * **Prerequisites**: At least one expense entry in the specified year.
    * **Test Case**: `display monthly expenses y/2024`
@@ -795,7 +815,7 @@ application.
    * **Test Case**: `display monthly expenses y/2024`
    * **Expected**: Message indicating no expenses found.
 
-### 2.8 Listing Incomes
+### 5.5.2.8 Listing Incomes
 * **2.8.1 Listing all incomes**
    * **Prerequisites**: At least one income entry tracked.
    * **Test Case**: `list incomes`
@@ -811,24 +831,45 @@ application.
    * **Test Case**: `list incomes`
    * **Expected**: Message indicating no income entries.
 
-### 2.9 Editing a Budget
-* **2.9.1 Adding to a monthly budget without specifying month or category**
+### 5.5.2.9 Editing Incomes
+* **2.9.1 Listing all incomes**
+   * **Prerequisites**: At least one income entry tracked.
+   * **Test Case**: `list incomes`
+   * **Expected**: Lists incomes and total.
+
+* **2.9.2.A Edit an income from the income list (Selecting an Income)**
+   * **Prerequisites**: At least one income entry in the overall income list.
+   * **Test Case**: `edit incomes 1`
+   * **Expected**: Displays the income of index 1 to the user and the available field to edit.
+
+* **2.9.2.B Edit an income from the income list (Editing Income fields)**
+   * **Prerequisites**: Selected Income is valid from previous step (2.9.2.A).
+   * **Test Case**: `a/1000 d/10/12/2024`
+   * **Expected**: Edits the amount and date of the income to *$1000* and *10th December 2024* respectively.
+
+* **2.9.3 Invalid income index given by user**
+   * **Prerequisites**: No income entries.
+   * **Test Case**: `edit incomes 30`
+   * **Expected**: Error message indicating invalid income index displayed.
+
+### 5.5.2.10 Editing a Budget
+* **2.10.1 Adding to a monthly budget without specifying month or category**
    * **Prerequisites**: None
    * **Test Case**: `add budget a/500`
    * **Expected**: Adds 500 to current month’s budget. Confirmation message.
 
-* **2.9.2 Deducting an amount that does not go below zero**
+* **2.10.2 Deducting an amount that does not go below zero**
    * **Prerequisites**: Positive budget for the current month.
    * **Test Case**: `deduct budget a/200`
    * **Expected**: Deducts 200 and shows success message.
 
-* **2.9.3 Deducting an amount that causes budget to go below zero**
+* **2.10.3 Deducting an amount that causes budget to go below zero**
    * **Prerequisites**: Budget less than 200 in current month.
    * **Test Case**: `deduct budget a/200`
    * **Expected**: Error message for negative budget.
 
-### 2.10 Exiting BudgetBuddy
-* **2.10.1 Exit command**
+### 5.5.2.11 Exiting BudgetBuddy
+* **2.11.1 Exit command**
    * **Prerequisites**: None
    * **Test Case**: `bye`
    * **Expected**: Program exits and saves data automatically, showing exit message.
