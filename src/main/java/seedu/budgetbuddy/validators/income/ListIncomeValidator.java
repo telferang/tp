@@ -18,11 +18,11 @@ public class ListIncomeValidator {
      * @return
      */
     public static Command processCommand(String command) {
-        if (command.equals("list income")){
+        if (command.equals("list incomes")){
             return new ListIncomeCommand();
         }
 
-        String trimmedCommand = command.substring("list income ".length());
+        String trimmedCommand = command.substring("list incomes ".length());
         String[] parts = trimmedCommand.split(" ");
 
         //Process Initial Value
