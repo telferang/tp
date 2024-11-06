@@ -46,12 +46,12 @@ public class SavingsManager {
                 }
             }
         }
-        result += "Total savings: " + savings + "\n";
+        result += "Total savings: " + savings;
         if (IncomeManager.getIncomes().size() > 0){
-            result += "First income: " + firstIncome + "\n";
+            result += "\n" + "First income: " + firstIncome;
         }
         if (ExpenseManager.getExpenses().size() > 0){
-            result += "First expense: " +  firstExpense + "\n";
+            result += "\n" + "First expense: " +  firstExpense;
         }
         LOGGER.info("Listing total savings");
         return result;
@@ -66,7 +66,7 @@ public class SavingsManager {
         ArrayList<YearMonth> listYearMonths = new ArrayList<>();
         ArrayList<Saving> savings = new ArrayList<>();
         if (IncomeManager.getIncomes().size() <= 0 && ExpenseManager.getExpenses().size() <= 0){
-            result = "Total savings: 0\n";
+            result = "Total savings: 0";
             return result;
         }
 
@@ -96,7 +96,10 @@ public class SavingsManager {
 
         savings.sort(Comparator.comparing(Saving::getYearMonth));
         for (Saving saving: savings){
-            result += "Savings in " + saving.getYearMonth() +": " + saving.getSavings() + "\n";
+            result += "Savings in " + saving.getYearMonth() +": " + saving.getSavings();
+            if (saving != savings.get(savings.size()-1)){
+                result += "\n";
+            }
         }
         LOGGER.info("Displaying savings by month");
         return result;

@@ -223,8 +223,11 @@ The BudgetBuddy class then calls the `execute()` method of the `SearchExpenseCom
 `searchExpenses()` method in the `ExpenseManager` class, displaying the result to the user using the `Ui` class
 `displayToUser()` method.
 
-Below is a sequence diagram representing the execution of the Search Expense interaction:
-![SearchExpenseSequenceDiagram.drawio.png](diagrams/SearchExpenseSequenceDiagram.drawio.png)
+Below is a sequence diagram representing the execution of the Search Expense interaction.
+We assume that the `SearchExpenseCommand` has already been created and returned to `BudgetBuddy`.
+The starting arrow indicates return of the command based on the sequence diagram at 
+[3.5 Validator Classes](#35-validator-classes)
+![SearchExpenseSequenceDiagram.drawio.png](diagrams/SearchExpenseSequenceDiagram.drawio-3.png)
 Process Overview:
 1. The user issues a command to search for a specific expense i.e. `search expense Japan`. BudgetBuddy parses this
    input with the help of the `Parser` class.
@@ -253,7 +256,10 @@ This feature is managed by the `BreakdownExpensesCommand` class, initialized by 
 `breakdownExpensesByCategory()` method in the `ExpenseManager` class to execute the functionality, displaying
 the result via the `displayToUser()` method in the `Ui` class.
 
-Below is the sequence diagram for the execution of the Breakdown Expense Feature interaction:
+Below is the sequence diagram for the execution of the Breakdown Expense Feature interaction.
+We assume that the `BreakdownExpensesCommand` has already been created and returned to `BudgetBuddy`.
+The starting arrow indicates return of the command based on the sequence diagram at 
+[3.5 Validator Classes](#35-validator-classes)
 ![BreakdownExpenseSequenceDiagram.drawio.png](diagrams/BreakdownExpenseSequenceDiagram.drawio.png)
 
 
@@ -584,7 +590,10 @@ The BudgetBuddy class then calls the `execute()` method of the `DisplaySavingsCo
 `displaySavings()` or `displaySavingsByMonth()` method in the `SavingsManager` class, displaying the result to the
 user using the `Ui` class `displayToUser()` method.
 
-Below is a sequence diagram representing the execution of the Display Expense interaction:
+Below is a sequence diagram representing the execution of the Display Expense interaction.
+We assume that the `DisplaySavingsCommand` has already been created and returned to `BudgetBuddy`.
+The starting arrow indicates return of the command based on the sequence diagram at 
+[3.5 Validator Classes](#35-validator-classes)
 ![DisplaySavingsSequenceDiagram.drawio.png](diagrams/DisplaySavingsSequenceDiagram.drawio.png)
 Process Overview:
 1. The user issues a command to display savings i.e. `display savings m/`. BudgetBuddy parses this input with the help
@@ -619,20 +628,6 @@ to the user.
 The following UML Sequence diagram shows how to obtain the relevant inputs for the Display Income Spent Feature:
 ![DisplayIncomeSpentSequenceDiagram.drawio.png](diagrams/DisplayIncomeSpentSequenceDiagram.drawio.png)
 
-### 4.6 Miscellaneous Features
-
----
-#### 4.6.1 Display Help Feature
-The Display Help Feature serves as a guide for new users, displaying a list of features and an example command
-for each feature. The feature is managed by the `HelpComand` class, initialized by the `Parser` class upon user input.
-The `BudgetBuddy` class then calls the `execute()` method of the `HelpCommand` object, which uses the
-`displayHelpMessage()` method of the `Ui` class.
-
-Below is the sequence diagram for the execution of the Display Help Feature:
-![DisplayHelpSequenceDiagram.drawio.png](diagrams/DisplaySavingsSequenceDiagram.drawio.png)
-
-
-
 #### 4.5.1 Display Income Spent Feature
 The Display Income Spent Feature shows users the percentage of income spent for a specific month. When the command is 
 received, BudgetBuddy creates a DisplayIncomeSpentCommand object and executes it. The command then calls 
@@ -643,6 +638,20 @@ to the user.
 The following UML Sequence diagram shows how to obtain the relevant inputs for the Display Income Spent Feature:
 ![DisplayIncomeSpentSequenceDiagram.drawio.png](diagrams/DisplayIncomeSpentSequenceDiagram.drawio.png)
 
+### 4.6 Miscellaneous Features
+
+---
+#### 4.6.1 Display Help Feature
+The Display Help Feature serves as a guide for new users, displaying a list of features and an example command
+for each feature. The feature is managed by the `HelpComand` class, initialized by the `Parser` class upon user input.
+The `BudgetBuddy` class then calls the `execute()` method of the `HelpCommand` object, which uses the
+`displayHelpMessage()` method of the `Ui` class.
+
+Below is the sequence diagram for the execution of the Display Help Feature.
+We assume that the `HelpCommand` has already been created and returned to `BudgetBuddy`.
+The starting arrow indicates return of the command based on the sequence diagram at
+[3.5 Validator Classes](#35-validator-classes)
+![DisplayHelpSequenceDiagram.drawio.png](diagrams/DisplayHelpSequenceDiagram.drawio.png)
 
 
 # 5. Appendix
