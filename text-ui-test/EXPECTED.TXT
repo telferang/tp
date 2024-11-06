@@ -39,8 +39,7 @@ You have 1 expense transaction(s) in total.
 No budget found for 2024-12.
 ========================================================
 Enter commands: ========================================================
-1. Description: Buy Tesla Stock  Amount: 100.1  Date: 2024-10-02  Category: OTHERS
-There are 1 expense(s) in total, with a sum of $100.1.
+Invalid input
 ========================================================
 Enter commands: ========================================================
 1. Description: Buy Tesla Stock  Amount: 100.1  Date: 2024-10-02  Category: OTHERS
@@ -158,9 +157,7 @@ Enter commands: ========================================================
 Invalid input
 ========================================================
 Enter commands: ========================================================
-1. Description: Tuition  Amount: 100.0  Date: 2024-12-15
-2. Description: Internship  Amount: 123.0  Date: 2024-10-13
-There are 2 income(s) in total, with a sum of $223.0.
+Invalid input
 ========================================================
 Enter commands: ========================================================
 The following income transaction has been deleted:
