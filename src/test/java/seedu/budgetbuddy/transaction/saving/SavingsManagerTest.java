@@ -48,24 +48,24 @@ public class SavingsManagerTest {
     @Test
     void displayTotalSavings_noIncomeNoExpense_expectZeroSavings(){
         initializeTestContent();
-        assertEquals("Total savings: 0.0\n", SavingsManager.displayTotalSavings());
+        assertEquals("Total savings: 0.0", SavingsManager.displayTotalSavings());
     }
 
     @Test
     void displayTotalSavings_noIncomeOneExpense_expectNegativeSavings(){
         initializeTestContent(true, false);
-        assertEquals("Total savings: -100.0\nFirst expense: 2024-10\n", SavingsManager.displayTotalSavings());
+        assertEquals("Total savings: -100.0\nFirst expense: 2024-10", SavingsManager.displayTotalSavings());
     }
 
     @Test
     void displayTotalSavingsByMonth_noIncomeNoExpense_expectZeroSavings(){
         initializeTestContent();
-        assertEquals("Total savings: 0\n", SavingsManager.displayTotalSavingsByMonth());
+        assertEquals("Total savings: 0", SavingsManager.displayTotalSavingsByMonth());
     }
 
     @Test
     void displayTotalSavingsByMonth_oneIncomeOneExpense_expectSavings(){
         initializeTestContent(false, false);
-        assertEquals("Savings in 2024-10: 900.0\n", SavingsManager.displayTotalSavingsByMonth());
+        assertEquals("Savings in 2024-10: 900.0", SavingsManager.displayTotalSavingsByMonth());
     }
 }
