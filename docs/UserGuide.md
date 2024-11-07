@@ -93,7 +93,10 @@ Example of usage:
 List the summary of expenses. User could additionally specify which summary type the would like to view.
 A final line of total expenses based on summary type will be shown to users.
 
-Format: `list expenses [c/CATEGORY m/MONTH]`
+Format: 
+1. `list expenses`
+2. `list expenses [m/MONTH]`
+3. `list expenses [m/MONTH] [c/CATEGORY]`
 
 * The `CATEGORY` (Optional) is the summary type to search for expenses with the specified category
 * The `MONTH` (Optional) is the summary type to search for expenses in the specified month in the format of`m/mm/yyyy`.
@@ -101,7 +104,7 @@ Format: `list expenses [c/CATEGORY m/MONTH]`
 Example of usage:
 `list expenses`
 `list expenses m/10/2024`
-`list expenses c/food m/10/2024`
+`list expenses m/10/2024 c/food`
 
 #### 4. Edit pre-existing expenses: `edit expenses`
 Edit a pre-existing expense entry details. User can edit category, amount and date of the expense field. 2 set of input
@@ -141,10 +144,10 @@ Display a PieChart of your expenses for the month, which is sliced by categories
 expenses for each category, and the percentage that each slice takes is on the PieChart itself.
 
 Format:
-`display expenses with categories m/MM/YYYY`
+`display expenses with categories m/MONTH`
 
-* `MM` is the month of the expenses to be displayed
-* `YYYY` is the year of the expenses to be displayed
+* `MONTH` is the month of the expenses to be displayed
+* `MONTH` should be in the form `MM/YYYY`
 
 Example of Usage:
 
