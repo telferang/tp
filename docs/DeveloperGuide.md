@@ -84,10 +84,10 @@ should the keywords be present.
 
 The following are some examples:
 
-| Boolean Methods                          | Check if input starts with | Feature Requires | Creates                                            |
-|------------------------------------------|----------------------------|------------------|----------------------------------------------------|
-| `ListMonthlyExpensesCommand.isCommand()` | list monthly expenses      | input            | ListMonthlyExpensesValidator.processCommand(input) |
-| `AddExpenseCommand.isCommand()`          | add expense                | input            | AddExpenseValidator.processCommand(input)          | 
+| Boolean Methods                          | Check if input starts with | Feature Requires | 
+|------------------------------------------|----------------------------|------------------|
+| `ListMonthlyExpensesCommand.isCommand()` | list monthly expenses      | input            |
+| `AddExpenseCommand.isCommand()`          | add expense                | input            |  
 
 The Parser class is also used to parse lines from the `Storage` .txt file and loads it into the main application upon
 restart. This will be covered more under the storage class.
@@ -180,6 +180,7 @@ Finally, the acknowledgement message along with the budget remaining is displaye
 The following UML Sequence diagram shows the Add Expense Feature.
 We assume that the `AddExpenseCommand` has already been created and returned to `BudgetBuddy`.
 The starting arrow indicates return of the command based on the sequence diagram at [3.5 Validator Classes](#35-validator-classes)
+
 ![AddExpenseSequenceDiagram.drawio.png](diagrams/AddExpenseSequenceDiagram.drawio.png)
 
 #### 4.1.2 Delete Expense Feature
@@ -206,6 +207,7 @@ Finally, the acknowledgement message along with the budget remaining is displaye
 The following UML Sequence diagram shows the Delete Expense Feature.
 We assume that the `DeleteExpenseCommand` has already been created and returned to `BudgetBuddy`.
 The starting arrow indicates return of the command based on the sequence diagram at [3.5 Validator Classes](#35-validator-classes)
+
 ![DeleteExpenseSequenceDiagram.drawio.png](diagrams/DeleteExpenseSequenceDiagram.drawio.png)
 
 #### 4.1.3 Search Expense Feature
@@ -227,7 +229,9 @@ Below is a sequence diagram representing the execution of the Search Expense int
 We assume that the `SearchExpenseCommand` has already been created and returned to `BudgetBuddy`.
 The starting arrow indicates return of the command based on the sequence diagram at 
 [3.5 Validator Classes](#35-validator-classes)
+
 ![SearchExpenseSequenceDiagram.drawio.png](diagrams/SearchExpenseSequenceDiagram.drawio-3.png)
+
 Process Overview:
 1. The user issues a command to search for a specific expense i.e. `search expense Japan`. BudgetBuddy parses this
    input with the help of the `Parser` class.
@@ -260,6 +264,7 @@ Below is the sequence diagram for the execution of the Breakdown Expense Feature
 We assume that the `BreakdownExpensesCommand` has already been created and returned to `BudgetBuddy`.
 The starting arrow indicates return of the command based on the sequence diagram at 
 [3.5 Validator Classes](#35-validator-classes)
+
 ![BreakdownExpenseSequenceDiagram.drawio.png](diagrams/BreakdownExpenseSequenceDiagram.drawio.png)
 
 
@@ -518,6 +523,7 @@ Then, `addAmount(category, amount)` method in the `Budget` class is also called 
 Finally, the result is displayed to the user using the `Ui` class `displayToUser()` method.
 
 The following UML Sequence diagram shows how to obtain the relevant inputs for the Add Budget Feature:
+
 ![AddBudgetSequenceDiagram.drawio.png](diagrams/AddBudgetSequenceDiagram.drawio.png)
 
 #### 4.3.2 Deduct Budget Feature
@@ -546,6 +552,7 @@ the `budgets` list if the total amount of the budget reaches zero:
 Finally, the result is displayed to the user using the `Ui` class `displayToUser()` method.
 
 The following UML Sequence diagram shows how to obtain the relevant inputs for the Deduct Budget Feature:
+
 ![DeductBudgetSequenceDiagram.drawio.png](diagrams/DeductBudgetSequenceDiagram.drawio.png)
 
 #### 4.3.3 List Budget Feature
@@ -556,6 +563,7 @@ is valid, and, if valid, retrieves and displays the matching budget through the 
 an error message is shown.
 
 The following UML Sequence diagram shows how to obtain the relevant inputs for the List Budget Feature:
+
 ![ListBudgetSequenceDiagram.drawio.png](diagrams/ListBudgetSequenceDiagram.drawio.png)
 
 #### 4.3.4 List Remaining Budget Feature
@@ -594,7 +602,9 @@ Below is a sequence diagram representing the execution of the Display Expense in
 We assume that the `DisplaySavingsCommand` has already been created and returned to `BudgetBuddy`.
 The starting arrow indicates return of the command based on the sequence diagram at 
 [3.5 Validator Classes](#35-validator-classes)
+
 ![DisplaySavingsSequenceDiagram.drawio.png](diagrams/DisplaySavingsSequenceDiagram.drawio.png)
+
 Process Overview:
 1. The user issues a command to display savings i.e. `display savings m/`. BudgetBuddy parses this input with the help
    of the `Parser` class.
@@ -613,6 +623,7 @@ Process Overview:
 
 The class diagram below indicates the structure of the DisplaySavings Feature, involving `SavingsManager`, `Saving`,
 `IncomeManager` and `ExpenseManager`.
+
 ![SavingsManagerClassDiagram.drawio.png](diagrams/SavingsManagerClassDiagram.drawio.png)
 
 ### 4.5 Income Spent Features
@@ -626,17 +637,9 @@ formatted with toString(month: YearMonth) and passed to the Ui component via dis
 to the user.
 
 The following UML Sequence diagram shows how to obtain the relevant inputs for the Display Income Spent Feature:
+
 ![DisplayIncomeSpentSequenceDiagram.drawio.png](diagrams/DisplayIncomeSpentSequenceDiagram.drawio.png)
 
-#### 4.5.1 Display Income Spent Feature
-The Display Income Spent Feature shows users the percentage of income spent for a specific month. When the command is 
-received, BudgetBuddy creates a DisplayIncomeSpentCommand object and executes it. The command then calls 
-displaySpentPercentage(month) on IncomeSpent, which calculates the percentage for the specified month. The result is 
-formatted with toString(month: YearMonth) and passed to the Ui component via displayToUser(result: String) for display 
-to the user.
-
-The following UML Sequence diagram shows how to obtain the relevant inputs for the Display Income Spent Feature:
-![DisplayIncomeSpentSequenceDiagram.drawio.png](diagrams/DisplayIncomeSpentSequenceDiagram.drawio.png)
 
 ### 4.6 Miscellaneous Features
 
@@ -651,6 +654,7 @@ Below is the sequence diagram for the execution of the Display Help Feature.
 We assume that the `HelpCommand` has already been created and returned to `BudgetBuddy`.
 The starting arrow indicates return of the command based on the sequence diagram at
 [3.5 Validator Classes](#35-validator-classes)
+
 ![DisplayHelpSequenceDiagram.drawio.png](diagrams/DisplayHelpSequenceDiagram.drawio.png)
 
 
@@ -919,7 +923,7 @@ using commands than using the mouse.
    * **Test Case**: `list budgets m/08/2024`
    * **Expected**: Message indicating no budget entry for August 2024.
 
-#### 5.5.2.13 Display Income Spent
+### 5.5.2.13 Display Income Spent
 * **2.13.1 Display percentage of income spent without specifying month**
    * **Prerequisites**: At least one expense and one income entries tracked by the app.
    * **Test Case**: `display income spent`
