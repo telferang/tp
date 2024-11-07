@@ -171,7 +171,7 @@ method in the `ExpenseManager` class to add the expense:
 
 | Method              | Return Type | Relevance                                 |
 |---------------------|-------------|-------------------------------------------|
-| addExpense(expense) | void        | Add new expense to the list of `expenses` |                                 
+| `addExpense(expense)` | void        | Add new expense to the list of `expenses` |                                 
 
 A `RemainingBudgetManager` object will be created to find the budget remaining for the given month and category.
 Finally, the acknowledgement message along with the budget remaining is displayed to the user using the `Ui` class
@@ -197,7 +197,7 @@ method in the `ExpenseManager` class to add the expense:
 
 | Method               | Return Type | Relevance                                        |
 |----------------------|-------------|--------------------------------------------------|
-| deleteExpense(index) | void        | Delete given expense from the list of `expenses` |                                 
+| `deleteExpense(index)` | void        | Delete given expense from the list of `expenses` |                                 
 
 A `RemainingBudgetManager` object will be created to find the budget remaining for the given month and category.
 Finally, the acknowledgement message along with the budget remaining is displayed to the user using the `Ui` class
@@ -344,10 +344,10 @@ specific month or category, it will show every valid expense instead.
 
 | Method                                 | Return Type | Relevance                                                    |
 |----------------------------------------|-------------|--------------------------------------------------------------|
-| listExpenses()                         | void        | Lists out all expenses saved                                 |
-| listExpensesWithCategory(category)     | String      | Lists out all expenses saved with the specified category     |
-| listExpensesWithDate(month)            | String      | Lists out all expenses saved in specified month              |
-| listExpensesWithCategoryAndDate(month) | String      | Lists out all expenses saved in specified month and category |
+| `listExpenses()`                         | void        | Lists out all expenses saved                                 |
+| `listExpensesWithCategory(category)`     | String      | Lists out all expenses saved with the specified category     |
+| `listExpensesWithDate(month)`            | String      | Lists out all expenses saved in specified month              |
+| `listExpensesWithCategoryAndDate(month)` | String      | Lists out all expenses saved in specified month and category |
 
 Then, with the variations of `listExpenses()` commands in `ExpenseManager`, the list of expenses will be displayed to
 the user using the `Ui` class `displayToUser()` method.
@@ -407,7 +407,7 @@ method in the `IncomeManager` class to add the income:
 
 | Method            | Return Type | Relevance                               |
 |-------------------|-------------|-----------------------------------------|
-| addIncome(income) | void        | Add new income to the list of `incomes` |                                 
+| `addIncome(income)` | void        | Add new income to the list of `incomes` |                                 
 
 The acknowledgement message is displayed to the user using the `Ui` class `displayToUser()` method.
 
@@ -429,7 +429,7 @@ method in the `IncomeManager` class to add the expense:
 
 | Method              | Return Type | Relevance                                      |
 |---------------------|-------------|------------------------------------------------|
-| deleteIncome(index) | void        | Delete given income from the list of `incomes` |                                 
+| `deleteIncome(index)` | void        | Delete given income from the list of `incomes` |                                 
 
 The acknowledgement message is displayed to the user using the `Ui` class `displayToUser()` method.
 
@@ -452,8 +452,8 @@ specific month, it will show every valid expense instead.
 
 | Method                      | Return Type | Relevance                                                    |
 |-----------------------------|-------------|--------------------------------------------------------------|
-| listIncomes()               | void        | Lists out all expenses saved                                 |
-| listIncomesWithMonth(month) | String      | Lists out all expenses saved in specified month              |
+| `listIncomes()`               | void        | Lists out all expenses saved                                 |
+| `listIncomesWithMonth(month)` | String      | Lists out all expenses saved in specified month              |
 
 
 Then, with the variations of `listIncomes()` commands in `IncomeManager`, the list of incomes will be displayed to
@@ -512,7 +512,7 @@ if it does not exist:
 
 | Method            | Return Type | Relevance                               |
 |-------------------|-------------|-----------------------------------------|
-| addBudget(budget) | void        | Add new budget to the list of `budgets` |                                 
+| `addBudget(budget)` | void        | Add new budget to the list of `budgets` |                                 
 
 Then, `addAmount(category, amount)` method in the `Budget` class is also called to add the amount to the budget.
 Finally, the result is displayed to the user using the `Ui` class `displayToUser()` method.
@@ -541,7 +541,7 @@ the `budgets` list if the total amount of the budget reaches zero:
 
 | Method               | Return Type | Relevance                                |
 |----------------------|-------------|------------------------------------------|
-| deleteBudget(amount) | void        | Delete budget from the list of `budgets` |      
+| `deleteBudget(amount)` | void        | Delete budget from the list of `budgets` |      
 
 Finally, the result is displayed to the user using the `Ui` class `displayToUser()` method.
 
