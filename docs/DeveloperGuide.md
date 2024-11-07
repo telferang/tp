@@ -66,9 +66,9 @@ This section describes how to setup the coding environment, along with the tools
 ---
 
 ### 3.1 Architecture
-The following diagram shows the rough overview of BudgetBuddy
+The following activity diagram shows the rough overview of BudgetBuddy
 
-![OverallDiagram.drawio.png](diagrams/OverallDiagram.drawio.png)
+![ApplicationArchitecture.drawio.png](diagrams/ApplicationArchitecture.drawio.png)
 
 `BudgetBuddy` is the main class of application which the user can interact with directly.  The input from the user is 
 processed by the main class and passed to the `Parser`. `Parser` will check for any valid keywords in the input using 
@@ -717,59 +717,59 @@ using commands than using the mouse.
 ### 5.5.2. Test Cases
 
 #### 5.5.2.1 Displaying command/help list. 
-1. Test Case: `help` <br/>
+1. **Test Case**: `help` <br/>
     Expected: Prints the functionalities of BudgetBuddy, along with the appropriate commands for each feature.
-2. Test Case: `help 123` <br/>
+2. **Test Case**: `help 123` <br/>
     Expected: Prints the functionalities of BudgetBuddy, along with the appropriate commands for each feature.
 
 #### 5.5.2.2 Search Expense
-* 2.2.1 No descriptor provided to search for. 
-  * Prerequisites: None
-  * Test Case: `search expense` <br/> 
-  * Expected: Error messsage appears informing the user to key in a valid description to search for. 
+* **2.2.1 No descriptor provided to search for.** 
+  * **Prerequisites**: None
+  * **Test Case**: `search expense` <br/> 
+  * **Expected**: Error messsage appears informing the user to key in a valid description to search for. 
 
-* 2.2.2 No expense entry contains given descriptor.
-    * Prerequisites: At least one expense entry, such that no entry contains the given 
+* **2.2.2 No expense entry contains given descriptor.**
+    * **Prerequisites**: At least one expense entry, such that no entry contains the given 
   descriptor "notInAnyExpense" in its description.
-    * Test Case: `search expense notInAnyExpense` <br/>
-    * Expected: Message telling user that no expense entry has been found with the given 
+    * **Test Case**: `search expense notInAnyExpense` <br/>
+    * **Expected**: Message telling user that no expense entry has been found with the given 
     descriptor ("notInAnyExpense").
   
-* 2.2.3 Expense found with given descriptor.
-    * Prerequisites: At least one expense entry with description containing the given
+* **2.2.3 Expense found with given descriptor.**
+    * **Prerequisites**: At least one expense entry with description containing the given
   descriptor "Japan".
-    * Test Case: `search expense Japan` 
-    * Expected: Message showing users the expense entries with descriptions that include the word 
+    * **Test Case**: `search expense Japan` 
+    * **Expected**: Message showing users the expense entries with descriptions that include the word 
     "Japan". Filtering is case insensitive.
 
 #### 5.5.2.3 Breakdown Expenses 
-* 2.3.1 No expense added into the app. 
-    * Prerequisites: No expense tracked in the app. 
-    * Test Case: `breakdown expenses`
-    * Expected: Error message prompting user that there are no expense entries. 
+* **2.3.1 No expense added into the app.** 
+    * **Prerequisites**: No expense tracked in the app. 
+    * **Test Case**: `breakdown expenses`
+    * **Expected**: Error message prompting user that there are no expense entries. 
 
-* 2.3.2 Expenses added into the app. 
-    * Prerequisites: At least one expense entry tracked by the app.
-    * Test Case: `breakdown expenses`
-    * Expected: Message showing the breakdown of total expenses by category.
+* **2.3.2 Expenses added into the app.** 
+    * **Prerequisites**: At least one expense entry tracked by the app.
+    * **Test Case**: `breakdown expenses`
+    * **Expected**: Message showing the breakdown of total expenses by category.
 
 #### 5.5.2.4 Display Savings
-* 2.4.1 Display Savings in total
-    * Prerequisites: At least one expense/income entry tracked by the app. 
-    * Test Case: `display savings`
-    * Expected: Message showing the total savings of the user based on the incomes and expenses tracked by 
+* **2.4.1 Display Savings in total**
+    * **Prerequisites**: At least one expense/income entry tracked by the app. 
+    * **Test Case**: `display savings`
+    * **Expected**: Message showing the total savings of the user based on the incomes and expenses tracked by 
     the app, as well as first expense and income entry dates.
 
-* 2.4.2 Display Savings by month
-    * Prerequisites: At least one expense/income entry tracked by the app.
-    * Test Case: `display savings m/`
-    * Expected: Message showing the monthly breakdown of savings of the user, based on the incomes and expenses
+* **2.4.2 Display Savings by month**
+    * **Prerequisites**: At least one expense/income entry tracked by the app.
+    * **Test Case**: `display savings m/`
+    * **Expected**: Message showing the monthly breakdown of savings of the user, based on the incomes and expenses
     tracked by the app. 
 
-* 2.4.3 No expense and income entries tracked by the app. 
-    * Prerequisites: App is not tracking any expense or income entries. 
-    * Test Case: `display savings m/` or `display savings`
-    * Expected: Message showing that the user has 0 savings. 
+* **2.4.3 No expense and income entries tracked by the app.**
+    * **Prerequisites**: App is not tracking any expense or income entries. 
+    * **Test Case**: `display savings m/` or `display savings`
+    * **Expected**: Message showing that the user has 0 savings. 
 
 ### 5.5.2.5 Adding an Expense
 * **2.5.1 Adding expense without optional fields (date and category)**
@@ -779,7 +779,7 @@ using commands than using the mouse.
 
 * **2.5.2 Adding expense with all fields (description, amount, date, category)**
    * **Prerequisites**: None
-   * **Test Case**: `add expense air ticket a/300.00 d/01/11/2024 c/TRAVEL`
+   * **Test Case**: `add expense air ticket a/300.00 d/01/11/2024 c/TRANSPORT`
    * **Expected**: Success message for added expense.
 
 * **2.5.3 Adding expense with invalid date format**
