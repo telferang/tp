@@ -197,7 +197,14 @@ public class Parser {
                     Ui.showMessage("Invalid Storage Format: " + input);
                     return;
                 }
+
                 YearMonth budgetDate = YearMonth.parse(parts[2], DateTimeFormatter.ofPattern("yyyy-MM"));
+
+                if (budgetManager.getBudget(budgetDate) != null) {
+                    Ui.showMessage("Repeated budget entry: " + input);
+                    return;
+                }
+
                 // Adjust date format for YearMonth
                 String categoryPart = parts[3].trim();
                 categoryPart = categoryPart.substring(1, categoryPart.length() - 1);
