@@ -921,21 +921,21 @@ using commands than using the mouse.
 
 #### 5.5.2.13 Display Income Spent
 * **2.13.1 Display percentage of income spent without specifying month**
-   * Prerequisites: At least one expense and one income entries tracked by the app.
-   * Test Case: `display income spent`
-   * Expected: Message showing the percentage of income spent by the user based on the incomes and expenses tracked by
+   * **Prerequisites**: At least one expense and one income entries tracked by the app.
+   * **Test Case**: `display income spent`
+   * **Expected**: Message showing the percentage of income spent by the user based on the incomes and expenses tracked by
      the app for the current month.
 
 * **2.13.2 Display percentage of income spent of specified month**
-   * Prerequisites: At least one expense and one income entries tracked by the app in the specified month.
-   * Test Case: `display income spent m/11/2024`
-   * Expected: Message showing the percentage of income spent by the user based on the incomes and expenses tracked by
+   * **Prerequisites**: At least one expense and one income entries tracked by the app in the specified month.
+   * **Test Case**: `display income spent m/11/2024`
+   * **Expected**: Message showing the percentage of income spent by the user based on the incomes and expenses tracked by
      the app for November 2024.
 
 * **2.13.3 No income entry recorded for specified month**
-   * Prerequisites: No income entry tracked by the app in the specified month.
-   * Test Case: `display income spent m/07/2024`
-   * Expected: Error message showing no income is recorded for July 2024.
+   * **Prerequisites**: No income entry tracked by the app in the specified month.
+   * **Test Case**: `display income spent m/07/2024`
+   * **Expected**: Error message showing no income is recorded for July 2024.
 
 ### 5.5.2.14 Display Expenses for the Month With Categories Chart
 * **2.14.1 Valid Month provided for chart display**
