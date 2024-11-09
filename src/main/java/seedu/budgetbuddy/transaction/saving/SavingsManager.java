@@ -41,9 +41,9 @@ public class SavingsManager {
         }
         savings = totalIncome - totalExpense;
 
-        result += "Total Savings: " + savings;
-        result += "\n" + "Total Income: " + totalIncome;
-        result += "\n" + "Total Expense: " + totalExpense;
+        result += "Total Savings: " + String.format("%.2f", savings);
+        result += "\n" + "Total Income: " + String.format("%.2f", totalIncome);
+        result += "\n" + "Total Expense: " + String.format("%.2f", totalExpense);
 
         LOGGER.info("Listing total savings");
         return result;
@@ -58,7 +58,7 @@ public class SavingsManager {
         ArrayList<YearMonth> listYearMonths = new ArrayList<>();
         ArrayList<Saving> savings = new ArrayList<>();
         if (IncomeManager.getIncomes().size() <= 0 && ExpenseManager.getExpenses().size() <= 0){
-            result = "Total savings: 0";
+            result = "Total savings: 0.00";
             return result;
         }
 
@@ -88,7 +88,7 @@ public class SavingsManager {
 
         savings.sort(Comparator.comparing(Saving::getYearMonth));
         for (Saving saving: savings){
-            result += "Savings in " + saving.getYearMonth() +": " + saving.getSavings();
+            result += "Savings in " + saving.getYearMonth() +": " + String.format("%.2f", saving.getSavings());
             if (saving != savings.get(savings.size()-1)){
                 result += "\n";
             }
