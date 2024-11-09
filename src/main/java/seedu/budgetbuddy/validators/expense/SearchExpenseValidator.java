@@ -11,10 +11,10 @@ public class SearchExpenseValidator {
      */
     public static Command processCommand(String command){
         assert command != null: "Command cannot be null";
-        if (command.equals("search expense")){
+        if (command.equals("search expenses")){
             return new SearchExpenseCommand();
         }
-        String trimmedCommand = command.substring("search expense ".length());
+        String trimmedCommand = command.substring("search expenses ".length());
         return new SearchExpenseCommand(trimmedCommand);
     }
 }
