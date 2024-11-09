@@ -410,3 +410,251 @@ Nov 09, 2024 7:36:56 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
 Nov 09, 2024 7:36:59 PM seedu.budgetbuddy.Storage save
 INFO: Saving data to file: ./data/BudgetBuddy.txt
+Nov 09, 2024 8:35:29 PM seedu.budgetbuddy.Storage <init>
+INFO: Storing ./data/BudgetBuddy.txt
+Nov 09, 2024 8:35:29 PM seedu.budgetbuddy.transaction.budget.BudgetManager getBudget
+INFO: No budget found for date: 2024-11
+Nov 09, 2024 8:35:29 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 3200.0  Date: 2024-11  Category: {FOOD=200.0, ENTERTAINMENT=3000.0}
+Nov 09, 2024 8:35:29 PM seedu.budgetbuddy.transaction.budget.BudgetManager getBudget
+INFO: No budget found for date: 2024-10
+Nov 09, 2024 8:35:29 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 2400.0  Date: 2024-10  Category: {TRANSPORT=1200.0, ENTERTAINMENT=1200.0}
+Nov 09, 2024 8:35:29 PM seedu.budgetbuddy.transaction.budget.BudgetManager getBudget
+INFO: No budget found for date: 2024-08
+Nov 09, 2024 8:35:29 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 2550.0  Date: 2024-08  Category: {FOOD=750.0, OTHERS=1800.0}
+Nov 09, 2024 8:35:29 PM seedu.budgetbuddy.transaction.budget.BudgetManager getBudget
+INFO: No budget found for date: 2024-07
+Nov 09, 2024 8:35:29 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 1700.0  Date: 2024-07  Category: {OTHERS=1700.0}
+Nov 09, 2024 8:35:29 PM seedu.budgetbuddy.transaction.budget.BudgetManager getBudget
+INFO: No budget found for date: 2024-05
+Nov 09, 2024 8:35:29 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 3900.0  Date: 2024-05  Category: {FOOD=1300.0, ENTERTAINMENT=1300.0, OTHERS=1300.0}
+Nov 09, 2024 8:35:29 PM seedu.budgetbuddy.transaction.budget.BudgetManager getBudget
+INFO: No budget found for date: 2023-08
+Nov 09, 2024 8:35:29 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 2600.0  Date: 2023-08  Category: {UTILITIES=700.0, OTHERS=1900.0}
+Nov 09, 2024 8:35:29 PM seedu.budgetbuddy.Storage load
+INFO: Data loaded successfully. Expenses: 0, Incomes: 0, Budgets: 0
+Nov 09, 2024 8:35:33 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Nov 09, 2024 8:38:42 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Nov 09, 2024 8:38:44 PM seedu.budgetbuddy.Storage <init>
+INFO: Storing ./data/BudgetBuddy.txt
+Nov 09, 2024 8:38:44 PM seedu.budgetbuddy.transaction.budget.BudgetManager getBudget
+INFO: No budget found for date: 2024-11
+Nov 09, 2024 8:38:44 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 3200.0  Date: 2024-11  Category: {FOOD=200.0, ENTERTAINMENT=3000.0}
+Nov 09, 2024 8:38:44 PM seedu.budgetbuddy.transaction.budget.BudgetManager getBudget
+INFO: No budget found for date: 2024-10
+Nov 09, 2024 8:38:44 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 2400.0  Date: 2024-10  Category: {TRANSPORT=1200.0, ENTERTAINMENT=1200.0}
+Nov 09, 2024 8:38:44 PM seedu.budgetbuddy.transaction.budget.BudgetManager getBudget
+INFO: No budget found for date: 2024-08
+Nov 09, 2024 8:38:44 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 2550.0  Date: 2024-08  Category: {FOOD=750.0, OTHERS=1800.0}
+Nov 09, 2024 8:38:44 PM seedu.budgetbuddy.transaction.budget.BudgetManager getBudget
+INFO: No budget found for date: 2024-07
+Nov 09, 2024 8:38:44 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 1700.0  Date: 2024-07  Category: {OTHERS=1700.0}
+Nov 09, 2024 8:38:44 PM seedu.budgetbuddy.transaction.budget.BudgetManager getBudget
+INFO: No budget found for date: 2024-05
+Nov 09, 2024 8:38:44 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 3900.0  Date: 2024-05  Category: {FOOD=1300.0, ENTERTAINMENT=1300.0, OTHERS=1300.0}
+Nov 09, 2024 8:38:44 PM seedu.budgetbuddy.transaction.budget.BudgetManager getBudget
+INFO: No budget found for date: 2023-08
+Nov 09, 2024 8:38:44 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 2600.0  Date: 2023-08  Category: {UTILITIES=700.0, OTHERS=1900.0}
+Nov 09, 2024 8:38:44 PM seedu.budgetbuddy.Storage load
+INFO: Data loaded successfully. Expenses: 0, Incomes: 0, Budgets: 0
+Nov 09, 2024 8:38:48 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Nov 09, 2024 8:40:58 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 3200.0  Date: 2024-11  Category: {FOOD=200.0, ENTERTAINMENT=3000.0}
+Nov 09, 2024 8:40:58 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 2400.0  Date: 2024-10  Category: {TRANSPORT=1200.0, ENTERTAINMENT=1200.0}
+Nov 09, 2024 8:40:58 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 2550.0  Date: 2024-08  Category: {FOOD=750.0, OTHERS=1800.0}
+Nov 09, 2024 8:40:58 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 1700.0  Date: 2024-07  Category: {OTHERS=1700.0}
+Nov 09, 2024 8:40:58 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 3900.0  Date: 2024-05  Category: {FOOD=1300.0, ENTERTAINMENT=1300.0, OTHERS=1300.0}
+Nov 09, 2024 8:40:58 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 2600.0  Date: 2023-08  Category: {UTILITIES=700.0, OTHERS=1900.0}
+Nov 09, 2024 8:40:58 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager createNewBudget
+INFO: Created new budget for 2024-09 with initial amount 0.0
+Nov 09, 2024 8:40:58 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 2.0 from budget for 2024-09 in category OTHERS
+Nov 09, 2024 8:40:58 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager searchForGivenBudget
+INFO: Found existing budget for date: 2024-09
+Nov 09, 2024 8:40:58 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 450.0 from budget for 2024-09 in category TRANSPORT
+Nov 09, 2024 8:40:58 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager searchForGivenBudget
+INFO: Found existing budget for date: 2024-09
+Nov 09, 2024 8:40:58 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 1000.0 from budget for 2024-09 in category OTHERS
+Nov 09, 2024 8:40:58 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager searchForGivenBudget
+INFO: Found existing budget for date: 2024-09
+Nov 09, 2024 8:40:58 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 20.0 from budget for 2024-09 in category FOOD
+Nov 09, 2024 8:40:58 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager searchForGivenBudget
+INFO: Found existing budget for date: 2024-10
+Nov 09, 2024 8:40:58 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 1000.0 from budget for 2024-10 in category OTHERS
+Nov 09, 2024 8:40:58 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager searchForGivenBudget
+INFO: Found existing budget for date: 2024-08
+Nov 09, 2024 8:40:58 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 1000.0 from budget for 2024-08 in category OTHERS
+Nov 09, 2024 8:40:58 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager searchForGivenBudget
+INFO: Found existing budget for date: 2024-10
+Nov 09, 2024 8:40:58 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 20.0 from budget for 2024-10 in category OTHERS
+Nov 09, 2024 8:40:58 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager searchForGivenBudget
+INFO: Found existing budget for date: 2024-10
+Nov 09, 2024 8:40:58 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 1000.0 from budget for 2024-10 in category TRANSPORT
+Nov 09, 2024 8:40:58 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager searchForGivenBudget
+INFO: Found existing budget for date: 2024-10
+Nov 09, 2024 8:40:58 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 5.5 from budget for 2024-10 in category FOOD
+Nov 09, 2024 8:40:58 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager searchForGivenBudget
+INFO: Found existing budget for date: 2024-10
+Nov 09, 2024 8:40:58 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 10.0 from budget for 2024-10 in category OTHERS
+Nov 09, 2024 8:40:58 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager createNewBudget
+INFO: Created new budget for 2023-10 with initial amount 0.0
+Nov 09, 2024 8:40:58 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 300.0 from budget for 2023-10 in category ENTERTAINMENT
+Nov 09, 2024 8:40:58 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager searchForGivenBudget
+INFO: Found existing budget for date: 2023-10
+Nov 09, 2024 8:40:58 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 123.0 from budget for 2023-10 in category OTHERS
+Nov 09, 2024 8:40:58 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager searchForGivenBudget
+INFO: Found existing budget for date: 2023-10
+Nov 09, 2024 8:40:58 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 2567.0 from budget for 2023-10 in category OTHERS
+Nov 09, 2024 8:40:58 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Remaining budgets initialized and updated after deductions.
+Nov 09, 2024 8:40:58 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager getRemainingBudgets
+INFO: Retrieved remaining budget for 2024-09 in category FOOD: -20.0
+Nov 09, 2024 8:40:58 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Nov 09, 2024 8:52:50 PM seedu.budgetbuddy.transaction.budget.BudgetManager getBudget
+INFO: No budget found for date: 2024-09
+Nov 09, 2024 8:52:50 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 0.0  Date: 2024-09  Category: {}
+Nov 09, 2024 8:52:50 PM seedu.budgetbuddy.commands.budget.AddBudgetCommand execute
+INFO: Added new budget for date: 2024-09 with amount: 1000.0
+Nov 09, 2024 8:52:50 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Nov 09, 2024 8:57:39 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 3200.0  Date: 2024-11  Category: {FOOD=200.0, ENTERTAINMENT=3000.0}
+Nov 09, 2024 8:57:39 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 2400.0  Date: 2024-10  Category: {TRANSPORT=1200.0, ENTERTAINMENT=1200.0}
+Nov 09, 2024 8:57:39 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 2550.0  Date: 2024-08  Category: {FOOD=750.0, OTHERS=1800.0}
+Nov 09, 2024 8:57:39 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 1700.0  Date: 2024-07  Category: {OTHERS=1700.0}
+Nov 09, 2024 8:57:39 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 3900.0  Date: 2024-05  Category: {FOOD=1300.0, ENTERTAINMENT=1300.0, OTHERS=1300.0}
+Nov 09, 2024 8:57:39 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 2600.0  Date: 2023-08  Category: {UTILITIES=700.0, OTHERS=1900.0}
+Nov 09, 2024 8:57:39 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager copyBudgetManager
+INFO: Copied budget: Total Monthly Budget: 1000.0  Date: 2024-09  Category: {FOOD=1000.0}
+Nov 09, 2024 8:57:39 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager searchForGivenBudget
+INFO: Found existing budget for date: 2024-09
+Nov 09, 2024 8:57:39 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 2.0 from budget for 2024-09 in category OTHERS
+Nov 09, 2024 8:57:39 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager searchForGivenBudget
+INFO: Found existing budget for date: 2024-09
+Nov 09, 2024 8:57:39 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 450.0 from budget for 2024-09 in category TRANSPORT
+Nov 09, 2024 8:57:39 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager searchForGivenBudget
+INFO: Found existing budget for date: 2024-09
+Nov 09, 2024 8:57:39 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 1000.0 from budget for 2024-09 in category OTHERS
+Nov 09, 2024 8:57:39 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager searchForGivenBudget
+INFO: Found existing budget for date: 2024-09
+Nov 09, 2024 8:57:39 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 20.0 from budget for 2024-09 in category FOOD
+Nov 09, 2024 8:57:39 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager searchForGivenBudget
+INFO: Found existing budget for date: 2024-10
+Nov 09, 2024 8:57:39 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 1000.0 from budget for 2024-10 in category OTHERS
+Nov 09, 2024 8:57:39 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager searchForGivenBudget
+INFO: Found existing budget for date: 2024-08
+Nov 09, 2024 8:57:39 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 1000.0 from budget for 2024-08 in category OTHERS
+Nov 09, 2024 8:57:39 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager searchForGivenBudget
+INFO: Found existing budget for date: 2024-10
+Nov 09, 2024 8:57:39 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 20.0 from budget for 2024-10 in category OTHERS
+Nov 09, 2024 8:57:39 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager searchForGivenBudget
+INFO: Found existing budget for date: 2024-10
+Nov 09, 2024 8:57:39 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 1000.0 from budget for 2024-10 in category TRANSPORT
+Nov 09, 2024 8:57:39 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager searchForGivenBudget
+INFO: Found existing budget for date: 2024-10
+Nov 09, 2024 8:57:39 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 5.5 from budget for 2024-10 in category FOOD
+Nov 09, 2024 8:57:39 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager searchForGivenBudget
+INFO: Found existing budget for date: 2024-10
+Nov 09, 2024 8:57:39 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 10.0 from budget for 2024-10 in category OTHERS
+Nov 09, 2024 8:57:39 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager createNewBudget
+INFO: Created new budget for 2023-10 with initial amount 0.0
+Nov 09, 2024 8:57:39 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 300.0 from budget for 2023-10 in category ENTERTAINMENT
+Nov 09, 2024 8:57:39 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager searchForGivenBudget
+INFO: Found existing budget for date: 2023-10
+Nov 09, 2024 8:57:39 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 123.0 from budget for 2023-10 in category OTHERS
+Nov 09, 2024 8:57:39 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager searchForGivenBudget
+INFO: Found existing budget for date: 2023-10
+Nov 09, 2024 8:57:39 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Deducted 2567.0 from budget for 2023-10 in category OTHERS
+Nov 09, 2024 8:57:39 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager <init>
+INFO: Remaining budgets initialized and updated after deductions.
+Nov 09, 2024 8:57:39 PM seedu.budgetbuddy.transaction.budget.RemainingBudgetManager listRemainingBudgets
+INFO: Displayed all remaining budgets to user.
+Nov 09, 2024 8:57:39 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Nov 09, 2024 9:02:27 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
+Nov 09, 2024 9:06:22 PM seedu.budgetbuddy.Storage <init>
+INFO: Storing ./data/BudgetBuddy.txt
+Nov 09, 2024 9:06:22 PM seedu.budgetbuddy.transaction.budget.BudgetManager getBudget
+INFO: No budget found for date: 2024-11
+Nov 09, 2024 9:06:22 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 3200.0  Date: 2024-11  Category: {FOOD=200.0, ENTERTAINMENT=3000.0}
+Nov 09, 2024 9:06:22 PM seedu.budgetbuddy.transaction.budget.BudgetManager getBudget
+INFO: No budget found for date: 2024-10
+Nov 09, 2024 9:06:22 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 2400.0  Date: 2024-10  Category: {TRANSPORT=1200.0, ENTERTAINMENT=1200.0}
+Nov 09, 2024 9:06:22 PM seedu.budgetbuddy.transaction.budget.BudgetManager getBudget
+INFO: No budget found for date: 2024-08
+Nov 09, 2024 9:06:22 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 2550.0  Date: 2024-08  Category: {FOOD=750.0, OTHERS=1800.0}
+Nov 09, 2024 9:06:22 PM seedu.budgetbuddy.transaction.budget.BudgetManager getBudget
+INFO: No budget found for date: 2024-07
+Nov 09, 2024 9:06:22 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 1700.0  Date: 2024-07  Category: {OTHERS=1700.0}
+Nov 09, 2024 9:06:22 PM seedu.budgetbuddy.transaction.budget.BudgetManager getBudget
+INFO: No budget found for date: 2024-05
+Nov 09, 2024 9:06:22 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 3900.0  Date: 2024-05  Category: {FOOD=1300.0, ENTERTAINMENT=1300.0, OTHERS=1300.0}
+Nov 09, 2024 9:06:22 PM seedu.budgetbuddy.transaction.budget.BudgetManager getBudget
+INFO: No budget found for date: 2023-08
+Nov 09, 2024 9:06:22 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 2600.0  Date: 2023-08  Category: {UTILITIES=700.0, OTHERS=1900.0}
+Nov 09, 2024 9:06:22 PM seedu.budgetbuddy.transaction.budget.BudgetManager getBudget
+INFO: No budget found for date: 2024-09
+Nov 09, 2024 9:06:22 PM seedu.budgetbuddy.transaction.budget.BudgetManager addBudget
+INFO: Added budget: Total Monthly Budget: 1000.0  Date: 2024-09  Category: {FOOD=1000.0}
+Nov 09, 2024 9:06:22 PM seedu.budgetbuddy.Storage load
+INFO: Data loaded successfully. Expenses: 0, Incomes: 0, Budgets: 0
+Nov 09, 2024 9:06:26 PM seedu.budgetbuddy.Storage save
+INFO: Saving data to file: ./data/BudgetBuddy.txt
