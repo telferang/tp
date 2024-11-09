@@ -113,37 +113,48 @@ public class Ui {
      * Displays entire help message, acts as a help guide for new users.
      */
     public static void displayHelpMessage(){
-        String message = "1. Add expense/income entry. Note: amount - a/, date - d/, category - c/ \n" +
-                "Examples:\nadd expense plane ticket to Japan a/1000 d/25/12/2024 c/transport \n" +
+        String message = "1. Add expense/income entry. Note: amount - a/, (optional)date - d/, (optional)category - c/"+
+                "\nExamples:\nadd expense plane ticket to Japan a/1000 d/25/12/2024 c/transport \n" +
                 "add income tuition fees " + "a/1000 d/13/12/2024 \n" +
                 "2. Delete expense/income entry as shown in the income and expense lists." +
-                "Examples:\ndel expense 1 \n"  + "del income 2 \n" +
-                "3. Tag new category to expense. \n" + "Example:\n tag expense 2 /c food \n" +
-                "4. List expenses based on category and month. Note(optional): category - c/, month - m/MM/yyyy\n" +
+                "\nExamples:\ndelete expense 1 \n"  + "delete income 2 \n" +
+                "3. List expenses based on category and month. Note(optional): category - c/, month - m/MM/yyyy\n" +
                 "Example:\nlist expenses c/food m/10/2024\n" +
-                "5. List income based on month. Note: month (optional) - m/MM/yyyy\n" +
+                "4. List income based on month. Note: month (optional) - m/MM/yyyy\n" +
                 "Example:\nlist incomes m/10/2024\n" +
-                "6. Add budget for current month. Note: month - m/MM/yyyy \n" +
-                "Example:\nadd budget a/1000 m/09/2024\n" +
-                "7. Deduct budget for current month. Note: month - m/MM/yyyy \n" +
+                "5. Add budget for current month. Note: amount - a/, (optional)month - m/MM/yyyy, (optional)category " +
+                "- c/\n" +
+                "Example:\nadd budget a/1000 m/09/2024 c/TRANSPORT\n" +
+                "6. Deduct budget for current month. Note: amount - a/, (optional)month - m/MM/yyyy, (optional)" +
+                "category - c/\n" +
                 "Example:\ndeduct budget a/500 m/10/2024\n" +
-                "8. list budget for specific month. Note: month - m/MM/yyyy \n" +
-                "Example:\nlist budget m/05/2024\n" +
-                "9. list budget for the 12 most recent entries. \n" +
-                "Example:\nlist budget\n" +
-                "10. edit expense fields (with Category, Amount or Date).\n" +
+                "7. List budget for specific month. Note: month - m/MM/yyyy \n" +
+                "Example:\nlist budgets m/05/2024\n" +
+                "8. List budget for the 12 most recent entries. \n" +
+                "Example:\nlist budgets\n" +
+                "9. List remaining budgets.\n" +
+                "Example:\nlist remaining budget\n" +
+                "10. Edit expense fields (with Category, Amount or Date). Note: Provide at least one of the 3 fields" +
+                "in the second line of input. Refer to example below.\n" +
                 "Example:\nedit expenses 3\n" +
                 "a/1000 d/12/10/2024 c/food\n" +
-                "11. edit income fields (with Amount or Date).\n" +
+                "11. Edit income fields (with Amount or Date). Note: Provide at least one of the 2 fields in the" +
+                "second line of input. Refer to example below.\n" +
                 "Example:\nedit incomes 3\n" +
                 "a/1000 d/12/10/2024\n" +
-                "12. search expense (with provided keyword)\n" +
+                "12. Display income spent. Note - (optional)month - m/MM/YYYY\n" +
+                "Example:\ndisplay income spent m/10/2024" +
+                "13. Search expense (with provided keyword)\n" +
                 "Example:\nsearch expense japan\n" +
-                "13. display savings (by month or in total)\n" +
+                "14. Display savings (by month or in total)\n" +
                 "Example:\ndisplay savings m/\ndisplay savings\n" +
-                "14. breakdown expenses (by category)\n" +
+                "15. Breakdown expenses (by category)\n" +
                 "Example:\nbreakdown expenses\n" +
-                "15. Exit app. \n" +
+                "16. Display monthly expenses. Note: year - y/YYYY\n" +
+                "Example:\ndisplay monthly expenses y/2024\n" +
+                "17. Display monthly expenses with categories. Note: month - m/MM/YYYY\n" +
+                "Example:\ndisplay expenses with categories m/09/2024\n" +
+                "18. Exit app. \n" +
                 "Example:\nbye";
         displayToUser(message);
     }
