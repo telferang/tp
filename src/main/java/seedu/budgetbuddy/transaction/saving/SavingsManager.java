@@ -24,35 +24,27 @@ public class SavingsManager {
      */
     public static String displayTotalSavings(){
         double savings = 0;
-        YearMonth firstIncome = YearMonth.now();
-        YearMonth firstExpense = YearMonth.now();
+        double totalIncome = 0;
+        double totalExpense = 0;
+
         String result = "";
         if (IncomeManager.getIncomes().size() > 0){
             for (Income income: IncomeManager.getIncomes()){
-                savings += income.getAmount();
-                YearMonth incomeYearMonth = IncomeManager.getYearMonthFromDate(income.getDate());
-                if (incomeYearMonth.compareTo(firstIncome) == -1){
-                    firstIncome = incomeYearMonth;
-                }
+                totalIncome += income.getAmount();
             }
         }
 
         if (ExpenseManager.getExpenses().size() > 0){
             for (Expense expense: ExpenseManager.getExpenses()){
-                savings -= expense.getAmount();
-                YearMonth expenseYearMonth = ExpenseManager.getYearMonthFromDate(expense.getDate());
-                if (expenseYearMonth.compareTo(firstExpense) == -1){
-                    firstExpense = expenseYearMonth;
-                }
+                totalExpense += expense.getAmount();
             }
         }
-        result += "Total savings: " + savings;
-        if (IncomeManager.getIncomes().size() > 0){
-            result += "\n" + "First income: " + firstIncome;
-        }
-        if (ExpenseManager.getExpenses().size() > 0){
-            result += "\n" + "First expense: " +  firstExpense;
-        }
+        savings = totalIncome - totalExpense;
+
+        result += "Total Savings: " + savings;
+        result += "\n" + "Total Income: " + totalIncome;
+        result += "\n" + "Total Expense: " + totalExpense;
+
         LOGGER.info("Listing total savings");
         return result;
     }

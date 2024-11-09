@@ -48,13 +48,15 @@ public class SavingsManagerTest {
     @Test
     void displayTotalSavings_noIncomeNoExpense_expectZeroSavings(){
         initializeTestContent();
-        assertEquals("Total savings: 0.0", SavingsManager.displayTotalSavings());
+        assertEquals("Total Savings: 0.0\nTotal Income: 0.0\nTotal Expense: 0.0",
+                SavingsManager.displayTotalSavings());
     }
 
     @Test
     void displayTotalSavings_noIncomeOneExpense_expectNegativeSavings(){
         initializeTestContent(true, false);
-        assertEquals("Total savings: -100.0\nFirst expense: 2024-10", SavingsManager.displayTotalSavings());
+        assertEquals("Total Savings: -100.0\nTotal Income: 0.0\nTotal Expense: 100.0",
+                SavingsManager.displayTotalSavings());
     }
 
     @Test
