@@ -91,7 +91,11 @@ Example of usage:
 
 #### 3. List all expenses: `list expenses`
 List the summary of expenses. User could additionally specify which summary type the would like to view.
-A final line of total expenses based on summary type will be shown to users.
+A final line of total expenses based on summary type will be shown to users. 
+
+Note: 
+- Only inputs for months are accepted. Any input using date or year are not accepted.
+- If any invalid identifiers are given (eg. y/YYYY or d/DD/MM/YYYY), it will ignore these identifiers.
 
 Format: 
 1. `list expenses`
@@ -123,6 +127,9 @@ Format:
 Example of usage:
 1. `edit expenses 3`
 2. `a/100 c/food d/15/10/2024`
+
+Expected Usage of Feature:
+[EditExpense_ExpectedOutput.png](images/EditExpense_ExpectedOutput.png)
 
 #### 5. Display Monthly Expenses Chart: `display monthly expenses`
 Display a XY-Chart of your monthly expenses. The X-Axis will be the months of the year while the Y-Axis
@@ -219,7 +226,7 @@ Edit a pre-existing income entry details. User can edit amount and date of the e
 will be required from the user.
 
 Format:
-1. `edit income INDEX`
+1. `edit incomes INDEX`
 2. `[a/AMOUNT d/DATE]`
 
 * The `INDEX` is the index of the desired expenses based on list income that the user wants to edit
@@ -228,12 +235,19 @@ Format:
 * Note: For second input, at least one of the field must be provided, else it returns back to main menu
 
 Example of usage:
-1. `edit income 3`
-2. `a/100 d/15/10/2024`
+1. `edit incomes 3`
+2. `a/10000 d/15/10/2024`
+
+Expected Usage of Feature:
+[EditIncomes_ExpectedOutput.png](images/EditIncomes_ExpectedOutput.png)
 
 #### 4. List all incomes: `list incomes`
 List the summary of incomes. User could additionally specify which summary type the would like to view.
 A final line of total income based on summary type will be shown to users.
+
+Note:
+- Only inputs for months are accepted. Any input using date or year are not accepted.
+- If any invalid identifiers are given (eg. y/YYYY or d/DD/MM/YYYY), it will ignore these identifiers.
 
 Format: `list incomes [m/MONTH]`
 
