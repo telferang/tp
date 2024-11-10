@@ -33,7 +33,7 @@ public class DateValidator {
      */
     public static YearMonth validateYearMonth(String part) {
         try {
-            return YearMonth.parse(part.substring(2), DateTimeFormatter.ofPattern("MM/yyyy"));
+            return YearMonth.parse(part.substring(2), DateTimeFormatter.ofPattern("M/yyyy"));
         } catch (DateTimeParseException e) {
             return null;  // Indicates invalid date
         }
