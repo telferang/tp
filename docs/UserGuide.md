@@ -282,7 +282,7 @@ Examples of usages:
 2. `add budget a/700 m/11/2024 c/TRANSPORT`
 
 #### 2. Deducting a budget: `deduct budget`
-Deducts an amount to the month’s current budget. Budget cannot go below 0.
+Deducts an amount to the month’s current budget. If budget goes below zero after deduction, the budget for the month will be deleted.
 
 Format: `deduct budget a/AMOUNT [m/MONTH] [c/CATEGORY]`
 
