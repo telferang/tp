@@ -150,7 +150,7 @@ public class Budget {
      */
     public String toString() {
         String output = "Total Monthly Budget: " + totalMonthlyBudget;
-        output += "  Date: " + date;
+        output += "  Date: " + date + "\n";
 
         // Sort categoryBudgets by key (category name) and build the string
         String sortedCategories = categoryBudgets.entrySet()
@@ -160,7 +160,7 @@ public class Budget {
                 .reduce((c1, c2) -> c1 + ", " + c2)  // Join entries with ", "
                 .orElse("");  // Handle the case when the map is empty
 
-        output += "  Category: {" + sortedCategories + "}";
+        output += " Category: {" + sortedCategories + "}";
         return output;
     }
 }
