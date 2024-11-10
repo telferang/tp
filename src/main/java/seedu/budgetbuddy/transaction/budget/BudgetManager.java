@@ -93,6 +93,11 @@ public class BudgetManager {
      * Displays each budget with its corresponding number.
      */
     public static void listBudgets(YearMonth date) {
+        if (budgets.isEmpty()) {
+            Ui.displayToUser("No budgets recorded.");
+            return;
+        }
+
         String result = "";
 
         // Sort the budgets by YearMonth in descending order
