@@ -88,8 +88,6 @@ public class ParserTest {
 
         // Parse the file input (use the class name)
         Parser.parseFile(input);
-
-        // Verify that an error message is shown for invalid input (you can check the console output in a real-world test).
     }
 
     @Test
