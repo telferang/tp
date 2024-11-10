@@ -1,5 +1,7 @@
 package seedu.budgetbuddy.validators;
 
+import seedu.budgetbuddy.exceptions.BudgetBuddyException;
+
 /**
  * Validates and converts amount from String to double.
  */
@@ -12,7 +14,11 @@ public class AmountValidator {
      */
     public static double validateAmount(String part) {
         try {
-            return Double.parseDouble(part.substring(2));
+            double amount = Double.parseDouble(part.substring(2));
+            if (amount * 100 % 1 != 0) {
+                return -1;
+            }
+            return amount;
         } catch (NumberFormatException e) {
             return -1;  // Indicates invalid amount
         }

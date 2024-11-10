@@ -41,7 +41,7 @@ public class DeductBudgetValidator {
             if (part.startsWith("a/")) {
                 amount = validateAmount(part);
                 if (amount == -1) {
-                    throw new BudgetBuddyException("Invalid amount format. Amount should be a positive number.");
+                    throw new BudgetBuddyException("Invalid amount format.");
                 }
             } else if (part.startsWith("m/")) {
                 date = validateYearMonth(part);
