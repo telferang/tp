@@ -9,6 +9,7 @@ import java.time.YearMonth;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -22,7 +23,7 @@ public class ListBudgetValidatorTest {
         assertNotNull(result);
         assertEquals(ListBudgetCommand.class, result.getClass());
         ListBudgetCommand listBudgetCommand = (ListBudgetCommand) result;
-        assertEquals(null, listBudgetCommand.getDate()); // Expecting null for date
+        assertNull(listBudgetCommand.getDate()); // Expecting null for date
     }
 
     @Test
@@ -43,6 +44,6 @@ public class ListBudgetValidatorTest {
         BudgetBuddyException exception = assertThrows(BudgetBuddyException.class, () ->
                 ListBudgetValidator.processCommand(command));
 
-        assertTrue(exception.getMessage().contains("Invalid format. Use 'list budget [m/MM/yyyy]'."));
+        assertTrue(exception.getMessage().contains("Invalid format. Use 'list budgets [m/MM/yyyy]'."));
     }
 }

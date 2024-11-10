@@ -45,7 +45,7 @@ public class BudgetTest {
         Budget budget = new Budget(YearMonth.of(2024, 10));
         budget.addAmount(Category.FOOD, 100);
         String result = budget.toString();
-        assertEquals("Total Monthly Budget: 100.0  Date: 2024-10  Category: {FOOD=100.0}", result);
+        assertEquals("Total Monthly Budget: 100.0  Date: 2024-10\n Category: {FOOD=100.0}", result);
     }
 
     @Test
@@ -124,7 +124,7 @@ public class BudgetTest {
         Budget budget = new Budget(YearMonth.of(2024, 10));
         budget.addAmount(Category.FOOD, 100);
         String result = budget.toString();
-        assertEquals("Total Monthly Budget: 100.0  Date: 2024-10  Category: {FOOD=100.0}", result);
+        assertEquals("Total Monthly Budget: 100.0  Date: 2024-10\n Category: {FOOD=100.0}", result);
     }
 
     @Test

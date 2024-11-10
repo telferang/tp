@@ -40,13 +40,14 @@ public class AddBudgetValidator {
             if (part.startsWith("a/")) {
                 amount = validateAmount(part);
                 if (amount == -1) {
-                    throw new BudgetBuddyException("Invalid amount format. " +
-                            "Amount should be a positive number.");
+                    throw new BudgetBuddyException("Invalid amount format.");
                 }
             } else if (part.startsWith("m/")) {
                 date = validateYearMonth(part);
             } else if (part.startsWith("c/")) {
                 category = validateCategory(part);
+            } else {
+                throw new BudgetBuddyException("Unrecognised input: '" + part + "'. Please check the command format.");
             }
         }
 

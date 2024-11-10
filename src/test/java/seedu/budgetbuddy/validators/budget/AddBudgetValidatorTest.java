@@ -45,7 +45,7 @@ public class AddBudgetValidatorTest {
         BudgetBuddyException exception = assertThrows(BudgetBuddyException.class, () ->
                 AddBudgetValidator.processCommand(command));
 
-        assertTrue(exception.getMessage().contains("Invalid amount format. Amount should be a positive number."));
+        assertTrue(exception.getMessage().contains("Invalid amount format."));
     }
 
     @Test

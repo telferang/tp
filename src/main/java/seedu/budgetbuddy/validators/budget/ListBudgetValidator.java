@@ -32,7 +32,7 @@ public class ListBudgetValidator {
         if (!trimmedCommand.isEmpty()) {
             date = validateYearMonth(trimmedCommand);
             if (date == null) {
-                throw new BudgetBuddyException("Invalid format. Use 'list budget [m/MM/yyyy]'.");
+                throw new BudgetBuddyException("Invalid format. Use 'list budgets [m/MM/yyyy]'.");
             }
         }
 

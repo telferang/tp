@@ -38,6 +38,9 @@ public class DisplayIncomeSpentValidator {
                     if (month == null) {
                         throw new BudgetBuddyException("Invalid month format. Use m/MM/yyyy.");
                     }
+                } else {
+                    throw new BudgetBuddyException("Unrecognised input: '" + part + "'. " +
+                            "Please check the command format.");
                 }
             }
         }
