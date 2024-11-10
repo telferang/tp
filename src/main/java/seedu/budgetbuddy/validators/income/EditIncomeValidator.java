@@ -33,7 +33,7 @@ public class EditIncomeValidator {
         try {
             String trimmedCommand = command.substring("edit incomes ".length());
             String[] parts = trimmedCommand.split(" ");
-            int editIndex = Integer.parseInt(parts[0]) - 1;
+            int editIndex = Integer.parseInt(parts[0]);
             if (editIndex < 0) {
                 return new IncorrectCommand("Edit index must be greater than 0.");
             }

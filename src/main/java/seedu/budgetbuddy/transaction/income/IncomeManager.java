@@ -164,7 +164,7 @@ public class IncomeManager {
         if (index > numberOfIncomes) {
             return null;
         }
-        return incomes.get(index);
+        return incomes.get(index-1);
     }
 
     /**
