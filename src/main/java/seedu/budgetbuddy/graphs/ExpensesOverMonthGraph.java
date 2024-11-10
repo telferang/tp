@@ -80,6 +80,7 @@ public class ExpensesOverMonthGraph {
         // Create the SwingWrapper
         SwingWrapper<XYChart> swingWrapper = new SwingWrapper<>(expensesChart);
         JFrame frame = swingWrapper.displayChart();
+        frame.setTitle("BudgetBuddy");
 
         // Set the default close operation on the EDT
         javax.swing.SwingUtilities.invokeLater(() -> frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE));

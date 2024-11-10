@@ -68,6 +68,7 @@ public class ExpensesCategoryPieChart {
         // Display the chart in a Swing frame
         SwingWrapper<PieChart> swingWrapper = new SwingWrapper<>(pieChart);
         JFrame frame = swingWrapper.displayChart();
+        frame.setTitle("BudgetBuddy");
 
         // Set the default close operation for the frame
         javax.swing.SwingUtilities.invokeLater(() -> frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE));
