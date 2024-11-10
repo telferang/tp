@@ -35,6 +35,16 @@ public class DisplayExpensesForMonthWithCategoriesGraphCommand extends Command {
     }
 
     /**
+     * Gets the YearMonth attribute of the class
+     *
+     * @return YearMonth attribute
+     */
+
+    public YearMonth getYearMonth() {
+        return this.yearMonth;
+    }
+
+    /**
      * Executes the command to display the expenses pie chart for the specified month.
      */
     @Override

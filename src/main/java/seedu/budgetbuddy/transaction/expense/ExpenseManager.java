@@ -318,27 +318,6 @@ public class ExpenseManager {
     }
 
     /**
-     * Displays the total expenses for a specific month on a specific category
-     *
-     * @param yearMonth The YearMonth object representing the month for which the total expenses are to be displayed.
-     * @param category The Category object representing the category of the total expenses to be displayed.
-     */
-    public static void listTotalExpensesForMonthWithCategories(YearMonth yearMonth, Category category) {
-        ArrayList<Expense> expensesOverMonthArray = getExpenses();
-        double totalAmount = 0.0;
-
-        Ui.displayToUser("The Expenses for " + yearMonth + " under category: " + category);
-        for (Expense expense : expensesOverMonthArray) {
-            YearMonth expenseYearMonth = getYearMonthFromDate(expense.getDate());
-
-            if (expenseYearMonth.equals(yearMonth) && category.equals(expense.getCategory())) {
-                totalAmount += expense.getAmount();
-            }
-        }
-        System.out.println(totalAmount);
-    }
-
-    /**
      * Displays the expenses for a specific month on a PieChart divided by different categories
      *
      * @param yearMonth The YearMonth object representing the month for which the total expenses are to be displayed.
