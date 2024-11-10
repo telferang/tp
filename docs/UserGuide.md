@@ -16,7 +16,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&bull; [Edit Expenses](#4-edit-pre-existing-expenses-edit-expenses) <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&bull; [Display Monthly Expenses Chart](#5-display-monthly-expenses-chart-display-monthly-expenses) <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&bull; [Display Expenses for the Month with Categories Chart](#6-display-expenses-for-the-month-with-categories-chart-display-expenses-with-categories) <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&bull; [Search Expense](#7-search-expense-search-expense) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&bull; [Search Expense](#7-search-expense-search-expenses) <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&bull; [Breakdown Expenses](#8-breakdown-expenses-breakdown-expenses) <br>
 &nbsp;&nbsp;2. [Income](#income) <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&bull; [Add Income](#1-adding-an-income-add-income) <br>
@@ -281,6 +281,9 @@ Examples of usages:
 1. `add budget a/800`  
 2. `add budget a/700 m/11/2024 c/TRANSPORT`
 
+Expected Usage of Feature:
+![AddBudgets_ExpectedOutputs.png](images/AddBudgets_ExpectedOutputs.png)
+
 #### 2. Deducting a budget: `deduct budget`
 Deducts an amount to the month’s current budget. The amount deducted will be the smaller of either the entered amount 
 or the current amount in budget. If budget goes below zero after deduction, the budget for the month will be deleted.
@@ -293,8 +296,11 @@ Format: `deduct budget a/AMOUNT [m/MONTH] [c/CATEGORY]`
   The default category is OTHERS.
 
 Examples of usages:
-1. `deduct budget a/1500`  
-2. `deduct budget a/400 m/09/2024 c/FOOD`
+1. `deduct budget a/500`  
+2. `deduct budget a/400 m/11/2024 c/TRANSPORT`
+
+Expected Usage of Feature:
+![DeductBudgets_ExpectedOutputs.png](images/DeductBudgets_ExpectedOutputs.png)
 
 Remarks: Given an example 'Total Monthly Budget: 2000.0 Date: 2024-11 Categories: {FOOD=1000.0, OTHERS=1000}', using 
 the command "deduct budget a/2000 m/11/2024" will automatically apply the deduction to the "OTHERS" category. 
@@ -311,6 +317,9 @@ Format: `list budgets [m/MONTH]`
 Examples of usages:
 1. `list budgets`  
 2. `list budgets m/09/2024`
+
+Expected Usage of Feature:
+![ListBudgets_ExpectedOutput.png](images/ListBudgets_ExpectedOutput.png)
 
 #### 4. List remaining budgets: `list remaining budget`
 Show the budget remaining after deducting the expenses seperated by month and category.
@@ -349,6 +358,9 @@ Format: `display income spent [m/MONTH]`
 Examples of usages:
 1. `display income spent`
 2. `display income spent m/10/2024`
+
+Expected Usage of Feature:
+![DisplayIncomeSpent_ExpectedOutputs.png](images/DisplayIncomeSpent_ExpectedOutputs.png)
 
 ### Miscellaneous
 

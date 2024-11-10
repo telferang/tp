@@ -1,7 +1,5 @@
 package seedu.budgetbuddy.validators;
 
-import seedu.budgetbuddy.exceptions.BudgetBuddyException;
-
 /**
  * Validates and converts amount from String to double.
  */
