@@ -3,7 +3,6 @@ package seedu.budgetbuddy;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
-import seedu.budgetbuddy.Storage;
 import seedu.budgetbuddy.transaction.Category;
 import seedu.budgetbuddy.transaction.budget.Budget;
 import seedu.budgetbuddy.transaction.budget.BudgetManager;
@@ -128,9 +127,15 @@ public class StorageTest {
 
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
-            if (line.contains("Lunch")) expenseSaved = true;
-            if (line.contains("Salary")) incomeSaved = true;
-            if (line.contains("2024-10")) budgetSaved = true;
+            if (line.contains("Lunch")) {
+                expenseSaved = true;
+            }
+            if (line.contains("Salary")) {
+                incomeSaved = true;
+            }
+            if (line.contains("2024-10")) {
+                budgetSaved = true;
+            }
         }
 
         // Ensure all data is saved
