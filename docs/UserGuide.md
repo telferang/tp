@@ -91,19 +91,19 @@ Example of usage:
 
 #### 3. List all expenses: `list expenses`
 List the summary of expenses. User could additionally specify which summary type the would like to view.
-A final line of total expenses based on summary type will be shown to users. 
-
-Note: 
-- Only inputs for months are accepted. Any input using date or year are not accepted.
-- If any invalid identifiers are given (eg. y/YYYY or d/DD/MM/YYYY), it will ignore these identifiers.
+A final line of total expenses based on summary type will be shown to users.
 
 Format: 
 1. `list expenses`
 2. `list expenses [m/MONTH]`
 3. `list expenses [m/MONTH] [c/CATEGORY]`
 
-* The `CATEGORY` (Optional) is the summary type to search for expenses with the specified category
+* The `CATEGORY` (Optional) is the summary type to search for expenses with the specified category.
 * The `MONTH` (Optional) is the summary type to search for expenses in the specified month in the format of`m/mm/yyyy`.
+  
+Note:
+* Only inputs for months are accepted. Any input using date or year are not accepted.
+* If any invalid identifiers are given (eg. y/YYYY or d/DD/MM/YYYY), it will ignore these identifiers.
 
 Example of usage:
 `list expenses`
@@ -111,18 +111,21 @@ Example of usage:
 `list expenses m/10/2024 c/food`
 
 #### 4. Edit pre-existing expenses: `edit expenses`
-Edit a pre-existing expense entry details. User can edit category, amount and date of the expense field. 2 set of input
-will be required from the user.
+Edit a pre-existing expense entry details. Users can edit the category, amount and date of the expense field. 2 sets of 
+input will be required from the user.
 
 Format:
 1. `edit expenses INDEX`
 2. `[a/AMOUNT c/CATEGORY d/DATE]`
 
-* The `INDEX` is the index of the desired expenses based on list expense that the user wants to edit
-* The `AMOUNT` (Optional) is the amount to be updated to
-* The `CATEGORY` (Optional) is the category to be updated to
-* The `DATE` (Optional) is the date to be updated to in the format of`d/dd/mm/yyyy`
-* Note: For second input, at least one of the field must be provided, else it returns back to main menu
+* The `INDEX` is the index of the desired expenses based on list expense that the user wants to edit.
+* The `AMOUNT` (Optional) is the amount to be updated to.
+* The `CATEGORY` (Optional) is the category to be updated to.
+* The `DATE` (Optional) is the date to be updated to in the format of`d/dd/mm/yyyy`.
+
+
+Note: 
+* For the second input, at least one of the field must be provided, else it returns back to main menu.
 
 Example of usage:
 1. `edit expenses 3`
@@ -222,17 +225,20 @@ Example of usage:
 `delete income 1`
 
 #### 3. Edit pre-existing incomes: `edit incomes`
-Edit a pre-existing income entry details. User can edit amount and date of the expense field. 2 set of input
+Edit a pre-existing income entry details. Users can edit the amount and date of the expense field. 2 sets of input
 will be required from the user.
 
 Format:
 1. `edit incomes INDEX`
 2. `[a/AMOUNT d/DATE]`
 
-* The `INDEX` is the index of the desired expenses based on list income that the user wants to edit
-* The `AMOUNT` (Optional) is the amount to be updated to
-* The `DATE` (Optional) is the date to be updated to, in the format of `d/dd/mm/yyyy`
-* Note: For second input, at least one of the field must be provided, else it returns back to main menu
+* The `INDEX` is the index of the desired expenses based on list income that the user wants to edit.
+* The `AMOUNT` (Optional) is the amount to be updated to.
+* The `DATE` (Optional) is the date to be updated to, in the format of `d/dd/mm/yyyy`.
+
+
+Note: 
+* For the second input, at least one of the field must be provided, else it returns back to main menu.
 
 Example of usage:
 1. `edit incomes 3`
@@ -245,13 +251,13 @@ Expected Usage of Feature:
 List the summary of incomes. User could additionally specify which summary type the would like to view.
 A final line of total income based on summary type will be shown to users.
 
-Note:
-- Only inputs for months are accepted. Any input using date or year are not accepted.
-- If any invalid identifiers are given (eg. y/YYYY or d/DD/MM/YYYY), it will ignore these identifiers.
-
 Format: `list incomes [m/MONTH]`
 
 * The `MONTH` (Optional) is the summary type to search for incomes in the specified month in the format of`m/mm/yyyy`.
+
+Note:
+- Only inputs for months are accepted. Any inputs using date or year are not accepted.
+- If any invalid identifiers are given (eg. y/YYYY or d/DD/MM/YYYY), it will ignore these identifiers.
 
 Example of usage:
 `list incomes`
