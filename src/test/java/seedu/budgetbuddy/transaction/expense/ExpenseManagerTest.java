@@ -99,4 +99,76 @@ class ExpenseManagerTest {
                 " 0.0(0.00%)\nEntertainment: 0.0(0.00%)\nEducation: 0.0(0.00%)\nOthers: 0.0(0.00%)\n",
                 ExpenseManager.breakdownExpensesByCategory());
     }
+
+    @Test
+    void listExpensesWithCategoryAndDate_noExpenses_expectNoExpensesMessage(){
+        initializeEmptyTestContent();
+        Category category = Category.FOOD;
+        YearMonth yearMonth = YearMonth.now();
+        assertEquals(EMPTY_DISPLAY_STRING, ExpenseManager.listExpensesWithCategoryAndDate(category, yearMonth));
+    }
+
+    @Test
+    void listExpensesWithCategoryAndDate_oneExpense_expectExpenseMessage(){
+        initializeTestContent();
+        Category category = Category.FOOD;
+        YearMonth yearMonth = YearMonth.of(2024, 2);
+        assertEquals("1. Description: New Food  Amount: 12.0  Date: 2024-02-12  Category: FOOD\n" +
+                "Your total expenses for FOOD in February 2024 is $12.0",
+                ExpenseManager.listExpensesWithCategoryAndDate(category, yearMonth));
+    }
+
+    @Test
+    void listExpensesWithCategoryAndDate_oneExpenseWrongCategory_expectNoExpensesFoundMessage(){
+        initializeTestContent();
+        Category category = Category.ENTERTAINMENT;
+        YearMonth yearMonth = YearMonth.of(2024, 2);
+        assertEquals(EMPTY_DISPLAY_STRING, ExpenseManager.listExpensesWithCategoryAndDate(category, yearMonth));
+    }
+
+    @Test
+    void listExpensesWithCategory_noExpense_expectNoExpensesFoundMessage(){
+        initializeEmptyTestContent();
+        Category category = Category.FOOD;
+        assertEquals(EMPTY_DISPLAY_STRING, ExpenseManager.listExpensesWithCategory(category));
+    }
+
+    @Test
+    void listExpensesWithCategory_oneExpense_expectExpenseMessage(){
+        initializeTestContent();
+        Category category = Category.FOOD;
+        assertEquals("1. Description: New Food  Amount: 12.0  Date: 2024-02-12  Category: FOOD\n" +
+                        "Your expenses for FOOD is $12.0",
+                ExpenseManager.listExpensesWithCategory(category));
+    }
+
+    @Test
+    void listExpensesWithDate_noExpense_expectNoExpensesFoundMessage(){
+        initializeEmptyTestContent();
+        YearMonth yearMonth = YearMonth.of(2024, 2);
+        assertEquals(EMPTY_DISPLAY_STRING, ExpenseManager.listExpensesWithDate(yearMonth));
+    }
+
+    @Test
+    void listExpensesWithDate_oneExpense_expectExpenseMessage(){
+        initializeTestContent();
+        YearMonth yearMonth = YearMonth.of(2024, 2);
+        assertEquals("1. Description: New Food  Amount: 12.0  Date: 2024-02-12  Category: FOOD\n" +
+                "Your expenses for February 2024 is $12.0",
+                ExpenseManager.listExpensesWithDate(yearMonth));
+    }
+
+    @Test
+    void getMonthlyExpense_oneExpense_expectMonthlyExpense(){
+        initializeTestContent();
+        YearMonth yearMonth = YearMonth.of(2024, 2);
+        assertEquals(12.0, ExpenseManager.getMonthlyExpense(yearMonth));
+    }
+
+    @Test
+    void getMonthlyExpense_noExpense_expectZeroMonthlyExpense(){
+        initializeEmptyTestContent();
+        YearMonth yearMonth = YearMonth.of(2024, 2);
+        assertEquals(0.0, ExpenseManager.getMonthlyExpense(yearMonth));
+    }
 }
