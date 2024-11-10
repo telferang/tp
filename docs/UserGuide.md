@@ -282,7 +282,8 @@ Examples of usages:
 2. `add budget a/700 m/11/2024 c/TRANSPORT`
 
 #### 2. Deducting a budget: `deduct budget`
-Deducts an amount to the month’s current budget. If budget goes below zero after deduction, the budget for the month will be deleted.
+Deducts an amount to the month’s current budget. The amount deducted will be the smaller of either the entered amount 
+or the current amount in budget. If budget goes below zero after deduction, the budget for the month will be deleted.
 
 Format: `deduct budget a/AMOUNT [m/MONTH] [c/CATEGORY]`
 
@@ -294,6 +295,10 @@ Format: `deduct budget a/AMOUNT [m/MONTH] [c/CATEGORY]`
 Examples of usages:
 1. `deduct budget a/1500`  
 2. `deduct budget a/400 m/09/2024 c/FOOD`
+
+Remarks: Given an example 'Total Monthly Budget: 2000.0 Date: 2024-11 Categories: {FOOD=1000.0, OTHERS=1000}', using 
+the command "deduct budget a/2000 m/11/2024" will automatically apply the deduction to the "OTHERS" category. 
+The amount deducted will be the smaller of either 2000 or the current amount in "OTHERS".
 
 #### 3. Listing budgets: `list budgets`
 View all budgets, up to the latest 12 budgets. Able to view the budget for a specific month as well.
