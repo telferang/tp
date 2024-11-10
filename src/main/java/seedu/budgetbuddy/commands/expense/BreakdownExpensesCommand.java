@@ -15,7 +15,7 @@ public class BreakdownExpensesCommand extends Command {
      * @return true if command starts with "breakdown expenses", false otherwise.
      */
     public static boolean isCommand(String command){
-        return command.startsWith("breakdown expenses");
+        return command.equals("breakdown expenses");
     }
 
     /**
