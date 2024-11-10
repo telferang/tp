@@ -143,7 +143,7 @@ public class Ui {
                 "Example:\nedit incomes 3\n" +
                 "a/1000 d/12/10/2024\n" +
                 "12. Display income spent. Note - (optional)month - m/MM/YYYY\n" +
-                "Example:\ndisplay income spent m/10/2024" +
+                "Example:\ndisplay income spent m/10/2024\n" +
                 "13. Search expense (with provided keyword)\n" +
                 "Example:\nsearch expense japan\n" +
                 "14. Display savings (by month or in total)\n" +

@@ -160,11 +160,11 @@ Below is an example of the chart displayed.
 
 ![PieChart.png](images/PieChart.png)
 
-#### 7. Search Expense: `search expense`
+#### 7. Search Expense: `search expenses`
 Displays the expense entries based on a certain keyword provided by the user. The relevant expense entries are then
 filtered based on their description.
 
-Format: `search expense KEYWORD(S)`
+Format: `search expenses KEYWORD(S)`
 
 * Displays expense entries with descriptions containing the keyword(s) provided by the user.
 * If no keyword is provided by the user, an error message will show up, prompting the user to key in a valid keyword.
@@ -173,7 +173,7 @@ Format: `search expense KEYWORD(S)`
 * Filtering on the provided keyword(s) is case insensitive.
 
 Example of usage:
-1. `search expense Japan`
+1. `search expenses Japan`
 
 #### 8. Breakdown Expenses: `breakdown expenses`
 Displays a breakdown of the user’s expenses, by category. The feature displays the total expenditure per category,
