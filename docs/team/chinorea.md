@@ -11,3 +11,33 @@ List of code contributed : [Reposense Code Link](https://nus-cs2113-ay2425s1.git
 
 ### Feature Implemented
 Here is the list of feature implemented:
+
+| Feature                     | Purpose                                                                                                                                            | 
+|-----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
+| List Expenses with filters  | Allow users to view all past expenses with total value of expenses logged within the application, as well as filter based on category and/or month |
+| List Incomes with filters   | Allow users to view all past incomes with total value of income logged within the application, as well as filter based on month                    | 
+| Edit a Pre-Existing Expense | Allow Users to edit and update an existing expense entry without creating a new entry                                                              |
+| Edit a Pre-Exisitng Income  | Allow Users to edit and update an existing income entry without creating a new entry                                                               |
+
+| Class                  | Functionality                                          | 
+|------------------------|--------------------------------------------------------|
+| `EditExpenseValidator` | Validate input from user specialised for Edit Expenses |
+| `EditIncomeValidator`  | Validate input from user specialised for Edit Income   |  
+| `ListIncomeValidator`  | Validate input from user specialised for List Income   |
+| `ListExpenseValidator` | Validate input from user specialised for List Expense  |
+| `EditExpenseCommand`   | Handling of user input values for feature execution    |
+| `EditIncomeCommand`    | Handling of user input values for feature execution   |
+| `ListIncomeCommand`    | Handling of user input values for feature execution   |
+| `ListExpenseCommand`   | Handling of user input values for feature execution   |
+
+### Contribution to UG
+Documented the following portions:
+* `ListExpense`, `ListIncome`, `EditIncome` and `EditExpense` feature portions and command summary,
+* Introduction portion.
+
+
+### Contribution to DG
+Documented the following portions:
+* `ListExpense`, `ListIncome`, `EditIncome` and `EditExpense` feature portions in section 4 of the DG
+* Prequisites, Introduction, Non-Functional Requirements and Glossary Sections of the DG
+* UML Sequence Diagrams for `EditValidatorClass`, `ListExpense`, `EditExpense`, `ListIncome` portions of the DG
