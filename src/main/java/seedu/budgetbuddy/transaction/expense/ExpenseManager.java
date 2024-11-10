@@ -358,7 +358,7 @@ public class ExpenseManager {
         if (index > numberOfExpenses) {
             return null;
         }
-        return expenses.get(index);
+        return expenses.get(index-1);
     }
 
     /**
