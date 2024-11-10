@@ -47,6 +47,8 @@ public class AddBudgetValidator {
                 date = validateYearMonth(part);
             } else if (part.startsWith("c/")) {
                 category = validateCategory(part);
+            } else {
+                throw new BudgetBuddyException("Unrecognised input: '" + part + "'. Please check the command format.");
             }
         }
 
