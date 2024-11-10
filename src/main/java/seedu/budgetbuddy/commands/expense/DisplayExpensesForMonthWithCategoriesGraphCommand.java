@@ -5,6 +5,7 @@ import seedu.budgetbuddy.commands.Command;
 import seedu.budgetbuddy.transaction.expense.ExpenseManager;
 import seedu.budgetbuddy.util.LoggerSetup;
 
+import java.time.Year;
 import java.time.YearMonth;
 import java.util.logging.Logger;
 
@@ -32,6 +33,16 @@ public class DisplayExpensesForMonthWithCategoriesGraphCommand extends Command {
      */
     public static boolean isCommand(String command) {
         return command.startsWith("display expenses with categories");
+    }
+
+    /**
+     * Gets the YearMonth attribute of the class
+     *
+     * @return YearMonth attribute
+     */
+
+    public YearMonth getYearMonth() {
+        return this.yearMonth;
     }
 
     /**

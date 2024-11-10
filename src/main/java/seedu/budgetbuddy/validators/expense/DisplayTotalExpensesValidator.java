@@ -61,8 +61,8 @@ public class DisplayTotalExpensesValidator {
             return false;
         }
         try {
-            int yearInt = Integer.parseInt(year);
-            return yearInt >= 1900 && yearInt <= 2100;
+            Integer.parseInt(year);
+            return true;
         } catch (NumberFormatException e) {
             return false;
         }

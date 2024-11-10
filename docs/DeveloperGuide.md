@@ -954,7 +954,7 @@ using commands than using the mouse.
 
 * **2.14.3 No expenses tracked in the specific month of the year**
   * **Prerequisites**: No expense entries for that particular month of the year.
-  * **Test Case**: `display monthly expenses m/09/2024`
+  * **Test Case**: `display expenses with categories m/09/2024`
   * **Expected**: Empty PieChart shown with values on legends showing all 0.
 
 ### 5.5.2.15 Exiting BudgetBuddy

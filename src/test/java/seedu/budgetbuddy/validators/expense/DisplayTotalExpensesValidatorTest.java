@@ -43,13 +43,6 @@ class DisplayTotalExpensesValidatorTest {
     }
 
     @Test
-    void testOutOfRangeYear() {
-        Command command = DisplayTotalExpensesValidator.processCommand(baseCommand + " y/2200");
-        assertTrue(command instanceof IncorrectCommand);
-        assertEquals("Invalid or missing year format.", ((IncorrectCommand) command).getFeedbackToUser());
-    }
-
-    @Test
     void testInvalidCommandFormat() {
         Command command = DisplayTotalExpensesValidator.processCommand(baseCommand + " y2023");
         assertTrue(command instanceof IncorrectCommand);

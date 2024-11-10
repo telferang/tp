@@ -133,11 +133,14 @@ Format:
 
 * The `YEAR` is the year of the expenses to be displayed
 * The format of `YEAR` should be `YYYY`
-* The command only accepts year between >=1900 and <=2100 to account for erroneous inputs.
 
 Example of Usage:
 
 `display monthly expenses y/2024`
+
+Below is an example of the chart displayed.
+
+![XY-Chart.png](images/XY-Chart.png)
 
 #### 6. Display Expenses for the Month with Categories Chart: `display expenses with categories`
 Display a PieChart of your expenses for the month, which is sliced by categories. The legend of the PieChart is the 
@@ -152,6 +155,10 @@ Format:
 Example of Usage:
 
 `display expenses with categories m/09/2024`
+
+Below is an example of the chart displayed.
+
+![PieChart.png](images/PieChart.png)
 
 #### 7. Search Expense: `search expense`
 Displays the expense entries based on a certain keyword provided by the user. The relevant expense entries are then
