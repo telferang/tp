@@ -25,6 +25,7 @@ public class ExpenseManager {
     private static final Logger LOGGER = LoggerSetup.getLogger();
     private static int numberOfExpenses = 0;
     private static ArrayList<Expense> expenses = new ArrayList<>();
+    private static ExpenseManager instance;
 
     /**
      * Construct a ExpenseManager of array content expenses
@@ -361,5 +362,22 @@ public class ExpenseManager {
     public static void reset() {
         numberOfExpenses = 0;
         expenses.clear();
+    }
+
+    /**
+     * Provides a global point of access to the single instance of the ExpenseManager class.
+     * <p>
+     * This method ensures that only one instance of ExpenseManager exists throughout the application's lifetime.
+     * If an instance does not exist, it creates a new one. Otherwise, it returns the existing instance.
+     * This method is used for unit testing for Storage to ensure that stored values are correct.
+     * </p>
+     *
+     * @return The single instance of the ExpenseManager class.
+     */
+    public static ExpenseManager getInstance() {
+        if (instance == null) {
+            instance = new ExpenseManager();
+        }
+        return instance;
     }
 }

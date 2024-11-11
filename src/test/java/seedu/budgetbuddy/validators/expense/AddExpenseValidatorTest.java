@@ -9,7 +9,7 @@ import seedu.budgetbuddy.transaction.Category;
 import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 
 class AddExpenseValidatorTest {
 
@@ -18,7 +18,7 @@ class AddExpenseValidatorTest {
         Command result = AddExpenseValidator.processCommand("add expense Lunch a/abc d/12/10/2024 c/FOOD");
 
         // Check if result is an IncorrectCommand and compare the message
-        assertTrue(result instanceof IncorrectCommand);
+        assertInstanceOf(IncorrectCommand.class, result);
         String message = ((IncorrectCommand) result).getFeedbackToUser();
         assertEquals("Amount should be a positive number with up to 2 decimal places.", message);
     }
@@ -28,7 +28,7 @@ class AddExpenseValidatorTest {
         Command result = AddExpenseValidator.processCommand("add expense a/100 d/12/10/2024 c/FOOD");
 
         // Check if result is an IncorrectCommand and compare the message
-        assertTrue(result instanceof IncorrectCommand);
+        assertInstanceOf(IncorrectCommand.class, result);
         String message = ((IncorrectCommand) result).getFeedbackToUser();
         assertEquals("Description cannot be empty.", message);
     }
@@ -38,7 +38,7 @@ class AddExpenseValidatorTest {
         Command result = AddExpenseValidator.processCommand("add expense Lunch a/100 d/invalid_date c/FOOD");
 
         // Check if result is an IncorrectCommand and compare the message
-        assertTrue(result instanceof IncorrectCommand);
+        assertInstanceOf(IncorrectCommand.class, result);
         String message = ((IncorrectCommand) result).getFeedbackToUser();
         assertEquals("Invalid date format. Use d/dd/MM/yyyy.", message);
     }
@@ -48,7 +48,7 @@ class AddExpenseValidatorTest {
         Command result = AddExpenseValidator.processCommand("add expense Lunch d/12/10/2024 c/FOOD");
 
         // Check if result is an IncorrectCommand and compare the message
-        assertTrue(result instanceof IncorrectCommand);
+        assertInstanceOf(IncorrectCommand.class, result);
         String message = ((IncorrectCommand) result).getFeedbackToUser();
         assertEquals("Amount not entered.", message);
     }
@@ -58,7 +58,7 @@ class AddExpenseValidatorTest {
         Command result = AddExpenseValidator.processCommand("add expense Lunch a/-50 d/12/10/2024 c/FOOD");
 
         // Check if result is an IncorrectCommand and compare the message
-        assertTrue(result instanceof IncorrectCommand);
+        assertInstanceOf(IncorrectCommand.class, result);
         String message = ((IncorrectCommand) result).getFeedbackToUser();
         assertEquals("Amount should be a positive number with up to 2 decimal places.", message);
     }
@@ -69,7 +69,7 @@ class AddExpenseValidatorTest {
         Command result = AddExpenseValidator.processCommand("add expense Lunch a/100 d/12/10/2024 c/FOOD");
 
         // Check if the result is an AddExpenseCommand (a valid command)
-        assertTrue(result instanceof AddExpenseCommand);
+        assertInstanceOf(AddExpenseCommand.class, result);
         AddExpenseCommand command = (AddExpenseCommand) result;
 
         // Verify the details of the created command

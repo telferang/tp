@@ -16,8 +16,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.YearMonth;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
@@ -29,9 +27,6 @@ public class StorageTest {
 
     private Storage storage;
     private File tempFile;
-    private ExpenseManager expenseManager;
-    private IncomeManager incomeManager;
-    private BudgetManager budgetManager;
 
     @BeforeEach
     public void setUp() throws IOException {
@@ -42,10 +37,10 @@ public class StorageTest {
         // Initialize the Storage with the temporary file
         storage = new Storage(tempFile.getAbsolutePath());
 
-        // Initialize managers with real data
-        expenseManager = new ExpenseManager();
-        incomeManager = new IncomeManager();
-        budgetManager = new BudgetManager();
+        // Clear static managers before each test to ensure tests are isolated
+        ExpenseManager.reset();
+        IncomeManager.reset();
+        BudgetManager.reset();
     }
 
     @AfterEach
@@ -81,41 +76,32 @@ public class StorageTest {
 
     @Test
     public void testLoad_successfulLoading() throws IOException {
-        // Write test data to the temporary file
         try (FileWriter writer = new FileWriter(tempFile)) {
             writer.write("expense | Lunch | 10.0 | 10/10/2024 | Food\n");
             writer.write("income | Salary | 2000.0 | 01/10/2024\n");
             writer.write("budget | 1500.0 | 2024-10 | {Food=500.0, Transport=300.0}\n");
         }
-
-        // Now test the load function
         storage.load();
-
-        // You may want to verify the actual data loading here, e.g., checking that expenses, incomes,
-        // and budgets have been populated properly. The parser's actual behavior depends on how `Parser.parseFile`
-        // processes the data, but for this example, we assume it works and check no exceptions were thrown.
         assertDoesNotThrow(() -> storage.load());
     }
 
     @Test
     public void testSave_savesCorrectly() throws IOException {
-        // Create some sample data
-        Expense expense = new Expense("Lunch", 10.0, LocalDate.of(2024, 7, 10), Category.FOOD);
+        //Sample Data for Testing
+        Expense expense = new Expense("Lunch", 10.0, LocalDate.of(2024, 7, 10),
+                Category.FOOD);
         Income income = new Income("Salary", 2000.0, LocalDate.of(2024, 7, 10));
-        Map<Category, Double> categoryBudgets = new HashMap<>();
-        categoryBudgets.put(Category.FOOD, 500.0);
-        categoryBudgets.put(Category.TRANSPORT, 300.0);
         Budget budget = new Budget(YearMonth.of(2024, 7));
 
-        // Add sample data to managers
-        expenseManager.addExpense(expense);
-        incomeManager.addIncome(income);
-        budgetManager.addBudget(budget);
+        // Add sample data to static managers
+        ExpenseManager.addExpense(expense);
+        IncomeManager.addIncome(income);
+        BudgetManager.addBudget(budget);
 
         // Save data to the file
-        storage.save(expenseManager, incomeManager, budgetManager);
+        storage.save(ExpenseManager.getInstance(), IncomeManager.getInstance(), BudgetManager.getInstance());
 
-        // Now, let's read the content from the file and check if the data was saved correctly
+        // Read the content from the file and check if the data was saved correctly
         File file = new File(tempFile.getAbsolutePath());
         assertTrue(file.exists());
 
@@ -133,9 +119,10 @@ public class StorageTest {
             if (line.contains("Salary")) {
                 incomeSaved = true;
             }
-            if (line.contains("2024-10")) {
+            if (line.contains("2024-07")) {
                 budgetSaved = true;
             }
+
         }
 
         // Ensure all data is saved
@@ -144,3 +131,4 @@ public class StorageTest {
         assertTrue(budgetSaved);
     }
 }
+

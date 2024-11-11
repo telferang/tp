@@ -7,7 +7,7 @@ import seedu.budgetbuddy.commands.Command;
 import seedu.budgetbuddy.commands.IncorrectCommand;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 
 class DeleteExpenseValidatorTest {
 
@@ -15,35 +15,34 @@ class DeleteExpenseValidatorTest {
 
     @BeforeEach
     void setUp() {
-        // Initialize the base command for delete expense
         baseCommand = "delete expense ";
     }
 
     @Test
     void testInvalidDeleteExpenseCommand() {
         Command command = DeleteExpenseValidator.processCommand(baseCommand + "invalid");
-        assertTrue(command instanceof IncorrectCommand, "Expected an IncorrectCommand due to invalid input.");
+        assertInstanceOf(IncorrectCommand.class, command, "Expected an IncorrectCommand due to invalid input.");
         assertEquals("Invalid Index", ((IncorrectCommand) command).getFeedbackToUser());
     }
 
     @Test
     void testNegativeIndex() {
         Command command = DeleteExpenseValidator.processCommand(baseCommand + "-1");
-        assertTrue(command instanceof IncorrectCommand, "Expected an IncorrectCommand due to negative index.");
+        assertInstanceOf(IncorrectCommand.class, command, "Expected an IncorrectCommand due to negative index.");
         assertEquals("Invalid Index", ((IncorrectCommand) command).getFeedbackToUser());
     }
 
     @Test
     void testZeroIndex() {
         Command command = DeleteExpenseValidator.processCommand(baseCommand + "0");
-        assertTrue(command instanceof IncorrectCommand, "Expected an IncorrectCommand due to zero index.");
+        assertInstanceOf(IncorrectCommand.class, command, "Expected an IncorrectCommand due to zero index.");
         assertEquals("Invalid Index", ((IncorrectCommand) command).getFeedbackToUser());
     }
 
     @Test
     void testEmptyInput() {
         Command command = DeleteExpenseValidator.processCommand(baseCommand);
-        assertTrue(command instanceof IncorrectCommand, "Expected an IncorrectCommand due to missing index.");
+        assertInstanceOf(IncorrectCommand.class, command, "Expected an IncorrectCommand due to missing index.");
         assertEquals("Invalid Index", ((IncorrectCommand) command).getFeedbackToUser());
     }
 }

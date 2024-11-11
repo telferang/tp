@@ -8,25 +8,23 @@ import seedu.budgetbuddy.commands.income.AddIncomeCommand;
 import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 
 class AddIncomeValidatorTest {
 
     @Test
     void testNoDescriptionProvided() {
         Command result = AddIncomeValidator.processCommand("add income");
-        assertTrue(result instanceof IncorrectCommand);
+        assertInstanceOf(IncorrectCommand.class, result);
         assertEquals("No description provided.", ((IncorrectCommand) result).getFeedbackToUser());
     }
 
     @Test
     void testValidCommand() {
-        // Assuming "Lunch income" is a valid description, 50.5 as a valid amount, and today's date as valid
         String command = "add income Lunch income a/50.5 d/25/10/2024";
         Command result = AddIncomeValidator.processCommand(command);
 
-        assertTrue(result instanceof AddIncomeCommand, "Expected AddIncomeCommand instance");
+        assertInstanceOf(AddIncomeCommand.class, result, "Expected AddIncomeCommand instance");
         AddIncomeCommand addIncomeCommand = (AddIncomeCommand) result;
 
         assertEquals("Lunch income", addIncomeCommand.getDescription(), "Expected description to " +
@@ -41,7 +39,7 @@ class AddIncomeValidatorTest {
         String command = "add income Salary d/25/10/2024";
         Command result = AddIncomeValidator.processCommand(command);
 
-        assertTrue(result instanceof IncorrectCommand);
+        assertInstanceOf(IncorrectCommand.class, result);
         assertEquals("Amount not entered.", ((IncorrectCommand) result).getFeedbackToUser());
     }
 
@@ -50,7 +48,7 @@ class AddIncomeValidatorTest {
         String command = "add income Bonus a/abc d/25/10/2024";
         Command result = AddIncomeValidator.processCommand(command);
 
-        assertTrue(result instanceof IncorrectCommand);
+        assertInstanceOf(IncorrectCommand.class, result);
         assertEquals("Amount should be a positive number with up to 2 decimal places.",
                 ((IncorrectCommand) result).getFeedbackToUser());
     }
@@ -60,7 +58,7 @@ class AddIncomeValidatorTest {
         String command = "add income Freelance job a/100";
         Command result = AddIncomeValidator.processCommand(command);
 
-        assertTrue(result instanceof AddIncomeCommand);
+        assertInstanceOf(AddIncomeCommand.class, result);
         AddIncomeCommand addIncomeCommand = (AddIncomeCommand) result;
 
         assertEquals("Freelance job", addIncomeCommand.getDescription());
@@ -73,7 +71,7 @@ class AddIncomeValidatorTest {
         String command = "add income Part-time a/50 d/invalid-date";
         Command result = AddIncomeValidator.processCommand(command);
 
-        assertTrue(result instanceof IncorrectCommand);
+        assertInstanceOf(IncorrectCommand.class, result);
         assertEquals("Invalid date format. Use d/dd/MM/yyyy.", ((IncorrectCommand) result).
                 getFeedbackToUser());
     }
@@ -83,7 +81,7 @@ class AddIncomeValidatorTest {
         String command = "add income a/100 d/25/10/2024";
         Command result = AddIncomeValidator.processCommand(command);
 
-        assertTrue(result instanceof IncorrectCommand);
+        assertInstanceOf(IncorrectCommand.class, result);
         assertEquals("Description cannot be empty.", ((IncorrectCommand) result).getFeedbackToUser());
     }
 
@@ -92,7 +90,7 @@ class AddIncomeValidatorTest {
         String command = "add income Refund a/-50 d/25/10/2024";
         Command result = AddIncomeValidator.processCommand(command);
 
-        assertTrue(result instanceof IncorrectCommand);
+        assertInstanceOf(IncorrectCommand.class, result);
         assertEquals("Amount should be a positive number with up to 2 decimal places.",
                 ((IncorrectCommand) result).getFeedbackToUser());
     }
