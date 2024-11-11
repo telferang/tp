@@ -40,14 +40,14 @@ public class RemainingBudgetManagerTest {
     @Test
     public void getRemainingBudgets_expenseWithoutBudget_negativeBudget() {
         String result = remainingBudgetManager.getRemainingBudgets(LocalDate.of(2024, 11, 5), Category.FOOD);
-        assertEquals("The remaining budget for 2024-11 in the FOOD category is: -50.0\n" +
+        assertEquals("The remaining budget for 2024-11 in the FOOD category is: -50.00\n" +
                 "Caution! You have exceeded your budget!", result);
     }
 
     @Test
     public void getRemainingBudgets_expenseWithBudget_positiveBudget() {
         String result = remainingBudgetManager.getRemainingBudgets(LocalDate.of(2024, 9, 25), Category.OTHERS);
-        assertEquals("The remaining budget for 2024-09 in the OTHERS category is: 270.0", result);
+        assertEquals("The remaining budget for 2024-09 in the OTHERS category is: 270.00", result);
     }
 
     @Test
@@ -56,7 +56,7 @@ public class RemainingBudgetManagerTest {
         remainingBudgetManager = new RemainingBudgetManager();
 
         String result = remainingBudgetManager.getRemainingBudgets(LocalDate.of(2024, 10, 5), Category.EDUCATION);
-        assertEquals("The remaining budget for 2024-10 in the EDUCATION category is: 480.0", result);
+        assertEquals("The remaining budget for 2024-10 in the EDUCATION category is: 480.00", result);
     }
 
 }

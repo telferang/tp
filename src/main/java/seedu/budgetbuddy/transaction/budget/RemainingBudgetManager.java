@@ -110,7 +110,7 @@ public class RemainingBudgetManager {
             LOGGER.info("No budgets found");
             return;
         }
-        String result = "All budgets after deductions:";
+        String result = "All budgets after expense deductions:";
         for (Budget budget : remainingBudgets) {
             result += "\n" + budget;
         }
@@ -134,12 +134,12 @@ public class RemainingBudgetManager {
             if (budget.getDate().equals(expenseMonth)) {
                 Double remainingAmount = budget.getCategoryBudgets().get(category);
                 if (remainingAmount == null) {
-                    remainingAmount = 0.0; // If the category does not exist, assume remaining amount is 0
+                    remainingAmount = 0.00; // If the category does not exist, assume remaining amount is 0
                 }
                 LOGGER.info("Retrieved remaining budget for " + expenseMonth + " in category " + category
                         + ": " + remainingAmount);
                 String result = "The remaining budget for " + expenseMonth + " in the " + category
-                        + " category is: " + remainingAmount;
+                        + " category is: " + String.format("%.2f", remainingAmount);
                 if (remainingAmount < 0) {
                     result += "\nCaution! You have exceeded your budget!";
                 }

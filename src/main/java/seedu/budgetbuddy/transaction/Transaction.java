@@ -32,7 +32,7 @@ public class Transaction {
     public String toString() {
         String output = "";
         output += "Description: " + description;
-        output += "  Amount: " + amount;
+        output += "  Amount: " + String.format("%.2f", amount);
         output += "  Date: " + date;
         return output;
     }

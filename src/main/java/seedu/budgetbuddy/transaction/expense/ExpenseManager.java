@@ -131,7 +131,7 @@ public class ExpenseManager {
             sumOfExpenses += expense.getAmount();
         }
         result += "There are " + counter + " expense(s) in total" +
-                ", with a sum of $" + sumOfExpenses + ".";
+                ", with a sum of $" + String.format("%.2f", sumOfExpenses) + ".";
         LOGGER.log(Level.INFO, "Listing {0} expenses", numberOfExpenses);
         Ui.displayToUser(result);
     }
@@ -161,7 +161,7 @@ public class ExpenseManager {
             result = getEmptyDisplayMessage();
         } else {
             result += "Your total expenses for " + category + " in "
-                    + monthInString + " is $" + amount;
+                    + monthInString + " is $" + String.format("%.2f", amount);
         }
         return result;
     }
@@ -187,7 +187,7 @@ public class ExpenseManager {
         if (result.equals("")) {
             result = getEmptyDisplayMessage();
         } else {
-            result += "Your expenses for " + category + " is $" + amount;
+            result += "Your expenses for " + category + " is $" + String.format("%.2f", amount);
         }
         return result;
     }
@@ -214,7 +214,7 @@ public class ExpenseManager {
         if (result.equals("")) {
             result = getEmptyDisplayMessage();
         } else {
-            result += "Your expenses for " + monthInString + " is $" + amountInMonth;
+            result += "Your expenses for " + monthInString + " is $" + String.format("%.2f", amountInMonth);
         }
         return result;
     }

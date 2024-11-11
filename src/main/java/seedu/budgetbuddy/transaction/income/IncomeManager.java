@@ -118,7 +118,7 @@ public class IncomeManager {
             sumOfIncome += income.getAmount();
         }
         result += "There are " + counter + " income(s) in total" +
-                ", with a sum of $" + sumOfIncome + ".";
+                ", with a sum of $" + String.format("%.2f", sumOfIncome) + ".";
         LOGGER.log(Level.INFO, "Listing {0} incomes", numberOfIncomes);
         Ui.displayToUser(result);
     }
