@@ -33,6 +33,8 @@
 &nbsp;&nbsp;5. [Income Spent](#income-spent) <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&bull; [Display Income Spent](#1-display-income-spent-display-income-spent) <br>
 &nbsp;&nbsp;6. [Miscellaneous](#miscellaneous) <br>
+[User Warnings](#user-warnings) <br>
+&nbsp;&nbsp;1. [Descriptions](#1-descriptions) <br>
 [FAQ](#faq) <br>
 [Command Summary](#command-summary) <br>
 
@@ -440,6 +442,20 @@ Format: `bye`
 Prints the list of commands for the user.
 
 Format: `help`
+
+## User Warnings
+
+---
+
+### 1. Descriptions
+For features that requires descriptions, avoid using `|` for description as there can be some unintended results. <br>
+E.g. Taking this command as example: `add expense hi | Bye a/100 d/10/10/2026`. <br>
+This will create a warning as shown below next time the program is started up: ![UserWarning](images/UserWarning.png)
+
+Users do not need to worry as Storage will automatically ignore and delete the wrongly formatted line, along with
+giving a warning to the user, so that they are aware in the future.
+
+The feature will continue to work as intended if the input is `add expense hi|Bye a/100 d/10/10/2026`.
 
 ## FAQ
 

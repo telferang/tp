@@ -18,6 +18,7 @@ public class IncomeManager {
     private static final Logger LOGGER = LoggerSetup.getLogger();
     private static int numberOfIncomes = 0;
     private static ArrayList<Income> incomes = new ArrayList<>();
+    private static IncomeManager instance;
 
     /**
      * Construct a IncomeManager of array content incomes
@@ -191,5 +192,36 @@ public class IncomeManager {
      */
     public static ArrayList<Income> getIncomes() {
         return incomes;
+    }
+
+    /**
+     * Resets the state of the IncomeManager by clearing all incomes and
+     * setting the total number of incomes to zero.
+     * <p>
+     * This method is used for unit testing, ensuring that each test
+     * starts with a clean slate and does not retain any state from
+     * previous tests.
+     * </p>
+     */
+    public static void reset() {
+        numberOfIncomes = 0;
+        incomes.clear();
+    }
+
+    /**
+     * Provides a global point of access to the single instance of the IncomeManager class.
+     * <p>
+     * This method ensures that only one instance of IncomeManager exists throughout the application's lifetime.
+     * If an instance does not exist, it creates a new one. Otherwise, it returns the existing instance.
+     * This method is used for unit testing for Storage to ensure that stored values are correct.
+     * </p>
+     *
+     * @return The single instance of the IncomeManager class.
+     */
+    public static IncomeManager getInstance() {
+        if (instance == null) {
+            instance = new IncomeManager(incomes, numberOfIncomes); // Pass static fields to constructor
+        }
+        return instance;
     }
 }

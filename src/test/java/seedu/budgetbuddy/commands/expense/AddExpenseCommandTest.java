@@ -18,7 +18,6 @@ public class AddExpenseCommandTest {
 
     @BeforeEach
     public void setUp() {
-        // Clear existing expenses before each test
         ExpenseManager.reset();
     }
 

@@ -17,9 +17,8 @@ public class DeleteExpenseCommandTest {
 
     @BeforeEach
     public void setUp() {
-        // Clear any existing expenses before each test
         ExpenseManager.reset();
-        // Add some sample expenses to test with
+        //Add Sample Data to test with
         ExpenseManager.addExpense(new Expense("Lunch", 10.0, LocalDate.now(), Category.FOOD));
         ExpenseManager.addExpense(new Expense("Bus fare", 2.5, LocalDate.now(), Category.TRANSPORT));
     }
@@ -40,7 +39,6 @@ public class DeleteExpenseCommandTest {
 
     @Test
     public void execute_invalidIndex_throwsIndexOutOfBoundsException() {
-        // Try to delete an expense at an invalid index
         DeleteExpenseCommand deleteCommand = new DeleteExpenseCommand(5);
 
         assertThrows(IndexOutOfBoundsException.class, deleteCommand::execute);

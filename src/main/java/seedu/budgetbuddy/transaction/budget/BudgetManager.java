@@ -15,6 +15,7 @@ public class BudgetManager {
     private static final Logger LOGGER = LoggerSetup.getLogger();
     private static int numberOfBudgets = 0;
     private static ArrayList<Budget> budgets = new ArrayList<>();
+    private static BudgetManager instance;
 
     /**
      * Construct a BudgetManager of array content incomes
@@ -154,4 +155,22 @@ public class BudgetManager {
         numberOfBudgets = 0;
         budgets.clear();
     }
+
+    /**
+     * Provides a global point of access to the single instance of the BudgetManager class.
+     * <p>
+     * This method ensures that only one instance of BudgetManager exists throughout the application's lifetime.
+     * If an instance does not exist, it creates a new one. Otherwise, it returns the existing instance.
+     * This method is used for unit testing for Storage to ensure that stored values are correct.
+     * </p>
+     *
+     * @return The single instance of the BudgetManager class.
+     */
+    public static BudgetManager getInstance() {
+        if (instance == null) {
+            instance = new BudgetManager(budgets, numberOfBudgets); // Pass static fields to constructor
+        }
+        return instance;
+    }
+
 }
