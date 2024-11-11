@@ -151,7 +151,7 @@ public class Parser {
         String type = parts[0]; // Determines if it's expense, income, or budget
 
         switch (type.toLowerCase()) {
-        case "expense": {
+        case "expense":
             try {
                 if (parts.length != 5) {
                     Ui.showMessage("Invalid Storage Format: " + input);
@@ -165,14 +165,13 @@ public class Parser {
                     Ui.showMessage("Invalid Storage Format: " + input);
                     return;
                 }
-                expenseManager.loadExpense(new Expense(description, amount, date, category));
+                ExpenseManager.loadExpense(new Expense(description, amount, date, category));
             } catch (Exception e) {
                 Ui.showMessage("Invalid Storage Format: " + input);
             }
-
             break;
-        }
-        case "income": {
+
+        case "income":
             try {
                 if (parts.length != 4) {
                     Ui.showMessage("Invalid Storage Format: " + input);
@@ -185,23 +184,21 @@ public class Parser {
                     Ui.showMessage("Invalid Storage Format: " + input);
                     return;
                 }
-                incomeManager.loadIncome(new Income(description, amount, date)); // No category needed for income
+                IncomeManager.loadIncome(new Income(description, amount, date)); // No category needed for income
             } catch (Exception e) {
                 Ui.showMessage("Invalid Input Format: " + input);
             }
-
             break;
-        }
-        case "budget": {
+
+        case "budget":
             try {
                 if (parts.length != 4) {
                     Ui.showMessage("Invalid Storage Format: " + input);
                     return;
                 }
-
                 YearMonth budgetDate = YearMonth.parse(parts[2], DateTimeFormatter.ofPattern("yyyy-MM"));
 
-                if (budgetManager.getBudget(budgetDate) != null) {
+                if (BudgetManager.getBudget(budgetDate) != null) {
                     Ui.showMessage("Repeated budget entry: " + input);
                     return;
                 }
@@ -222,15 +219,15 @@ public class Parser {
                     }
                     budget.addAmount(category, categoryAmount);
                 }
-                budgetManager.addBudget(budget);
+                BudgetManager.addBudget(budget);
             } catch (Exception e) {
                 Ui.showMessage("Invalid Input Format: " + input);
             }
-
             break;
-        }
+
         default:
             System.out.println("Unknown type in file: " + type);
+            break;
         }
     }
 }

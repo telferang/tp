@@ -67,8 +67,6 @@ public class Storage {
             Parser.parseFile(input);
         }
         sc.close();
-        LOGGER.info("Data loaded successfully. Expenses: " + expenses.size() + ", Incomes: " + incomes.size()
-                + ", Budgets: " + budgets.size());
     }
 
     /**
@@ -139,7 +137,6 @@ public class Storage {
                     .append(income.getAmount()).append(" | ")
                     .append(income.getDate().format(DateTimeFormatter.ofPattern("d/M/yyyy")));
         }
-
         return line.toString();
     }
 

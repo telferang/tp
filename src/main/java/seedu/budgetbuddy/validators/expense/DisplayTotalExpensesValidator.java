@@ -32,12 +32,13 @@ public class DisplayTotalExpensesValidator {
         }
 
         // Check if the command starts with "y/" and extract the year argument
-        String yearArg = null;
+        String yearArg;
         if (trimmedCommand.startsWith("y/")) {
             yearArg = trimmedCommand.substring(2); // Remove the "y/" prefix
         } else {
             LOGGER.log(Level.WARNING, "Invalid Command: " + trimmedCommand);
-            return new IncorrectCommand("Unknown command '" + trimmedCommand + "'. Expected format: 'y/<year>'");
+            return new IncorrectCommand("Unknown command '" + trimmedCommand + "'. " +
+                    "Expected format: 'y/<year>'");
         }
 
         // Validate and parse the year

@@ -6,6 +6,7 @@ import seedu.budgetbuddy.transaction.expense.ExpenseManager;
 import seedu.budgetbuddy.util.LoggerSetup;
 
 import java.time.YearMonth;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
@@ -39,7 +40,6 @@ public class DisplayExpensesForMonthWithCategoriesGraphCommand extends Command {
      *
      * @return YearMonth attribute
      */
-
     public YearMonth getYearMonth() {
         return this.yearMonth;
     }
@@ -49,6 +49,7 @@ public class DisplayExpensesForMonthWithCategoriesGraphCommand extends Command {
      */
     @Override
     public void execute(){
+        LOGGER.log(Level.INFO, "Displaying expense PieChart");
         Ui.displayToUser("Displaying Expenses PieChart for " + yearMonth.toString());
         ExpenseManager.displayExpensesForMonthWithCategoriesGraph(yearMonth);
     }

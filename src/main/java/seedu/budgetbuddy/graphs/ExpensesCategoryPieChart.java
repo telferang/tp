@@ -16,7 +16,7 @@ import static seedu.budgetbuddy.transaction.expense.ExpenseManager.getExpenses;
 import static seedu.budgetbuddy.transaction.expense.ExpenseManager.getYearMonthFromDate;
 
 /**
- * Generates and displays a pie chart of expenses categorized by month.
+ * Generates and displays a pie chart of expenses sliced by category.
  */
 public class ExpensesCategoryPieChart {
 
@@ -53,24 +53,21 @@ public class ExpensesCategoryPieChart {
                 .build();
 
         // Set visibility of the legend and labels
-        pieChart.getStyler().setLegendVisible(true);  // Show legend
-        pieChart.getStyler().setLabelsVisible(true); // Show labels on slices
-
-        // Calculate the total expenses for calculating percentages
-        double totalExpenses = expensesByCategoryMap.values().stream().mapToDouble(Double::doubleValue).sum();
+        pieChart.getStyler().setLegendVisible(true);
+        pieChart.getStyler().setLabelsVisible(true);
 
         // Add each category to the chart with the expense amount shown on each slice
         expensesByCategoryMap.forEach((category, expense) -> {
             String label = category.name() + " " + expense.toString();
-            pieChart.addSeries(label, expense); // Show percentage in legend and amount on pie slice
+            pieChart.addSeries(label, expense);
         });
 
-        // Display the chart in a Swing frame
+        //Display the chart in window
         SwingWrapper<PieChart> swingWrapper = new SwingWrapper<>(pieChart);
         JFrame frame = swingWrapper.displayChart();
         frame.setTitle("BudgetBuddy");
 
-        // Set the default close operation for the frame
+        // Ensure that closing the window does not end the program
         javax.swing.SwingUtilities.invokeLater(() -> frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE));
     }
 
@@ -88,7 +85,7 @@ public class ExpensesCategoryPieChart {
         for (Expense expense : expensesOverMonthArray) {
             YearMonth expenseYearMonth = getYearMonthFromDate(expense.getDate());
 
-            if(expenseYearMonth.equals(yearMonth) && category.equals(expense.getCategory())) {
+            if (expenseYearMonth.equals(yearMonth) && category.equals(expense.getCategory())) {
                 totalAmount += expense.getAmount();
             }
         }

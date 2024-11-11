@@ -256,18 +256,6 @@ public class ExpenseManager {
     }
 
     /**
-     * Displays the total expenses for a specific month.
-     *
-     * @param yearMonth The YearMonth object representing the month for which the total expenses are to be displayed.
-     */
-    public static void listTotalExpensesForMonth(YearMonth yearMonth) {
-        ArrayList<Expense> expensesOverMonthArray = getExpenses();
-        Map<YearMonth, Double> monthlyExpensesMap = ExpensesOverMonthGraph.monthMapBuilder(expensesOverMonthArray);
-        Ui.displayToUser("Your expenses for " + yearMonth.toString() + " is " +
-                ExpensesOverMonthGraph.expensesForMonth(monthlyExpensesMap, yearMonth));
-    }
-
-    /**
      * Breaks down all expenses of the user by category.
      * @return String that displays total expenses of the user and the amount and percentage of total expenses spent
      *     per category.

@@ -51,18 +51,38 @@ public class AddExpenseCommand extends Command {
         ExpenseManager.addExpense(new Expense(description, amount, date, category));
     }
 
+    /**
+     * Gets the description of the expense.
+     *
+     * @return The description of the expense.
+     */
     public String getDescription() {
         return description;
     }
 
+    /**
+     * Gets the amount of the expense.
+     *
+     * @return The amount of the expense.
+     */
     public double getAmount() {
         return amount;
     }
 
+    /**
+     * Gets the date of the expense.
+     *
+     * @return The date of the expense.
+     */
     public LocalDate getDate() {
         return date;
     }
 
+    /**
+     * Gets the category of the expense.
+     *
+     * @return The category of the expense.
+     */
     public Category getCategory() {
         return category;
     }
