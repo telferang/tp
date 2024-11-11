@@ -194,15 +194,15 @@ Caution! You have exceeded your budget!
 ========================================================
 Enter commands: ========================================================
 1. Description: Japan Flight  Amount: 123.45  Date: 2024-10-30  Category: TRANSPORT
-Your expenses for TRANSPORT is $123.45
+Your total expense(s) for TRANSPORT are $123.45
 ========================================================
 Enter commands: ========================================================
 1. Description: Ipad  Amount: 123.45  Date: 2024-08-30  Category: EDUCATION
-Your expenses for August 2024 is $123.45
+Your total expense(s) for August 2024 are $123.45
 ========================================================
 Enter commands: ========================================================
 1. Description: Japan Flight  Amount: 123.45  Date: 2024-10-30  Category: TRANSPORT
-Your total expenses for TRANSPORT in October 2024 is $123.45
+Your total expense(s) for TRANSPORT in October 2024 are $123.45
 ========================================================
 Enter commands: ========================================================
 Unknown category. Use a valid category.
