@@ -18,17 +18,30 @@
 &nbsp;&nbsp;[3.6 Expense and Income Class](#36-expense-expensemanager-income-and-incomemanager-class) <br>
 [4. Implementation](#4-implementation) <br>
 &nbsp;&nbsp;[4.1 Expense Features](#41-expense-features) <br>
+&nbsp;&nbsp;&nbsp;[4.1.1 Add Expense](#411-add-expense-feature) <br>
+&nbsp;&nbsp;&nbsp;[4.1.2 Delete Expense](#412-delete-expense-feature) <br>
+&nbsp;&nbsp;&nbsp;[4.1.3 Search Expense](#413-search-expense-feature) <br>
+&nbsp;&nbsp;&nbsp;[4.1.4 Breakdown Expenses](#414-breakdown-expense-feature) <br>
 &nbsp;&nbsp;&nbsp;[4.1.5 Display Monthly Expenses](#415-display-monthly-expenses) <br>
 &nbsp;&nbsp;&nbsp;[4.1.6 Display Expenses for Month with Categories](#416-display-expenses-for-month-with-categories) <br>
-&nbsp;&nbsp;&nbsp;[4.1.7 List Expense Feature](#417-list-expenses-feature) <br>
-&nbsp;&nbsp;&nbsp;[4.1.8 Edit Expense Feature](#418-edit-expense-feature) <br>
+&nbsp;&nbsp;&nbsp;[4.1.7 List Expense](#417-list-expenses-feature) <br>
+&nbsp;&nbsp;&nbsp;[4.1.8 Edit Expense](#418-edit-expense-feature) <br>
 &nbsp;&nbsp;[4.2 Income Features](#42-income-features) <br>
-&nbsp;&nbsp;&nbsp;[4.2.3 List Expense Feature](#423-list-income-feature) <br>
-&nbsp;&nbsp;&nbsp;[4.2.4 Edit Expense Feature](#424-edit-income-feature) <br>
+&nbsp;&nbsp;&nbsp;[4.2.1 Add Income](#421-add-income-feature) <br>
+&nbsp;&nbsp;&nbsp;[4.2.2 Delete Income](#422-delete-income-feature) <br>
+&nbsp;&nbsp;&nbsp;[4.2.3 List Expense](#423-list-income-feature) <br>
+&nbsp;&nbsp;&nbsp;[4.2.4 Edit Expense](#424-edit-income-feature) <br>
 &nbsp;&nbsp;[4.3 Budget Features](#43-budget-features) <br>
+&nbsp;&nbsp;&nbsp;[4.3.1 Add Budget](#431-add-budget-feature) <br>
+&nbsp;&nbsp;&nbsp;[4.3.2 Deduct Budget](#432-deduct-budget-feature) <br>
+&nbsp;&nbsp;&nbsp;[4.3.3 List Budget](#433-list-budget-feature) <br>
+&nbsp;&nbsp;&nbsp;[4.3.4 List Remaining Budget](#434-list-remaining-budget-feature) <br>
 &nbsp;&nbsp;[4.4 Savings Features](#44-savings-features) <br>
+&nbsp;&nbsp;&nbsp;[4.4.1 Display Savings](#441-display-savings-feature) <br>
 &nbsp;&nbsp;[4.5 Income Spent Features](#45-income-spent-features) <br>
+&nbsp;&nbsp;&nbsp;[4.5.1 Display Income Spent](#451-display-income-spent-feature) <br>
 &nbsp;&nbsp;[4.6 Miscellaneous Features](#46-miscellaneous-features) <br>
+&nbsp;&nbsp;&nbsp;[4.6.1 Display Help](#461-display-help-feature) <br>
 [5. Appendix](#5-appendix) <br>
 &nbsp;&nbsp;[5.1 Product Scope](#51-product-scope) <br>
 &nbsp;&nbsp;[5.2 User Stories](#52-user-stories) <br>
@@ -49,7 +62,9 @@ All UML diagrams within the Developer Guide have been created on [Draw.io](https
 
 ---
 
-BudgetBuddy is a CLI-based expense, income and budget tracking application. BudgetBuddy is designed to help users manage and monitor their daily and monthly expenses. The system tracks various categories of expenses and allows users to receive insights on their budget and spending patterns.
+BudgetBuddy is a CLI-based expense, income and budget tracking application. BudgetBuddy is designed to help users 
+manage and monitor their daily and monthly expenses. The system tracks various categories of expenses and allows users 
+to receive insights on their budget and spending patterns.
 
 ## 2. Setup Guide
 
@@ -812,7 +827,7 @@ using commands than using the mouse.
    * **Test Case**: `delete expense 1`
    * **Expected**: Error message indicating no expenses to delete.
 
-### 5.5.2.7 Displaying Monthly Expenses Chart
+### 5.5.2.7 Display Monthly Expenses Chart
 * **2.7.1 Valid year provided for chart display**
    * **Prerequisites**: At least one expense entry in the specified year.
    * **Test Case**: `display monthly expenses y/2024`

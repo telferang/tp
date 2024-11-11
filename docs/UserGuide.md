@@ -282,6 +282,9 @@ Format: `search expenses KEYWORD(S)`
 Example of usage:
 1. `search expenses Japan`
 
+Expected Usage of Feature: 
+![SearchExpenses_ExpectedOutput.png](images/SearchExpenses_ExpectedOutput.png)
+
 #### 8. Breakdown Expenses: `breakdown expenses`
 Displays a breakdown of the user’s expenses, by category. The feature displays the total expenditure per category,
 along with a percentage indicating the percentage of total expense spent per category.
@@ -290,6 +293,9 @@ Format: `breakdown expenses`
 
 Example of usage:
 1. `breakdown expenses`
+
+Expected Usage of Feature: 
+![BreakdownExpenses_ExpectedOutput.png](images/BreakdownExpenses_ExpectedOutput.png)
 
 ### Income
 
@@ -383,10 +389,17 @@ total savings, or a more detailed savings by month based on their input.
 
 Format: `display savings [m/]`
 * If m/ is not provided, total savings of the user is displayed.
+* If there are no expense or income entries tracked by the app, total savings of 0 will be displayed. 
 
 Examples of usages:
 1. `display savings m/`
 2. `display savings`
+
+Expected Usage of Feature: `display savings m/`
+![DisplaySavingsByMonth_ExpectedOutput.png](images/DisplaySavingsByMonth_ExpectedOuput.png)
+
+Expected Usage of Feature: `display savings`
+![DisplaySavings_ExpectedOutput.png](images/DisplaySavings_ExpectedOutput.png)
 
 ### Income Spent
 
