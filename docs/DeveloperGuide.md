@@ -49,7 +49,9 @@ All UML diagrams within the Developer Guide have been created on [Draw.io](https
 
 ---
 
-BudgetBuddy is a CLI-based expense, income and budget tracking application. BudgetBuddy is designed to help users manage and monitor their daily and monthly expenses. The system tracks various categories of expenses and allows users to receive insights on their budget and spending patterns.
+BudgetBuddy is a CLI-based expense, income and budget tracking application. BudgetBuddy is designed to help users 
+manage and monitor their daily and monthly expenses. The system tracks various categories of expenses and allows users 
+to receive insights on their budget and spending patterns.
 
 ## 2. Setup Guide
 
