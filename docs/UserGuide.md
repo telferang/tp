@@ -207,6 +207,10 @@ Example of usage:
 `list expenses m/10/2024`
 `list expenses m/10/2024 c/food`
 
+Expected Usage of Feature:
+![ListExpense_ExpectedOutput.png](images/ListExpenses_ExpectedOutput.png)
+![ListExpenseWithFilter_ExpectedOutput.png](images/ListExpensesWithFilter_ExpectedOutput.png)
+
 #### 4. Edit pre-existing expenses: `edit expenses`
 Edit a pre-existing expense entry details. Users can edit the category, amount and date of the expense field. 2 sets of
 input will be required from the user.
@@ -378,6 +382,9 @@ Example of usage:
 `list incomes`
 `list incomes m/10/2024`
 
+Expected Usage of Feature:
+![ListIncomes_ExpectedOutput.png](images/ListIncomes_ExpectedOutput.png)
+![ListIncomesWithFilter_ExpectedOutput.png](images/ListIncomesWithFilter_ExpectedOutput.png)
 
 ### Saving
 
