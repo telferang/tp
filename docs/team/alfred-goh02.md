@@ -1,8 +1,8 @@
 # Alfred Goh - Project Portfolio Page
 
----
-
 ## Overview
+
+---
 
 BudgetBuddy is a desktop application for managing finance and anything related to it, optimized for
 use via a Command Line Interface (CLI). It is written in Java and has around 8kLoC.
@@ -16,6 +16,7 @@ use via a Command Line Interface (CLI). It is written in Java and has around 8kL
 Code Contribution to the project: [Reposense Page](https://nus-cs2113-ay2425s1.github.io/tp-dashboard/?search=&sort=groupTitle&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=true&checkedFileTypes=docs~functional-code~test-code~other&since=2024-09-20&tabOpen=true&tabType=authorship&tabAuthor=Alfred-Goh02&tabRepo=AY2425S1-CS2113-W10-1%2Ftp%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=docs~functional-code~test-code~other&authorshipIsBinaryFileTypeChecked=false&authorshipIsIgnoredFilesChecked=false)
 
 ### Features Implemented
+Here is the list of feature implemented:
 
 #### 1. Storage Feature
 
@@ -55,19 +56,37 @@ Code Contribution to the project: [Reposense Page](https://nus-cs2113-ay2425s1.g
   - `Display Expenses for the Month with Categories Chart`
   - Command Summary
 
+**Relevant Pull Request:** [PR #138](https://github.com/AY2425S1-CS2113-W10-1/tp/pull/138/files) 
+
 ---
 
 ### Contributions to Developer Guide
 
-- **Documented Sections:**
-  - Sections 3.1 to 3.5: Architecture, Parser Class, UI Class, Command Class, Validator Classes
-  - Sections 4.1.5 and 4.1.6: Display Monthly Expenses, Display Expenses for the Month with Categories
-  - Sections 5.5.1.1, 5.5.2.7, 5.5.2.14, 5.5.2.15: Launch, Display Monthly Expenses Chart, Display Expenses for the Month with Categories, Exit BudgetBuddy
-- **UML Sequence Diagrams:** Created diagrams for:
-  - Section 3.1 Architecture
-  - Section 3.5 Validator Classes
-  - Section 4.1.5 Display Monthly Expenses
-  - Section 4.1.6 Display Expenses for the Month with Categories
+#### Documented Sections
+- **Documentation in Section 3**:
+  - Section 3.1 `Architecture`
+  - Section 3.2. `Parser Class`
+  - Section 3.3. `UI Class`
+  - Section 3.4 `Command Class`
+  - Section 3.5 `Validator Classes`
+
+- **Documentation in Section 4**:
+  - Section 4.1.5 `Display Monthly Expenses`
+  - Section 4.1.6 `Display Expenses for the Month with Categories`
+
+- **Documentation in Section 5**:
+  - Section 5.5.1.1 `Launch`
+  - Section 5.5.2.7 `Display Monthly Expenses Chart`
+  - Section 5.5.2.14 `Display Expenses for the Month with Categories`
+  - Section 5.5.2.15 `Exit BudgetBuddy`
+
+#### UML Sequence Diagrams
+- Section 3.1: `Architecture`
+- Section 3.5: `Validator Classes`
+- Section 4.1.5: `Display Monthly Expenses`
+- Section 4.1.6: `Display Expenses for the Month with Categories`
+
+**Relevant Pull Request:** [PR #89](https://github.com/AY2425S1-CS2113-W10-1/tp/pull/89/files)
 
 ---
 
@@ -87,6 +106,3 @@ Code Contribution to the project: [Reposense Page](https://nus-cs2113-ay2425s1.g
 ### Contributions Beyond the Project Team
 - **Bug Finding and Suggestions:** [Bug Report](https://github.com/Alfred-Goh02/ped/issues)
 - **PR Review for Other Teams:** [Pull Request](https://github.com/nus-cs2113-AY2425S1/tp/pull/2/files/b7aac5a22c63db81288d14b15b5d4cb9ecf65418)
-
---- 
-
