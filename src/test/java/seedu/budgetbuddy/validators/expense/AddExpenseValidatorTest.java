@@ -20,7 +20,7 @@ class AddExpenseValidatorTest {
         // Check if result is an IncorrectCommand and compare the message
         assertTrue(result instanceof IncorrectCommand);
         String message = ((IncorrectCommand) result).getFeedbackToUser();
-        assertEquals("Invalid amount format. Amount should be a positive number up to 2 decimal places.", message);
+        assertEquals("Amount should be a positive number with up to 2 decimal places.", message);
     }
 
     @Test
@@ -60,7 +60,7 @@ class AddExpenseValidatorTest {
         // Check if result is an IncorrectCommand and compare the message
         assertTrue(result instanceof IncorrectCommand);
         String message = ((IncorrectCommand) result).getFeedbackToUser();
-        assertEquals("Amount must be a positive value.", message);
+        assertEquals("Amount should be a positive number with up to 2 decimal places.", message);
     }
 
 

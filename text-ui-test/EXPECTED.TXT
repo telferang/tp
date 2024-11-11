@@ -8,7 +8,7 @@ Enter commands: ========================================================
 Amount not entered.
 ========================================================
 Enter commands: ========================================================
-Invalid amount format. Amount should be a positive number up to 2 decimal places.
+Amount should be a positive number with up to 2 decimal places.
 ========================================================
 Enter commands: ========================================================
 Invalid date format. Use d/dd/MM/yyyy.
@@ -58,7 +58,7 @@ Enter commands: ========================================================
 Description cannot be empty.
 ========================================================
 Enter commands: ========================================================
-Invalid amount format. Amount should be a positive number.
+Amount should be a positive number with up to 2 decimal places.
 ========================================================
 Enter commands: ========================================================
 Invalid date format. Use d/dd/MM/yyyy.
