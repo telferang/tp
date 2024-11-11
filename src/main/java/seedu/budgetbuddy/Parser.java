@@ -228,6 +228,6 @@ public class Parser {
         default:
             System.out.println("Unknown type in file: " + type);
             break;
-    }
+        }
     }
 }
