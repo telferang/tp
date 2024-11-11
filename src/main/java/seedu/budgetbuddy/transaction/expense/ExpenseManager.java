@@ -160,8 +160,8 @@ public class ExpenseManager {
         if (result.equals("")) {
             result = getEmptyDisplayMessage();
         } else {
-            result += "Your total expenses for " + category + " in "
-                    + monthInString + " is $" + String.format("%.2f", amount);
+            result += "Your total expense(s) for " + category + " in "
+                    + monthInString + " are $" + String.format("%.2f", amount);
         }
         return result;
     }
@@ -187,7 +187,7 @@ public class ExpenseManager {
         if (result.equals("")) {
             result = getEmptyDisplayMessage();
         } else {
-            result += "Your expenses for " + category + " is $" + String.format("%.2f", amount);
+            result += "Your total expense(s) for " + category + " are $" + String.format("%.2f", amount);
         }
         return result;
     }
@@ -214,7 +214,7 @@ public class ExpenseManager {
         if (result.equals("")) {
             result = getEmptyDisplayMessage();
         } else {
-            result += "Your expenses for " + monthInString + " is $" + String.format("%.2f", amountInMonth);
+            result += "Your total expense(s) for " + monthInString + " are $" + String.format("%.2f", amountInMonth);
         }
         return result;
     }

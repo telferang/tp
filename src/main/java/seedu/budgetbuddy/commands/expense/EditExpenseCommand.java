@@ -91,6 +91,7 @@ public class EditExpenseCommand extends Command {
      */
     public String getEditFields() {
         Ui.showMessage("Edit the following fields as follows: Amount: a/, Category: c/, Date: d/\n" +
+                "You may the exit change menu by pressing enter with no input.\n" +
                 "Currently Editing Entry:\n" +
                 expense.toString());
         String editFields = Ui.getUserEditFields();

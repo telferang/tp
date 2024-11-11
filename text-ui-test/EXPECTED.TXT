@@ -194,15 +194,15 @@ Caution! You have exceeded your budget!
 ========================================================
 Enter commands: ========================================================
 1. Description: Japan Flight  Amount: 123.45  Date: 2024-10-30  Category: TRANSPORT
-Your expenses for TRANSPORT is $123.45
+Your total expense(s) for TRANSPORT are $123.45
 ========================================================
 Enter commands: ========================================================
 1. Description: Ipad  Amount: 123.45  Date: 2024-08-30  Category: EDUCATION
-Your expenses for August 2024 is $123.45
+Your total expense(s) for August 2024 are $123.45
 ========================================================
 Enter commands: ========================================================
 1. Description: Japan Flight  Amount: 123.45  Date: 2024-10-30  Category: TRANSPORT
-Your total expenses for TRANSPORT in October 2024 is $123.45
+Your total expense(s) for TRANSPORT in October 2024 are $123.45
 ========================================================
 Enter commands: ========================================================
 Unknown category. Use a valid category.
@@ -266,6 +266,7 @@ Enter commands: ========================================================
 There are 4 expense(s) in total, with a sum of $897.00.
 ========================================================
 Enter commands: Edit the following fields as follows: Amount: a/, Category: c/, Date: d/
+You may the exit change menu by pressing enter with no input.
 Currently Editing Entry:
 Description: Buy Tesla Stock  Amount: 100.10  Date: 2024-10-02  Category: OTHERS
 Enter edit Field: ========================================================
@@ -306,6 +307,7 @@ Enter commands: ========================================================
 There are 4 income(s) in total, with a sum of $1846.00.
 ========================================================
 Enter commands: Edit the following fields as follows: Amount: a/, Date: d/
+You may the exit change menu by pressing enter with no input.
 Currently Editing Entry:
 Description: Internship  Amount: 123.00  Date: 2024-10-13
 Enter edit Field: ========================================================
@@ -319,6 +321,7 @@ Enter commands: ========================================================
 Input index is larger than the number of incomes. Try with a smaller index
 ========================================================
 Enter commands: Edit the following fields as follows: Amount: a/, Date: d/
+You may the exit change menu by pressing enter with no input.
 Currently Editing Entry:
 Description: Internship  Amount: 123.00  Date: 2024-10-13
 Enter edit Field: ========================================================
