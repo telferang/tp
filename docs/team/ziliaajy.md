@@ -1,7 +1,7 @@
 # Ang Jia Yu, Zilia - Project Portfolio Page
 
 ## Overview
-BudgetBuddy is a desktop application for managing finances and related tasks, optimized for use via a Command Line Interface (CLI). It is developed in Java and contains approximately 8,000 lines of code (LoC).
+BudgetBuddy is a desktop application for managing finances and related tasks, optimised for use via a Command Line Interface (CLI). It is developed in Java and contains approximately 8,000 lines of code (LoC).
 
 ---
 
@@ -24,7 +24,7 @@ Here is the list of features implemented:
 - **Justification**: Essential for adjusting budgets accurately.
 
 #### 3. Listing Budget Feature
-- **What It Does**: Displays a list of up to 12 latest budgets, categorized by month, showing specific categories, amounts, and dates. 
+- **What It Does**: Displays a list of up to 12 latest budgets, categorised by month, showing specific categories, amounts, and dates. 
 Users can also request to view a specific month’s budget.
 - **Justification**: Provides users a summary of budget allocations, with a manageable view by limiting to the latest 12 months.
 
@@ -97,7 +97,7 @@ Documented the following portions:
 ---
 
 ### Contributions to Team-Based Tasks
-- **Project Management:** Contributed to planning discussions, helping filter and shape the project's features and structure.
+- **Project Management:** Contributed to planning discussions, helped filter and shape the project's features and structure.
 - **Release Management:** Managed the `v2.0` release.
 
 ---
