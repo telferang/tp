@@ -24,7 +24,8 @@ Here is the list of features implemented:
 - **Justification**: Essential for adjusting budgets accurately.
 
 #### 3. Listing Budget Feature
-- **What It Does**: Displays a list of up to 12 latest budgets, categorized by month, showing specific categories, amounts, and dates. Users can also request to view a specific month’s budget.
+- **What It Does**: Displays a list of up to 12 latest budgets, categorized by month, showing specific categories, amounts, and dates. 
+Users can also request to view a specific month’s budget.
 - **Justification**: Provides users a summary of budget allocations, with a manageable view by limiting to the latest 12 months.
 
 #### 4. Display Income Spent Feature
@@ -59,40 +60,45 @@ Here is the list of features implemented:
 
 ### Contribution to UG
 Documented the following portions:
-- `Add Budget`, `Deduct Budget`, `List Budgets`, and `Display Income Spent` features, along with command summary. 
-([PR #141](https://github.com/AY2425S1-CS2113-W10-1/tp/pull/141))
+- `Add Budget`
+- `Deduct Budget`
+- `List Budgets`
+- `Display Income Spent` 
+- Command Summary
+
+**Relevant Pull Request**: [PR #141](https://github.com/AY2425S1-CS2113-W10-1/tp/pull/141)
 
 ---
 
 ### Contribution to DG
 
 - **Documented Features in Section 4:**
-   - `Add Budget`
-   - `Deduct Budget`
-   - `List Budget`
-   - `Display Income Spent`
+   - Section 4.3.1 `Add Budget`
+   - Section 4.3.2 `Deduct Budget`
+   - Section 4.3.3 `List Budget`
+   - Section 4.5.1 `Display Income Spent`
 
 - **Manual Testing Instructions in Section 5:**
    - Instructions for the following features:
-      - `Add Budget`
-      - `Deduct Budget`
-      - `List Budget`
-      - `Display Income Spent`
+      - Section 5.5.2.10 `Add Budget`
+      - Section 5.5.2.11 `Deduct Budget`
+      - Section 5.5.2.12 `List Budget`
+      - Section 5.5.2.13 `Display Income Spent`
 
 - **UML Sequence Diagrams:**
    - Created diagrams for the following features:
-      - `Add Budget`
-      - `Deduct Budget`
-      - `List Budget`
-      - `Display Income Spent`
+     - Section 4.3.1 `Add Budget`
+     - Section 4.3.2 `Deduct Budget`
+     - Section 4.3.3 `List Budget`
+     - Section 4.5.1 `Display Income Spent`
 
-**Relevant Pull Requests**:
-([PR #135](https://github.com/AY2425S1-CS2113-W10-1/tp/pull/135))
+**Relevant Pull Request**: [PR #135](https://github.com/AY2425S1-CS2113-W10-1/tp/pull/135)
 
 ---
 
-### Project Management
-- Contributed to planning discussions, helping filter and shape the project's features and structure.
+### Contributions to Team-Based Tasks
+- **Project Management:** Contributed to planning discussions, helping filter and shape the project's features and structure.
+- **Release Management:** Managed the `v2.0` release.
 
 ---
    
