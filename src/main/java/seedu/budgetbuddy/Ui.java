@@ -135,7 +135,7 @@ public class Ui {
                 "9. List remaining budgets.\n" +
                 "Example:\nlist remaining budget\n" +
                 "10. Edit expense fields (with Category, Amount or Date). Note: Provide at least one of the 3 fields" +
-                "in the second line of input. Refer to example below.\n" +
+                " in the second line of input. Refer to example below.\n" +
                 "Example:\nedit expenses 3\n" +
                 "a/1000 d/12/10/2024 c/food\n" +
                 "11. Edit income fields (with Amount or Date). Note: Provide at least one of the 2 fields in the" +

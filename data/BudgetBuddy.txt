@@ -17,7 +17,7 @@ expense | go zoo | 300.0 | 10/10/2024 | OTHERS
 expense | restaurant | 300.0 | 10/10/2025 | FOOD
 income | tuition fees | 1000.0 | 15/9/2024
 income | tuition | 2.0E8 | 15/9/2024
-income | tuition fee | 10000.0 | 15/10/2025
+income | tuition fee | 10000.0 | 15/10/2024
 income | Starbucks crew | 1000.0 | 1/10/2024
 income | Mcdonald crew | 1000.0 | 15/10/2024
 income | fries crew | 2000.0 | 15/10/2023
