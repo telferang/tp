@@ -51,8 +51,8 @@ class AddIncomeValidatorTest {
         Command result = AddIncomeValidator.processCommand(command);
 
         assertTrue(result instanceof IncorrectCommand);
-        assertEquals("Invalid amount format. Amount should be a positive number.", ((IncorrectCommand) result)
-                .getFeedbackToUser());
+        assertEquals("Amount should be a positive number with up to 2 decimal places.",
+                ((IncorrectCommand) result).getFeedbackToUser());
     }
 
     @Test
@@ -93,6 +93,7 @@ class AddIncomeValidatorTest {
         Command result = AddIncomeValidator.processCommand(command);
 
         assertTrue(result instanceof IncorrectCommand);
-        assertEquals("Amount must be a positive value.", ((IncorrectCommand) result).getFeedbackToUser());
+        assertEquals("Amount should be a positive number with up to 2 decimal places.",
+                ((IncorrectCommand) result).getFeedbackToUser());
     }
 }

@@ -34,20 +34,30 @@ public class AddIncomeValidator {
         String description = "";
         double amount = 0; // invalid amount initially
         LocalDate date = LocalDate.now();
+        boolean hasAmount = false;
 
         // Process parts to extract details
         for (String part : parts) {
-            if (part.startsWith("a/")) {
+            String prefix = part.length() >= 2 ? part.substring(0, 2) : "";
+            switch (prefix) {
+
+            case "a/":
                 amount = validateAmount(part);
-                if (amount == -1) {
-                    return new IncorrectCommand("Invalid amount format. Amount should be a positive number.");
+                hasAmount = true;
+                if (amount <= 0) {
+                    return new IncorrectCommand("Amount should be a positive number with up to 2 " +
+                            "decimal places.");
                 }
-            } else if (part.startsWith("d/")) {
+                break;
+
+            case "d/":
                 date = validateDate(part);
                 if (date == null) {
                     return new IncorrectCommand("Invalid date format. Use d/dd/MM/yyyy.");
                 }
-            } else {
+                break;
+
+            default:
                 description += part + " ";
             }
         }
@@ -60,10 +70,8 @@ public class AddIncomeValidator {
         }
 
         // Validate amount
-        if (amount == 0) {
+        if (hasAmount == false) {
             return new IncorrectCommand("Amount not entered.");
-        } else if (amount < 0) {
-            return new IncorrectCommand("Amount must be a positive value.");
         }
 
         // All validations passed, return the command

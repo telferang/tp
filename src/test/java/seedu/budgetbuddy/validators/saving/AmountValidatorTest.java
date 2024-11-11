@@ -17,9 +17,33 @@ class AmountValidatorTest {
     }
 
     @Test
+    void validateAmount_inputWith3DecimalPoints_expectNegativeOne() {
+        AmountValidator amountValidator = new AmountValidator();
+        String input = "a/123.4567";
+        Double result = amountValidator.validateAmount(input);
+        assertEquals(Double.valueOf(-1), result);
+    }
+
+    @Test
     void validateAmount_inputIsNotDouble_expectNegativeOne() {
         AmountValidator amountValidator = new AmountValidator();
         String input = "a/invalid";
+        Double result = amountValidator.validateAmount(input);
+        assertEquals(Double.valueOf(-1), result);
+    }
+
+    @Test
+    void validateAmount_inputContainsAlphabet_expectNegativeOne() {
+        AmountValidator amountValidator = new AmountValidator();
+        String input = "a/123d";
+        Double result = amountValidator.validateAmount(input);
+        assertEquals(Double.valueOf(-1), result);
+    }
+
+    @Test
+    void validateAmount_inputContainsTwoDecimal_expectNegativeOne() {
+        AmountValidator amountValidator = new AmountValidator();
+        String input = "a/123.1.1";
         Double result = amountValidator.validateAmount(input);
         assertEquals(Double.valueOf(-1), result);
     }
