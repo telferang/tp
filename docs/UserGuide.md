@@ -54,9 +54,85 @@ Extraneous parameters for commands that do not take in parameters (such as `help
 2. Open your terminal and cd to that directory.
 3. Enter `java -jar BudgetBuddy.jar` and enjoy the app!
 
-## Features 
+## Features
 
 ---
+
+### Budget
+
+---
+
+#### 1. Adding a budget: `add budget`
+Adds an amount to the month’s current budget. Budget is cumulative for the current month.
+
+Format: `add budget a/AMOUNT [m/MONTH] [c/CATEGORY]`
+
+* The `AMOUNT` is the amount of the budget to be added.
+* The `MONTH` (Optional) is the month of the budget in MM/YYYY format. If month is not given, current month will be used.
+* The `CATEGORY` (Optional) is the category of the budget (FOOD, TRANSPORT, ENTERTAINMENT, EDUCATION, UTILITIES and OTHERS).
+  The default category is OTHERS.
+
+Examples of usages:
+1. `add budget a/800`
+2. `add budget a/700 m/11/2024 c/TRANSPORT`
+
+Expected Usage of Feature:
+
+![AddBudgets_ExpectedOutputs.png](images/AddBudgets_ExpectedOutputs.png)
+
+#### 2. Deducting a budget: `deduct budget`
+Deducts an amount to the month’s current budget. The amount deducted will be the smaller of either the entered amount
+or the current amount in budget. If budget goes below zero after deduction, the budget for the month will be deleted.
+
+Format: `deduct budget a/AMOUNT [m/MONTH] [c/CATEGORY]`
+
+* The `AMOUNT` is the amount of the budget to be deducted.
+* The `MONTH` (Optional) is the month of the budget in MM/YYYY format. If month is not given, current month will be used.
+* The `CATEGORY` (Optional) is the category of the budget (FOOD, TRANSPORT, ENTERTAINMENT, EDUCATION, UTILITIES and OTHERS).
+  The default category is OTHERS.
+
+Examples of usages:
+1. `deduct budget a/500`
+2. `deduct budget a/400 m/11/2024 c/TRANSPORT`
+
+Expected Usage of Feature:
+
+![DeductBudgets_ExpectedOutputs.png](images/DeductBudgets_ExpectedOutputs.png)
+
+Remarks: Given an example 'Total Monthly Budget: 2000.0 Date: 2024-11 Categories: {FOOD=1000.0, OTHERS=1000}', using
+the command "deduct budget a/2000 m/11/2024" will automatically apply the deduction to the "OTHERS" category.
+The amount deducted will be the smaller of either 2000 or the current amount in "OTHERS".
+
+#### 3. Listing budgets: `list budgets`
+View all budgets, up to the latest 12 budgets. Able to view the budget for a specific month as well.
+
+Format: `list budgets [m/MONTH]`
+
+* The `MONTH` (Optional) is the month of the budget in MM/YYYY format. If month is not given,
+  up to 12 latest budgets will be listed.
+
+Examples of usages:
+1. `list budgets`
+2. `list budgets m/09/2024`
+
+Expected Usage of Feature:
+
+![ListBudgets_ExpectedOutput.png](images/ListBudgets_ExpectedOutput.png)
+
+#### 4. List remaining budgets: `list remaining budget`
+Show the budget remaining after deducting the [expenses](#1-adding-an-expense-add-expense) seperated by month and category.
+
+If the total expenses in any category exceed the budget or if no budget is set, the remaining budget will display as a negative value, indicating an over-budget status.
+
+Format: `list remaining budget`
+
+Example of usage:
+
+`list remaining budget`
+
+Expected Usage of Feature:
+
+![ListRemainingBudget_Expected_Output.png](images/ListRemainingBudget_Expected_Output.png)
 
 ### Expense
 
@@ -67,16 +143,27 @@ Adds a new expense to the list of expenses.
 
 Format: `add expense DESCRIPTION a/AMOUNT [d/DATE] [c/CATEGORY]`
 
-* The `DESCRIPTION` is a short description of the expense. All words without a tag will be the description
-* The `AMOUNT` is the amount of the expense.
+* The `DESCRIPTION` is a short description of the expense. All words without a/c/d tag will be the description
+* The `AMOUNT` is the amount of the expense. The amount can have up to 2 decimal points.
 * The `DATE` (Optional) is the date of the expense in DD/MM/YYYY format. If date is not given, current date will be used
-* The `CATEGORY` (Optional) is the category of the expense (FOOD, TRANSPORT, ENTERTAINMENT, EDUCATION, UTILITIES and OTHERS). The default category is OTHERS
+* The `CATEGORY` (Optional) is the category of the expense (FOOD, TRANSPORT, ENTERTAINMENT, EDUCATION, UTILITIES and OTHERS). If no category or invalid category is given, the default category OTHERS will be used
 
 Example of usage:
 
 `add expense air ticket a/123.45`
 
 `add expense KFC lunch a/10.50 d/28/10/2024 c/FOOD`
+
+Note:
+* If the description contains words that start with `a/` or `d/` or `c/`, use capital letters (`A/` or `B/` or `C/`) to prevent invalid error
+* If multiple valid `amount`/`date`/`category` are entered, the last valid parameter will be used.
+* The remaining budget, after deducting the added expense, will be displayed.
+* If the expense causes the budget to be exceeded, a warning message will alert the user. 
+
+Expected Usage of Feature:
+
+![AddExpense_Expected_Output.png](images/AddExpense_Expected_Output.png)
+
 
 #### 2. Deleting an expense: `delete expense`
 Delete an expense from the list of expenses.
@@ -89,18 +176,28 @@ Example of usage:
 
 `delete expense 1`
 
+Note:
+* The remaining budget, after accounting for the deleted expense, will be displayed.
+* If the budget is still less than 0, a warning message will alert the user.
+
+Expected Usage of Feature:
+
+![DeleteExpense_Expected_Output.png](images/DeleteExpense_Expected_Output.png)
+
+
+
 #### 3. List all expenses: `list expenses`
 List the summary of expenses. User could additionally specify which summary type the would like to view.
 A final line of total expenses based on summary type will be shown to users.
 
-Format: 
+Format:
 1. `list expenses`
 2. `list expenses [m/MONTH]`
 3. `list expenses [m/MONTH] [c/CATEGORY]`
 
 * The `CATEGORY` (Optional) is the summary type to search for expenses with the specified category.
 * The `MONTH` (Optional) is the summary type to search for expenses in the specified month in the format of`m/mm/yyyy`.
-  
+
 Note:
 * Only inputs for months are accepted. Any input using date or year are not accepted.
 * If any invalid identifiers are given (eg. y/YYYY or d/DD/MM/YYYY), it will ignore these identifiers.
@@ -111,7 +208,7 @@ Example of usage:
 `list expenses m/10/2024 c/food`
 
 #### 4. Edit pre-existing expenses: `edit expenses`
-Edit a pre-existing expense entry details. Users can edit the category, amount and date of the expense field. 2 sets of 
+Edit a pre-existing expense entry details. Users can edit the category, amount and date of the expense field. 2 sets of
 input will be required from the user.
 
 Format:
@@ -124,7 +221,7 @@ Format:
 * The `DATE` (Optional) is the date to be updated to in the format of`d/dd/mm/yyyy`.
 
 
-Note: 
+Note:
 * For the second input, at least one of the field must be provided, else it returns back to main menu.
 
 Example of usage:
@@ -153,7 +250,7 @@ Below is an example of the chart displayed.
 ![XY-Chart.png](images/XY-Chart.png)
 
 #### 6. Display Expenses for the Month with Categories Chart: `display expenses with categories`
-Display a PieChart of your expenses for the month, which is sliced by categories. The legend of the PieChart is the 
+Display a PieChart of your expenses for the month, which is sliced by categories. The legend of the PieChart is the
 expenses for each category, and the percentage that each slice takes is on the PieChart itself.
 
 Format:
@@ -203,8 +300,8 @@ Adds a new income to the list of incomes.
 
 Format: `add income DESCRIPTION a/AMOUNT [d/DATE]`
 
-* The `DESCRIPTION` is a short description of the income. All words without a tag will be the description
-* The `AMOUNT` is the amount of the income.
+* The `DESCRIPTION` is a short description of the income. All words without a/c/d tag will be the description
+* The `AMOUNT` is the amount of the income. The amount can have up to 2 decimal points.
 * The `DATE` (Optional) is the date of the expense in DD/MM/YYYY format. If date is not given, current date will be used
 
 Example of usage:
@@ -212,6 +309,14 @@ Example of usage:
 `add income tuition a/123.45`
 
 `add income Tesla stock dividend a/10.50 d/28/10/2024`
+
+Note:
+* If multiple valid `amount`/`date` are entered, the last valid parameter will be used.
+
+Expected Usage of Feature:
+
+![AddIncome_Expected_Output.png](images/AddIncome_Expected_Output.png)
+
 
 #### 2. Deleting an income: `delete income`
 Delete an income from the list of incomes.
@@ -223,6 +328,10 @@ Format: `delete income INDEX`
 Example of usage:
 
 `delete income 1`
+
+Expected Usage of Feature:
+
+![DeleteIncome_Expected_Output.png](images/DeleteIncome_Expected_Output.png)
 
 #### 3. Edit pre-existing incomes: `edit incomes`
 Edit a pre-existing income entry details. Users can edit the amount and date of the expense field. 2 sets of input
@@ -237,7 +346,7 @@ Format:
 * The `DATE` (Optional) is the date to be updated to, in the format of `d/dd/mm/yyyy`.
 
 
-Note: 
+Note:
 * For the second input, at least one of the field must be provided, else it returns back to main menu.
 
 Example of usage:
@@ -263,72 +372,6 @@ Example of usage:
 `list incomes`
 `list incomes m/10/2024`
 
-### Budget
-
----
-
-#### 1. Adding a budget: `add budget`
-Adds an amount to the month’s current budget. Budget is cumulative for the current month.
-
-Format: `add budget a/AMOUNT [m/MONTH] [c/CATEGORY]`
-
-* The `AMOUNT` is the amount of the budget to be added.
-* The `MONTH` (Optional) is the month of the budget in MM/YYYY format. If month is not given, current month will be used.
-* The `CATEGORY` (Optional) is the category of the budget (FOOD, TRANSPORT, ENTERTAINMENT, EDUCATION, UTILITIES and OTHERS). 
-The default category is OTHERS.
-
-Examples of usages:
-1. `add budget a/800`  
-2. `add budget a/700 m/11/2024 c/TRANSPORT`
-
-Expected Usage of Feature:
-![AddBudgets_ExpectedOutputs.png](images/AddBudgets_ExpectedOutputs.png)
-
-#### 2. Deducting a budget: `deduct budget`
-Deducts an amount to the month’s current budget. The amount deducted will be the smaller of either the entered amount 
-or the current amount in budget. If budget goes below zero after deduction, the budget for the month will be deleted.
-
-Format: `deduct budget a/AMOUNT [m/MONTH] [c/CATEGORY]`
-
-* The `AMOUNT` is the amount of the budget to be deducted.
-* The `MONTH` (Optional) is the month of the budget in MM/YYYY format. If month is not given, current month will be used.
-* The `CATEGORY` (Optional) is the category of the budget (FOOD, TRANSPORT, ENTERTAINMENT, EDUCATION, UTILITIES and OTHERS).
-  The default category is OTHERS.
-
-Examples of usages:
-1. `deduct budget a/500`  
-2. `deduct budget a/400 m/11/2024 c/TRANSPORT`
-
-Expected Usage of Feature:
-![DeductBudgets_ExpectedOutputs.png](images/DeductBudgets_ExpectedOutputs.png)
-
-Remarks: Given an example 'Total Monthly Budget: 2000.0 Date: 2024-11 Categories: {FOOD=1000.0, OTHERS=1000}', using 
-the command "deduct budget a/2000 m/11/2024" will automatically apply the deduction to the "OTHERS" category. 
-The amount deducted will be the smaller of either 2000 or the current amount in "OTHERS".
-
-#### 3. Listing budgets: `list budgets`
-View all budgets, up to the latest 12 budgets. Able to view the budget for a specific month as well.
-
-Format: `list budgets [m/MONTH]`
-
-* The `MONTH` (Optional) is the month of the budget in MM/YYYY format. If month is not given,
-  up to 12 latest budgets will be listed.
-
-Examples of usages:
-1. `list budgets`  
-2. `list budgets m/09/2024`
-
-Expected Usage of Feature:
-![ListBudgets_ExpectedOutput.png](images/ListBudgets_ExpectedOutput.png)
-
-#### 4. List remaining budgets: `list remaining budget`
-Show the budget remaining after deducting the expenses seperated by month and category.
-
-Format: `list remaining budget`
-
-Example of usage:
-
-`list remaining budget`
 
 ### Saving
 
@@ -382,9 +425,9 @@ Format: `help`
 
 ---
 
-**Q**: How do I transfer my data to another computer? 
+**Q**: How do I transfer my data to another computer?
 
-**A**: Copy the BudgetBuddy.txt created under the data folder under the same directory as your JAR file. Transfer the .txt 
+**A**: Copy the BudgetBuddy.txt created under the data folder under the same directory as your JAR file. Transfer the .txt
 file to the other computer and replace it with the new .txt file created by your other computer.
 
 **Q**: What if some of my lines in my file has the wrong formatting?
@@ -400,7 +443,7 @@ a category will be grouped as `OTHERS` if no category is provided.o
 
 **Q**: What would the PieChart show if I have no expenses for the month when I am using `display expenses with categories`?
 
-**A**: The PieChart will just be empty with the Legend showing that value of all categories to be 0. 
+**A**: The PieChart will just be empty with the Legend showing that value of all categories to be 0.
 
 **Q**: What would the XY-Chart show if I have no expenses for some months of the year when I am using `display monthly expenses`?
 
