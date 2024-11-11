@@ -167,6 +167,11 @@ public class Ui {
         displayToUser(result);
     }
 
+    /**
+     * Displays a message to the console.
+     *
+     * @param message The message to be displayed.
+     */
     public static void showMessage(String message) {
         System.out.println(message);
     }

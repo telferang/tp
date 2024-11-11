@@ -26,6 +26,11 @@ public class IncorrectCommand extends Command {
         Ui.displayToUser(feedbackToUser);
     }
 
+    /**
+     * Retrieves the feedback message for the user.
+     *
+     * @return The feedback message as a String.
+     */
     public String getFeedbackToUser() {
         return feedbackToUser;
     }

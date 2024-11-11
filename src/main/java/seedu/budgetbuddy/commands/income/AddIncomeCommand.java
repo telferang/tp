@@ -47,15 +47,31 @@ public class AddIncomeCommand extends Command {
         IncomeManager.addIncome(new Income(description, amount, date));
     }
 
+    /**
+     * Gets the description of the item.
+     *
+     * @return The description as a String.
+     */
     public String getDescription() {
         return this.description;
     }
 
+    /**
+     * Gets the amount associated with the item.
+     *
+     * @return The amount as a double.
+     */
     public double getAmount() {
         return this.amount;
     }
 
+    /**
+     * Gets the date associated with the item.
+     *
+     * @return The date as a LocalDate object.
+     */
     public LocalDate getDate() {
         return this.date;
     }
+
 }

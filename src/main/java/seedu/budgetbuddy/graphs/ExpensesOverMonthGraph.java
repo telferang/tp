@@ -38,17 +38,6 @@ public class ExpensesOverMonthGraph {
     }
 
     /**
-     * Retrieves the total expense for a given YearMonth from the monthly expense map.
-     *
-     * @param monthlyExpenseMap A map containing YearMonth as keys and total expenses as values.
-     * @param yearMonth The YearMonth for which the total expense is to be retrieved.
-     * @return The total expense for the given YearMonth, or 0.0 if no expenses are found for that month.
-     */
-    public static double expensesForMonth(Map<YearMonth, Double> monthlyExpenseMap, YearMonth yearMonth) {
-        return monthlyExpenseMap.getOrDefault(yearMonth, 0.0);
-    }
-
-    /**
      * Prints a chart that displays expenses for each month in the specified year.
      * The chart is displayed using Swing and is set to close without terminating the program.
      *
@@ -63,8 +52,8 @@ public class ExpensesOverMonthGraph {
         for (int month = 1; month <= 12; month++) {
             YearMonth yearMonth = YearMonth.of(year, month); // Use a fixed year for the chart
             double amount = monthlyExpenseMap.getOrDefault(yearMonth, 0.0); // Get the amount or zero if no expenses
-            xAxis.add((double) month); // Month as double
-            yAxis.add(amount); // Corresponding expense amount
+            xAxis.add((double) month); // Add Month to axis
+            yAxis.add(amount); // Add corresponding expense amount to axis
         }
 
         // Build the chart
@@ -74,15 +63,14 @@ public class ExpensesOverMonthGraph {
                 .yAxisTitle("Expenses")
                 .build();
 
-        // Add the series
         expensesChart.addSeries("Monthly Expenses", xAxis, yAxis);
 
-        // Create the SwingWrapper
+        //Display the chart
         SwingWrapper<XYChart> swingWrapper = new SwingWrapper<>(expensesChart);
         JFrame frame = swingWrapper.displayChart();
         frame.setTitle("BudgetBuddy");
 
-        // Set the default close operation on the EDT
+        // Ensure that closing the window does not end the program
         javax.swing.SwingUtilities.invokeLater(() -> frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE));
     }
 }
