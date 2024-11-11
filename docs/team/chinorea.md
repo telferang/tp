@@ -30,6 +30,16 @@ Here is the list of feature implemented:
 | `ListIncomeCommand`    | Handling of user input values for feature execution   |
 | `ListExpenseCommand`   | Handling of user input values for feature execution   |
 
+### Enhancement Implemented
+* Unit Testing of feature implemented above.
+  * Input Validation: Test cases to validate input and ensure error messages are returned for invalid entries.
+  * Boundary and Edge Case Tests: Test cases check for negative values, null values and other edge cases to ensure proper handling.
+  * Error Handling: Test cases confirm that appropriate item or objects are returned when specific error occurs.
+
+* Two Tier confirmation before editing entries.
+  * Enable users to confirm selected entry before editing directly.
+  * Simple exit procedure if chosen entry is incorrect.
+
 ### Contribution to UG
 Documented the following portions:
 * `ListExpense`, `ListIncome`, `EditIncome` and `EditExpense` feature portions and command summary,
@@ -41,3 +51,8 @@ Documented the following portions:
 * `ListExpense`, `ListIncome`, `EditIncome` and `EditExpense` feature portions in section 4 of the DG
 * Prequisites, Introduction, Non-Functional Requirements and Glossary Sections of the DG
 * UML Sequence Diagrams for `EditValidatorClass`, `ListExpense`, `EditExpense`, `ListIncome` portions of the DG
+
+
+### Contributions Beyond the Project Team
+- **Bug Finding and Suggestions:** [Bug Report](https://github.com/Chinorea/ped/issues)
+- **PR Review for Other Teams:** [Pull Request](https://github.com/nus-cs2113-AY2425S1/tp/pull/8/files/b0d61ae8c3b68a0ae2ce7bd0584483847eb39b8d#r1821762776)
