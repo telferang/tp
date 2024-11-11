@@ -37,7 +37,7 @@ class ExpenseManagerTest {
             result += counter + ". " + expense.toString() + "\n";
             counter++;
         }
-        result += "Your total expenses for FOOD in February 2024 are $12.00";
+        result += "Your total expense(s) for FOOD in February 2024 are $12.00";
         return result;
     }
 
@@ -114,7 +114,7 @@ class ExpenseManagerTest {
         Category category = Category.FOOD;
         YearMonth yearMonth = YearMonth.of(2024, 2);
         assertEquals("1. Description: New Food  Amount: 12.00  Date: 2024-02-12  Category: FOOD\n" +
-                "Your total expenses for FOOD in February 2024 are $12.00",
+                "Your total expense(s) for FOOD in February 2024 are $12.00",
                 ExpenseManager.listExpensesWithCategoryAndDate(category, yearMonth));
     }
 
@@ -138,7 +138,7 @@ class ExpenseManagerTest {
         initializeTestContent();
         Category category = Category.FOOD;
         assertEquals("1. Description: New Food  Amount: 12.00  Date: 2024-02-12  Category: FOOD\n" +
-                        "Your expenses for FOOD are $12.00",
+                        "Your total expense(s) for FOOD are $12.00",
                 ExpenseManager.listExpensesWithCategory(category));
     }
 
@@ -154,7 +154,7 @@ class ExpenseManagerTest {
         initializeTestContent();
         YearMonth yearMonth = YearMonth.of(2024, 2);
         assertEquals("1. Description: New Food  Amount: 12.00  Date: 2024-02-12  Category: FOOD\n" +
-                "Your expenses for February 2024 are $12.00",
+                "Your total expense(s) for February 2024 are $12.00",
                 ExpenseManager.listExpensesWithDate(yearMonth));
     }
 
