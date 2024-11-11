@@ -148,15 +148,16 @@ public class Budget {
      *
      * @return A string in the format "Amount: {amount}  Date: {date}".
      */
+    @Override
     public String toString() {
-        String output = "Total Monthly Budget: " + totalMonthlyBudget;
+        String output = "Total Monthly Budget: " + String.format("%.2f", totalMonthlyBudget);
         output += "  Date: " + date + "\n";
 
-        // Sort categoryBudgets by key (category name) and build the string
+        // Sort categoryBudgets by key (category name) and build the string with rounded budget values
         String sortedCategories = categoryBudgets.entrySet()
                 .stream()
                 .sorted(Map.Entry.comparingByKey())  // Sort by category names
-                .map(entry -> entry.getKey() + "=" + entry.getValue())  // Convert to "Category=Budget" format
+                .map(entry -> entry.getKey() + "=" + String.format("%.2f", entry.getValue()))
                 .reduce((c1, c2) -> c1 + ", " + c2)  // Join entries with ", "
                 .orElse("");  // Handle the case when the map is empty
 

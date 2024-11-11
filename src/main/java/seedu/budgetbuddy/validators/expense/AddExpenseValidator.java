@@ -30,7 +30,7 @@ public class AddExpenseValidator {
 
         // Initialize default values
         String description = "";
-        double amount = 0; // invalid amount initially
+        double amount = -2; // invalid amount initially
         LocalDate date = LocalDate.now();
         Category category = Category.OTHERS;
 
@@ -39,7 +39,8 @@ public class AddExpenseValidator {
             if (part.startsWith("a/")) {
                 amount = validateAmount(part);
                 if (amount == -1) {
-                    return new IncorrectCommand("Invalid amount format. Amount should be a positive number.");
+                    return new IncorrectCommand("Invalid amount format. Amount should be a positive" +
+                            " number up to 2 decimal places.");
                 }
             } else if (part.startsWith("d/")) {
                 date = validateDate(part);
@@ -61,9 +62,9 @@ public class AddExpenseValidator {
         }
 
         // Validate amount
-        if (amount == 0) {
+        if (amount == -2) {
             return new IncorrectCommand("Amount not entered.");
-        } else if (amount < 0) {
+        } else if (amount <= 0) {
             return new IncorrectCommand("Amount must be a positive value.");
         }
 

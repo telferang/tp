@@ -9,9 +9,6 @@ use via a Command Line Interface (CLI). It is written in Java, and has around 8k
 My primary contributions include creating the BudgetBuddy, Parser, Ui, Command and Validator class to get the program running.
 
 
-### Code Contribution
-List of code contributed: [Reposense Code Link](https://nus-cs2113-ay2425s1.github.io/tp-dashboard/?search=telferang&sort=groupTitle&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=true&checkedFileTypes=docs~functional-code~test-code~other&since=2024-09-20)
-
 ### Feature Implemented
 Here is the list of feature implemented:
 
@@ -35,3 +32,8 @@ Here is the list of feature implemented:
 - **What it does:** After each new expense entry, the program automatically shows the updated budget remaining for the month as well as for the specific expense category.
 - **Justification:** Providing this immediate feedback allows users to track spending in real-time, encouraging better budget management and avoiding overspending in specific categories.
 
+### Code Contribution
+List of code contributed: [Reposense Code Link](https://nus-cs2113-ay2425s1.github.io/tp-dashboard/?search=telferang&sort=groupTitle&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=true&checkedFileTypes=docs~functional-code~test-code~other&since=2024-09-20)
+
+### Project management
+- Setting up the GitHub team repo

@@ -37,7 +37,7 @@ class ExpenseManagerTest {
             result += counter + ". " + expense.toString() + "\n";
             counter++;
         }
-        result += "Your total expenses for FOOD in February 2024 is $12.0";
+        result += "Your total expenses for FOOD in February 2024 is $12.00";
         return result;
     }
 
@@ -81,7 +81,7 @@ class ExpenseManagerTest {
     @Test
     void searchExpense_foundExpense_expectOutput(){
         initializeTestContent();
-        assertEquals("1. Description: New Food  Amount: 12.0  Date: 2024-02-12  Category: FOOD\n",
+        assertEquals("1. Description: New Food  Amount: 12.00  Date: 2024-02-12  Category: FOOD\n",
                 ExpenseManager.searchExpenses("New"));
     }
 
@@ -113,8 +113,8 @@ class ExpenseManagerTest {
         initializeTestContent();
         Category category = Category.FOOD;
         YearMonth yearMonth = YearMonth.of(2024, 2);
-        assertEquals("1. Description: New Food  Amount: 12.0  Date: 2024-02-12  Category: FOOD\n" +
-                "Your total expenses for FOOD in February 2024 is $12.0",
+        assertEquals("1. Description: New Food  Amount: 12.00  Date: 2024-02-12  Category: FOOD\n" +
+                "Your total expenses for FOOD in February 2024 is $12.00",
                 ExpenseManager.listExpensesWithCategoryAndDate(category, yearMonth));
     }
 
@@ -137,8 +137,8 @@ class ExpenseManagerTest {
     void listExpensesWithCategory_oneExpense_expectExpenseMessage(){
         initializeTestContent();
         Category category = Category.FOOD;
-        assertEquals("1. Description: New Food  Amount: 12.0  Date: 2024-02-12  Category: FOOD\n" +
-                        "Your expenses for FOOD is $12.0",
+        assertEquals("1. Description: New Food  Amount: 12.00  Date: 2024-02-12  Category: FOOD\n" +
+                        "Your expenses for FOOD is $12.00",
                 ExpenseManager.listExpensesWithCategory(category));
     }
 
@@ -153,8 +153,8 @@ class ExpenseManagerTest {
     void listExpensesWithDate_oneExpense_expectExpenseMessage(){
         initializeTestContent();
         YearMonth yearMonth = YearMonth.of(2024, 2);
-        assertEquals("1. Description: New Food  Amount: 12.0  Date: 2024-02-12  Category: FOOD\n" +
-                "Your expenses for February 2024 is $12.0",
+        assertEquals("1. Description: New Food  Amount: 12.00  Date: 2024-02-12  Category: FOOD\n" +
+                "Your expenses for February 2024 is $12.00",
                 ExpenseManager.listExpensesWithDate(yearMonth));
     }
 
