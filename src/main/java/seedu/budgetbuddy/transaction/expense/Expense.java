@@ -11,7 +11,7 @@ import java.time.LocalDate;
  */
 public class Expense extends Transaction {
     /** The category of the expense. */
-    Category category;
+    private Category category;
 
     /**
      * Constructs an Expense object with the specified details.
@@ -31,13 +31,10 @@ public class Expense extends Transaction {
      *
      * @return a string describing the expense
      */
+    @Override
     public String toString() {
-        String output = "";
-        output += "Description: " + description;
-        output += "  Amount: " + String.format("%.2f", amount);
-        output += "  Date: " + date;
-        output += "  Category: " + category;
-        return output;
+        return String.format("Description: %s  Amount: %.2f  Date: %s  Category: %s",
+                description, amount, date, category);
     }
 
     /**
@@ -77,6 +74,11 @@ public class Expense extends Transaction {
     }
 
 
+    /**
+     * Updates the category of the expense.
+     *
+     * @param changeCategory The new category for the expense.
+     */
     public void editCategory(Category changeCategory) {
         this.category = changeCategory;
     }

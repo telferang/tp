@@ -88,8 +88,8 @@ public class EditExpenseValidator {
                 }
             } else if (part.startsWith("a/")) {
                 amount = validateAmount(part);
-                if (amount < 0.0) {
-                    Ui.displayToUser("Invalid amount format. Amount should be a positive number.");
+                if (amount <= 0.0) {
+                    Ui.displayToUser("Amount should be a positive number with up to 2 decimal places.");
                     return false;
                 }
             }

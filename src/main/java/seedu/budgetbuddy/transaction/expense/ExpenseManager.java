@@ -33,7 +33,7 @@ public class ExpenseManager {
      * @param expenses is the content to be instantiated
      */
     public ExpenseManager(ArrayList<Expense> expenses, int numberOfExpenses) {
-        assert numberOfExpenses >= 0 : "numberOfExpenses should be greater than 0";
+        assert numberOfExpenses >= 0 : "numberOfExpenses should be greater than or equal to 0";
         ExpenseManager.expenses = expenses;
         ExpenseManager.numberOfExpenses = numberOfExpenses;
     }

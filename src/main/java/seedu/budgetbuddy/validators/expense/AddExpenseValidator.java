@@ -52,7 +52,7 @@ public class AddExpenseValidator {
             case "d/":
                 date = validateDate(part);
                 if (date == null) {
-                    return new IncorrectCommand("Invalid date format. Use d/dd/MM/yyyy.");
+                    return new IncorrectCommand("Invalid date format. Use d/DD/MM/YYYY.");
                 }
                 break;
 

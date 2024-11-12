@@ -18,12 +18,15 @@ public class DeleteIncomeValidator {
      */
     public static Command processCommand(String command) {
         String trimmedCommand;
+
         try {
             trimmedCommand = command.substring("delete income ".length());
         } catch (IndexOutOfBoundsException e) {
             return new IncorrectCommand("Index not given");
         }
+
         int index = IndexValidator.validateIncomeIndex(trimmedCommand);
+
         if (index == -1) {
             return new IncorrectCommand("Invalid Index");
         }

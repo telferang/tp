@@ -40,7 +40,7 @@ class AddExpenseValidatorTest {
         // Check if result is an IncorrectCommand and compare the message
         assertInstanceOf(IncorrectCommand.class, result);
         String message = ((IncorrectCommand) result).getFeedbackToUser();
-        assertEquals("Invalid date format. Use d/dd/MM/yyyy.", message);
+        assertEquals("Invalid date format. Use d/DD/MM/YYYY.", message);
     }
 
     @Test
