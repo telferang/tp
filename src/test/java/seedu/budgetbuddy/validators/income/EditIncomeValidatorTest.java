@@ -25,14 +25,14 @@ class EditIncomeValidatorTest {
     @Test
     void processFirstCommand_validIndexGiven_expectEditExpenseCommandType() {
         createTestCase();
-        String userInput = "edit incomes 1";
+        String userInput = "edit income 1";
         Command validCommand = EditIncomeValidator.processFirstCommand(userInput);
         assertEquals(EditIncomeCommand.class, validCommand.getClass());
     }
 
     @Test
     void processFirstCommand_invalidInputGiven_expectIncorrectCommandType() {
-        String userInput = "edit incomes 50";
+        String userInput = "edit income 50";
         Command invalidCommand = EditIncomeValidator.processFirstCommand(userInput);
         assertEquals(IncorrectCommand.class ,invalidCommand.getClass());
     }
