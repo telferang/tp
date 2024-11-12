@@ -502,7 +502,7 @@ a category will be grouped as `OTHERS` if no category is provided.o
   2. `[a/AMOUNT c/CATEGORY d/DATE]`
 - **Display Monthly Expenses Chart**: `display monthly expenses y/YEAR`
 - **Display Expenses with Categories Chart**: `display expenses with categories m/MM/YYYY`
-- **Search Expense**: `search expense KEYWORD(S)`
+- **Search Expenses**: `search expenses KEYWORD(S)`
 - **Breakdown Expenses**: `breakdown expenses`
 
 ### Income
