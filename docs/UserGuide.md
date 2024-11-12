@@ -157,7 +157,7 @@ Example of usage:
 `add expense KFC lunch a/10.50 d/28/10/2024 c/FOOD`
 
 Note:
-* If the description contains words that start with `a/` or `d/` or `c/`, use capital letters (`A/` or `B/` or `C/`) to prevent invalid error
+* Try not to use `|` or `/` in the description. Refer to [descriptions](#1-descriptions) section on how to safely use `|` or `/` in the description.
 * If multiple valid `amount`/`date`/`category` are entered, the last valid parameter will be used.
 * The remaining budget, after deducting the added expense, will be displayed.
 * If the expense causes the budget to be exceeded, a warning message will alert the user. 
@@ -323,6 +323,7 @@ Example of usage:
 `add income Tesla stock dividend a/10.50 d/28/10/2024`
 
 Note:
+* Try not to use `|` or `/` in the description. Refer to [descriptions](#1-descriptions) section on how to safely use `|` or `/` in the description.
 * If multiple valid `amount`/`date` are entered, the last valid parameter will be used.
 
 Expected Usage of Feature:
@@ -448,6 +449,8 @@ Format: `help`
 ---
 
 ### 1. Descriptions
+If the description contains words that start with `a/` or `d/` or `c/`, use capital letters (`A/` or `B/` or `C/`) to prevent invalid error
+
 For features that requires descriptions, avoid using `|` for description as there can be some unintended results. <br>
 E.g. Taking this command as example: `add expense hi | Bye a/100 d/10/10/2026`. <br>
 This will create a warning as shown below next time the program is started up: ![UserWarning](images/UserWarning.png)
