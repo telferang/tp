@@ -37,4 +37,11 @@ public class DeleteIncomeCommand extends Command {
     public void execute(){
         IncomeManager.deleteIncome(index);
     }
+
+    /**
+     * Returns the index of income to delete.
+     */
+    public int getIndex() {
+        return index;
+    }
 }
