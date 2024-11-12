@@ -136,11 +136,11 @@ public class Ui {
                 "Example:\nlist remaining budget\n" +
                 "10. Edit expense fields (with Category, Amount or Date). Note: Provide at least one of the 3 fields" +
                 " in the second line of input. Refer to example below.\n" +
-                "Example:\nedit expenses 3\n" +
+                "Example:\nedit expense 3\n" +
                 "a/1000 d/12/10/2024 c/food\n" +
                 "11. Edit income fields (with Amount or Date). Note: Provide at least one of the 2 fields in the" +
                 "second line of input. Refer to example below.\n" +
-                "Example:\nedit incomes 3\n" +
+                "Example:\nedit income 3\n" +
                 "a/1000 d/12/10/2024\n" +
                 "12. Display income spent. Note - (optional)month - m/MM/YYYY\n" +
                 "Example:\ndisplay income spent m/10/2024\n" +

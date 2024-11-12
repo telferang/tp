@@ -31,7 +31,7 @@ public class EditIncomeCommand extends Command {
      * @return True if the command matches "edit incomes", false otherwise.
      */
     public static boolean isCommand(String command) {
-        return command.startsWith("edit incomes");
+        return command.startsWith("edit income");
     }
 
     /**

@@ -213,12 +213,12 @@ Expected Usage of Feature:
 ![ListExpense_ExpectedOutput.png](images/ListExpenses_ExpectedOutput.png)
 ![ListExpenseWithFilter_ExpectedOutput.png](images/ListExpensesWithFilter_ExpectedOutput.png)
 
-#### 4. Edit pre-existing expenses: `edit expenses`
+#### 4. Edit pre-existing expenses: `edit expense`
 Edit a pre-existing expense entry details. Users can edit the category, amount and date of the expense field. 2 sets of
 input will be required from the user.
 
 Format:
-1. `edit expenses INDEX`
+1. `edit expense INDEX`
 2. `[a/AMOUNT c/CATEGORY d/DATE]`
 
 * The `INDEX` is the index of the desired expenses based on list expense that the user wants to edit.
@@ -231,7 +231,7 @@ Note:
 * For the second input, at least one of the field must be provided, else it returns back to main menu.
 
 Example of usage:
-1. `edit expenses 3`
+1. `edit expense 3`
 2. `a/100 c/food d/15/10/2024`
 
 Expected Usage of Feature:
@@ -346,12 +346,12 @@ Expected Usage of Feature:
 
 ![DeleteIncome_Expected_Output.png](images/DeleteIncome_Expected_Output.png)
 
-#### 3. Edit pre-existing incomes: `edit incomes`
+#### 3. Edit pre-existing incomes: `edit income`
 Edit a pre-existing income entry details. Users can edit the amount and date of the expense field. 2 sets of input
 will be required from the user.
 
 Format:
-1. `edit incomes INDEX`
+1. `edit income INDEX`
 2. `[a/AMOUNT d/DATE]`
 
 * The `INDEX` is the index of the desired expenses based on list income that the user wants to edit.
@@ -363,7 +363,7 @@ Note:
 * For the second input, at least one of the field must be provided, else it returns back to main menu.
 
 Example of usage:
-1. `edit incomes 3`
+1. `edit income 3`
 2. `a/10000 d/15/10/2024`
 
 Expected Usage of Feature:
@@ -425,7 +425,7 @@ Examples of usages:
 1. `display income spent`
 2. `display income spent m/10/2024`
 
-Expected Usage of Feature:
+Expected Usage of Feature: <br>
 ![DisplayIncomeSpent_ExpectedOutputs.png](images/DisplayIncomeSpent_ExpectedOutputs.png)
 
 ### Miscellaneous
@@ -498,7 +498,7 @@ a category will be grouped as `OTHERS` if no category is provided.o
 - **Delete Expense**: `delete expense INDEX`
 - **List Expenses**: `list expenses [c/CATEGORY m/MONTH]`
 - **Edit Expense**:
-  1. `edit expenses INDEX`
+  1. `edit expense INDEX`
   2. `[a/AMOUNT c/CATEGORY d/DATE]`
 - **Display Monthly Expenses Chart**: `display monthly expenses y/YEAR`
 - **Display Expenses with Categories Chart**: `display expenses with categories m/MM/YYYY`
