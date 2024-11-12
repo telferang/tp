@@ -867,7 +867,7 @@ using commands than using the mouse.
 
 * **2.9.2.A Edit an income from the income list (Selecting an Income)**
    * **Prerequisites**: At least one income entry in the overall income list.
-   * **Test Case**: `edit incomes 1`
+   * **Test Case**: `edit income 1`
    * **Expected**: Displays the income of index 1 to the user and the available field to edit.
 
 * **2.9.2.B Edit an income from the income list (Editing Income fields)**
@@ -877,7 +877,7 @@ using commands than using the mouse.
 
 * **2.9.3 Invalid income index given by user**
    * **Prerequisites**: No income entries.
-   * **Test Case**: `edit incomes 30`
+   * **Test Case**: `edit income 30`
    * **Expected**: Error message indicating invalid income index displayed.
 
 ### 5.5.2.10 Adding a Budget
