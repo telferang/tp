@@ -7,7 +7,7 @@ use via a Command Line Interface (CLI). It is written in Java, and has around 8k
 ---
 
 ### Summary of Contributions
-My primary contributions include creating the BudgetBuddy, Parser, Ui, Command and Validator class to get the program running.
+I was primarily responsible for implementing the core features related to managing expenses and incomes. This involved creating command classes to process user input, designing the parser to interpret user commands, and ensuring that the user interface (CLI) was intuitive and efficient.
 
 ---
 
@@ -25,11 +25,11 @@ List of code contributed: [Reposense Code Link](https://nus-cs2113-ay2425s1.gith
 Here is the list of feature implemented:
 
 #### 1. Add expense and income entries
-- **What it does:** Allows users to add expenses and incomes with details such as amount, date, description, and category(only for expense).
+- **What it does:** Implemented a command-driven approach to allow users to easily add their income and expense records. The program processes the user's input, validates the data, and stores the entries in a structured manner.
 - **Justification:** This feature is essential for users to keep a detailed record of their expenses and incomes.
 
 #### 2. Delete expenses and incomes entries
-- **What it does:** Allows users to delete expenses and incomes entries.
+- **What it does:** Enabled the user to delete entries that were incorrectly added, ensuring the integrity of their records. The command checks for valid indexes and removes the corresponding entry from the data store.
 - **Justification:** This feature is necessary if the user added the wrong expense or income
 
 #### 3. List all the expense and income entries
@@ -50,11 +50,11 @@ Here is the list of feature implemented:
 
 #### 1. Modify the storage to reject invalid entries
 - **Details**: Reject entries with incorrect number of parameter or entries with invalid parameter such as negative amount or invalid date.
-- **Impact**: Prevent invalid entries such as negative amount from being loaded and crashing the program. 
+- **Impact**: By rejecting invalid entries upfront, I ensured the stability of the application. Users are now prevented from adding records with negative values or incorrect date formats, improving overall data integrity.
 
 #### 2. Modify the amount to only accept and show 2 decimal place
 - **Details**: All amounts are consistently displayed and stored to two decimal places.
-- **Impact**: Mitigate issues with floating-point precision and rounding errors.
+- **Impact**: This enhancement addressed issues with floating-point precision errors, ensuring all amounts were consistent and displayed correctly, thus improving the accuracy of financial records.
 
 ---
 
@@ -79,12 +79,12 @@ Documented the following portions:
 
 - **UML Sequence Diagrams:**
     - Created diagrams for the following features:
-      - Section 3.6 `Expense and Income Class`
-      - Section 4.1.1 `Add Expense`
-      - Section 4.1.2 `Delete Expense`
-      - Section 4.2.1 `Add Income`
-      - Section 4.2.2 `Delete Income`
-      - Section 4.3.4 `List Remaining Budget`
+        - Section 3.6 `Expense and Income Class`
+        - Section 4.1.1 `Add Expense`
+        - Section 4.1.2 `Delete Expense`
+        - Section 4.2.1 `Add Income`
+        - Section 4.2.2 `Delete Income`
+        - Section 4.3.4 `List Remaining Budget`
 
 **Relevant Pull Requests**:
 ([PR #137](https://github.com/AY2425S1-CS2113-W10-1/tp/pull/137))
