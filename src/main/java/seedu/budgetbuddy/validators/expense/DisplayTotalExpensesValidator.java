@@ -38,7 +38,7 @@ public class DisplayTotalExpensesValidator {
         } else {
             LOGGER.log(Level.WARNING, "Invalid Command: " + trimmedCommand);
             return new IncorrectCommand("Unknown command '" + trimmedCommand + "'. " +
-                    "Expected format: 'y/<year>'");
+                    "Expected format: 'y/YYYY'");
         }
 
         // Validate and parse the year

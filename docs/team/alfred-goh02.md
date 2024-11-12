@@ -31,7 +31,7 @@ Here is the list of feature implemented:
 #### 3. Display Expenses for a Month with Categories
 
 - **What It Does**: Shows a breakdown of users' expenses for a specific month using a pie chart. Each slice of the pie chart represents a category, with the percentage of each slice shown on the chart and its actual value displayed in the legend.
-- **Justification**: This feature enables users to easily compare their spending across different categories for a given month, helping them to identify areas for improved financial management.
+- **Justification**: This feature enables users to easily compare their spending across different categories for a given month, helping them identify areas for improved financial management.
 
 ---
 
