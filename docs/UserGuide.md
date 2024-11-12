@@ -498,7 +498,7 @@ a category will be grouped as `OTHERS` if no category is provided.o
 - **Delete Expense**: `delete expense INDEX`
 - **List Expenses**: `list expenses [c/CATEGORY m/MONTH]`
 - **Edit Expense**:
-  1. `edit expenses INDEX`
+  1. `edit expense INDEX`
   2. `[a/AMOUNT c/CATEGORY d/DATE]`
 - **Display Monthly Expenses Chart**: `display monthly expenses y/YEAR`
 - **Display Expenses with Categories Chart**: `display expenses with categories m/MM/YYYY`
