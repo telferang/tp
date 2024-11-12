@@ -11,7 +11,7 @@ Enter commands: ========================================================
 Amount should be a positive number with up to 2 decimal places.
 ========================================================
 Enter commands: ========================================================
-Invalid date format. Use d/dd/MM/yyyy.
+Invalid date format. Use d/DD/MM/YYYY.
 ========================================================
 Enter commands: ========================================================
 The following expense transaction has been added:
