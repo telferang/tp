@@ -425,7 +425,7 @@ Examples of usages:
 1. `display income spent`
 2. `display income spent m/10/2024`
 
-Expected Usage of Feature:
+Expected Usage of Feature: <br>
 ![DisplayIncomeSpent_ExpectedOutputs.png](images/DisplayIncomeSpent_ExpectedOutputs.png)
 
 ### Miscellaneous
