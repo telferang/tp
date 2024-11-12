@@ -194,7 +194,8 @@ Finally, the acknowledgement message along with the budget remaining is displaye
 
 The following UML Sequence diagram shows the Add Expense Feature.
 We assume that the `AddExpenseCommand` has already been created and returned to `BudgetBuddy`.
-The starting arrow indicates return of the command based on the sequence diagram at [3.5 Validator Classes](#35-validator-classes)
+The starting arrow indicates return of the command based on the sequence diagram at 
+[3.5 Validator Classes](#35-validator-classes).
 
 ![AddExpenseSequenceDiagram.drawio.png](diagrams/AddExpenseSequenceDiagram.drawio.png)
 
@@ -221,7 +222,8 @@ Finally, the acknowledgement message along with the budget remaining is displaye
 
 The following UML Sequence diagram shows the Delete Expense Feature.
 We assume that the `DeleteExpenseCommand` has already been created and returned to `BudgetBuddy`.
-The starting arrow indicates return of the command based on the sequence diagram at [3.5 Validator Classes](#35-validator-classes)
+The starting arrow indicates return of the command based on the sequence diagram at 
+[3.5 Validator Classes](#35-validator-classes).
 
 ![DeleteExpenseSequenceDiagram.drawio.png](diagrams/DeleteExpenseSequenceDiagram.drawio.png)
 
@@ -243,7 +245,7 @@ The BudgetBuddy class then calls the `execute()` method of the `SearchExpenseCom
 Below is a sequence diagram representing the execution of the Search Expense interaction.
 We assume that the `SearchExpenseCommand` has already been created and returned to `BudgetBuddy`.
 The starting arrow indicates return of the command based on the sequence diagram at 
-[3.5 Validator Classes](#35-validator-classes)
+[3.5 Validator Classes](#35-validator-classes).
 
 ![SearchExpenseSequenceDiagram.drawio.png](diagrams/SearchExpenseSequenceDiagram.drawio-3.png)
 
@@ -278,7 +280,7 @@ the result via the `displayToUser()` method in the `Ui` class.
 Below is the sequence diagram for the execution of the Breakdown Expense Feature interaction.
 We assume that the `BreakdownExpensesCommand` has already been created and returned to `BudgetBuddy`.
 The starting arrow indicates return of the command based on the sequence diagram at 
-[3.5 Validator Classes](#35-validator-classes)
+[3.5 Validator Classes](#35-validator-classes).
 
 ![BreakdownExpenseSequenceDiagram.drawio.png](diagrams/BreakdownExpenseSequenceDiagram.drawio.png)
 
@@ -308,7 +310,10 @@ Finally, the XChart library will be called to build the chart and display it wit
 
 The following UML Sequence diagram shows how the command is executed for this feature. <br>
 We assume that the command for this feature has already been created and returned to `BudgetBuddy`. <br>
-The starting arrow indicates return of the command based on the sequence diagram at [3.5 Validator Classes](#35-validator-classes)
+The starting arrow indicates return of the command based on the sequence diagram at 
+[3.5 Validator Classes](#35-validator-classes).
+
+
 
 ![DisplayMonthlyExpenses.drawio.png](diagrams/DisplayMonthlyExpenses.drawio.png)
 
@@ -342,7 +347,8 @@ Finally, the XChart library will be called to build the chart and display it wit
 
 The following UML Sequence diagram shows how the command is executed for this feature. <br>
 We assume that the command for this feature has already been created and returned to `BudgetBuddy`. <br>
-The starting arrow indicates return of the command based on the sequence diagram at [3.5 Validator Classes](#35-validator-classes)
+The starting arrow indicates return of the command based on the sequence diagram at 
+[3.5 Validator Classes](#35-validator-classes).
 
 ![DisplayExpensesWithCategories.drawio.png](diagrams/DisplayExpensesWithCategories.drawio.png)
 
@@ -373,7 +379,8 @@ Then, with the variations of `listExpenses()` commands in `ExpenseManager`, the 
 the user using the `Ui` class `displayToUser()` method.
 
 We assume that the command for this feature has already been created and returned to `BudgetBuddy`.
-The starting arrow indicates return of the command based on the sequence diagram at [3.5 Validator Classes](#35-validator-classes)
+The starting arrow indicates return of the command based on the sequence diagram at 
+[3.5 Validator Classes](#35-validator-classes).
 
 The following UML Sequence diagram shows how the List Expense Feature undergo its execute function.
 ![ListExpenseSequenceDiagram.drawio.png](diagrams/ListExpenseSequenceDiagram.drawio.png)
@@ -480,7 +487,8 @@ Then, with the variations of `listIncomes()` commands in `IncomeManager`, the li
 the user using the `Ui` class `displayToUser()` method.
 
 We assume that the command for this feature has already been created and returned to `BudgetBuddy`.
-The starting arrow indicates return of the command based on the sequence diagram at [3.5 Validator Classes](#35-validator-classes)
+The starting arrow indicates return of the command based on the sequence diagram at 
+[3.5 Validator Classes](#35-validator-classes).
 
 The following UML Sequence diagram shows how the List Income Feature undergo its execute function.
 ![ListIncomeSequenceDiagram.drawio.png](diagrams/ListIncomeSequenceDiagram.drawio.png)
@@ -587,7 +595,7 @@ the `Expense` amount will be deducted from the budget according to the date and 
 
 The following UML Sequence diagram shows the List Remaining Budgets Feature.
 We assume that the command for this feature has already been created and returned to `BudgetBuddy`.
-The starting arrow indicates return of the command based on the sequence diagram at [3.5 Validator Classes](#35-validator-classes)
+The starting arrow indicates return of the command based on the sequence diagram at [3.5 Validator Classes](#35-validator-classes).
 The loop to copy all the budget and the loop to match a expense to a budget are omitted to reduce complexity.
 
 ![ListRemainingBudgetSequenceDiagram.drawio.png](diagrams/ListRemainingBudgetSequenceDiagram.drawio.png)
@@ -616,7 +624,7 @@ user using the `Ui` class `displayToUser()` method.
 Below is a sequence diagram representing the execution of the Display Expense interaction.
 We assume that the `DisplaySavingsCommand` has already been created and returned to `BudgetBuddy`.
 The starting arrow indicates return of the command based on the sequence diagram at 
-[3.5 Validator Classes](#35-validator-classes)
+[3.5 Validator Classes](#35-validator-classes).
 
 ![DisplaySavingsSequenceDiagram.drawio.png](diagrams/DisplaySavingsSequenceDiagram.drawio.png)
 
@@ -668,7 +676,7 @@ The `BudgetBuddy` class then calls the `execute()` method of the `HelpCommand` o
 Below is the sequence diagram for the execution of the Display Help Feature.
 We assume that the `HelpCommand` has already been created and returned to `BudgetBuddy`.
 The starting arrow indicates return of the command based on the sequence diagram at
-[3.5 Validator Classes](#35-validator-classes)
+[3.5 Validator Classes](#35-validator-classes).
 
 ![DisplayHelpSequenceDiagram.drawio.png](diagrams/DisplayHelpSequenceDiagram.drawio.png)
 
@@ -867,7 +875,7 @@ using commands than using the mouse.
 
 * **2.9.2.A Edit an income from the income list (Selecting an Income)**
    * **Prerequisites**: At least one income entry in the overall income list.
-   * **Test Case**: `edit incomes 1`
+   * **Test Case**: `edit income 1`
    * **Expected**: Displays the income of index 1 to the user and the available field to edit.
 
 * **2.9.2.B Edit an income from the income list (Editing Income fields)**
@@ -877,7 +885,7 @@ using commands than using the mouse.
 
 * **2.9.3 Invalid income index given by user**
    * **Prerequisites**: No income entries.
-   * **Test Case**: `edit incomes 30`
+   * **Test Case**: `edit income 30`
    * **Expected**: Error message indicating invalid income index displayed.
 
 ### 5.5.2.10 Adding a Budget

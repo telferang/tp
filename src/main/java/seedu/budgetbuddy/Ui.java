@@ -166,7 +166,6 @@ public class Ui {
                         reset + bold + cyan + "[ ] is optional. Commands with [ ] allow you to choose whether to " +
                         "include that parameter." + reset + "\n" +
                         bold + cyan + "User input is represented in BOLD text, such as a/AMOUNT" + reset;
-
         displayToUser(message);
     }
 

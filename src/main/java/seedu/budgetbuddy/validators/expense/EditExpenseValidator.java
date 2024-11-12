@@ -29,11 +29,14 @@ public class EditExpenseValidator {
      * @return command object
      */
     public static Command processFirstCommand(String command) {
-        if (command.equals("edit expenses")) {
+        if (command.equals("edit expense")) {
             return new IncorrectCommand("No index detected, try again with an index.");
         }
+        if (command.startsWith("edit expenses")) {
+            return new IncorrectCommand("Invalid input");
+        }
         try {
-            String trimmedCommand = command.substring("edit expenses ".length());
+            String trimmedCommand = command.substring("edit expense ".length());
             String[] parts = trimmedCommand.split(" ");
             int editIndex = Integer.parseInt(parts[0]);
             if (editIndex < 0) {
