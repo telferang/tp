@@ -33,7 +33,7 @@ public class EditExpenseCommand extends Command {
      * @return True if the command matches "edit expenses", false otherwise.
      */
     public static boolean isCommand(String command) {
-        return command.startsWith("edit expenses");
+        return command.startsWith("edit expense");
     }
     
     /**

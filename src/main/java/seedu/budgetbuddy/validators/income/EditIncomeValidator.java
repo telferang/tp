@@ -27,11 +27,14 @@ public class EditIncomeValidator {
      * @return command object
      */
     public static Command processFirstCommand(String command) {
-        if (command.equals("edit incomes")) {
+        if (command.equals("edit income")) {
             return new IncorrectCommand("No index detected, try again with an index.");
         }
+        if (command.startsWith("edit incomes")) {
+            return new IncorrectCommand("Invalid input");
+        }
         try {
-            String trimmedCommand = command.substring("edit incomes ".length());
+            String trimmedCommand = command.substring("edit income ".length());
             String[] parts = trimmedCommand.split(" ");
             int editIndex = Integer.parseInt(parts[0]);
             if (editIndex < 0) {
